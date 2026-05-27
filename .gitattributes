@@ -1,0 +1,16 @@
+* text=auto
+
+# Unity YAML merge
+*.unity merge=unityyamlmerge eol=lf
+*.prefab merge=unityyamlmerge eol=lf
+*.asset merge=unityyamlmerge eol=lf
+*.mat merge=unityyamlmerge eol=lf
+*.anim merge=unityyamlmerge eol=lf
+*.controller merge=unityyamlmerge eol=lf
+*.overrideController merge=unityyamlmerge eol=lf
+*.mask merge=unityyamlmerge eol=lf
+*.playable merge=unityyamlmerge eol=lf
+*.preset merge=unityyamlmerge eol=lf
+*.unitypackage merge=unityyamlmerge eol=lf
+*.shadergraph merge=unityyamlmerge eol=lf
+*.shadersubgraph merge=unityyamlmerge eol=lf

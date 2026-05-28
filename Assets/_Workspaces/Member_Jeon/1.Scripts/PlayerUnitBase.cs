@@ -16,6 +16,8 @@ public class PlayerUnitBase : MonoBehaviour
     public float AttackSpeed => attackSpeed;
     public float AttackRange => attackRange;
 
+    public bool IsDead() => CurrentHp <= 0;
+
     protected virtual void Awake()
     {
         CurrentHp = maxHp;
@@ -36,8 +38,14 @@ public class PlayerUnitBase : MonoBehaviour
     public virtual void TakeDamage(float damage)
     {
         CurrentHp -= damage;
-        if (CurrentHp <= 0)
-            Die();
+        CurrentHp = Mathf.Clamp(CurrentHp, 0, maxHp);
+        if (IsDead()) Die();
+    }
+
+    public virtual void Heal(float amount)
+    {
+        CurrentHp += amount;
+        CurrentHp = Mathf.Clamp(CurrentHp, 0, maxHp);
     }
 
     protected virtual void Die()

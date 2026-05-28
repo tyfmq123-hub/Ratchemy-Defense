@@ -3,48 +3,49 @@ using UnityEngine;
 public class InsulatorRat : PlayerUnitBase
 {
     private LayerMask enemyLayer;
-    private float attackCooldown;
+    private float attackTimer;
 
     protected override void Awake()
     {
-        base.Awake();
-
-        enemyLayer = LayerMask.GetMask("Enemy");
-
         maxHp = 80f;
         attackPower = 12f;
         moveSpeed = 3f;
         attackSpeed = 1.2f;
         attackRange = 1f;
 
-        CurrentHp = maxHp;
+        base.Awake();
+
+        enemyLayer = LayerMask.GetMask("Enemy");
     }
 
     protected override void Update()
     {
-        base.Update();
+        Collider2D enemy = Physics2D.OverlapCircle(transform.position, attackRange, enemyLayer);
 
-        if (attackCooldown > 0f)
-            attackCooldown -= Time.deltaTime;
+        if (enemy != null)
+        {
+            attackTimer += Time.deltaTime;
 
-        Attack();
+            if (attackTimer >= 1f / attackSpeed)
+            {
+                Attack(enemy);
+                attackTimer = 0f;
+            }
+        }
+        else
+        {
+            Move();
+        }
     }
 
-    protected override void Attack()
+    private void Attack(Collider2D target)
     {
-        if (attackCooldown > 0f)
-            return;
+        EnemyUnit enemy = target.GetComponent<EnemyUnit>();
 
-        // TODO: 범위 내 적 감지 및 데미지 적용
-        Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, attackRange, enemyLayer);
-        Debug.Log($"[InsulatorRat] 공격 시도 | 감지된 콜라이더: {hits.Length}개 | 사거리: {attackRange} | 레이어마스크: {enemyLayer.value}");
-        foreach (var hit in hits)
+        if (enemy != null)
         {
-            hit.GetComponent<PlayerUnitBase>()?.TakeDamage(attackPower);
-            Debug.Log($"[InsulatorRat] {hit.name} 공격 → 데미지: {attackPower}");
+            enemy.TakeDamage((int)attackPower);
         }
-
-        attackCooldown = 1f / attackSpeed;
     }
 
     private void OnDrawGizmosSelected()

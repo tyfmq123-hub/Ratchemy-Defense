@@ -11,17 +11,17 @@ public class UnitsSpawnPoint : MonoBehaviour
     public Transform[] enemySpawnPoints;
 
     [Header("Enemy Spawn Settings")]
-    public float EnemySpawnInterval = 2f;
+    public float enemySpawnInterval = 2f;
     
     void Start()
     {
-       SpawnAllPlayers();
+        SpawnAllPlayers();
 
-       InvokeRepeating(
-        nameof(SpawnRandomEnemy),
-        if,
-        enemySpawnInterval
-        ); 
+        InvokeRepeating(
+            nameof(SpawnRandomEnemy),
+            1f,
+            enemySpawnInterval
+        );
     }
 
     void SpawnAllPlayers()

@@ -59,8 +59,6 @@ public class FlameSlimeTier3 : FlameSlimeTier2
         if (isDying) return;
         isDying = true;
 
-        Debug.Log($"[FlameSlimeTier3] OnDie 호출 - isSkillDisabled: {isSkillDisabled}");
-
         moveSpeed = 0f;
         attackSpeed = 0f;
         animator?.SetBool("IsWalking", false);
@@ -79,8 +77,6 @@ public class FlameSlimeTier3 : FlameSlimeTier2
 
     private IEnumerator DeathExplosion()
     {
-        Debug.Log($"[FlameSlimeTier3] DeathExplosion 시작 - isSkillDisabled: {isSkillDisabled}");
-
         if (!isSkillDisabled)
         {
             // Fuming ~ Explode 구간 동안 AuraEffect 비활성화
@@ -103,8 +99,6 @@ public class FlameSlimeTier3 : FlameSlimeTier2
             SpriteRenderer sr = GetComponentInChildren<SpriteRenderer>();
             float elapsed = 0f;
             float duration = flameData3.explosionDelay;
-            Debug.Log($"[FlameSlimeTier3] PreExplode 깜박임 시작 - duration: {duration}");
-
             while (elapsed < duration)
             {
                 if (sr != null) sr.enabled = false;
@@ -116,7 +110,6 @@ public class FlameSlimeTier3 : FlameSlimeTier2
 
             if (sr != null) sr.enabled = true;
 
-            Debug.Log("[FlameSlimeTier3] Explode 트리거 발동");
             animator?.ResetTrigger("Die");
             animator?.SetTrigger("Explode");
 
@@ -127,7 +120,7 @@ public class FlameSlimeTier3 : FlameSlimeTier2
             Collider2D[] targets = Physics2D.OverlapCircleAll(explosionCenter, flameData3.explosionRadius, targetLayer);
             foreach (Collider2D col in targets)
             {
-                PlayerUnitBase player = col.GetComponent<PlayerUnitBase>();
+                PlayerUnitBase player = col.GetComponentInParent<PlayerUnitBase>();
                 if (player != null)
                     player.TakeDamage(flameData3.explosionDamage);
             }
@@ -135,7 +128,6 @@ public class FlameSlimeTier3 : FlameSlimeTier2
         else
         {
             // 디버프 있음 → Die 애니메이션만 재생 후 제거
-            Debug.Log("[FlameSlimeTier3] 스킬 봉인 - 폭발 없이 Die 애니메이션 재생");
             animator?.SetTrigger("Die");
             yield return new WaitForSeconds(dieAnimDuration);
         }

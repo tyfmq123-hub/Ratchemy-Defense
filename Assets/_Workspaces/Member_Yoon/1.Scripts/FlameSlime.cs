@@ -23,7 +23,6 @@ public class FlameSlime : EnemyUnit
         {
             case FlameSlimeDebuff.ExplosionDisabled:
                 isSkillDisabled = true;
-                Debug.Log($"[{gameObject.name}] 폭발 봉인 디버프 적용");
                 break;
         }
     }
@@ -34,7 +33,6 @@ public class FlameSlime : EnemyUnit
         {
             case FlameSlimeDebuff.ExplosionDisabled:
                 isSkillDisabled = false;
-                Debug.Log($"[{gameObject.name}] 폭발 봉인 디버프 해제");
                 break;
         }
     }

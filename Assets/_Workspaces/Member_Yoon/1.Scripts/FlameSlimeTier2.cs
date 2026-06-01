@@ -49,14 +49,9 @@ public class FlameSlimeTier2 : FlameSlime
         yield return null;
 
         if (auraEffectTransform != null)
-        {
             runtimeAuraRadius = auraEffectTransform.lossyScale.x;
-            Debug.Log($"[FlameSlimeTier2] AuraEffect 반지름 설정: {runtimeAuraRadius:F3}");
-        }
         else
-        {
             Debug.LogWarning("[FlameSlimeTier2] AuraEffect를 찾지 못해 SO의 auraRadius를 사용합니다.");
-        }
 
 #if UNITY_EDITOR || DEVELOPMENT_BUILD
         if (showDebugCircles)
@@ -97,7 +92,6 @@ public class FlameSlimeTier2 : FlameSlime
 
     private IEnumerator AuraLoop()
     {
-        Debug.Log($"[FlameSlimeTier2] 오라 루프 시작 - 간격: {flameData2.auraInterval}초");
         while (!IsDead())
         {
             yield return new WaitForSeconds(flameData2.auraInterval);
@@ -105,7 +99,6 @@ public class FlameSlimeTier2 : FlameSlime
             if (!IsDead())
                 DealAuraDamage();
         }
-        Debug.Log("[FlameSlimeTier2] 오라 루프 종료 (사망)");
     }
 
     private void DealAuraDamage()
@@ -119,22 +112,12 @@ public class FlameSlimeTier2 : FlameSlime
 #endif
 
         Collider2D[] targets = Physics2D.OverlapCircleAll(transform.position, runtimeAuraRadius, targetLayer);
-        Debug.Log($"[FlameSlimeTier2] 오라 틱 - 범위 {runtimeAuraRadius:F3} 내 감지된 콜라이더 수: {targets.Length}");
-
-        int hitCount = 0;
         foreach (Collider2D col in targets)
         {
-            PlayerUnitBase player = col.GetComponent<PlayerUnitBase>();
+            PlayerUnitBase player = col.GetComponentInParent<PlayerUnitBase>();
             if (player != null)
-            {
                 player.TakeDamage(flameData2.auraDamage);
-                hitCount++;
-                Debug.Log($"[FlameSlimeTier2] 오라 데미지 {flameData2.auraDamage} → {col.gameObject.name} (HP: {player.CurrentHp})");
-            }
         }
-
-        if (hitCount == 0)
-            Debug.Log("[FlameSlimeTier2] 오라 범위 내 플레이어 없음");
     }
 
 #if UNITY_EDITOR || DEVELOPMENT_BUILD

@@ -49,12 +49,12 @@ public class WaveManager : MonoBehaviour
 
     void Start()
     {
-        // 테스트 단계에서는 게임 실행 직후 자동으로 카운트다운을 시작합니다.
-        // 추후 시작 연출이나 START 버튼이 추가되면 false로 바꾸고
-        // 외부 버튼에서 StartBattleWaves()를 호출하면 됩니다.
+        // 게임이 실행되자마자 첫 번째 웨이브를 즉시 시작합니다.
+        // 기존에는 StartCountdown()을 거쳐서 일정 시간을 기다린 뒤 적이 나왔습니다.
+        // 지금은 별도의 대기 시간 없이 바로 1웨이브 적을 생성하도록 변경합니다.
         if (startAutomatically)
         {
-            StartBattleWaves();
+            StartNextWave();
         }
     }
 
@@ -201,10 +201,27 @@ public class WaveManager : MonoBehaviour
 
     private void OnWaveSpawnFinished()
     {
-        // 현재 웨이브에서 설정한 적 마릿수를 모두 생성한 뒤 호출됩니다.
-        // 지금 버전에서는 마지막 적이 생성되면 다음 웨이브 카운트다운을 시작합니다.
-        // 추후 모든 적 처치 후 다음 웨이브를 시작하도록 확장할 수도 있습니다.
-        StartCountdown();
+        // 현재 웨이브에서 설정한 적을 모두 생성한 뒤 호출됩니다.
+        // 기존에는 다음 웨이브 전에 카운트다운을 다시 시작했습니다.
+        // 지금은 대기 시간 없이 바로 다음 웨이브를 시작합니다.
+
+        // 현재 웨이브가 마지막 웨이브인지 먼저 확인합니다.
+        // 예를 들어 웨이브 배열이 3개라면 사용할 수 있는 인덱스는 0, 1, 2입니다.
+        // 현재 인덱스가 마지막 번호라면 더 이상 StartNextWave()를 호출하지 않습니다.
+        if (
+            currentWaveIndex + 1 >=
+            waveSettings.Length
+        )
+        {
+            CompleteAllWaves();
+
+            return;
+        }
+
+        // 아직 다음 웨이브가 남아 있다면 즉시 다음 웨이브를 시작합니다.
+        // 별도의 카운트다운을 거치지 않으므로
+        // 이전 웨이브의 마지막 적이 나온 직후 다음 웨이브 적이 이어서 나옵니다.
+        StartNextWave();
     }
 
     private void CompleteAllWaves()

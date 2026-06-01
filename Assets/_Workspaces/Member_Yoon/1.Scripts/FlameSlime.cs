@@ -13,7 +13,7 @@ public class FlameSlime : EnemyUnit
 {
     protected FlameSlimeData flameData;
     protected Animator animator;
-    private bool isDying = false;
+    protected bool isDying = false;
 
     protected bool isSkillDisabled = false;
 

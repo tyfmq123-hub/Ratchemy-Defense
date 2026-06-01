@@ -8,7 +8,6 @@ using UnityEngine;
 public class FlameSlimeTier3 : FlameSlimeTier2
 {
     private FlameSlimeTier3Data flameData3;
-    private bool isDying = false;
     private Collider2D pendingTarget;
 
     protected override void Start()

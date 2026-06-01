@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 6076195505868076093}
   - component: {fileID: 2720908623248857852}
   - component: {fileID: 5820371490537881009}
+  - component: {fileID: -7515549108436970992}
   m_Layer: 7
   m_Name: FireSlime_T1
   m_TagString: Untagged
@@ -195,3 +196,16 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &-7515549108436970992
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8978628917704716907}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d29bf17070430984ca11aeaecd163adc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyBaseDamage
+  temperatureDamage: 10

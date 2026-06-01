@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 6974796225196638550}
   - component: {fileID: 4489129328587049351}
   - component: {fileID: 4497310227303386936}
+  - component: {fileID: -4708522040131644046}
   m_Layer: 7
   m_Name: ThunderLizard
   m_TagString: Untagged
@@ -204,3 +205,16 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &-4708522040131644046
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7853548652790131195}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d29bf17070430984ca11aeaecd163adc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyBaseDamage
+  temperatureDamage: 10

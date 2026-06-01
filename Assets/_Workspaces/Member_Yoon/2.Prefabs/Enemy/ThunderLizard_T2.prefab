@@ -45,6 +45,7 @@ GameObject:
   - component: {fileID: 8850516261976822925}
   - component: {fileID: 5767810556250638766}
   - component: {fileID: 2985657134220984516}
+  - component: {fileID: 260809857098563936}
   m_Layer: 7
   m_Name: ThunderLizard_T2
   m_TagString: Untagged
@@ -237,3 +238,16 @@ MonoBehaviour:
   enemyUnitData: {fileID: 11400000, guid: 5c7b9494f02045b4eb2c9703a5c1da03, type: 2}
   dieAnimDuration: 0.5
   attackPoint: {fileID: 5947440609874520908}
+--- !u!114 &260809857098563936
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5911915522541860973}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d29bf17070430984ca11aeaecd163adc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyBaseDamage
+  temperatureDamage: 10

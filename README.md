@@ -5,6 +5,27 @@
 
 ## 작업 로그
 
+### 2026-06-01 (15:00~) — Member_Yoon : 보스 시스템 + 버그 수정 + 기지 도착 처리
+
+| 항목 | 내용 |
+|---|---|
+| **BossBase** | `EnemyUnit` 상속, 고정형 보스, 사망 이벤트(`OnBossDead`) |
+| **BossProjectile** | 포물선 투사체 → 착탄 범위 데미지 + 폭발 이펙트 (애니메이션/파티클) |
+| **오라 버프** | 시작 시 `AuraEffect` ON, `RemoveAuraBuff()`로 OFF + 주기적 화염 데미지 |
+| **EnemyBaseDamage** | 적 기지 도착 시 온도 상승 처리, 중복 방지 후 제거 |
+| **프리팹/SO** | Boss 프리팹, BossData SO, 적 6종 프리팹에 EnemyBaseDamage 연동 |
+| **테스트 씬** | `JH_TEST2_Scene.unity` 추가 |
+
+#### 버그 수정 / 코드 정리
+- `ThunderLizard_Idle.anim` 잘못된 `LightningProjectile` 이벤트 제거
+- 플레이어 감지 `GetComponentInParent<PlayerUnitBase>()` 통일
+- `EnemyUnit` SO null 가드, `hp`/`maxHp` 불일치 수정
+- Member_Yoon 전체 디버그 `Debug.Log` 제거
+- develop 병합 (Member_Jeon PlayerUnit, Member_Shin WaveManager 반영)
+- `TagManager` `Player`(L6) / `Enemy`(L7) 레이어 추가
+
+---
+
 ### 2026-06-01 — Member_Yoon : ThunderLizard 적 유닛 시스템 구현
 
 | 항목 | 내용 |

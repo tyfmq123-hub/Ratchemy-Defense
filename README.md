@@ -5,6 +5,23 @@
 
 ## 작업 로그
 
+### 2026-06-01 — Member_Yoon : ThunderLizard 적 유닛 시스템 구현
+
+| 항목 | 내용 |
+|---|---|
+| **ThunderLizard T1** | 근접 공격 + 사망 애니메이션 (기존 구현) |
+| **ThunderLizard T2** | T1 계승 + AttackPoint 기준 번개 투사체 원거리 단일 공격 |
+| **ThunderLizard T3** | T2 계승 + 체인 라이트닝 (첫 타겟 적중 후 chainRange 내 최대 chainCount명 연쇄 데미지) |
+| **LightningProjectile** | 투사체 직선 이동, 체인 파라미터 포함 초기화 |
+| **ScriptableObject** | T2 / T3 단계별 데이터 에셋 분리 |
+| **애니메이션** | T3 Attack / Move / Die 클립 및 컨트롤러 제작 |
+| **프리팹** | ThunderLizard T1 / T2 / T3 프리팹 제작 |
+
+#### 버그 수정
+- `ThunderLizard.isDying` 접근 제한자 `private` → `protected` 수정 — 자식 클래스에서 `OnDie` 오버라이드 시 동일 필드 재선언으로 발생하는 Unity 직렬화 충돌(`The same field name is serialized multiple times`) 사전 방지
+
+---
+
 ### 2026-05-29 — Member_Yoon : FlameSlime 적 유닛 시스템 구현
 
 | 항목 | 내용 |

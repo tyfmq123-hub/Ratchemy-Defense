@@ -59,7 +59,6 @@ public class LightningProjectile : MonoBehaviour
         if (player == null) return;
 
         player.TakeDamage(damage);
-        Debug.Log($"[LightningProjectile] 적중 → {other.gameObject.name} (데미지: {damage})");
 
         if (chainCount > 0)
             ChainLightning(player);
@@ -71,8 +70,6 @@ public class LightningProjectile : MonoBehaviour
     {
         LayerMask playerLayer = LayerMask.GetMask("Player");
         Collider2D[] nearby = Physics2D.OverlapCircleAll(transform.position, chainRange, playerLayer);
-
-        Debug.Log($"[ChainLightning] 탐색 시작 - 범위: {chainRange} / 감지된 콜라이더 수: {nearby.Length} / 최대 체인: {chainCount}");
 
         System.Array.Sort(nearby, (a, b) =>
             Vector2.Distance(transform.position, a.transform.position)
@@ -86,16 +83,8 @@ public class LightningProjectile : MonoBehaviour
             if (chains >= chainCount) break;
 
             PlayerUnitBase target = col.GetComponentInParent<PlayerUnitBase>();
-            if (target == null)
-            {
-                Debug.Log($"[ChainLightning] 건너뜀 - PlayerUnitBase 없음 ({col.gameObject.name})");
-                continue;
-            }
-            if (alreadyHit.Contains(target))
-            {
-                Debug.Log($"[ChainLightning] 건너뜀 - 이미 맞은 대상 ({col.gameObject.name})");
-                continue;
-            }
+            if (target == null) continue;
+            if (alreadyHit.Contains(target)) continue;
 
             Vector3 prevPos = alreadyHit[alreadyHit.Count - 1].transform.position;
             Vector3 targetPos = target.transform.position;
@@ -106,14 +95,7 @@ public class LightningProjectile : MonoBehaviour
             target.TakeDamage(damage);
             alreadyHit.Add(target);
             chains++;
-
-            Debug.Log($"[ChainLightning] 체인 {chains}/{chainCount} 적중 → {col.gameObject.name} (데미지: {damage})");
         }
-
-        if (chains == 0)
-            Debug.Log("[ChainLightning] 체인 대상 없음 - 범위 내 추가 타겟이 없거나 모두 이미 맞음");
-        else
-            Debug.Log($"[ChainLightning] 완료 - 총 {chains}명 추가 적중");
     }
 
     private void SpawnHitEffect(Vector3 position)

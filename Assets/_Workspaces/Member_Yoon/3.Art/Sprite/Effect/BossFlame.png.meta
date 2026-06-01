@@ -1,0 +1,2454 @@
+fileFormatVersion: 2
+guid: c41d17af8a61d5b45b84fbc4541f7d1b
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -7986397053583137533
+    second: BossFlame_0
+  - first:
+      213: 9111494959431728903
+    second: BossFlame_1
+  - first:
+      213: 5992133019110600200
+    second: BossFlame_2
+  - first:
+      213: 1695329342750632489
+    second: BossFlame_3
+  - first:
+      213: -4284500069642601907
+    second: BossFlame_4
+  - first:
+      213: 6717032468426986069
+    second: BossFlame_5
+  - first:
+      213: -6265462966504494993
+    second: BossFlame_6
+  - first:
+      213: 8256988656350319719
+    second: BossFlame_7
+  - first:
+      213: 3633088951192909734
+    second: BossFlame_8
+  - first:
+      213: -5938763272313040031
+    second: BossFlame_9
+  - first:
+      213: 4799315083906202914
+    second: BossFlame_10
+  - first:
+      213: -4913374107029850776
+    second: BossFlame_11
+  - first:
+      213: 5157873091544019221
+    second: BossFlame_12
+  - first:
+      213: -1881780480428212939
+    second: BossFlame_13
+  - first:
+      213: 6655911883649233
+    second: BossFlame_14
+  - first:
+      213: -6940364711116479198
+    second: BossFlame_15
+  - first:
+      213: 203222653669112447
+    second: BossFlame_16
+  - first:
+      213: -8447508877903874236
+    second: BossFlame_17
+  - first:
+      213: 2524056287680467466
+    second: BossFlame_18
+  - first:
+      213: 8892695240300074117
+    second: BossFlame_19
+  - first:
+      213: -1018820984281652563
+    second: BossFlame_20
+  - first:
+      213: 4856100696213098563
+    second: BossFlame_21
+  - first:
+      213: 5772488043286266493
+    second: BossFlame_22
+  - first:
+      213: 337555884649316905
+    second: BossFlame_23
+  - first:
+      213: -7094214413286838015
+    second: BossFlame_24
+  - first:
+      213: -5479492240379240763
+    second: BossFlame_25
+  - first:
+      213: -8342223406757576169
+    second: BossFlame_26
+  - first:
+      213: -6744797332767811080
+    second: BossFlame_27
+  - first:
+      213: 5823074442757304604
+    second: BossFlame_28
+  - first:
+      213: -6348098045345484495
+    second: BossFlame_29
+  - first:
+      213: -4313086204535845830
+    second: BossFlame_30
+  - first:
+      213: 1873289531465644940
+    second: BossFlame_31
+  - first:
+      213: -5449930234751620090
+    second: BossFlame_32
+  - first:
+      213: 4245550899830869633
+    second: BossFlame_33
+  - first:
+      213: -1370069573464685344
+    second: BossFlame_34
+  - first:
+      213: 8597133774639182368
+    second: BossFlame_35
+  - first:
+      213: -5276538846715719924
+    second: BossFlame_36
+  - first:
+      213: 6770786310838279391
+    second: BossFlame_37
+  - first:
+      213: -4901262798268530620
+    second: BossFlame_38
+  - first:
+      213: -5058706464707803744
+    second: BossFlame_39
+  - first:
+      213: -6306874869761514738
+    second: BossFlame_40
+  - first:
+      213: -1514622442378610075
+    second: BossFlame_41
+  - first:
+      213: 6308854909013350312
+    second: BossFlame_42
+  - first:
+      213: -4012319392178881647
+    second: BossFlame_43
+  - first:
+      213: 2898594914880658193
+    second: BossFlame_44
+  - first:
+      213: -5755657539996532111
+    second: BossFlame_45
+  - first:
+      213: -9191338423284250489
+    second: BossFlame_46
+  - first:
+      213: 4489193060461824005
+    second: BossFlame_47
+  - first:
+      213: -7793678175725397979
+    second: BossFlame_48
+  - first:
+      213: -1393530377448779239
+    second: BossFlame_49
+  - first:
+      213: -204392614274608760
+    second: BossFlame_50
+  - first:
+      213: 7134609550127299626
+    second: BossFlame_51
+  - first:
+      213: 2579542681836105947
+    second: BossFlame_52
+  - first:
+      213: -4282558463459490917
+    second: BossFlame_53
+  - first:
+      213: 3826931293187502452
+    second: BossFlame_54
+  - first:
+      213: 8457793881610977737
+    second: BossFlame_55
+  - first:
+      213: 3341065356312339739
+    second: BossFlame_56
+  - first:
+      213: 1293695396556366908
+    second: BossFlame_57
+  - first:
+      213: 5010528321966126215
+    second: BossFlame_58
+  - first:
+      213: 1223582839306165238
+    second: BossFlame_59
+  - first:
+      213: -6041975319791140396
+    second: BossFlame_60
+  - first:
+      213: -6135011610756130829
+    second: BossFlame_61
+  - first:
+      213: -9218858017092593178
+    second: BossFlame_62
+  - first:
+      213: -2136896405333274625
+    second: BossFlame_63
+  - first:
+      213: 1829228432146297196
+    second: BossFlame_64
+  - first:
+      213: 7931870090398855814
+    second: BossFlame_65
+  - first:
+      213: 7987868570627540365
+    second: BossFlame_66
+  - first:
+      213: 2399419702985243433
+    second: BossFlame_67
+  - first:
+      213: 6350246958559393270
+    second: BossFlame_68
+  - first:
+      213: 7981356788669656686
+    second: BossFlame_69
+  - first:
+      213: 7386240962540515953
+    second: BossFlame_70
+  - first:
+      213: 3544455719768216225
+    second: BossFlame_71
+  - first:
+      213: 9087017630408383874
+    second: BossFlame_72
+  - first:
+      213: -7093585695310312266
+    second: BossFlame_73
+  - first:
+      213: 7118424305151736410
+    second: BossFlame_74
+  - first:
+      213: -4172822431534526550
+    second: BossFlame_75
+  - first:
+      213: 5034578397153486313
+    second: BossFlame_76
+  - first:
+      213: 1929157882255124908
+    second: BossFlame_77
+  - first:
+      213: -6468097732142287046
+    second: BossFlame_78
+  - first:
+      213: 5230329868595000266
+    second: BossFlame_79
+  - first:
+      213: -6793366891391164132
+    second: BossFlame_80
+  - first:
+      213: 7915352817629825164
+    second: BossFlame_81
+  - first:
+      213: -8655558117214815430
+    second: BossFlame_82
+  - first:
+      213: 4505901270247343310
+    second: BossFlame_83
+  - first:
+      213: 842303580054394924
+    second: BossFlame_84
+  - first:
+      213: -345049791109487700
+    second: BossFlame_85
+  - first:
+      213: 8357842511039632984
+    second: BossFlame_86
+  - first:
+      213: -7238058461408746779
+    second: BossFlame_87
+  - first:
+      213: -2755201686624396783
+    second: BossFlame_88
+  - first:
+      213: 7406817070972815787
+    second: BossFlame_89
+  - first:
+      213: -878003674486309898
+    second: BossFlame_90
+  - first:
+      213: 9117612110282925576
+    second: BossFlame_91
+  - first:
+      213: -6181617700572653454
+    second: BossFlame_92
+  - first:
+      213: -178384650078822611
+    second: BossFlame_93
+  - first:
+      213: 1332923580722531620
+    second: BossFlame_94
+  - first:
+      213: -6803838793459022603
+    second: BossFlame_95
+  - first:
+      213: 7142853782379998179
+    second: BossFlame_96
+  - first:
+      213: -3638559437812282358
+    second: BossFlame_97
+  - first:
+      213: 6433409466216673988
+    second: BossFlame_98
+  - first:
+      213: -2273965866469936195
+    second: BossFlame_99
+  - first:
+      213: -4609221308713658359
+    second: BossFlame_100
+  - first:
+      213: -7942641033985671978
+    second: BossFlame_101
+  - first:
+      213: 4573422581682918812
+    second: BossFlame_102
+  - first:
+      213: 1113346325883921264
+    second: BossFlame_103
+  - first:
+      213: -812701032378538197
+    second: BossFlame_104
+  - first:
+      213: -4472976687296122568
+    second: BossFlame_105
+  - first:
+      213: -97462455402521655
+    second: BossFlame_106
+  - first:
+      213: 2966296192344796917
+    second: BossFlame_107
+  - first:
+      213: -7025312054282836930
+    second: BossFlame_108
+  - first:
+      213: 5632293064320760269
+    second: BossFlame_109
+  - first:
+      213: 2243057192812037590
+    second: BossFlame_110
+  - first:
+      213: -3779345552337070981
+    second: BossFlame_111
+  - first:
+      213: -6195006490573099340
+    second: BossFlame_112
+  - first:
+      213: 3916031967097617016
+    second: BossFlame_113
+  - first:
+      213: 528663547384656841
+    second: BossFlame_114
+  - first:
+      213: -8310317880654625094
+    second: BossFlame_115
+  - first:
+      213: -6897263612337061902
+    second: BossFlame_116
+  - first:
+      213: -5834695426644139794
+    second: BossFlame_117
+  - first:
+      213: 153091640984431493
+    second: BossFlame_118
+  - first:
+      213: -4514441062605784941
+    second: BossFlame_119
+  - first:
+      213: -1065692346395282243
+    second: BossFlame_120
+  - first:
+      213: 8271493333329301954
+    second: BossFlame_121
+  - first:
+      213: 2843572582136253398
+    second: BossFlame_122
+  - first:
+      213: -1950125882143306234
+    second: BossFlame_123
+  - first:
+      213: -9153020539322491246
+    second: BossFlame_124
+  - first:
+      213: 4087938396040386352
+    second: BossFlame_125
+  - first:
+      213: -1112037585170487399
+    second: BossFlame_126
+  - first:
+      213: -7692687432899029165
+    second: BossFlame_127
+  - first:
+      213: 7224892145405287270
+    second: BossFlame_128
+  - first:
+      213: -2692400820927271154
+    second: BossFlame_129
+  - first:
+      213: -6261606974650254461
+    second: BossFlame_130
+  - first:
+      213: 5934681368296239972
+    second: BossFlame_131
+  - first:
+      213: 319121886988325772
+    second: BossFlame_132
+  - first:
+      213: 3029500402891110956
+    second: BossFlame_133
+  - first:
+      213: 1685054716833053620
+    second: BossFlame_134
+  - first:
+      213: -9198766475344266148
+    second: BossFlame_135
+  - first:
+      213: 8447501582035933450
+    second: BossFlame_136
+  - first:
+      213: -5729783672378831254
+    second: BossFlame_137
+  - first:
+      213: -6657548916392188534
+    second: BossFlame_138
+  - first:
+      213: 6997251137017820270
+    second: BossFlame_139
+  - first:
+      213: -2033330924633648336
+    second: BossFlame_140
+  - first:
+      213: -5907774370998166753
+    second: BossFlame_141
+  - first:
+      213: 8058070356367486822
+    second: BossFlame_142
+  - first:
+      213: 8612466756782360058
+    second: BossFlame_143
+  - first:
+      213: -5321579654506559634
+    second: BossFlame_144
+  - first:
+      213: -126713504327958310
+    second: BossFlame_145
+  - first:
+      213: 5419616223844959984
+    second: BossFlame_146
+  - first:
+      213: 7100236927065608137
+    second: BossFlame_147
+  - first:
+      213: -713344996658766544
+    second: BossFlame_148
+  - first:
+      213: 8414863391217245690
+    second: BossFlame_149
+  - first:
+      213: 2603212942675591376
+    second: BossFlame_150
+  - first:
+      213: 4933860620270997475
+    second: BossFlame_151
+  - first:
+      213: 5882485483736710809
+    second: BossFlame_152
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 8
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: BossFlame_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 512
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 30563f9813e9a2190800000000000000
+      internalID: -7986397053583137533
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossFlame_1
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 512
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 70fb0bd0468827e70800000000000000
+      internalID: 9111494959431728903
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossFlame_2
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 512
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 80ee9f2bb35582350800000000000000
+      internalID: 5992133019110600200
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossFlame_3
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 512
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 92aa2f31e05078710800000000000000
+      internalID: 1695329342750632489
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossFlame_4
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 512
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d4af0dc03e56a84c0800000000000000
+      internalID: -4284500069642601907
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossFlame_5
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 512
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5521b511171b73d50800000000000000
+      internalID: 6717032468426986069
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossFlame_6
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 512
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f686228b0aa9c09a0800000000000000
+      internalID: -6265462966504494993
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossFlame_7
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 512
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 764d0308f67b69270800000000000000
+      internalID: 8256988656350319719
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossFlame_8
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 512
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6a7ff35f6235b6230800000000000000
+      internalID: 3633088951192909734
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossFlame_9
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 448
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 16315acc446459da0800000000000000
+      internalID: -5938763272313040031
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossFlame_10
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 448
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 22d376514a79a9240800000000000000
+      internalID: 4799315083906202914
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossFlame_11
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 448
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 86532e5284030dbb0800000000000000
+      internalID: -4913374107029850776
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossFlame_12
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 448
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 511f60acf32749740800000000000000
+      internalID: 5157873091544019221
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossFlame_13
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 448
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 53dffc68f9292e5e0800000000000000
+      internalID: -1881780480428212939
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossFlame_14
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 448
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1d03b7f3485a71000800000000000000
+      internalID: 6655911883649233
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossFlame_15
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 448
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 225ee3e111fdeaf90800000000000000
+      internalID: -6940364711116479198
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossFlame_16
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 448
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f7a72424dedf1d200800000000000000
+      internalID: 203222653669112447
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossFlame_17
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 448
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 447b49fae6b64ca80800000000000000
+      internalID: -8447508877903874236
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossFlame_18
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 384
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a02194412df370320800000000000000
+      internalID: 2524056287680467466
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossFlame_19
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 384
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 58494ed9433396b70800000000000000
+      internalID: 8892695240300074117
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossFlame_20
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 384
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: da2ad2676bb6cd1f0800000000000000
+      internalID: -1018820984281652563
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossFlame_21
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 384
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3401f4fbad5546340800000000000000
+      internalID: 4856100696213098563
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossFlame_22
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 384
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d72844a9a4ffb1050800000000000000
+      internalID: 5772488043286266493
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossFlame_23
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 384
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9228d54e94d3fa400800000000000000
+      internalID: 337555884649316905
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossFlame_24
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 384
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 101f49fe3994c8d90800000000000000
+      internalID: -7094214413286838015
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossFlame_25
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 384
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5ce9fa6c6dee4f3b0800000000000000
+      internalID: -5479492240379240763
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossFlame_26
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 384
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7120443b2087a3c80800000000000000
+      internalID: -8342223406757576169
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossFlame_27
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 320
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8f95f52bf8aa562a0800000000000000
+      internalID: -6744797332767811080
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossFlame_28
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 320
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c11743d8a57bfc050800000000000000
+      internalID: 5823074442757304604
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossFlame_29
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 320
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 131b4df167607e7a0800000000000000
+      internalID: -6348098045345484495
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossFlame_30
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 320
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a3cc00dd2f6d424c0800000000000000
+      internalID: -4313086204535845830
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossFlame_31
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 320
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c8bb77c57e24ff910800000000000000
+      internalID: 1873289531465644940
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossFlame_32
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 320
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 60ce7f29355fd54b0800000000000000
+      internalID: -5449930234751620090
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossFlame_33
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 320
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 18e424cac0a3bea30800000000000000
+      internalID: 4245550899830869633
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossFlame_34
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 320
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0e4011c5bf88cfce0800000000000000
+      internalID: -1370069573464685344
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossFlame_35
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 320
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 022b1e35e972f4770800000000000000
+      internalID: 8597133774639182368
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossFlame_36
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 256
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c0fc5fd00e7f5c6b0800000000000000
+      internalID: -5276538846715719924
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossFlame_37
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 256
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fdcd79bc64aa6fd50800000000000000
+      internalID: 6770786310838279391
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossFlame_38
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 256
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4400e56f3773bfbb0800000000000000
+      internalID: -4901262798268530620
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossFlame_39
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 256
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0a58e14c54ddbc9b0800000000000000
+      internalID: -5058706464707803744
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossFlame_40
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 256
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e03e601a8ba7978a0800000000000000
+      internalID: -6306874869761514738
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossFlame_41
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 256
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 56a3039d9eafafae0800000000000000
+      internalID: -1514622442378610075
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossFlame_42
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 256
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8a7583f2d1e8d8750800000000000000
+      internalID: 6308854909013350312
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossFlame_43
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 256
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 19b34cf55c06158c0800000000000000
+      internalID: -4012319392178881647
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossFlame_44
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 256
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 11b1739b7b0e93820800000000000000
+      internalID: 2898594914880658193
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossFlame_45
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 192
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 17245bf46fbcf10b0800000000000000
+      internalID: -5755657539996532111
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossFlame_46
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 192
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7884ebdd66ec17080800000000000000
+      internalID: -9191338423284250489
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossFlame_47
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 192
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 508c9f0cd41dc4e30800000000000000
+      internalID: 4489193060461824005
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossFlame_48
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 192
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5285c2aedfa47d390800000000000000
+      internalID: -7793678175725397979
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossFlame_49
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 192
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9121374418f29ace0800000000000000
+      internalID: -1393530377448779239
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossFlame_50
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 192
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 881d27f000ad92df0800000000000000
+      internalID: -204392614274608760
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossFlame_51
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 192
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a2c7276c599330360800000000000000
+      internalID: 7134609550127299626
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossFlame_52
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 192
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bd0bcc1f6606cc320800000000000000
+      internalID: 2579542681836105947
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossFlame_53
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 192
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b9387a774cb4194c0800000000000000
+      internalID: -4282558463459490917
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossFlame_54
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 128
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 47174463cbdfb1530800000000000000
+      internalID: 3826931293187502452
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossFlame_55
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 128
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9c105e859be106570800000000000000
+      internalID: 8457793881610977737
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossFlame_56
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 128
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b156c566d39dd5e20800000000000000
+      internalID: 3341065356312339739
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossFlame_57
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 128
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c34ec4fdb1124f110800000000000000
+      internalID: 1293695396556366908
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossFlame_58
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 128
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 78433df36f8f88540800000000000000
+      internalID: 5010528321966126215
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossFlame_59
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 128
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6fb9b1a0c1a0bf010800000000000000
+      internalID: 1223582839306165238
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossFlame_60
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 128
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4d10c2a5577962ca0800000000000000
+      internalID: -6041975319791140396
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossFlame_61
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 128
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3f7dbf7d17f0cdaa0800000000000000
+      internalID: -6135011610756130829
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossFlame_62
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 128
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6e91f602a79001080800000000000000
+      internalID: -9218858017092593178
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossFlame_63
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 64
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fff0d468a083852e0800000000000000
+      internalID: -2136896405333274625
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossFlame_64
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 64
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c61ff1f3199b26910800000000000000
+      internalID: 1829228432146297196
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossFlame_65
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 64
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 682f4c682d9a31e60800000000000000
+      internalID: 7931870090398855814
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossFlame_66
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 64
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d8503c8b42c9ade60800000000000000
+      internalID: 7987868570627540365
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossFlame_67
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 64
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 92b3287d1837c4120800000000000000
+      internalID: 2399419702985243433
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossFlame_68
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 64
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6f5ffe8b6fb902850800000000000000
+      internalID: 6350246958559393270
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossFlame_69
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 64
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e6eae4656b973ce60800000000000000
+      internalID: 7981356788669656686
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossFlame_70
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 64
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 172baad7503318660800000000000000
+      internalID: 7386240962540515953
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossFlame_71
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 64
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1a2d2e2a2bf603130800000000000000
+      internalID: 3544455719768216225
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossFlame_72
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 28d1438c3629b1e70800000000000000
+      internalID: 9087017630408383874
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossFlame_73
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6bc8c3fb4658e8d90800000000000000
+      internalID: -7093585695310312266
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossFlame_74
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a5a7315c039b9c260800000000000000
+      internalID: 7118424305151736410
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossFlame_75
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 0
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aaf4a996b182716c0800000000000000
+      internalID: -4172822431534526550
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossFlame_76
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 0
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9e5603cb06a6ed540800000000000000
+      internalID: 5034578397153486313
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossFlame_77
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 0
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ca9267f6fdeb5ca10800000000000000
+      internalID: 1929157882255124908
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossFlame_78
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 0
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a37362fc163bc36a0800000000000000
+      internalID: -6468097732142287046
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossFlame_79
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 0
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ac378b3dd4dd59840800000000000000
+      internalID: 5230329868595000266
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossFlame_80
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 0
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c11eab91ecc19b1a0800000000000000
+      internalID: -6793366891391164132
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: d801ea6cd120ff64dac5540a16622e50
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":9.0,"y":9.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.0},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":7,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      BossFlame_0: -7986397053583137533
+      BossFlame_1: 9111494959431728903
+      BossFlame_10: 4799315083906202914
+      BossFlame_11: -4913374107029850776
+      BossFlame_12: 5157873091544019221
+      BossFlame_13: -1881780480428212939
+      BossFlame_14: 6655911883649233
+      BossFlame_15: -6940364711116479198
+      BossFlame_16: 203222653669112447
+      BossFlame_17: -8447508877903874236
+      BossFlame_18: 2524056287680467466
+      BossFlame_19: 8892695240300074117
+      BossFlame_2: 5992133019110600200
+      BossFlame_20: -1018820984281652563
+      BossFlame_21: 4856100696213098563
+      BossFlame_22: 5772488043286266493
+      BossFlame_23: 337555884649316905
+      BossFlame_24: -7094214413286838015
+      BossFlame_25: -5479492240379240763
+      BossFlame_26: -8342223406757576169
+      BossFlame_27: -6744797332767811080
+      BossFlame_28: 5823074442757304604
+      BossFlame_29: -6348098045345484495
+      BossFlame_3: 1695329342750632489
+      BossFlame_30: -4313086204535845830
+      BossFlame_31: 1873289531465644940
+      BossFlame_32: -5449930234751620090
+      BossFlame_33: 4245550899830869633
+      BossFlame_34: -1370069573464685344
+      BossFlame_35: 8597133774639182368
+      BossFlame_36: -5276538846715719924
+      BossFlame_37: 6770786310838279391
+      BossFlame_38: -4901262798268530620
+      BossFlame_39: -5058706464707803744
+      BossFlame_4: -4284500069642601907
+      BossFlame_40: -6306874869761514738
+      BossFlame_41: -1514622442378610075
+      BossFlame_42: 6308854909013350312
+      BossFlame_43: -4012319392178881647
+      BossFlame_44: 2898594914880658193
+      BossFlame_45: -5755657539996532111
+      BossFlame_46: -9191338423284250489
+      BossFlame_47: 4489193060461824005
+      BossFlame_48: -7793678175725397979
+      BossFlame_49: -1393530377448779239
+      BossFlame_5: 6717032468426986069
+      BossFlame_50: -204392614274608760
+      BossFlame_51: 7134609550127299626
+      BossFlame_52: 2579542681836105947
+      BossFlame_53: -4282558463459490917
+      BossFlame_54: 3826931293187502452
+      BossFlame_55: 8457793881610977737
+      BossFlame_56: 3341065356312339739
+      BossFlame_57: 1293695396556366908
+      BossFlame_58: 5010528321966126215
+      BossFlame_59: 1223582839306165238
+      BossFlame_6: -6265462966504494993
+      BossFlame_60: -6041975319791140396
+      BossFlame_61: -6135011610756130829
+      BossFlame_62: -9218858017092593178
+      BossFlame_63: -2136896405333274625
+      BossFlame_64: 1829228432146297196
+      BossFlame_65: 7931870090398855814
+      BossFlame_66: 7987868570627540365
+      BossFlame_67: 2399419702985243433
+      BossFlame_68: 6350246958559393270
+      BossFlame_69: 7981356788669656686
+      BossFlame_7: 8256988656350319719
+      BossFlame_70: 7386240962540515953
+      BossFlame_71: 3544455719768216225
+      BossFlame_72: 9087017630408383874
+      BossFlame_73: -7093585695310312266
+      BossFlame_74: 7118424305151736410
+      BossFlame_75: -4172822431534526550
+      BossFlame_76: 5034578397153486313
+      BossFlame_77: 1929157882255124908
+      BossFlame_78: -6468097732142287046
+      BossFlame_79: 5230329868595000266
+      BossFlame_8: 3633088951192909734
+      BossFlame_80: -6793366891391164132
+      BossFlame_9: -5938763272313040031
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

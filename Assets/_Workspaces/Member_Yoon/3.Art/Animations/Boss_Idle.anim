@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: ThunderLizard_Idle
+  m_Name: Boss_Idle
   serializedVersion: 7
   m_Legacy: 0
   m_Compressed: 0
@@ -21,17 +21,15 @@ AnimationClip:
   - serializedVersion: 2
     curve:
     - time: 0
-      value: {fileID: -3781910019033479378, guid: 515bf34cdd404994f941646a6be93857, type: 3}
-    - time: 0.05
-      value: {fileID: -8157529274441160004, guid: 6a60db0d0e58f6649af760c45cc9f266, type: 3}
-    - time: 0.1
-      value: {fileID: 8050079004319037636, guid: d31e38ba469321842bb8d58d988afd5c, type: 3}
+      value: {fileID: -749435999, guid: fde47f4320e128e468f941128bbd6311, type: 3}
+    - time: 0.2
+      value: {fileID: -1844349788, guid: fde47f4320e128e468f941128bbd6311, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
     script: {fileID: 0}
     flags: 2
-  m_SampleRate: 20
+  m_SampleRate: 5
   m_WrapMode: 0
   m_Bounds:
     m_Center: {x: 0, y: 0, z: 0}
@@ -48,15 +46,14 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     pptrCurveMapping:
-    - {fileID: -3781910019033479378, guid: 515bf34cdd404994f941646a6be93857, type: 3}
-    - {fileID: -8157529274441160004, guid: 6a60db0d0e58f6649af760c45cc9f266, type: 3}
-    - {fileID: 8050079004319037636, guid: d31e38ba469321842bb8d58d988afd5c, type: 3}
+    - {fileID: -749435999, guid: fde47f4320e128e468f941128bbd6311, type: 3}
+    - {fileID: -1844349788, guid: fde47f4320e128e468f941128bbd6311, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.15
+    m_StopTime: 0.4
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0

@@ -16,12 +16,20 @@ public class EnemyUnit : MonoBehaviour
 
     protected virtual void Start()
     {
+        if (enemyUnitData == null)
+        {
+            Debug.LogError($"[EnemyUnit] enemyUnitData가 연결되지 않았습니다. ({gameObject.name})");
+            enabled = false;
+            return;
+        }
+
         damage      = enemyUnitData.damage;
-        maxHp       = enemyUnitData.maxHp;
         attackRange = enemyUnitData.attackRange;
         attackSpeed = enemyUnitData.attackSpeed;
         moveSpeed   = enemyUnitData.moveSpeed;
-        currentHp   = enemyUnitData.hp;
+
+        maxHp     = enemyUnitData.maxHp > 0 ? enemyUnitData.maxHp : enemyUnitData.hp;
+        currentHp = enemyUnitData.hp > 0 ? Mathf.Min(enemyUnitData.hp, maxHp) : maxHp;
 
         attackTimer = 1f / attackSpeed;
 
@@ -54,7 +62,7 @@ public class EnemyUnit : MonoBehaviour
 
     protected virtual void Attack(Collider2D target)
     {
-        PlayerUnitBase player = target.GetComponent<PlayerUnitBase>();
+        PlayerUnitBase player = target.GetComponentInParent<PlayerUnitBase>();
         if (player != null)
             player.TakeDamage(damage);
     }
@@ -63,12 +71,8 @@ public class EnemyUnit : MonoBehaviour
     {
         currentHp -= amount;
         currentHp = Mathf.Clamp(currentHp, 0, maxHp);
-        Debug.Log($"[{gameObject.name}] 데미지 -{amount} / HP: {currentHp} / {maxHp}");
         if (IsDead())
-        {
-            Debug.Log($"[{gameObject.name}] 사망 → OnDie() 호출");
             OnDie();
-        }
     }
 
     public void Heal(int amount)

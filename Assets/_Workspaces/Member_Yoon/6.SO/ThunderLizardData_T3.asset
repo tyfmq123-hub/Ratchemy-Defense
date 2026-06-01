@@ -20,7 +20,7 @@ MonoBehaviour:
   moveSpeed: 2
   lightningPrefab: {fileID: 769734323195235563, guid: 7aa18f06de0a9974f8b8fa69f7099a36, type: 3}
   projectileSpeed: 6
-  fireOffset: {x: 0, y: 5}
+  fireOffset: {x: 0, y: 10}
   chainCount: 3
   chainRange: 3
   chainHitEffectPrefab: {fileID: 0}

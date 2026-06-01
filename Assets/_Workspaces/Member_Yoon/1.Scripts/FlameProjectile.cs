@@ -28,7 +28,7 @@ public class FlameProjectile : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        PlayerUnitBase player = other.GetComponent<PlayerUnitBase>();
+        PlayerUnitBase player = other.GetComponentInParent<PlayerUnitBase>();
         if (player != null)
         {
             player.TakeDamage(damage);

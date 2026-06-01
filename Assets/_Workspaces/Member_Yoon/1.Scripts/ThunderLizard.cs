@@ -8,7 +8,7 @@ public class ThunderLizard : EnemyUnit
 {
     protected ThunderLizardData thunderData;
     protected Animator animator;
-    private bool isDying = false;
+    protected bool isDying = false;
 
     [SerializeField] protected float dieAnimDuration = 0.5f;
 

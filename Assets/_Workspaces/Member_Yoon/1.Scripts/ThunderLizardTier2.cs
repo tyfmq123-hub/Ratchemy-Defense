@@ -9,6 +9,8 @@ public class ThunderLizardTier2 : ThunderLizard
     protected ThunderLizardTier2Data thunderData2;
     protected Collider2D pendingTarget;
 
+    [SerializeField] protected Transform attackPoint;
+
     protected override void Start()
     {
         base.Start();
@@ -38,8 +40,16 @@ public class ThunderLizardTier2 : ThunderLizard
     {
         if (pendingTarget == null) return;
 
-        Vector3 dir = (pendingTarget.transform.position - transform.position).normalized;
-        GameObject proj = Instantiate(thunderData2.lightningPrefab, transform.position, Quaternion.identity);
+        if (attackPoint == null)
+        {
+            Debug.LogWarning("[ThunderLizardTier2] AttackPoint가 연결되지 않았습니다.");
+            return;
+        }
+
+        Vector3 spawnPos  = attackPoint.position;
+        Vector3 targetPos = pendingTarget.bounds.center;
+        Vector3 dir       = (targetPos - spawnPos).normalized;
+        GameObject proj = Instantiate(thunderData2.lightningPrefab, spawnPos, Quaternion.identity);
 
         LightningProjectile projectile = proj.GetComponent<LightningProjectile>();
         if (projectile != null)

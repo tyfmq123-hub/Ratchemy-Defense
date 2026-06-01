@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 8981385678433360}
   - component: {fileID: 1141873780177612231}
   - component: {fileID: 5401276345798624154}
+  - component: {fileID: 690257053677776500}
   m_Layer: 7
   m_Name: FireSlime_T2
   m_TagString: Untagged
@@ -199,6 +200,19 @@ MonoBehaviour:
   showDebugCircles: 0
   rangeCircleColor: {r: 1, g: 0.4, b: 0, a: 0.6}
   rangeCircleWidth: 0.05
+--- !u!114 &690257053677776500
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6159824140907556210}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d29bf17070430984ca11aeaecd163adc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyBaseDamage
+  temperatureDamage: 10
 --- !u!1 &7826173016724406565
 GameObject:
   m_ObjectHideFlags: 0

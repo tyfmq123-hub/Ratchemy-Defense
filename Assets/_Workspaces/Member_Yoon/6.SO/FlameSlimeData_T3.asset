@@ -25,5 +25,6 @@ MonoBehaviour:
   explosionAnimDuration: 0.5
   explosionRadius: 3
   explosionDamage: 20
+  explosionOffset: {x: 0, y: 0}
   projectilePrefab: {fileID: 5487403964487623748, guid: cc09c1e93158eb54c9cbc896c142b16e, type: 3}
   projectileSpeed: 5

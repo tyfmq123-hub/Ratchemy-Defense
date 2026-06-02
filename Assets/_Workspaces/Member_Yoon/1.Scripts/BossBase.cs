@@ -3,9 +3,13 @@ using UnityEngine;
 
 // 보스 유닛 - EnemyUnit 기반, 이동 없음
 // Inspector에서 enemyUnitData 슬롯에 BossData 에셋을 연결해야 합니다.
+// Inspector에서 bossHealthUI 슬롯에 BossHealthUI 컴포넌트를 연결해야 합니다.
 // Animator Parameters: Trigger "Attack", Trigger "Die"
 public class BossBase : EnemyUnit
 {
+    [Header("체력 UI")]
+    [SerializeField] private BossHealthUI bossHealthUI;
+
     protected BossData bossData;
     protected Animator animator;
 
@@ -33,7 +37,15 @@ public class BossBase : EnemyUnit
         else
             Debug.LogWarning("[BossBase] 자식 오브젝트 'AuraEffect'를 찾을 수 없습니다.");
 
+        // 시작 시 체력 UI 초기화
+        bossHealthUI?.SetHealth(currentHp, maxHp);
+
         StartCoroutine(AuraLoop());
+    }
+
+    protected override void OnHealthChanged()
+    {
+        bossHealthUI?.SetHealth(currentHp, maxHp);
     }
 
     // 웨이브 매니저 등 외부에서 호출 → 오라 버프 제거 + AuraEffect 비활성화

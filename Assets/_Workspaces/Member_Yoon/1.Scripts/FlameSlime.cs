@@ -13,7 +13,6 @@ public class FlameSlime : EnemyUnit
 {
     protected FlameSlimeData flameData;
     protected Animator animator;
-    protected bool isDying = false;
 
     protected bool isSkillDisabled = false;
 
@@ -43,9 +42,7 @@ public class FlameSlime : EnemyUnit
     {
         base.Start();
 
-        flameData = enemyUnitData as FlameSlimeData;
-        if (flameData == null)
-            Debug.LogError($"[FlameSlime] enemyUnitData에 FlameSlimeData를 연결해주세요. ({gameObject.name})");
+        flameData = CastData<FlameSlimeData>("FlameSlimeData");
 
         animator = GetComponent<Animator>();
         if (animator == null)
@@ -67,8 +64,7 @@ public class FlameSlime : EnemyUnit
 
     protected override void OnDie()
     {
-        if (isDying) return;
-        isDying = true;
+        if (!BeginDeath()) return;
 
         if (animator != null)
             StartCoroutine(DieRoutine());
@@ -78,9 +74,6 @@ public class FlameSlime : EnemyUnit
 
     private IEnumerator DieRoutine()
     {
-        moveSpeed = 0f;
-        attackSpeed = 0f;
-
         animator.SetBool("IsWalking", false);
         animator.SetTrigger("Die");
 

@@ -7,7 +7,6 @@ using UnityEngine;
 public class ThunderLizardTier2 : ThunderLizard
 {
     protected ThunderLizardTier2Data thunderData2;
-    protected Collider2D pendingTarget;
 
     [SerializeField] protected Transform attackPoint;
 
@@ -15,9 +14,7 @@ public class ThunderLizardTier2 : ThunderLizard
     {
         base.Start();
 
-        thunderData2 = enemyUnitData as ThunderLizardTier2Data;
-        if (thunderData2 == null)
-            Debug.LogError($"[ThunderLizardTier2] enemyUnitData에 ThunderLizardTier2Data를 연결해주세요. ({gameObject.name})");
+        thunderData2 = CastData<ThunderLizardTier2Data>("ThunderLizardTier2Data");
     }
 
     protected override void Attack(Collider2D target)
@@ -28,7 +25,7 @@ public class ThunderLizardTier2 : ThunderLizard
             return;
         }
 
-        pendingTarget = target;
+        BeginRangedAttack(target);
         animator?.SetBool("IsWalking", false);
         animator?.SetTrigger("Attack");
     }
@@ -38,11 +35,16 @@ public class ThunderLizardTier2 : ThunderLizard
     // Function: FireProjectile
     public virtual void LightningProjectile()
     {
-        if (pendingTarget == null) return;
+        if (!CanFireRangedAttack())
+        {
+            ClearRangedAttack();
+            return;
+        }
 
         if (attackPoint == null)
         {
             Debug.LogWarning("[ThunderLizardTier2] AttackPoint가 연결되지 않았습니다.");
+            ClearRangedAttack();
             return;
         }
 
@@ -56,6 +58,6 @@ public class ThunderLizardTier2 : ThunderLizard
             projectile.Initialize(dir, thunderData2.projectileSpeed, damage, 0, 0f,
                 GetComponent<Collider2D>());
 
-        pendingTarget = null;
+        ClearRangedAttack();
     }
 }

@@ -8,7 +8,6 @@ public class BossBase : EnemyUnit
 {
     protected BossData bossData;
     protected Animator animator;
-    protected bool isDying = false;
 
     // 투사체가 비행 중일 때 true → 착탄 전까지 추가 발사 차단
     private bool isProjectileActive = false;
@@ -24,9 +23,7 @@ public class BossBase : EnemyUnit
     {
         base.Start();
 
-        bossData = enemyUnitData as BossData;
-        if (bossData == null)
-            Debug.LogError($"[BossBase] enemyUnitData에 BossData를 연결해주세요. ({gameObject.name})");
+        bossData = CastData<BossData>("BossData");
 
         animator = GetComponent<Animator>();
 
@@ -66,13 +63,7 @@ public class BossBase : EnemyUnit
     {
         if (bossData == null) return;
 
-        Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, bossData.auraRadius, targetLayer);
-        foreach (Collider2D col in hits)
-        {
-            PlayerUnitBase player = col.GetComponentInParent<PlayerUnitBase>();
-            if (player != null)
-                player.TakeDamage(bossData.auraDamage);
-        }
+        EnemyCombatUtility.DamagePlayersInRadius(transform.position, bossData.auraRadius, targetLayer, bossData.auraDamage);
     }
 
     // 보스는 이동하지 않음
@@ -129,8 +120,7 @@ public class BossBase : EnemyUnit
 
     protected override void OnDie()
     {
-        if (isDying) return;
-        isDying = true;
+        if (!BeginDeath()) return;
 
         if (animator != null)
             StartCoroutine(DieRoutine());
@@ -140,9 +130,6 @@ public class BossBase : EnemyUnit
 
     private IEnumerator DieRoutine()
     {
-        moveSpeed   = 0f;
-        attackSpeed = 0f;
-
         animator.SetTrigger("Die");
 
         yield return new WaitForSeconds(bossData != null ? bossData.dieAnimDuration : 1f);

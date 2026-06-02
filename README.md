@@ -5,6 +5,39 @@
 
 ## 작업 로그
 
+### 2026-06-02 (추가) — Member_Yoon : 타겟팅·T3 폭발 봉인·DeathExplosion 리팩
+
+| 항목 | 내용 |
+|---|---|
+| **가장 가까운 타겟** | `TryFindClosestPlayer` — 사거리 내 Player 유닛 중 최근접 1명 공격 (동률 시 InstanceID) |
+| **원거리 가드** | `CanFireRangedAttack` — `pendingTarget` 파괴 시 발사 취소 + `ClearRangedAttack` |
+| **CoolantRat 폭발 봉인** | T3 `DeathExplosion` 1프레임 대기 → 스킬 **즉사** 시에도 폭발·데미지 차단 |
+| **DeathExplosion 리팩** | `PlaySealedDeath` / `PlayExplosionSequence` 분리 (동작 동일) |
+
+#### 미완 / 보류
+- `EnemyBaseDamage.TryReachBase()` 호출 연동 (기지 트리거 — Shin 쪽)
+- Boss `OnBossDead` / `RemoveAuraBuff()` WaveManager 연동
+- 첫 공격 즉시 (`attackTimer` 초기값) — 선택적 밸런스 조정
+
+---
+
+### 2026-06-02 (오전) — Member_Yoon : 적 코드 리팩 + InsulatorRat 연동
+
+| 항목 | 내용 |
+|---|---|
+| **EnemyCombatUtility** | 범위 데미지·플레이어 탐지 공통 유틸 (`DamagePlayersInRadius`, `TryGetPlayer`) |
+| **EnemyUnit** | `CastData<T>()`, `BeginDeath()` / `isDying` 베이스화, `AttackCooldown`, 원거리 `isAttacking` + `pendingTarget` |
+| **버그 예방** | HP 0 이후 추가 피격 무시, T2 오라 사망 중 1틱 방지, 원거리 공격 애니 중 재호출 차단 |
+| **InsulatorRat 연동** | `LightningProjectile` — 번개 데미지 50%, InsulatorRat 적중 시 체인 차단 |
+| **리소스** | chain-Lightning 이펙트 프리팹·애니·스프라이트 추가 |
+
+#### 리팩 적용 범위
+- 오라·폭발·보스 투사체 → `EnemyCombatUtility` 사용
+- SO 캐스팅 → `CastData<T>()` 통일 (FlameSlime / ThunderLizard / Boss 전 티어)
+- T3·Thunder T2/T3 원거리 공격 → `BeginRangedAttack` / `ClearRangedAttack` 패턴
+
+---
+
 ### 2026-06-01 (15:00~) — Member_Yoon : 보스 시스템 + 버그 수정 + 기지 도착 처리
 
 | 항목 | 내용 |

@@ -101,14 +101,7 @@ public class BossProjectile : MonoBehaviour
             }
         }
 
-        // 범위 데미지
-        Collider2D[] hits = Physics2D.OverlapCircleAll(center, explosionRadius, targetLayer);
-        foreach (Collider2D col in hits)
-        {
-            PlayerUnitBase player = col.GetComponentInParent<PlayerUnitBase>();
-            if (player != null)
-                player.TakeDamage(damage);
-        }
+        EnemyCombatUtility.DamagePlayersInRadius(center, explosionRadius, targetLayer, damage);
 
         // 보스에게 착탄 완료 알림 → 다음 공격 잠금 해제
         onLanded?.Invoke();

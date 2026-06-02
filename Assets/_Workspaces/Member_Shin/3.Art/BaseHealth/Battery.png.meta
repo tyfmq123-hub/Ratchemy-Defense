@@ -1,34 +1,31 @@
 fileFormatVersion: 2
-guid: 72c896554faebf94f935e840f9692e03
+guid: 857f21a664744544087d81b80f20f554
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -2276259661975475453
-    second: 05_0
+      213: -3017979480325208809
+    second: Battery_0
   - first:
-      213: -1484026811230398171
-    second: 05_1
+      213: -1720865232835478159
+    second: Battery_1
   - first:
-      213: -302528608544233904
-    second: 05_2
+      213: 592112613293883888
+    second: Battery_2
   - first:
-      213: 3598116612191208058
-    second: 05_3
+      213: 2923700797827528709
+    second: Battery_3
   - first:
-      213: 6633905310519058068
-    second: 05_4
+      213: -598646941475872154
+    second: Battery_4
   - first:
-      213: -2962639829586011719
-    second: 05_5
+      213: 6021541733173166568
+    second: Battery_5
   - first:
-      213: 7013541907120590525
-    second: 05_6
+      213: -4837896492470867966
+    second: Battery_6
   - first:
-      213: 3590649358251884346
-    second: 05_7
-  - first:
-      213: 2769619269573066063
-    second: 05_8
+      213: -1979674275308933818
+    second: Battery_7
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -61,7 +58,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -99,7 +96,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -137,13 +134,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: 05_0
+      name: Battery_0
       rect:
         serializedVersion: 2
         x: 4
-        y: 15
-        width: 39
-        height: 16
+        y: 22
+        width: 122
+        height: 83
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -152,20 +149,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 30ba667c5e91960e0800000000000000
-      internalID: -2276259661975475453
+      spriteID: 7154ccf07abfd16d0800000000000000
+      internalID: -3017979480325208809
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 05_1
+      name: Battery_1
       rect:
         serializedVersion: 2
-        x: 52
-        y: 15
-        width: 39
-        height: 16
+        x: 132
+        y: 22
+        width: 122
+        height: 83
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -174,20 +171,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 529d4775a7da76be0800000000000000
-      internalID: -1484026811230398171
+      spriteID: 17d758230324e18e0800000000000000
+      internalID: -1720865232835478159
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 05_2
+      name: Battery_2
       rect:
         serializedVersion: 2
-        x: 100
-        y: 15
-        width: 39
-        height: 16
+        x: 260
+        y: 22
+        width: 122
+        height: 83
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -196,20 +193,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 056e35955d33dcbf0800000000000000
-      internalID: -302528608544233904
+      spriteID: 0f1096ed84b973800800000000000000
+      internalID: 592112613293883888
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 05_3
+      name: Battery_3
       rect:
         serializedVersion: 2
-        x: 148
-        y: 15
-        width: 39
-        height: 16
+        x: 388
+        y: 22
+        width: 122
+        height: 83
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -218,20 +215,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a72c612cef31fe130800000000000000
-      internalID: 3598116612191208058
+      spriteID: 508390c9262139820800000000000000
+      internalID: 2923700797827528709
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 05_4
+      name: Battery_4
       rect:
         serializedVersion: 2
-        x: 196
-        y: 15
-        width: 39
-        height: 16
+        x: 516
+        y: 22
+        width: 122
+        height: 83
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -240,20 +237,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 49ed0136bbd501c50800000000000000
-      internalID: 6633905310519058068
+      spriteID: 662e47b47cd21b7f0800000000000000
+      internalID: -598646941475872154
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 05_5
+      name: Battery_5
       rect:
         serializedVersion: 2
-        x: 244
-        y: 15
-        width: 39
-        height: 16
+        x: 644
+        y: 22
+        width: 122
+        height: 83
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -262,20 +259,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 9b91a1095c692e6d0800000000000000
-      internalID: -2962639829586011719
+      spriteID: 8e10af58d40d09350800000000000000
+      internalID: 6021541733173166568
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 05_6
+      name: Battery_6
       rect:
         serializedVersion: 2
-        x: 292
-        y: 15
-        width: 39
-        height: 16
+        x: 772
+        y: 22
+        width: 122
+        height: 83
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -284,20 +281,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: dbe0d37843b155160800000000000000
-      internalID: 7013541907120590525
+      spriteID: 2086a2ab5c65cdcb0800000000000000
+      internalID: -4837896492470867966
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 05_7
+      name: Battery_7
       rect:
         serializedVersion: 2
-        x: 340
-        y: 15
-        width: 39
-        height: 16
+        x: 900
+        y: 22
+        width: 122
+        height: 83
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -306,8 +303,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a3f7697319c84d130800000000000000
-      internalID: 3590649358251884346
+      spriteID: 64d6b314cb8c684e0800000000000000
+      internalID: -1979674275308933818
       vertices: []
       indices: 
       edges: []
@@ -316,7 +313,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 8f7682b63e067e742877f86892efef5a
+    spriteID: 3a82d8e9648740b4186140dade6caea0
     internalID: 0
     vertices: []
     indices: 
@@ -324,17 +321,18 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      05_0: -2276259661975475453
-      05_1: -1484026811230398171
-      05_2: -302528608544233904
-      05_3: 3598116612191208058
-      05_4: 6633905310519058068
-      05_5: -2962639829586011719
-      05_6: 7013541907120590525
-      05_7: 3590649358251884346
-      05_8: 2769619269573066063
+      Battery_0: -3017979480325208809
+      Battery_1: -1720865232835478159
+      Battery_2: 592112613293883888
+      Battery_3: 2923700797827528709
+      Battery_4: -598646941475872154
+      Battery_5: 6021541733173166568
+      Battery_6: -4837896492470867966
+      Battery_7: -1979674275308933818
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

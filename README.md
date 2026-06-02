@@ -5,6 +5,19 @@
 
 ## 작업 로그
 
+### 2026-06-02 (야간) — Member_Yoon : BossHealthUI 연동
+
+| 항목 | 내용 |
+|---|---|
+| **EnemyUnit** | `OnHealthChanged()` 가상 메서드 추가 — `TakeDamage` / `Heal` 호출 시 자동 실행 |
+| **BossBase** | `BossHealthUI` 필드 추가, `OnHealthChanged()` 오버라이드 → 체력 변화 시 UI 자동 갱신 |
+| **초기화** | `Start()`에서 `bossHealthUI?.SetHealth(currentHp, maxHp)` 호출 — 씬 로드 시 UI 즉시 반영 |
+
+#### 미완 / 보류
+- Inspector에서 보스 프리팹에 `BossHealthUI` 슬롯 연결 필요 (Shin 쪽 UI 오브젝트)
+
+---
+
 ### 2026-06-02 (추가) — Member_Yoon : 타겟팅·T3 폭발 봉인·DeathExplosion 리팩
 
 | 항목 | 내용 |

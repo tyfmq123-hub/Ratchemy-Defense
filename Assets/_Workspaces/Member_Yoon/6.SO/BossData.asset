@@ -22,7 +22,7 @@ MonoBehaviour:
   projectilePrefab: {fileID: 5314360353959510518, guid: 848fa4174fb63b04692a9f9024de7add, type: 3}
   explosionRadius: 3
   arcHeight: 3
-  projectileSpeed: 10
+  projectileSpeed: 5
   explosionEffectPrefab: {fileID: 6419512139325677619, guid: 70801eb4a4ed52c4f86bc0c5756fd92b, type: 3}
   effectLifetime: 1
   auraRadius: 3

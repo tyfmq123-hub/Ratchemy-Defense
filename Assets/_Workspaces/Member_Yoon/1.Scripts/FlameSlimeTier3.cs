@@ -59,66 +59,71 @@ public class FlameSlimeTier3 : FlameSlimeTier2
         Collider2D col = GetComponent<Collider2D>();
         if (col != null) col.enabled = false;
 
-        if (!isSkillDisabled)
-        {
-            animator?.SetBool("IsExploding", true);
-        }
-
         StartCoroutine(DeathExplosion());
     }
 
     private IEnumerator DeathExplosion()
     {
-        if (!isSkillDisabled)
-        {
-            // Fuming ~ Explode 구간 동안 AuraEffect 비활성화
-            if (auraEffectTransform != null)
-                auraEffectTransform.gameObject.SetActive(false);
+        // CoolantRat 스킬 즉사 시 ApplyDebuff가 같은 프레임에 실행되도록 1프레임 대기
+        yield return null;
 
-#if UNITY_EDITOR || DEVELOPMENT_BUILD
-            if (showDebugCircles)
-            {
-                LineRenderer expCircle = CreateDebugCircle("ExplosionRangeCircle", flameData3.explosionRadius,
-                    new Color(1f, 0.1f, 0f, 0.8f), width: 0.07f);
-                if (expCircle != null)
-                    expCircle.transform.localPosition = (Vector3)flameData3.explosionOffset;
-            }
-#endif
-
-            // PreExplode 트리거 → Fuming 애니메이션 재생 + explosionDelay 동안 깜박임
-            animator?.SetTrigger("PreExplode");
-
-            SpriteRenderer sr = GetComponentInChildren<SpriteRenderer>();
-            float elapsed = 0f;
-            float duration = flameData3.explosionDelay;
-            while (elapsed < duration)
-            {
-                if (sr != null) sr.enabled = false;
-                yield return new WaitForSeconds(blinkInterval);
-                if (sr != null) sr.enabled = true;
-                yield return new WaitForSeconds(blinkInterval);
-                elapsed += blinkInterval * 2f;
-            }
-
-            if (sr != null) sr.enabled = true;
-
-            animator?.ResetTrigger("Die");
-            animator?.SetTrigger("Explode");
-
-            // Explode 애니메이션 재생 후 데미지
-            yield return new WaitForSeconds(flameData3.explosionAnimDuration);
-
-            Vector2 explosionCenter = (Vector2)transform.position + flameData3.explosionOffset;
-            EnemyCombatUtility.DamagePlayersInRadius(explosionCenter, flameData3.explosionRadius, targetLayer, flameData3.explosionDamage);
-        }
+        if (isSkillDisabled)
+            yield return PlaySealedDeath();
         else
-        {
-            // 디버프 있음 → Die 애니메이션만 재생 후 제거
-            animator?.SetTrigger("Die");
-            yield return new WaitForSeconds(dieAnimDuration);
-        }
+            yield return PlayExplosionSequence();
 
         Destroy(gameObject);
+    }
+
+    private IEnumerator PlaySealedDeath()
+    {
+        animator?.SetTrigger("Die");
+        yield return new WaitForSeconds(dieAnimDuration);
+    }
+
+    private IEnumerator PlayExplosionSequence()
+    {
+        animator?.SetBool("IsExploding", true);
+
+        // Fuming ~ Explode 구간 동안 AuraEffect 비활성화
+        if (auraEffectTransform != null)
+            auraEffectTransform.gameObject.SetActive(false);
+
+#if UNITY_EDITOR || DEVELOPMENT_BUILD
+        if (showDebugCircles)
+        {
+            LineRenderer expCircle = CreateDebugCircle("ExplosionRangeCircle", flameData3.explosionRadius,
+                new Color(1f, 0.1f, 0f, 0.8f), width: 0.07f);
+            if (expCircle != null)
+                expCircle.transform.localPosition = (Vector3)flameData3.explosionOffset;
+        }
+#endif
+
+        // PreExplode 트리거 → Fuming 애니메이션 재생 + explosionDelay 동안 깜박임
+        animator?.SetTrigger("PreExplode");
+
+        SpriteRenderer sr = GetComponentInChildren<SpriteRenderer>();
+        float elapsed = 0f;
+        float duration = flameData3.explosionDelay;
+        while (elapsed < duration)
+        {
+            if (sr != null) sr.enabled = false;
+            yield return new WaitForSeconds(blinkInterval);
+            if (sr != null) sr.enabled = true;
+            yield return new WaitForSeconds(blinkInterval);
+            elapsed += blinkInterval * 2f;
+        }
+
+        if (sr != null) sr.enabled = true;
+
+        animator?.ResetTrigger("Die");
+        animator?.SetTrigger("Explode");
+
+        // Explode 애니메이션 재생 후 데미지
+        yield return new WaitForSeconds(flameData3.explosionAnimDuration);
+
+        Vector2 explosionCenter = (Vector2)transform.position + flameData3.explosionOffset;
+        EnemyCombatUtility.DamagePlayersInRadius(explosionCenter, flameData3.explosionRadius, targetLayer, flameData3.explosionDamage);
     }
 
     [SerializeField] private float blinkInterval = 0.1f;

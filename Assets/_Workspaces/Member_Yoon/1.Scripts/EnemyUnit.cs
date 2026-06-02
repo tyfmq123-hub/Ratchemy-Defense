@@ -46,9 +46,7 @@ public class EnemyUnit : MonoBehaviour
     {
         if (isDying) return;
 
-        Collider2D player = Physics2D.OverlapCircle(transform.position, attackRange, targetLayer);
-
-        if (player != null)
+        if (EnemyCombatUtility.TryFindClosestPlayer(transform.position, attackRange, targetLayer, out Collider2D player))
         {
             attackTimer += Time.deltaTime;
             if (attackTimer >= AttackCooldown && !isAttacking)
@@ -70,8 +68,7 @@ public class EnemyUnit : MonoBehaviour
 
     protected virtual void Attack(Collider2D target)
     {
-        PlayerUnitBase player = target.GetComponentInParent<PlayerUnitBase>();
-        if (player != null)
+        if (EnemyCombatUtility.TryGetPlayer(target, out PlayerUnitBase player))
             player.TakeDamage(damage);
     }
 
@@ -123,7 +120,11 @@ public class EnemyUnit : MonoBehaviour
         isAttacking = false;
     }
 
-    protected bool CanFireRangedAttack() => pendingTarget != null && !isDying;
+    protected bool CanFireRangedAttack()
+    {
+        if (isDying || pendingTarget == null) return false;
+        return EnemyCombatUtility.TryGetPlayer(pendingTarget, out _);
+    }
 
     protected T CastData<T>(string expectedTypeName) where T : EnemyUnitData
     {

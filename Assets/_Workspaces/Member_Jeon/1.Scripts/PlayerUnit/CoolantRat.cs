@@ -3,6 +3,11 @@ using UnityEngine;
 
 public class CoolantRat : PlayerUnitBase
 {
+    [Header("애니메이션")]
+    [SerializeField] private Animator animator;
+    [SerializeField] private string attackBoolName = "isattack";
+    [SerializeField] private string idleBoolName = "isidle";
+
     [Header("공격 설정")]
     [SerializeField] private LayerMask enemyLayer;
     [SerializeField] private float skillRange = 4f;
@@ -19,6 +24,8 @@ public class CoolantRat : PlayerUnitBase
     protected override void Awake()
     {
         base.Awake();
+        if (animator == null)
+            animator = GetComponent<Animator>();
         enemyLayer = LayerMask.GetMask("Enemy");
     }
 
@@ -40,57 +47,72 @@ public class CoolantRat : PlayerUnitBase
         if (skillCooldownTimer > 0f)
             skillCooldownTimer -= Time.deltaTime;
 
-        Collider2D target = FindNearestEnemy();
+        EnemyUnit target = FindNearestEnemy();
 
         if (target != null)
         {
             if (skillCooldownTimer <= 0f)
+            {
+                SetCombatAnimation(isAttacking: true, isIdle: false);
                 UseSkill();
+            }
             else
-                BasicAttack(target);
+            {
+                // 기본 공격 쿨 대기 중이면 Idle 유지, 쿨이 끝났으면 공격
+                bool waitingAttackDelay = attackCooldown > 0f;
+                if (waitingAttackDelay)
+                {
+                    SetCombatAnimation(isAttacking: false, isIdle: true);
+                }
+                else
+                {
+                    SetCombatAnimation(isAttacking: true, isIdle: false);
+                    BasicAttack(target);
+                }
+            }
         }
         else
         {
+            SetCombatAnimation(isAttacking: false, isIdle: false);
             Move();
         }
     }
 
-    private Collider2D FindNearestEnemy()
+    private EnemyUnit FindNearestEnemy()
     {
         Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, attackRange, enemyLayer);
 
         if (hits.Length == 0)
             return null;
 
-        Collider2D nearestEnemy = null;
+        EnemyUnit nearestEnemy = null;
         float nearestDistance = Mathf.Infinity;
 
         foreach (Collider2D hit in hits)
         {
+            EnemyUnit enemyUnit = hit.GetComponent<EnemyUnit>();
+            if (enemyUnit == null || enemyUnit.IsDead())
+                continue;
+
             float distance = Vector2.Distance(transform.position, hit.transform.position);
 
             if (distance < nearestDistance)
             {
                 nearestDistance = distance;
-                nearestEnemy = hit;
+                nearestEnemy = enemyUnit;
             }
         }
 
         return nearestEnemy;
     }
 
-    private void BasicAttack(Collider2D target)
+    private void BasicAttack(EnemyUnit target)
     {
         if (attackCooldown > 0f)
             return;
 
-        EnemyUnit enemyUnit = target.GetComponent<EnemyUnit>();
-
-        if (enemyUnit != null)
-        {
-            enemyUnit.TakeDamage(attackPower);
-            Debug.Log($"[CoolantRat] 기본 원거리 공격 → {target.name}, 데미지: {attackPower}");
-        }
+        target.TakeDamage(attackPower);
+        Debug.Log($"[CoolantRat] 기본 원거리 공격 → {target.name}, 데미지: {attackPower}");
 
         attackCooldown = 1f / attackSpeed;
     }
@@ -108,7 +130,7 @@ public class CoolantRat : PlayerUnitBase
 
             EnemyUnit enemyUnit = hit.GetComponent<EnemyUnit>();
 
-            if (enemyUnit != null)
+            if (enemyUnit != null && !enemyUnit.IsDead())
             {
                 enemyUnit.TakeDamage(skillDamage);
                 Debug.Log($"[CoolantRat] 냉각 범위 스킬 → {hit.name}, 데미지: {skillDamage}");
@@ -137,6 +159,19 @@ public class CoolantRat : PlayerUnitBase
         {
             flameSlime.RemoveDebuff(FlameSlimeDebuff.ExplosionDisabled);
         }
+    }
+
+    // 전투 상태에 맞춰 공격/대기 bool을 제어
+    private void SetCombatAnimation(bool isAttacking, bool isIdle)
+    {
+        if (animator == null)
+            return;
+
+        if (!string.IsNullOrEmpty(attackBoolName))
+            animator.SetBool(attackBoolName, isAttacking);
+
+        if (!string.IsNullOrEmpty(idleBoolName))
+            animator.SetBool(idleBoolName, isIdle);
     }
 
     private void OnDrawGizmosSelected()

@@ -7,6 +7,9 @@ using UnityEngine;
 public class UltimateRat : PlayerUnitBase
 {
     private LayerMask enemyLayer;
+    [SerializeField] private Animator animator;
+    [SerializeField] private string attackTriggerName = "attack";
+    [SerializeField] private string skillTriggerName = "skill";
     private float attackCooldown;
     private float skillCooldownTimer;
     private bool isCastingSkill;
@@ -19,6 +22,8 @@ public class UltimateRat : PlayerUnitBase
     protected override void Awake()
     {
         base.Awake();
+        if (animator == null)
+            animator = GetComponent<Animator>();
         enemyLayer = LayerMask.GetMask("Enemy");
         skillCooldownTimer = skillCooldown; // 첫 스킬은 15초 후 (즉시 발동 방지)
     }
@@ -41,11 +46,15 @@ public class UltimateRat : PlayerUnitBase
         if (skillCooldownTimer > 0f)
             skillCooldownTimer -= Time.deltaTime;
 
-        // 사거리와 무관하게 15초마다 전장 스킬 (이동 중에도 발동)
-        if (skillCooldownTimer <= 0f && !isCastingSkill)
+        // 전장에 살아있는 적이 있을 때만 스킬 사용
+        if (skillCooldownTimer <= 0f && !isCastingSkill && HasAliveEnemy())
             StartCoroutine(UseMapWideUltimate());
 
-        Collider2D enemy = Physics2D.OverlapCircle(transform.position, attackRange, enemyLayer);
+        // 스킬 애니메이션 재생 중에는 기본 공격/이동 중지
+        if (isCastingSkill)
+            return;
+
+        EnemyUnit enemy = GetEnemyInAttackRange();
 
         if (enemy != null)
             Attack(enemy);
@@ -53,18 +62,39 @@ public class UltimateRat : PlayerUnitBase
             Move();
     }
 
-    private void Attack(Collider2D target)
+    private EnemyUnit GetEnemyInAttackRange()
+    {
+        Collider2D collider = Physics2D.OverlapCircle(transform.position, attackRange, enemyLayer);
+        if (collider == null)
+            return null;
+
+        EnemyUnit enemyUnit = collider.GetComponent<EnemyUnit>();
+        if (enemyUnit == null || enemyUnit.IsDead())
+            return null;
+
+        return enemyUnit;
+    }
+
+    private bool HasAliveEnemy()
+    {
+        EnemyUnit[] enemies = FindObjectsByType<EnemyUnit>();
+        foreach (EnemyUnit enemy in enemies)
+        {
+            if (enemy != null && !enemy.IsDead())
+                return true;
+        }
+
+        return false;
+    }
+
+    private void Attack(EnemyUnit target)
     {
         if (attackCooldown > 0f)
             return;
 
-        EnemyUnit enemyUnit = target.GetComponent<EnemyUnit>();
-
-        if (enemyUnit != null)
-        {
-            enemyUnit.TakeDamage(attackPower);
-            Debug.Log($"[UltimateRat] {target.name} 공격 → 데미지: {attackPower}");
-        }
+        FireAttackTrigger();
+        target.TakeDamage(attackPower);
+        Debug.Log($"[UltimateRat] {target.name} 공격 → 데미지: {attackPower}");
 
         attackCooldown = 1f / attackSpeed;
     }
@@ -74,6 +104,7 @@ public class UltimateRat : PlayerUnitBase
     {
         isCastingSkill = true;
         skillCooldownTimer = skillCooldown;
+        FireSkillTrigger();
 
         for (int hit = 0; hit < skillHitCount; hit++)
         {
@@ -96,6 +127,26 @@ public class UltimateRat : PlayerUnitBase
         }
 
         isCastingSkill = false;
+    }
+
+    // 한 번의 공격 애니메이션만 재생되도록 트리거 발동
+    private void FireAttackTrigger()
+    {
+        if (animator == null || string.IsNullOrEmpty(attackTriggerName))
+            return;
+
+        animator.ResetTrigger(attackTriggerName);
+        animator.SetTrigger(attackTriggerName);
+    }
+
+    // 한 번의 스킬 애니메이션만 재생되도록 트리거 발동
+    private void FireSkillTrigger()
+    {
+        if (animator == null || string.IsNullOrEmpty(skillTriggerName))
+            return;
+
+        animator.ResetTrigger(skillTriggerName);
+        animator.SetTrigger(skillTriggerName);
     }
 
     private void OnDrawGizmosSelected()

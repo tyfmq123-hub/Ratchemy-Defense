@@ -6,12 +6,16 @@ using UnityEngine;
 // - 스탯은 Inspector에서 수정 (Play 시 Awake가 숫자를 덮어쓰지 않음)
 public class InsulatorRat : PlayerUnitBase
 {
+    [SerializeField] private Animator animator;
+    [SerializeField] private string attackBoolName = "isattack"; // Animator Bool 파라미터명
     private LayerMask enemyLayer;  // "Enemy" 레이어만 공격 대상
     private float attackCooldown;  // 다음 공격까지 남은 시간(초)
 
     protected override void Awake()
     {
         base.Awake(); // currentHp 등 부모 초기화
+        if (animator == null)
+            animator = GetComponent<Animator>();
         enemyLayer = LayerMask.GetMask("Enemy");
     }
 
@@ -31,29 +35,50 @@ public class InsulatorRat : PlayerUnitBase
         if (attackCooldown > 0f)
             attackCooldown -= Time.deltaTime;
 
-        // 사거리 원 안 Enemy 레이어 1개 검색 (없으면 null)
-        Collider2D enemy = Physics2D.OverlapCircle(transform.position, attackRange, enemyLayer);
+        EnemyUnit enemy = GetEnemyInAttackRange();
 
         if (enemy != null)
+        {
+            SetAttackAnimation(true);
             Attack(enemy); // 적 있으면 공격만
+        }
         else
+        {
+            SetAttackAnimation(false);
             Move();        // 없으면 전진
+        }
     }
 
-    private void Attack(Collider2D target)
+    private EnemyUnit GetEnemyInAttackRange()
+    {
+        Collider2D collider = Physics2D.OverlapCircle(transform.position, attackRange, enemyLayer);
+        if (collider == null)
+            return null;
+
+        EnemyUnit enemyUnit = collider.GetComponent<EnemyUnit>();
+        if (enemyUnit == null || enemyUnit.IsDead())
+            return null;
+
+        return enemyUnit;
+    }
+
+    private void Attack(EnemyUnit target)
     {
         if (attackCooldown > 0f)
             return;
 
-        EnemyUnit enemyUnit = target.GetComponent<EnemyUnit>();
-
-        if (enemyUnit != null)
-        {
-            enemyUnit.TakeDamage(attackPower);
-            Debug.Log($"[InsulatorRat] {target.name} 공격 → 데미지: {attackPower}");
-        }
-
+        target.TakeDamage(attackPower);
+        Debug.Log($"[InsulatorRat] {target.name} 공격 → 데미지: {attackPower}");
         attackCooldown = 1f / attackSpeed;
+    }
+
+    // 적이 있을 때 true, 없을 때 false로 유지
+    private void SetAttackAnimation(bool isAttacking)
+    {
+        if (animator == null || string.IsNullOrEmpty(attackBoolName))
+            return;
+
+        animator.SetBool(attackBoolName, isAttacking);
     }
 
     // Scene 뷰에서 선택 시 공격 범위 빨간 원 표시 (게임 로직과 무관, 에디터용)

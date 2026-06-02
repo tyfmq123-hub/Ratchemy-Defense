@@ -22,6 +22,9 @@ public class PlayerUnitBase : MonoBehaviour
     public float MoveSpeed => moveSpeed;
     public float AttackSpeed => attackSpeed;
     public float AttackRange => attackRange;
+    public bool IsDead => isDead;
+
+    protected bool isDead;
 
     // Inspector에서 숫자 바꿀 때마다 호출 → currentHp가 maxHp를 넘지 않게 맞춤
     protected virtual void OnValidate()
@@ -47,6 +50,9 @@ public class PlayerUnitBase : MonoBehaviour
 
     protected virtual void Update()
     {
+        if (isDead)
+            return;
+
         Move(); // 자식에서 override하면 이동 방식 변경 가능
     }
 
@@ -61,6 +67,9 @@ public class PlayerUnitBase : MonoBehaviour
 
     public virtual void TakeDamage(float damage)
     {
+        if (isDead)
+            return;
+
         currentHp -= damage;
         if (currentHp <= 0f)
             Die();
@@ -68,6 +77,18 @@ public class PlayerUnitBase : MonoBehaviour
 
     protected virtual void Die()
     {
-        Destroy(gameObject);
+        if (isDead)
+            return;
+
+        isDead = true;
+        Animator animator = GetComponent<Animator>();
+        if (animator != null)
+            animator.SetTrigger("die");
+
+        Collider2D col = GetComponent<Collider2D>();
+        if (col != null)
+            col.enabled = false;
+
+        Destroy(gameObject, 1.2f);
     }
 }

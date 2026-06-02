@@ -33,10 +33,11 @@ public class SafetyManagerRat : PlayerUnitBase
         }
 
         Collider2D enemy = Physics2D.OverlapCircle(transform.position, attackRange, enemyLayer);
+        EnemyUnit enemyUnit = GetValidEnemy(enemy);
 
-        if (enemy != null)
+        if (enemyUnit != null)
         {
-            AttackEnemy(enemy);
+            AttackEnemy(enemyUnit);
         }
         else
         {
@@ -44,18 +45,25 @@ public class SafetyManagerRat : PlayerUnitBase
         }
     }
 
-    private void AttackEnemy(Collider2D target)
+    private EnemyUnit GetValidEnemy(Collider2D targetCollider)
+    {
+        if (targetCollider == null)
+            return null;
+
+        EnemyUnit enemyUnit = targetCollider.GetComponent<EnemyUnit>();
+        if (enemyUnit == null || enemyUnit.IsDead())
+            return null;
+
+        return enemyUnit;
+    }
+
+    private void AttackEnemy(EnemyUnit enemyUnit)
     {
         if (attackCooldown > 0f)
             return;
 
-        EnemyUnit enemyUnit = target.GetComponent<EnemyUnit>();
-
-        if (enemyUnit != null)
-        {
-            enemyUnit.TakeDamage(attackPower);
-            Debug.Log($"[SafetyManagerRat] 창 공격 → {target.name}, 데미지: {attackPower}");
-        }
+        enemyUnit.TakeDamage(attackPower);
+        Debug.Log($"[SafetyManagerRat] 창 공격 → {enemyUnit.name}, 데미지: {attackPower}");
 
         attackCooldown = 1f / attackSpeed;
     }

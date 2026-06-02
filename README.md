@@ -5,13 +5,16 @@
 
 ## 작업 로그
 
-### 2026-06-02 (야간) — Member_Yoon : BossHealthUI 연동
+### 2026-06-02 (오후) — Member_Yoon : BossHealthUI 연동 + BossProjectile 화염 이펙트
 
 | 항목 | 내용 |
 |---|---|
 | **EnemyUnit** | `OnHealthChanged()` 가상 메서드 추가 — `TakeDamage` / `Heal` 호출 시 자동 실행 |
 | **BossBase** | `BossHealthUI` 필드 추가, `OnHealthChanged()` 오버라이드 → 체력 변화 시 UI 자동 갱신 |
 | **초기화** | `Start()`에서 `bossHealthUI?.SetHealth(currentHp, maxHp)` 호출 — 씬 로드 시 UI 즉시 반영 |
+| **BossProjectile** | 프리팹·애니메이터 컨트롤러 업데이트 |
+| **화염 이펙트** | `fire.png` 스프라이트 + `BossFireProjectile.anim` 추가 |
+| **BossData SO** | BossData 에셋 업데이트 |
 
 #### 미완 / 보류
 - Inspector에서 보스 프리팹에 `BossHealthUI` 슬롯 연결 필요 (Shin 쪽 UI 오브젝트)

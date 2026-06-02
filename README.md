@@ -5,6 +5,22 @@
 
 ## 작업 로그
 
+### 2026-06-02 (추가) — Member_Yoon : 타겟팅·T3 폭발 봉인·DeathExplosion 리팩
+
+| 항목 | 내용 |
+|---|---|
+| **가장 가까운 타겟** | `TryFindClosestPlayer` — 사거리 내 Player 유닛 중 최근접 1명 공격 (동률 시 InstanceID) |
+| **원거리 가드** | `CanFireRangedAttack` — `pendingTarget` 파괴 시 발사 취소 + `ClearRangedAttack` |
+| **CoolantRat 폭발 봉인** | T3 `DeathExplosion` 1프레임 대기 → 스킬 **즉사** 시에도 폭발·데미지 차단 |
+| **DeathExplosion 리팩** | `PlaySealedDeath` / `PlayExplosionSequence` 분리 (동작 동일) |
+
+#### 미완 / 보류
+- `EnemyBaseDamage.TryReachBase()` 호출 연동 (기지 트리거 — Shin 쪽)
+- Boss `OnBossDead` / `RemoveAuraBuff()` WaveManager 연동
+- 첫 공격 즉시 (`attackTimer` 초기값) — 선택적 밸런스 조정
+
+---
+
 ### 2026-06-02 (오전) — Member_Yoon : 적 코드 리팩 + InsulatorRat 연동
 
 | 항목 | 내용 |
@@ -19,11 +35,6 @@
 - 오라·폭발·보스 투사체 → `EnemyCombatUtility` 사용
 - SO 캐스팅 → `CastData<T>()` 통일 (FlameSlime / ThunderLizard / Boss 전 티어)
 - T3·Thunder T2/T3 원거리 공격 → `BeginRangedAttack` / `ClearRangedAttack` 패턴
-
-#### 미완 / 보류
-- `EnemyBaseDamage.TryReachBase()` 호출 연동 (기지 트리거 — Shin 쪽)
-- Boss `OnBossDead` / `RemoveAuraBuff()` WaveManager 연동
-- 첫 공격 즉시 (`attackTimer` 초기값) — 선택적 밸런스 조정
 
 ---
 

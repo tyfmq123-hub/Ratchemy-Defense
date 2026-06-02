@@ -245,7 +245,7 @@ GameObject:
   m_Component:
   - component: {fileID: 95859177}
   m_Layer: 0
-  m_Name: PlayerSpawnPoint
+  m_Name: PlayerSpawnPoint-1
   m_TagString: Untagged
   m_Icon: {fileID: 3306451490063965843, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -260,7 +260,7 @@ Transform:
   m_GameObject: {fileID: 95859176}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -8, y: -0.5, z: 0}
+  m_LocalPosition: {x: -8, y: -0.4, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -506,21 +506,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a45c005c3b9fdfc439512d59cf9463ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WaveManager
-  environmentGaugeUI: {fileID: 341420293}
-  waveUI: {fileID: 1761596563}
-  enemySpawner: {fileID: 1206646919}
-  totalCountdownTime: 10
+  environmentGaugeUI: {fileID: 0}
+  waveUI: {fileID: 0}
+  enemySpawner: {fileID: 0}
+  totalCountdownTime: 20
   secondsPerGaugeStep: 1
-  waveSettings:
-  - enemyPrefabs: []
-    spawnCount: 0
-    spawnInterval: 0
-  - enemyPrefabs: []
-    spawnCount: 0
-    spawnInterval: 0
-  - enemyPrefabs: []
-    spawnCount: 0
-    spawnInterval: 0
+  firstWaveSpawnDelay: 2
+  waveSettings: []
   startAutomatically: 1
 --- !u!1 &341420291
 GameObject:
@@ -572,20 +564,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec08a441ab557874c83168a41019e700, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnvironmentGaugeUI
-  gaugeImage: {fileID: 1074570687}
-  gaugeText: {fileID: 434499979}
-  gaugeSprites:
-  - {fileID: -5225418056515898908, guid: c895420fc21f0304db3f610f10f4f00e, type: 3}
-  - {fileID: 5538377562723194261, guid: 7a00a16cf0aef0e43b5f2c33f6e12dd4, type: 3}
-  - {fileID: -5439691151329644292, guid: a5aac3fb88287e24385070b690b16aee, type: 3}
-  - {fileID: 7587765869588725803, guid: 7b7ae1bad1455a24e935a58fa9f79228, type: 3}
-  - {fileID: -8321759527101447118, guid: a86074d81ee0a6a41a19a4e12868ea2f, type: 3}
-  - {fileID: 4500352915719474723, guid: 2c93a5e7645fb374c91033c36c3ae18a, type: 3}
-  - {fileID: -3533015619502964716, guid: 6b43bfac74a0d6d4cbf2ee373ddf7f20, type: 3}
-  - {fileID: 8543528235128698905, guid: a2727a459b8a5114b852327a48dfba2f, type: 3}
-  - {fileID: -4051084599465368134, guid: 88641565ee21ef8449a10efbbef9e5c0, type: 3}
-  - {fileID: -3046300778959206536, guid: a69c26a1c9172b34bad645485dd37737, type: 3}
-  - {fileID: -4400867074718937859, guid: 238551d9600d74b4dab74575cd1bf865, type: 3}
+  gaugeImage: {fileID: 0}
+  gaugeText: {fileID: 0}
+  gaugeSprites: []
 --- !u!1 &344948688
 GameObject:
   m_ObjectHideFlags: 0
@@ -626,6 +607,37 @@ RectTransform:
   m_AnchoredPosition: {x: -850, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &408642074
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 408642075}
+  m_Layer: 0
+  m_Name: PlayerSpawnPoint-2
+  m_TagString: Untagged
+  m_Icon: {fileID: 3306451490063965843, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &408642075
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 408642074}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -8, y: -0.6, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1520141316}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &434499977
 GameObject:
   m_ObjectHideFlags: 0
@@ -790,15 +802,15 @@ RectTransform:
   m_GameObject: {fileID: 443322637}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 5, y: 5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 486416227}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: 39, y: 16}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &443322639
 MonoBehaviour:
@@ -820,7 +832,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 3590649358251884346, guid: 72c896554faebf94f935e840f9692e03, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -847,6 +859,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 486416227}
+  - component: {fileID: 486416228}
   m_Layer: 5
   m_Name: BossHealthUI
   m_TagString: Untagged
@@ -874,9 +887,23 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 750, y: 440}
+  m_AnchoredPosition: {x: 800, y: 440}
   m_SizeDelta: {x: 300, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &486416228
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 486416226}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a67cd6c22cb720847a55d203e91ca513, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BossHealthUI
+  bossHealthFill: {fileID: 1728579482}
+  bossHealthText: {fileID: 975791803}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -1027,10 +1054,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 915ffb7615e9673489aa8331f3b06e72, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BattleCameraController
-  backgroundRenderer: {fileID: 2142022063}
+  backgroundRenderer: {fileID: 0}
   fixedY: 0
   fixedZ: -10
-  cameraSize: 4
+  cameraSize: 3.5
 --- !u!1 &579234744
 GameObject:
   m_ObjectHideFlags: 0
@@ -1070,6 +1097,37 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &636348528
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 636348529}
+  m_Layer: 0
+  m_Name: EnemySpawnPoint-2
+  m_TagString: Untagged
+  m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &636348529
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 636348528}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 8, y: -0.6, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1520141316}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &677857623
 GameObject:
   m_ObjectHideFlags: 0
@@ -1079,7 +1137,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 677857624}
-  - component: {fileID: 677857625}
   m_Layer: 5
   m_Name: BaseHealthUI
   m_TagString: Untagged
@@ -1109,25 +1166,6 @@ RectTransform:
   m_AnchoredPosition: {x: -830, y: 440}
   m_SizeDelta: {x: 300, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &677857625
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 677857623}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d00abf9199350924eb7113a5b4cf4f74, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::BaseHealthUI
-  baseHealthFill: {fileID: 1249919001}
-  baseHealthText: {fileID: 1830010604}
-  maxTemperature: 100
-  previewTemperature: 0
-  normalColor: {r: 0, g: 1, b: 1, a: 1}
-  warningColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
-  dangerColor: {r: 1, g: 0, b: 0, a: 1}
 --- !u!1 &813358365
 GameObject:
   m_ObjectHideFlags: 0
@@ -1490,6 +1528,100 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 889850314}
   m_CullTransparentMesh: 1
+--- !u!1 &955566136
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 955566139}
+  - component: {fileID: 955566138}
+  - component: {fileID: 955566137}
+  m_Layer: 0
+  m_Name: BaseTrigger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &955566137
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 955566136}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99a3c165db3bce541ac4497952596837, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BaseHealth
+  currentTemperature: 0
+  thermalRunawayTemperature: 130
+  baseHealthUI: {fileID: 0}
+--- !u!61 &955566138
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 955566136}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 1, y: 3}
+  m_EdgeRadius: 0
+--- !u!4 &955566139
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 955566136}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -8.6, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &975791801
 GameObject:
   m_ObjectHideFlags: 0
@@ -1524,7 +1656,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 50}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &975791803
@@ -2095,8 +2227,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a77dbf812f39b514d84c83d93e428bef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemySpawner
-  enemySpawnPoints:
-  - {fileID: 2039290257}
+  enemySpawnPoints: []
 --- !u!1 &1249918999
 GameObject:
   m_ObjectHideFlags: 0
@@ -2159,7 +2290,7 @@ MonoBehaviour:
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 0
-  m_FillAmount: 1
+  m_FillAmount: 0
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
@@ -2327,7 +2458,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -110, y: 50}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1276723645
@@ -2719,7 +2850,9 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 95859177}
+  - {fileID: 408642075}
   - {fileID: 2039290257}
+  - {fileID: 636348529}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1593172932
@@ -2806,7 +2939,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1711231252}
-  - component: {fileID: 1711231253}
   m_Layer: 0
   m_Name: Managers
   m_TagString: Untagged
@@ -2833,25 +2965,6 @@ Transform:
   - {fileID: 1206646918}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1711231253
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1711231251}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a45c005c3b9fdfc439512d59cf9463ee, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::WaveManager
-  environmentGaugeUI: {fileID: 0}
-  waveUI: {fileID: 0}
-  enemySpawner: {fileID: 0}
-  totalCountdownTime: 8
-  secondsPerGaugeStep: 1
-  waveSettings: []
-  startAutomatically: 1
 --- !u!1 &1728579480
 GameObject:
   m_ObjectHideFlags: 0
@@ -2879,15 +2992,15 @@ RectTransform:
   m_GameObject: {fileID: 1728579480}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 5, y: 5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 486416227}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: 39, y: 16}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1728579482
 MonoBehaviour:
@@ -2909,7 +3022,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: -2276259661975475453, guid: 72c896554faebf94f935e840f9692e03, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3055,7 +3168,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 276bc34257b23604681ab08c54c7de32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WaveUI
-  waveText: {fileID: 1783960059}
+  waveText: {fileID: 0}
 --- !u!1 &1783960057
 GameObject:
   m_ObjectHideFlags: 0
@@ -3766,7 +3879,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2039290257}
   m_Layer: 0
-  m_Name: EnemySpawnPoint
+  m_Name: EnemySpawnPoint-1
   m_TagString: Untagged
   m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -3781,7 +3894,7 @@ Transform:
   m_GameObject: {fileID: 2039290256}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 8, y: -0.5, z: 0}
+  m_LocalPosition: {x: 8, y: -0.4, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4117,3 +4230,4 @@ SceneRoots:
   - {fileID: 1520141316}
   - {fileID: 1427905826}
   - {fileID: 1711231252}
+  - {fileID: 955566139}

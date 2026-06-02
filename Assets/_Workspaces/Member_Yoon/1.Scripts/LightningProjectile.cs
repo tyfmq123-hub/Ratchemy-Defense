@@ -16,13 +16,16 @@ public class LightningProjectile : MonoBehaviour
     private int chainCount;
     private float chainRange;
 
-    private GameObject chainHitEffectPrefab;
     private Color lightningColor  = new Color(1f, 0.95f, 0.3f, 1f);
     private float lightningWidth   = 0.05f;
     private float lightningDuration = 0.15f;
     private float lightningNoise   = 0.2f;
 
     [SerializeField] private float lifetime = 5f;
+
+    [Header("InsulatorRat 대상 번개 데미지")]
+    [Tooltip("InsulatorRat에게 줄 번개 데미지 배율 (0.5 = 50%)")]
+    [SerializeField] private float insulatorRatLightningMultiplier = 0.5f;
 
     public void Initialize(Vector3 dir, float spd, int dmg, int chain, float range, Collider2D ownerCollider = null,
         ThunderLizardTier3Data effectData = null)
@@ -38,7 +41,6 @@ public class LightningProjectile : MonoBehaviour
 
         if (effectData != null)
         {
-            chainHitEffectPrefab = effectData.chainHitEffectPrefab;
             lightningColor       = effectData.lightningColor;
             lightningWidth       = effectData.lightningWidth;
             lightningDuration    = effectData.lightningDuration;
@@ -55,15 +57,27 @@ public class LightningProjectile : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        PlayerUnitBase player = other.GetComponentInParent<PlayerUnitBase>();
-        if (player == null) return;
+        if (!EnemyCombatUtility.TryGetPlayer(other, out PlayerUnitBase player)) return;
 
-        player.TakeDamage(damage);
+        ApplyDamage(player, damage);
 
-        if (chainCount > 0)
+        // InsulatorRat은 절연 → 체인 라이트닝 연쇄 차단
+        if (chainCount > 0 && player is not InsulatorRat)
             ChainLightning(player);
 
         Destroy(gameObject);
+    }
+
+    private void ApplyDamage(PlayerUnitBase player, int amount)
+    {
+        player.TakeDamage(ApplyInsulatorReduction(player, amount));
+    }
+
+    private int ApplyInsulatorReduction(PlayerUnitBase player, int amount)
+    {
+        if (player is InsulatorRat)
+            return Mathf.RoundToInt(amount * insulatorRatLightningMultiplier);
+        return amount;
     }
 
     private void ChainLightning(PlayerUnitBase firstHit)
@@ -82,26 +96,22 @@ public class LightningProjectile : MonoBehaviour
         {
             if (chains >= chainCount) break;
 
-            PlayerUnitBase target = col.GetComponentInParent<PlayerUnitBase>();
-            if (target == null) continue;
+            if (!EnemyCombatUtility.TryGetPlayer(col, out PlayerUnitBase target)) continue;
             if (alreadyHit.Contains(target)) continue;
 
             Vector3 prevPos = alreadyHit[alreadyHit.Count - 1].transform.position;
             Vector3 targetPos = target.transform.position;
 
             SpawnLightningLine(prevPos, targetPos);
-            SpawnHitEffect(targetPos);
 
-            target.TakeDamage(damage);
+            ApplyDamage(target, damage);
             alreadyHit.Add(target);
             chains++;
-        }
-    }
 
-    private void SpawnHitEffect(Vector3 position)
-    {
-        if (chainHitEffectPrefab == null) return;
-        Instantiate(chainHitEffectPrefab, position, Quaternion.identity);
+            // InsulatorRat에 체인이 닿으면 더 이상 연쇄하지 않음
+            if (target is InsulatorRat)
+                break;
+        }
     }
 
     private void SpawnLightningLine(Vector3 from, Vector3 to)

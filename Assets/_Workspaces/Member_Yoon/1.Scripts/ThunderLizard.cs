@@ -8,7 +8,6 @@ public class ThunderLizard : EnemyUnit
 {
     protected ThunderLizardData thunderData;
     protected Animator animator;
-    protected bool isDying = false;
 
     [SerializeField] protected float dieAnimDuration = 0.5f;
 
@@ -16,9 +15,7 @@ public class ThunderLizard : EnemyUnit
     {
         base.Start();
 
-        thunderData = enemyUnitData as ThunderLizardData;
-        if (thunderData == null)
-            Debug.LogError($"[ThunderLizard] enemyUnitData에 ThunderLizardData를 연결해주세요. ({gameObject.name})");
+        thunderData = CastData<ThunderLizardData>("ThunderLizardData");
 
         animator = GetComponent<Animator>();
         if (animator == null)
@@ -40,8 +37,7 @@ public class ThunderLizard : EnemyUnit
 
     protected override void OnDie()
     {
-        if (isDying) return;
-        isDying = true;
+        if (!BeginDeath()) return;
 
         if (animator != null)
             StartCoroutine(DieRoutine());
@@ -51,9 +47,6 @@ public class ThunderLizard : EnemyUnit
 
     private IEnumerator DieRoutine()
     {
-        moveSpeed = 0f;
-        attackSpeed = 0f;
-
         animator.SetBool("IsWalking", false);
         animator.SetTrigger("Die");
 

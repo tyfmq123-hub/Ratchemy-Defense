@@ -8,32 +8,23 @@ using UnityEngine;
 public class FlameSlimeTier3 : FlameSlimeTier2
 {
     private FlameSlimeTier3Data flameData3;
-    private Collider2D pendingTarget;
 
     protected override void Start()
     {
         base.Start();
 
-        flameData3 = enemyUnitData as FlameSlimeTier3Data;
-        if (flameData3 == null)
-            Debug.LogError($"[FlameSlimeTier3] enemyUnitData에 FlameSlimeTier3Data를 연결해주세요. ({gameObject.name})");
-    }
-
-    protected override void Update()
-    {
-        if (isDying) return;
-        base.Update();
+        flameData3 = CastData<FlameSlimeTier3Data>("FlameSlimeTier3Data");
     }
 
     protected override void Attack(Collider2D target)
     {
-        if (flameData3.projectilePrefab == null)
+        if (flameData3 == null || flameData3.projectilePrefab == null)
         {
             Debug.LogWarning("[FlameSlimeTier3] projectilePrefab이 FlameSlimeTier3Data에 연결되지 않았습니다.");
             return;
         }
 
-        pendingTarget = target;
+        BeginRangedAttack(target);
         animator?.SetBool("IsWalking", false);
         animator?.SetTrigger("Attack");
     }
@@ -42,7 +33,11 @@ public class FlameSlimeTier3 : FlameSlimeTier2
     // Animation 창 → Add Event → Function: FireProjectile
     public void FireProjectile()
     {
-        if (pendingTarget == null || isDying) return;
+        if (!CanFireRangedAttack())
+        {
+            ClearRangedAttack();
+            return;
+        }
 
         Vector3 dir = (pendingTarget.transform.position - transform.position).normalized;
         GameObject proj = Instantiate(flameData3.projectilePrefab, transform.position, Quaternion.identity);
@@ -51,16 +46,13 @@ public class FlameSlimeTier3 : FlameSlimeTier2
         if (projectile != null)
             projectile.Initialize(dir, flameData3.projectileSpeed, damage);
 
-        pendingTarget = null;
+        ClearRangedAttack();
     }
 
     protected override void OnDie()
     {
-        if (isDying) return;
-        isDying = true;
+        if (!BeginDeath()) return;
 
-        moveSpeed = 0f;
-        attackSpeed = 0f;
         animator?.SetBool("IsWalking", false);
 
         // 타겟 불가 처리 - 플레이어 유닛의 감지에서 제외
@@ -117,13 +109,7 @@ public class FlameSlimeTier3 : FlameSlimeTier2
             yield return new WaitForSeconds(flameData3.explosionAnimDuration);
 
             Vector2 explosionCenter = (Vector2)transform.position + flameData3.explosionOffset;
-            Collider2D[] targets = Physics2D.OverlapCircleAll(explosionCenter, flameData3.explosionRadius, targetLayer);
-            foreach (Collider2D col in targets)
-            {
-                PlayerUnitBase player = col.GetComponentInParent<PlayerUnitBase>();
-                if (player != null)
-                    player.TakeDamage(flameData3.explosionDamage);
-            }
+            EnemyCombatUtility.DamagePlayersInRadius(explosionCenter, flameData3.explosionRadius, targetLayer, flameData3.explosionDamage);
         }
         else
         {

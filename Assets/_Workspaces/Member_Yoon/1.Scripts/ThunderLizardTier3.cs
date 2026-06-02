@@ -11,24 +11,29 @@ public class ThunderLizardTier3 : ThunderLizardTier2
     {
         base.Start();
 
-        thunderData3 = enemyUnitData as ThunderLizardTier3Data;
-        if (thunderData3 == null)
-            Debug.LogError($"[ThunderLizardTier3] enemyUnitData에 ThunderLizardTier3Data를 연결해주세요. ({gameObject.name})");
+        thunderData3 = CastData<ThunderLizardTier3Data>("ThunderLizardTier3Data");
     }
 
     // LightningProjectile 오버라이드 - 체인 파라미터를 포함해 투사체 초기화
     public override void LightningProjectile()
     {
-        if (pendingTarget == null) return;
+        if (!CanFireRangedAttack())
+        {
+            ClearRangedAttack();
+            return;
+        }
+
         if (thunderData2 == null || thunderData2.lightningPrefab == null)
         {
             Debug.LogWarning("[ThunderLizardTier3] lightningPrefab이 연결되지 않았습니다.");
+            ClearRangedAttack();
             return;
         }
 
         if (attackPoint == null)
         {
             Debug.LogWarning("[ThunderLizardTier3] AttackPoint가 연결되지 않았습니다.");
+            ClearRangedAttack();
             return;
         }
 
@@ -46,7 +51,7 @@ public class ThunderLizardTier3 : ThunderLizardTier2
                 GetComponent<Collider2D>(), thunderData3);
         }
 
-        pendingTarget = null;
+        ClearRangedAttack();
     }
 
     private void OnDrawGizmosSelected()

@@ -10,9 +10,7 @@ public class ThunderLizardTier3Data : ThunderLizardTier2Data
     [Tooltip("체인이 튀는 탐색 반경")]
     public float chainRange = 3f;
 
-    [Header("체인 이펙트 (3단계)")]
-    [Tooltip("체인 히트 지점에 스폰할 이펙트 프리팹 (파티클 등), 없으면 스킵")]
-    public GameObject chainHitEffectPrefab;
+    [Header("체인 라이트닝 선 (3단계)")]
     [Tooltip("번개 선 색상")]
     public Color lightningColor = new Color(1f, 0.95f, 0.3f, 1f);
     [Tooltip("번개 선 굵기")]

@@ -23,7 +23,6 @@ MonoBehaviour:
   fireOffset: {x: 0, y: 10}
   chainCount: 3
   chainRange: 3
-  chainHitEffectPrefab: {fileID: 0}
   lightningColor: {r: 0.9811321, g: 0.94944406, b: 0.5322179, a: 0.7607843}
   lightningWidth: 0.1
   lightningDuration: 0.15

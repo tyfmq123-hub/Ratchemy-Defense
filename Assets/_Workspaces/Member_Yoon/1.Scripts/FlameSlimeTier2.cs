@@ -28,9 +28,7 @@ public class FlameSlimeTier2 : FlameSlime
     {
         base.Start();
 
-        flameData2 = enemyUnitData as FlameSlimeTier2Data;
-        if (flameData2 == null)
-            Debug.LogError($"[FlameSlimeTier2] enemyUnitData에 FlameSlimeTier2Data를 연결해주세요. ({gameObject.name})");
+        flameData2 = CastData<FlameSlimeTier2Data>("FlameSlimeTier2Data");
 
         runtimeAuraRadius = flameData2 != null ? flameData2.auraRadius : 0f;
 
@@ -92,11 +90,11 @@ public class FlameSlimeTier2 : FlameSlime
 
     private IEnumerator AuraLoop()
     {
-        while (!IsDead())
+        while (!IsDead() && !isDying)
         {
             yield return new WaitForSeconds(flameData2.auraInterval);
 
-            if (!IsDead())
+            if (!IsDead() && !isDying)
                 DealAuraDamage();
         }
     }
@@ -111,13 +109,7 @@ public class FlameSlimeTier2 : FlameSlime
             StartCoroutine(PulseRangeCircle());
 #endif
 
-        Collider2D[] targets = Physics2D.OverlapCircleAll(transform.position, runtimeAuraRadius, targetLayer);
-        foreach (Collider2D col in targets)
-        {
-            PlayerUnitBase player = col.GetComponentInParent<PlayerUnitBase>();
-            if (player != null)
-                player.TakeDamage(flameData2.auraDamage);
-        }
+        EnemyCombatUtility.DamagePlayersInRadius(transform.position, runtimeAuraRadius, targetLayer, flameData2.auraDamage);
     }
 
 #if UNITY_EDITOR || DEVELOPMENT_BUILD

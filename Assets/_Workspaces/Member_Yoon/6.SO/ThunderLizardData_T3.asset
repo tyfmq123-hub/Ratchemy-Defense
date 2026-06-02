@@ -23,7 +23,7 @@ MonoBehaviour:
   fireOffset: {x: 0, y: 10}
   chainCount: 3
   chainRange: 3
-  lightningColor: {r: 0.9811321, g: 0.94944406, b: 0.5322179, a: 0.7607843}
+  lightningColor: {r: 0.40792987, g: 0.86485016, b: 0.9716981, a: 0.7019608}
   lightningWidth: 0.1
   lightningDuration: 0.15
   lightningNoise: 0.2

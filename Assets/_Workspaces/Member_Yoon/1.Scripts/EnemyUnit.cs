@@ -78,6 +78,7 @@ public class EnemyUnit : MonoBehaviour
 
         currentHp -= amount;
         currentHp = Mathf.Clamp(currentHp, 0, maxHp);
+        OnHealthChanged();
         if (IsDead())
             OnDie();
     }
@@ -86,7 +87,11 @@ public class EnemyUnit : MonoBehaviour
     {
         currentHp += amount;
         currentHp = Mathf.Clamp(currentHp, 0, maxHp);
+        OnHealthChanged();
     }
+
+    // 체력이 변경될 때 호출됩니다. 하위 클래스에서 오버라이드하여 UI 등을 갱신하세요.
+    protected virtual void OnHealthChanged() { }
 
     protected virtual void OnDie()
     {

@@ -3,7 +3,8 @@ using UnityEngine;
 public class BaseHealth : MonoBehaviour
 {
     [Header("배터리 온도 설정")]
-    public float currentTemperature = 25f;          // 게임 시작 시 배터리 온도입니다.
+    [Range(0f, 130f)]
+    public float currentTemperature = 0f;         // 게임 시작 시 배터리 온도입니다.
     public float thermalRunawayTemperature = 130f;  // 이 온도에 도달하면 열폭주 상태가 됩니다.
 
     [Header("연결할 UI")]

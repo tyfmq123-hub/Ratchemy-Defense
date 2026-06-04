@@ -52,7 +52,7 @@ public static class EnemyCombatUtility
         Collider2D[] hits = Physics2D.OverlapCircleAll(center, radius, layer);
         foreach (Collider2D col in hits)
         {
-            if (TryGetPlayer(col, out PlayerUnitBase player))
+            if (TryGetPlayer(col, out PlayerUnitBase player) && player.CurrentHp > 0)
                 player.TakeDamage(damage);
         }
     }

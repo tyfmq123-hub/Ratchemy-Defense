@@ -5,6 +5,11 @@ using UnityEngine;
 // Collider2D (IsTrigger) 불필요 - 착탄 판정은 Physics2D.OverlapCircleAll 사용
 public class BossProjectile : MonoBehaviour
 {
+    [SerializeField] private AudioClip flySound;
+    [SerializeField] private AudioClip explosionSound;
+
+    private AudioSource audioSource;
+
     private int damage;
     private float explosionRadius;
     private LayerMask targetLayer;
@@ -30,6 +35,15 @@ public class BossProjectile : MonoBehaviour
         onLanded              = landedCallback;
 
         StartCoroutine(FlyRoutine(startPos, targetPos, arcHeight, travelTime));
+
+        if (flySound != null)
+        {
+            audioSource = gameObject.AddComponent<AudioSource>();
+            audioSource.clip = flySound;
+            audioSource.spatialBlend = 0f;
+            audioSource.loop = true;
+            audioSource.Play();
+        }
     }
 
     private IEnumerator FlyRoutine(Vector2 start, Vector2 end, float arcHeight, float travelTime)
@@ -75,6 +89,15 @@ public class BossProjectile : MonoBehaviour
             GameObject effect = Instantiate(explosionEffectPrefab,
                                             new Vector3(center.x, center.y, transform.position.z),
                                             Quaternion.identity);
+
+            // 폭발 사운드를 이펙트 오브젝트에 붙여서 이펙트 Destroy 시 같이 소멸
+            if (explosionSound != null)
+            {
+                AudioSource effectAudio = effect.AddComponent<AudioSource>();
+                effectAudio.clip = explosionSound;
+                effectAudio.spatialBlend = 0f;
+                effectAudio.Play();
+            }
 
             // 1순위: ParticleSystem → 재생 완료 후 자동 제거
             ParticleSystem ps = effect.GetComponent<ParticleSystem>();

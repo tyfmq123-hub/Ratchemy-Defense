@@ -14,6 +14,11 @@ public class FlameSlime : EnemyUnit
     protected FlameSlimeData flameData;
     protected Animator animator;
 
+    [SerializeField] private AudioClip attackSound;
+    [SerializeField] private AudioClip dieSound;
+    [SerializeField] private AudioClip hitSound;
+    protected AudioSource audioSource;
+
     protected bool isSkillDisabled = false;
 
     public void ApplyDebuff(FlameSlimeDebuff debuff)
@@ -47,6 +52,8 @@ public class FlameSlime : EnemyUnit
         animator = GetComponent<Animator>();
         if (animator == null)
             Debug.LogWarning($"[FlameSlime] Animator 컴포넌트가 없습니다. ({gameObject.name})");
+
+        audioSource = GetComponent<AudioSource>();
     }
 
     protected override void MoveLeft()
@@ -72,10 +79,25 @@ public class FlameSlime : EnemyUnit
             base.OnDie();
     }
 
+    public void PlayAttackSound()
+    {
+        if (isDying) return;
+        if (audioSource != null && attackSound != null)
+            audioSource.PlayOneShot(attackSound);
+    }
+
+    protected override void OnHealthChanged()
+    {
+        base.OnHealthChanged();
+        if (!IsDead())
+            audioSource?.PlayOneShot(hitSound);
+    }
+
     private IEnumerator DieRoutine()
     {
         animator.SetBool("IsWalking", false);
         animator.SetTrigger("Die");
+        audioSource?.PlayOneShot(dieSound);
 
         // Inspector의 dieAnimDuration 값만큼 대기 후 제거
         yield return new WaitForSeconds(dieAnimDuration);

@@ -23,6 +23,10 @@ public class LightningProjectile : MonoBehaviour
 
     [SerializeField] private float lifetime = 5f;
 
+    [SerializeField] private AudioClip flySound;
+    [SerializeField] private float flySoundVolume = 1.0f;
+    private AudioSource audioSource;
+
     [Header("InsulatorRat 대상 번개 데미지")]
     [Tooltip("InsulatorRat에게 줄 번개 데미지 배율 (0.5 = 50%)")]
     [SerializeField] private float insulatorRatLightningMultiplier = 0.5f;
@@ -48,6 +52,15 @@ public class LightningProjectile : MonoBehaviour
         }
 
         Destroy(gameObject, lifetime);
+    }
+
+    private void Start()
+    {
+        if (flySound != null)
+        {
+            Vector3 listenerPos = Camera.main != null ? Camera.main.transform.position : transform.position;
+            AudioSource.PlayClipAtPoint(flySound, listenerPos, flySoundVolume);
+        }
     }
 
     private void Update()

@@ -123,6 +123,7 @@ public class EnemyUnit : MonoBehaviour
     {
         pendingTarget = null;
         isAttacking = false;
+        attackTimer = 0f;
     }
 
     protected bool CanFireRangedAttack()

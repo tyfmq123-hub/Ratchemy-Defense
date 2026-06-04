@@ -41,6 +41,12 @@ public class ThunderLizardTier2 : ThunderLizard
             return;
         }
 
+        if (!pendingTarget.gameObject.activeInHierarchy)
+        {
+            ClearRangedAttack();
+            return;
+        }
+
         if (attackPoint == null)
         {
             Debug.LogWarning("[ThunderLizardTier2] AttackPoint가 연결되지 않았습니다.");
@@ -51,6 +57,7 @@ public class ThunderLizardTier2 : ThunderLizard
         Vector3 spawnPos  = attackPoint.position;
         Vector3 targetPos = pendingTarget.bounds.center;
         Vector3 dir       = (targetPos - spawnPos).normalized;
+        PlayAttackSound();
         GameObject proj = Instantiate(thunderData2.lightningPrefab, spawnPos, Quaternion.identity);
 
         LightningProjectile projectile = proj.GetComponent<LightningProjectile>();

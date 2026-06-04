@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: FlameSlimeData_T3
   m_EditorClassIdentifier: Assembly-CSharp::FlameSlimeTier3Data
   damage: 10
-  hp: 10
-  maxHp: 10
+  hp: 100
+  maxHp: 100
   attackRange: 5
-  attackSpeed: 1
+  attackSpeed: 2
   moveSpeed: 1
   auraRadius: 1
   auraDamage: 1

@@ -22,6 +22,7 @@ public static class EnemyCombatUtility
         foreach (Collider2D col in hits)
         {
             if (!TryGetPlayer(col, out PlayerUnitBase player)) continue;
+            if (player.CurrentHp <= 0) continue;
 
             float sqrDist = ((Vector2)player.transform.position - center).sqrMagnitude;
             if (!IsCloserTarget(player, sqrDist, closestPlayer, closestSqrDist)) continue;

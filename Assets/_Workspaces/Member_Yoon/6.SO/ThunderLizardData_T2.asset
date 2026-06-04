@@ -13,10 +13,11 @@ MonoBehaviour:
   m_Name: ThunderLizardData_T2
   m_EditorClassIdentifier: Assembly-CSharp::ThunderLizardTier2Data
   damage: 10
-  hp: 10
-  maxHp: 10
+  hp: 100
+  maxHp: 100
   attackRange: 5
   attackSpeed: 1
   moveSpeed: 2
   lightningPrefab: {fileID: 769734323195235563, guid: 7aa18f06de0a9974f8b8fa69f7099a36, type: 3}
   projectileSpeed: 6
+  fireOffset: {x: 0, y: 0}

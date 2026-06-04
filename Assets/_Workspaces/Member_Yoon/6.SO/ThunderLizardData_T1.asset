@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: ThunderLizardData_T1
   m_EditorClassIdentifier: Assembly-CSharp::ThunderLizardData
   damage: 1
-  hp: 10
-  maxHp: 10
+  hp: 100
+  maxHp: 100
   attackRange: 1
   attackSpeed: 1
   moveSpeed: 3

@@ -9,6 +9,8 @@ public class FlameSlimeTier3 : FlameSlimeTier2
 {
     private FlameSlimeTier3Data flameData3;
 
+    [SerializeField] private Transform attackPoint;
+
     protected override void Start()
     {
         base.Start();
@@ -39,8 +41,15 @@ public class FlameSlimeTier3 : FlameSlimeTier2
             return;
         }
 
-        Vector3 dir = (pendingTarget.transform.position - transform.position).normalized;
-        GameObject proj = Instantiate(flameData3.projectilePrefab, transform.position, Quaternion.identity);
+        if (!pendingTarget.gameObject.activeInHierarchy)
+        {
+            ClearRangedAttack();
+            return;
+        }
+
+        Vector3 spawnPos = attackPoint != null ? attackPoint.position : transform.position;
+        Vector3 dir = (pendingTarget.transform.position - spawnPos).normalized;
+        GameObject proj = Instantiate(flameData3.projectilePrefab, spawnPos, Quaternion.identity);
 
         FlameProjectile projectile = proj.GetComponent<FlameProjectile>();
         if (projectile != null)
@@ -78,6 +87,7 @@ public class FlameSlimeTier3 : FlameSlimeTier2
     private IEnumerator PlaySealedDeath()
     {
         animator?.SetTrigger("Die");
+        audioSource?.PlayOneShot(dieSealedSound);
         yield return new WaitForSeconds(dieAnimDuration);
     }
 
@@ -101,6 +111,7 @@ public class FlameSlimeTier3 : FlameSlimeTier2
 
         // PreExplode 트리거 → Fuming 애니메이션 재생 + explosionDelay 동안 깜박임
         animator?.SetTrigger("PreExplode");
+        audioSource?.PlayOneShot(explosionChargeSound);
 
         SpriteRenderer sr = GetComponentInChildren<SpriteRenderer>();
         float elapsed = 0f;
@@ -118,6 +129,7 @@ public class FlameSlimeTier3 : FlameSlimeTier2
 
         animator?.ResetTrigger("Die");
         animator?.SetTrigger("Explode");
+        audioSource?.PlayOneShot(explosionBangSound);
 
         // Explode 애니메이션 재생 후 데미지
         yield return new WaitForSeconds(flameData3.explosionAnimDuration);
@@ -125,6 +137,10 @@ public class FlameSlimeTier3 : FlameSlimeTier2
         Vector2 explosionCenter = (Vector2)transform.position + flameData3.explosionOffset;
         EnemyCombatUtility.DamagePlayersInRadius(explosionCenter, flameData3.explosionRadius, targetLayer, flameData3.explosionDamage);
     }
+
+    [SerializeField] private AudioClip dieSealedSound;
+    [SerializeField] private AudioClip explosionChargeSound;
+    [SerializeField] private AudioClip explosionBangSound;
 
     [SerializeField] private float blinkInterval = 0.1f;
 

@@ -23,6 +23,12 @@ public class ThunderLizardTier3 : ThunderLizardTier2
             return;
         }
 
+        if (!pendingTarget.gameObject.activeInHierarchy)
+        {
+            ClearRangedAttack();
+            return;
+        }
+
         if (thunderData2 == null || thunderData2.lightningPrefab == null)
         {
             Debug.LogWarning("[ThunderLizardTier3] lightningPrefab이 연결되지 않았습니다.");
@@ -40,6 +46,7 @@ public class ThunderLizardTier3 : ThunderLizardTier2
         Vector3 spawnPos  = attackPoint.position;
         Vector3 targetPos = pendingTarget.bounds.center;
         Vector3 dir       = (targetPos - spawnPos).normalized;
+        PlayAttackSound();
         GameObject proj = Instantiate(thunderData2.lightningPrefab, spawnPos, Quaternion.identity);
 
         LightningProjectile projectile = proj.GetComponent<LightningProjectile>();

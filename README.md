@@ -5,13 +5,47 @@
 
 ## 작업 로그
 
-### 2026-06-02 (야간) — Member_Yoon : BossHealthUI 연동
+### 2026-06-04 (오전~) — Member_Yoon : 사운드 시스템 추가 + 버그 수정
+
+| 항목 | 내용 |
+|---|---|
+| **FlameSlime (T1~T3 공통)** | `attackSound` / `dieSound` / `hitSound` 필드 추가, `audioSource` (`protected`) 초기화 |
+| **FlameSlime** | `PlayAttackSound()` — Animation Event 연동, `isDying` 시 재생 차단 |
+| **FlameSlime** | `OnHealthChanged()` 오버라이드 — 피격 사운드 (T1~T3 공통, 사망 시 제외) |
+| **FlameSlime** | `DieRoutine()` — 사망 사운드 추가 (T1·T2 공통) |
+| **FlameSlimeTier3** | `dieSealedSound` / `explosionChargeSound` / `explosionBangSound` 필드 추가 |
+| **FlameSlimeTier3** | `PlaySealedDeath()` — 봉인 사망 사운드, `PlayExplosionSequence()` — 예고·폭발 사운드 |
+| **FlameSlimeTier3** | `attackPoint` 필드 추가 — 투사체 발사 위치를 AttackPoint 기준으로 변경 |
+| **ThunderLizard (T1~T3 공통)** | FlameSlime과 동일 구조로 사운드 시스템 추가 |
+| **ThunderLizardTier2/3** | `LightningProjectile()` — 투사체 발사 직전 `PlayAttackSound()` 호출 |
+| **LightningProjectile** | `flySound` 필드 추가, `Start()`에서 생성 시 1회 재생 (`PlayClipAtPoint` — 카메라 위치 기준) |
+| **LightningProjectile** | `flySoundVolume` SerializeField 추가 |
+
+#### 버그 수정
+
+| 항목 | 내용 |
+|---|---|
+| **EnemyCombatUtility** | `TryFindClosestPlayer()` — HP 0 이하 플레이어 타겟 제외 (죽은 유닛 재공격 방지) |
+| **EnemyUnit** | `ClearRangedAttack()` — `attackTimer = 0f` 추가 (투사체 발사 후 즉시 재공격 방지) |
+| **ThunderLizardTier2/3** | `LightningProjectile()` — `activeInHierarchy` 체크 추가 (비활성 타겟 발사 차단) |
+| **FlameSlimeTier3** | `FireProjectile()` — `activeInHierarchy` 체크 추가 |
+
+#### 미완 / 보류
+- T3 ThunderLizard 공격 시 잠깐 사라지는 현상 — Animator Controller Attack 클립 확인 필요
+- Inspector에서 각 프리팹에 `AudioSource` 컴포넌트 및 사운드 슬롯 연결 필요
+
+---
+
+### 2026-06-02 (오후) — Member_Yoon : BossHealthUI 연동 + BossProjectile 화염 이펙트
 
 | 항목 | 내용 |
 |---|---|
 | **EnemyUnit** | `OnHealthChanged()` 가상 메서드 추가 — `TakeDamage` / `Heal` 호출 시 자동 실행 |
 | **BossBase** | `BossHealthUI` 필드 추가, `OnHealthChanged()` 오버라이드 → 체력 변화 시 UI 자동 갱신 |
 | **초기화** | `Start()`에서 `bossHealthUI?.SetHealth(currentHp, maxHp)` 호출 — 씬 로드 시 UI 즉시 반영 |
+| **BossProjectile** | 프리팹·애니메이터 컨트롤러 업데이트 |
+| **화염 이펙트** | `fire.png` 스프라이트 + `BossFireProjectile.anim` 추가 |
+| **BossData SO** | BossData 에셋 업데이트 |
 
 #### 미완 / 보류
 - Inspector에서 보스 프리팹에 `BossHealthUI` 슬롯 연결 필요 (Shin 쪽 UI 오브젝트)

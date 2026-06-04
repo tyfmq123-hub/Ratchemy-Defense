@@ -3,9 +3,9 @@ using UnityEngine.UI;
 using TMPro;
 
 // 유닛 소환 버튼 UI 1개 (총 5개를 씬에 두고 cardIndex만 0~4로 다르게 설정)
-// - 카드 정보·프리팹: UnitCardData.cards[cardIndex]
+// - 카드 정보·프리팹·코스트: UnitCardData.cards[cardIndex]
 // - 소환 위치 A/B 교대: UnitCardSpawner (씬에 1개)
-// - 코스트 차감: CostManager (씬에 1개)
+// - 코스트 차감: CostManager (팀원 스크립트 추가 후 연동)
 public class UnitCard : MonoBehaviour
 {
     [Header("데이터")]
@@ -14,6 +14,10 @@ public class UnitCard : MonoBehaviour
 
     [Header("소환")]
     [SerializeField] private UnitCardSpawner cardSpawner; // 비우면 씬에서 자동 검색
+
+    // TODO: CostManager 연동 후 해제
+    // [Header("코스트")]
+    // [SerializeField] private CostManager costManager;
 
     [Header("UI")]
     [SerializeField] private Image iconImage;
@@ -24,6 +28,9 @@ public class UnitCard : MonoBehaviour
     {
         if (cardSpawner == null)
             cardSpawner = FindAnyObjectByType<UnitCardSpawner>();
+
+        // if (costManager == null)
+        //     costManager = FindAnyObjectByType<CostManager>();
     }
 
     private void Start()
@@ -36,7 +43,7 @@ public class UnitCard : MonoBehaviour
             iconImage.sprite = entry.cardImage;
 
         if (costText != null)
-            costText.text = entry.cost.ToString();
+            costText.text = GetRequiredCost().ToString();
 
         if (button != null)
             button.onClick.AddListener(UseCard);
@@ -61,6 +68,13 @@ public class UnitCard : MonoBehaviour
         return cardDatabase.cards[cardIndex];
     }
 
+    // UnitCardData에 설정한 이 카드의 사용 코스트
+    private int GetRequiredCost()
+    {
+        UnitCardEntry entry = GetEntry();
+        return entry != null ? entry.cost : 0;
+    }
+
     private void UseCard()
     {
         UnitCardEntry entry = GetEntry();
@@ -79,14 +93,16 @@ public class UnitCard : MonoBehaviour
             return;
         }
 
-        // TODO: CostManager 연동 후 해제
-        // if (CostManager.Instance == null)
+        int requiredCost = GetRequiredCost();
+
+        // TODO: CostManager 연동 후 해제 — requiredCost는 UnitCardData.cards[cardIndex].cost
+        // if (costManager == null)
         // {
-        //     Debug.LogWarning($"[UnitCard] {name}: CostManager가 씬에 없습니다. CostManager 오브젝트를 추가하세요.");
+        //     Debug.LogWarning($"[UnitCard] {name}: CostManager를 찾을 수 없습니다.");
         //     return;
         // }
         //
-        // if (!CostManager.Instance.UseCost(entry.cost))
+        // if (!costManager.TrySpendCost(requiredCost))
         //     return;
 
         cardSpawner.SpawnUnit(entry.unitPrefab);

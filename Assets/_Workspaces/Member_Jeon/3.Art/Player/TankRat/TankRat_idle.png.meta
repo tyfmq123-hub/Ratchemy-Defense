@@ -1,10 +1,22 @@
 fileFormatVersion: 2
-guid: 0cd4a5681435079418ff5eee32ee67ac
+guid: 29205c94640dc1f459f7e6cd56b49ca0
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -2940707935045235692
-    second: TankRat_attack (2)_0
+      213: 2915821339846261064
+    second: TankRat_idle_0
+  - first:
+      213: -3460967111241492329
+    second: TankRat_idle_1
+  - first:
+      213: -5616901696899906837
+    second: TankRat_idle_2
+  - first:
+      213: -3632106951172709528
+    second: TankRat_idle_3
+  - first:
+      213: 4808571730055300305
+    second: TankRat_idle_4
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -51,7 +63,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 150
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -113,133 +125,111 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: TankRat_attack (2)_0
+      name: TankRat_idle_0
       rect:
         serializedVersion: 2
-        x: 17
-        y: 303
-        width: 280
-        height: 314
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 43
+        y: 239
+        width: 302
+        height: 402
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 41cc47fa6b18037d0800000000000000
-      internalID: -2940707935045235692
+      spriteID: 8493a065f04177820800000000000000
+      internalID: 2915821339846261064
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TankRat_attack (2)_1
+      name: TankRat_idle_1
       rect:
         serializedVersion: 2
-        x: 308
-        y: 306
-        width: 285
-        height: 313
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 391
+        y: 236
+        width: 293
+        height: 394
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: ffbe5e7b7a17a484ca8b449da9ce3963
-      internalID: 1795631314
+      spriteID: 7981423dfbc28ffc0800000000000000
+      internalID: -3460967111241492329
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TankRat_attack (2)_2
+      name: TankRat_idle_2
       rect:
         serializedVersion: 2
-        x: 600
-        y: 304
-        width: 297
-        height: 313
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 733
+        y: 236
+        width: 293
+        height: 393
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 5b342a1edd3eb07449bf9b6ada31c80a
-      internalID: 630013029
+      spriteID: be20ef19aa1cc02b0800000000000000
+      internalID: -5616901696899906837
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TankRat_attack (2)_3
+      name: TankRat_idle_3
       rect:
         serializedVersion: 2
-        x: 917
-        y: 309
-        width: 278
-        height: 308
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 1077
+        y: 236
+        width: 294
+        height: 392
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 872f83044e2e68b44986e6b1539d3000
-      internalID: -726471347
+      spriteID: 863af1db8f9289dc0800000000000000
+      internalID: -3632106951172709528
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TankRat_attack (2)_4
+      name: TankRat_idle_4
       rect:
         serializedVersion: 2
-        x: 1218
-        y: 301
-        width: 282
-        height: 316
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 1420
+        y: 237
+        width: 296
+        height: 402
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 3b65856b7f819d340a7712fa2ab6a571
-      internalID: 153136354
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: TankRat_attack (2)_5
-      rect:
-        serializedVersion: 2
-        x: 1518
-        y: 301
-        width: 268
-        height: 315
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 8e96ec265a4feff4f800fce09d5fbf60
-      internalID: -989980393
+      spriteID: 1d48ee6f28a7bb240800000000000000
+      internalID: 4808571730055300305
       vertices: []
       indices: 
       edges: []
@@ -248,7 +238,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: f3cac083d2edfcc43ba50e7d7f049ad8
+    spriteID: da8df5fb277a3104fb6cca103249a36e
     internalID: 0
     vertices: []
     indices: 
@@ -258,14 +248,13 @@ TextureImporter:
     spriteCustomMetadata:
       entries:
       - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":6.0,"y":1.0},"gridSpriteSize":{"x":300.0,"y":873.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.0},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":7,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      TankRat_attack (2)_0: -2940707935045235692
-      TankRat_attack (2)_1: 1795631314
-      TankRat_attack (2)_2: 630013029
-      TankRat_attack (2)_3: -726471347
-      TankRat_attack (2)_4: 153136354
-      TankRat_attack (2)_5: -989980393
+      TankRat_idle_0: 2915821339846261064
+      TankRat_idle_1: -3460967111241492329
+      TankRat_idle_2: -5616901696899906837
+      TankRat_idle_3: -3632106951172709528
+      TankRat_idle_4: 4808571730055300305
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

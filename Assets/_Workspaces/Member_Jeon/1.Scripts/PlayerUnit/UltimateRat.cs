@@ -18,6 +18,7 @@ public class UltimateRat : PlayerUnitBase
     [SerializeField] private float skillCooldown = 15f;
     [SerializeField] private int skillHitCount = 2;
     [SerializeField] private float skillHitInterval = 0.2f;
+    [SerializeField] private float skillAnimLength = 0.4f;
 
     protected override void Awake()
     {
@@ -27,7 +28,7 @@ public class UltimateRat : PlayerUnitBase
             animator = GetComponent<Animator>();
 
         enemyLayer = LayerMask.GetMask("Enemy");
-        skillCooldownTimer = skillCooldown;
+        skillCooldownTimer = 0f;
     }
 
     private void Reset()
@@ -48,14 +49,17 @@ public class UltimateRat : PlayerUnitBase
         if (attackCooldown > 0f)
             attackCooldown -= Time.deltaTime;
 
+        if (isCastingSkill)
+            return;
+
         if (skillCooldownTimer > 0f)
             skillCooldownTimer -= Time.deltaTime;
 
-        if (skillCooldownTimer <= 0f && !isCastingSkill && HasAliveEnemy())
-            StartCoroutine(UseMapWideUltimate());
-
-        if (isCastingSkill)
+        if (skillCooldownTimer <= 0f && HasAliveEnemy())
+        {
+            BeginUltimateCast();
             return;
+        }
 
         EnemyUnit enemy = FindNearestEnemyInRange(attackRange, enemyLayer);
 
@@ -92,10 +96,18 @@ public class UltimateRat : PlayerUnitBase
         attackCooldown = GetAttackCooldownDuration();
     }
 
+    private void BeginUltimateCast()
+    {
+        if (isCastingSkill)
+            return;
+
+        isCastingSkill = true;
+        skillCooldownTimer = Mathf.Max(skillCooldown, 0.01f);
+        StartCoroutine(UseMapWideUltimate());
+    }
+
     private IEnumerator UseMapWideUltimate()
     {
-        isCastingSkill = true;
-        skillCooldownTimer = skillCooldown;
         FireSkillTrigger();
 
         int hitCount = Mathf.Max(skillHitCount, 1);
@@ -105,29 +117,43 @@ public class UltimateRat : PlayerUnitBase
         {
             if (IsDead)
             {
-                isCastingSkill = false;
+                EndUltimateCast();
                 yield break;
             }
 
-            EnemyUnit[] enemies = FindObjectsByType<EnemyUnit>(FindObjectsSortMode.None);
-            int damagedCount = 0;
-
-            foreach (EnemyUnit enemy in enemies)
-            {
-                if (enemy == null || enemy.IsDead())
-                    continue;
-
-                enemy.TakeDamage(attackPower);
-                damagedCount++;
-            }
-
-            Debug.Log($"[UltimateRat] 궁극 스킬 {hit + 1}/{hitCount}타 → {damagedCount}명, 데미지 {attackPower}");
+            ApplyMapWideSkillDamage(hit + 1, hitCount);
 
             if (hit < hitCount - 1 && interval > 0f)
                 yield return new WaitForSeconds(interval);
         }
 
+        yield return new WaitForSeconds(Mathf.Max(skillAnimLength, 0.01f));
+        EndUltimateCast();
+    }
+
+    private void ApplyMapWideSkillDamage(int hitIndex, int hitCount)
+    {
+        EnemyUnit[] enemies = FindObjectsByType<EnemyUnit>(FindObjectsSortMode.None);
+        int damagedCount = 0;
+
+        foreach (EnemyUnit enemy in enemies)
+        {
+            if (enemy == null || enemy.IsDead())
+                continue;
+
+            enemy.TakeDamage(attackPower);
+            damagedCount++;
+        }
+
+        Debug.Log($"[UltimateRat] 궁극 스킬 {hitIndex}/{hitCount}타 → {damagedCount}명, 데미지 {attackPower}");
+    }
+
+    private void EndUltimateCast()
+    {
         isCastingSkill = false;
+
+        if (animator != null && !string.IsNullOrEmpty(skillTriggerName))
+            animator.ResetTrigger(skillTriggerName);
     }
 
     private void FireAttackTrigger()

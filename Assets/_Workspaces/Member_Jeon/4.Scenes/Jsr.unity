@@ -4206,68 +4206,15 @@ PrefabInstance:
       propertyPath: m_Name
       value: SafetyManagerRat
       objectReference: {fileID: 0}
+    - target: {fileID: 7773122983272278574, guid: 16dcef68047fb224b98588bb0c5702b9, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 16dcef68047fb224b98588bb0c5702b9, type: 3}
---- !u!1001 &952083418002083181
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 1913217008735987823, guid: b59c03b8f4607f148a8ca2f67d2ccb8a, type: 3}
-      propertyPath: m_Name
-      value: TankRat
-      objectReference: {fileID: 0}
-    - target: {fileID: 3003822474906435165, guid: b59c03b8f4607f148a8ca2f67d2ccb8a, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -4.98
-      objectReference: {fileID: 0}
-    - target: {fileID: 3003822474906435165, guid: b59c03b8f4607f148a8ca2f67d2ccb8a, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.65
-      objectReference: {fileID: 0}
-    - target: {fileID: 3003822474906435165, guid: b59c03b8f4607f148a8ca2f67d2ccb8a, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3003822474906435165, guid: b59c03b8f4607f148a8ca2f67d2ccb8a, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3003822474906435165, guid: b59c03b8f4607f148a8ca2f67d2ccb8a, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3003822474906435165, guid: b59c03b8f4607f148a8ca2f67d2ccb8a, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3003822474906435165, guid: b59c03b8f4607f148a8ca2f67d2ccb8a, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3003822474906435165, guid: b59c03b8f4607f148a8ca2f67d2ccb8a, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3003822474906435165, guid: b59c03b8f4607f148a8ca2f67d2ccb8a, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3003822474906435165, guid: b59c03b8f4607f148a8ca2f67d2ccb8a, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: b59c03b8f4607f148a8ca2f67d2ccb8a, type: 3}
 --- !u!1001 &1333111824733603262
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4279,6 +4226,10 @@ PrefabInstance:
     - target: {fileID: 1451455840076601764, guid: 0fbffb4fd11fd20449542af180b7620a, type: 3}
       propertyPath: m_Name
       value: UltimateRat
+      objectReference: {fileID: 0}
+    - target: {fileID: 1451455840076601764, guid: 0fbffb4fd11fd20449542af180b7620a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7578517861637555769, guid: 0fbffb4fd11fd20449542af180b7620a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4401,6 +4352,67 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d00ffbe408787fb4da0e1b101c398d2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UnitCardSpawner
+--- !u!1001 &6108789765401542457
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1364345766913329756, guid: b59c03b8f4607f148a8ca2f67d2ccb8a, type: 3}
+      propertyPath: m_Name
+      value: TankRat
+      objectReference: {fileID: 0}
+    - target: {fileID: 1364345766913329756, guid: b59c03b8f4607f148a8ca2f67d2ccb8a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8157741220221850179, guid: b59c03b8f4607f148a8ca2f67d2ccb8a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -4.98
+      objectReference: {fileID: 0}
+    - target: {fileID: 8157741220221850179, guid: b59c03b8f4607f148a8ca2f67d2ccb8a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.65
+      objectReference: {fileID: 0}
+    - target: {fileID: 8157741220221850179, guid: b59c03b8f4607f148a8ca2f67d2ccb8a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8157741220221850179, guid: b59c03b8f4607f148a8ca2f67d2ccb8a, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8157741220221850179, guid: b59c03b8f4607f148a8ca2f67d2ccb8a, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8157741220221850179, guid: b59c03b8f4607f148a8ca2f67d2ccb8a, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8157741220221850179, guid: b59c03b8f4607f148a8ca2f67d2ccb8a, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8157741220221850179, guid: b59c03b8f4607f148a8ca2f67d2ccb8a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8157741220221850179, guid: b59c03b8f4607f148a8ca2f67d2ccb8a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8157741220221850179, guid: b59c03b8f4607f148a8ca2f67d2ccb8a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b59c03b8f4607f148a8ca2f67d2ccb8a, type: 3}
 --- !u!1001 &6148973889436269937
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4412,6 +4424,10 @@ PrefabInstance:
     - target: {fileID: 166341128908856858, guid: f8c4ef9e34028184b929c819a33b715f, type: 3}
       propertyPath: m_Name
       value: InsulatorRat
+      objectReference: {fileID: 0}
+    - target: {fileID: 166341128908856858, guid: f8c4ef9e34028184b929c819a33b715f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7337413111902959655, guid: f8c4ef9e34028184b929c819a33b715f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4575,6 +4591,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CoolantRat
       objectReference: {fileID: 0}
+    - target: {fileID: 3126180702635294076, guid: 46f1e6d128bf7d64c9fc286810597811, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4689,9 +4709,9 @@ SceneRoots:
   - {fileID: 8429708330040244826}
   - {fileID: 2491692181731708291}
   - {fileID: 6533616346884241628}
-  - {fileID: 952083418002083181}
+  - {fileID: 6108789765401542457}
   - {fileID: 6579309997702995981}
   - {fileID: 6148973889436269937}
   - {fileID: 1333111824733603262}
-  - {fileID: 369532859}
   - {fileID: 629054902102115580}
+  - {fileID: 369532859}

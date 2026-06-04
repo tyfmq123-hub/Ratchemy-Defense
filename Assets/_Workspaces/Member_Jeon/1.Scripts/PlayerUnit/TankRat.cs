@@ -4,8 +4,10 @@ using UnityEngine;
 // 탱커 쥐 — 근접 기본 공격 + 범위 밀치기 스킬
 public class TankRat : PlayerUnitBase
 {
+    [Header("애니메이션")]
     [SerializeField] private Animator animator;
     [SerializeField] private string skillTriggerName = "skill";
+    [SerializeField] private string idleBoolName = "isidle";
 
     private LayerMask enemyLayer;
     private float attackCooldown;
@@ -56,29 +58,28 @@ public class TankRat : PlayerUnitBase
 
         EnemyUnit enemy = FindNearestEnemyInRange(attackRange, enemyLayer);
 
-        if (enemy != null)
+        if (enemy == null)
         {
-            if (skillCooldownTimer <= 0f)
-            {
-                SetAnimatorPaused(false);
-                StartCoroutine(CastKnockbackSkillByEvent());
-            }
-            else
-            {
-                SetAnimatorPaused(attackCooldown > 0f);
-                BasicAttack(enemy);
-            }
-        }
-        else
-        {
-            SetAnimatorPaused(false);
+            SetCombatIdle(false);
             Move();
+            return;
         }
+
+        if (skillCooldownTimer <= 0f)
+        {
+            SetCombatIdle(false);
+            StartCoroutine(CastKnockbackSkillByEvent());
+            return;
+        }
+
+        // 교전 중 + 스킬 쿨타임 동안 idle
+        SetCombatIdle(true);
+        BasicAttack(enemy);
     }
 
     protected override void Die()
     {
-        SetAnimatorPaused(false);
+        SetCombatIdle(false);
         isCastingSkill = false;
         base.Die();
     }
@@ -98,6 +99,7 @@ public class TankRat : PlayerUnitBase
         isCastingSkill = true;
         skillEventReceived = false;
         skillCooldownTimer = skillCooldown;
+        SetCombatIdle(false);
         FireSkillTrigger();
 
         float timeout = 2.5f;
@@ -129,7 +131,6 @@ public class TankRat : PlayerUnitBase
     private void EndSkillCast()
     {
         isCastingSkill = false;
-        SetAnimatorPaused(false);
     }
 
     public void OnSkillAnimationEvent()
@@ -168,12 +169,12 @@ public class TankRat : PlayerUnitBase
         animator.SetTrigger(skillTriggerName);
     }
 
-    private void SetAnimatorPaused(bool paused)
+    private void SetCombatIdle(bool isIdle)
     {
-        if (animator == null)
+        if (animator == null || string.IsNullOrEmpty(idleBoolName))
             return;
 
-        animator.speed = paused ? 0f : 1f;
+        animator.SetBool(idleBoolName, isIdle);
     }
 
     private IEnumerator KnockbackEnemy(Transform enemy)

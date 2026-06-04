@@ -10,20 +10,23 @@ public class CoolantAttackProjectile : MonoBehaviour
     private Vector2 moveDirection = Vector2.right;
     private int damage;
     private LayerMask enemyLayer;
+    private Transform target;
     private Rigidbody2D rb;
     private Transform spinVisual;
     private SpriteRenderer spinSpriteRenderer;
 
-    public void Initialize(int damageAmount, LayerMask enemies, Vector2 direction, float speed = -1f)
+    public void Initialize(int damageAmount, LayerMask enemies, Transform targetTransform, float speed = -1f)
     {
         damage = damageAmount;
         enemyLayer = enemies;
+        target = targetTransform;
 
         if (speed > 0f)
             moveSpeed = speed;
 
-        SetDirection(direction);
+        transform.rotation = Quaternion.identity;
         SetupSpinVisual();
+        UpdateMoveDirection();
         ApplyVelocity();
     }
 
@@ -56,6 +59,9 @@ public class CoolantAttackProjectile : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (!UpdateMoveDirection())
+            return;
+
         if (rb != null)
             rb.linearVelocity = moveDirection * moveSpeed;
         else
@@ -84,19 +90,36 @@ public class CoolantAttackProjectile : MonoBehaviour
         Destroy(gameObject);
     }
 
+    private bool UpdateMoveDirection()
+    {
+        if (target == null)
+        {
+            Destroy(gameObject);
+            return false;
+        }
+
+        EnemyUnit enemy = target.GetComponent<EnemyUnit>();
+        if (enemy != null && enemy.IsDead())
+        {
+            Destroy(gameObject);
+            return false;
+        }
+
+        Vector2 toTarget = (Vector2)target.position - (Vector2)transform.position;
+        if (toTarget.sqrMagnitude < 0.0001f)
+        {
+            Destroy(gameObject);
+            return false;
+        }
+
+        moveDirection = toTarget.normalized;
+        return true;
+    }
+
     private void ApplyVelocity()
     {
         if (rb != null)
             rb.linearVelocity = moveDirection * moveSpeed;
-    }
-
-    private void SetDirection(Vector2 direction)
-    {
-        if (direction.sqrMagnitude < 0.0001f)
-            direction = Vector2.right;
-
-        moveDirection = direction.normalized;
-        transform.rotation = Quaternion.identity;
     }
 
     private SpriteRenderer GetVisibleSpriteRenderer()

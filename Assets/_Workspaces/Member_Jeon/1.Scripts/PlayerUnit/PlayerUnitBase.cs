@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 // 아군 유닛 공통 베이스
@@ -24,6 +25,13 @@ public class PlayerUnitBase : MonoBehaviour
     public float AttackRange => attackRange;
     public bool IsDead => isDead;
 
+    public event Action<float, float> OnHealthChanged;
+
+    // 스킬 쿨 UI용 — 0: 막 사용함(비어 있음), 1: 사용 가능(가득 참)
+    public virtual bool HasSkillCooldown => false;
+
+    public virtual float SkillCooldownFill => 1f;
+
     protected bool isDead;
 
     // Inspector에서 숫자 바꿀 때마다 호출 → currentHp가 maxHp를 넘지 않게 맞춤
@@ -46,6 +54,10 @@ public class PlayerUnitBase : MonoBehaviour
             currentHp = maxHp;
         else
             currentHp = Mathf.Clamp(currentHp, 0f, maxHp);
+
+        BindHpBarInChildren();
+        BindMpBarInChildren();
+        NotifyHealthChanged();
     }
 
     protected virtual void Update()
@@ -71,6 +83,9 @@ public class PlayerUnitBase : MonoBehaviour
             return;
 
         currentHp -= damage;
+        currentHp = Mathf.Max(currentHp, 0f);
+        NotifyHealthChanged();
+
         if (currentHp <= 0f)
             Die();
     }
@@ -128,5 +143,24 @@ public class PlayerUnitBase : MonoBehaviour
     protected float GetAttackCooldownDuration()
     {
         return 1f / Mathf.Max(attackSpeed, 0.01f);
+    }
+
+    protected void NotifyHealthChanged()
+    {
+        OnHealthChanged?.Invoke(currentHp, maxHp);
+    }
+
+    private void BindHpBarInChildren()
+    {
+        Hpbar[] hpBars = GetComponentsInChildren<Hpbar>(true);
+        foreach (Hpbar hpBar in hpBars)
+            hpBar.Bind(this);
+    }
+
+    private void BindMpBarInChildren()
+    {
+        Mpbar[] mpBars = GetComponentsInChildren<Mpbar>(true);
+        foreach (Mpbar mpBar in mpBars)
+            mpBar.Bind(this);
     }
 }

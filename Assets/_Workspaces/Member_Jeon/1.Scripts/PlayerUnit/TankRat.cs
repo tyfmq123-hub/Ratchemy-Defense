@@ -31,6 +31,7 @@ public class TankRat : PlayerUnitBase
             animator = GetComponent<Animator>();
 
         enemyLayer = LayerMask.GetMask("Enemy");
+        skillCooldownTimer = skillCooldown;
     }
 
     private void Reset()
@@ -229,6 +230,11 @@ public class TankRat : PlayerUnitBase
         if (enemy != null)
             enemy.position = endPos;
     }
+
+    public override bool HasSkillCooldown => true;
+
+    public override float SkillCooldownFill =>
+        skillCooldown <= 0f ? 1f : 1f - Mathf.Clamp01(skillCooldownTimer / skillCooldown);
 
     private void OnDrawGizmosSelected()
     {

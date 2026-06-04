@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
@@ -155,7 +156,10 @@ public class TankRat : PlayerUnitBase
                 continue;
 
             enemyUnit.TakeDamage(skillDamage);
-            StartCoroutine(KnockbackEnemy(hit.transform));
+
+            if (CanBeKnockedBack(hit, enemyUnit))
+                StartCoroutine(KnockbackEnemy(hit.transform));
+
             Debug.Log($"[TankRat] 밀치기 스킬 → {hit.name}");
         }
     }
@@ -175,6 +179,32 @@ public class TankRat : PlayerUnitBase
             return;
 
         animator.SetBool(idleBoolName, isIdle);
+    }
+
+    private bool CanBeKnockedBack(Collider2D hit, EnemyUnit enemy)
+    {
+        if (HasBossScript(enemy.gameObject))
+            return false;
+
+        if (hit.gameObject != enemy.gameObject && HasBossScript(hit.gameObject))
+            return false;
+
+        return true;
+    }
+
+    private static bool HasBossScript(GameObject target)
+    {
+        MonoBehaviour[] behaviours = target.GetComponentsInParent<MonoBehaviour>(true);
+        foreach (MonoBehaviour behaviour in behaviours)
+        {
+            if (behaviour == null)
+                continue;
+
+            if (behaviour.GetType().Name.IndexOf("Boss", StringComparison.OrdinalIgnoreCase) >= 0)
+                return true;
+        }
+
+        return false;
     }
 
     private IEnumerator KnockbackEnemy(Transform enemy)

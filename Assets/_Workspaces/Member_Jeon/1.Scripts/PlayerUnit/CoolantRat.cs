@@ -1,32 +1,38 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
+// 냉각수 쥐 — 원거리 기본 공격 + 범위 스킬(가까운 적 우선, 최대 3명)
 public class CoolantRat : PlayerUnitBase
 {
     [Header("애니메이션")]
     [SerializeField] private Animator animator;
-    [SerializeField] private string attackBoolName = "isattack";
+    [SerializeField] private string attackTriggerName = "attack";
     [SerializeField] private string idleBoolName = "isidle";
 
-    [Header("공격 설정")]
+    [Header("공격")]
     [SerializeField] private LayerMask enemyLayer;
     [SerializeField] private float skillRange = 4f;
     [SerializeField] private int skillTargetCount = 3;
 
-    [Header("스킬 설정")]
-    [SerializeField] private int skillDamage = 8;        // 스킬 데미지 (EnemyUnit.TakeDamage int)
+    [Header("스킬")]
+    [SerializeField] private int skillDamage = 8;
     [SerializeField] private float skillCooldown = 6f;
     [SerializeField] private float debuffDuration = 3f;
 
     private float attackCooldown;
     private float skillCooldownTimer;
+    private readonly List<EnemyUnit> skillTargetBuffer = new List<EnemyUnit>();
 
     protected override void Awake()
     {
         base.Awake();
+
         if (animator == null)
             animator = GetComponent<Animator>();
-        enemyLayer = LayerMask.GetMask("Enemy");
+
+        if (enemyLayer.value == 0)
+            enemyLayer = LayerMask.GetMask("Enemy");
     }
 
     private void Reset()
@@ -41,69 +47,44 @@ public class CoolantRat : PlayerUnitBase
 
     protected override void Update()
     {
+        if (IsDead)
+            return;
+
+        TickCooldowns();
+
+        EnemyUnit target = FindNearestEnemyInRange(attackRange, enemyLayer);
+        if (target == null)
+        {
+            SetCombatIdle(false);
+            Move();
+            return;
+        }
+
+        if (skillCooldownTimer <= 0f)
+        {
+            SetCombatIdle(false);
+            FireAttackTrigger();
+            UseSkillOnNearestTargets();
+            return;
+        }
+
+        if (attackCooldown > 0f)
+            SetCombatIdle(true);
+        else
+        {
+            SetCombatIdle(false);
+            FireAttackTrigger();
+            BasicAttack(target);
+        }
+    }
+
+    private void TickCooldowns()
+    {
         if (attackCooldown > 0f)
             attackCooldown -= Time.deltaTime;
 
         if (skillCooldownTimer > 0f)
             skillCooldownTimer -= Time.deltaTime;
-
-        EnemyUnit target = FindNearestEnemy();
-
-        if (target != null)
-        {
-            if (skillCooldownTimer <= 0f)
-            {
-                SetCombatAnimation(isAttacking: true, isIdle: false);
-                UseSkill();
-            }
-            else
-            {
-                // 기본 공격 쿨 대기 중이면 Idle 유지, 쿨이 끝났으면 공격
-                bool waitingAttackDelay = attackCooldown > 0f;
-                if (waitingAttackDelay)
-                {
-                    SetCombatAnimation(isAttacking: false, isIdle: true);
-                }
-                else
-                {
-                    SetCombatAnimation(isAttacking: true, isIdle: false);
-                    BasicAttack(target);
-                }
-            }
-        }
-        else
-        {
-            SetCombatAnimation(isAttacking: false, isIdle: false);
-            Move();
-        }
-    }
-
-    private EnemyUnit FindNearestEnemy()
-    {
-        Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, attackRange, enemyLayer);
-
-        if (hits.Length == 0)
-            return null;
-
-        EnemyUnit nearestEnemy = null;
-        float nearestDistance = Mathf.Infinity;
-
-        foreach (Collider2D hit in hits)
-        {
-            EnemyUnit enemyUnit = hit.GetComponent<EnemyUnit>();
-            if (enemyUnit == null || enemyUnit.IsDead())
-                continue;
-
-            float distance = Vector2.Distance(transform.position, hit.transform.position);
-
-            if (distance < nearestDistance)
-            {
-                nearestDistance = distance;
-                nearestEnemy = enemyUnit;
-            }
-        }
-
-        return nearestEnemy;
     }
 
     private void BasicAttack(EnemyUnit target)
@@ -113,65 +94,74 @@ public class CoolantRat : PlayerUnitBase
 
         target.TakeDamage(attackPower);
         Debug.Log($"[CoolantRat] 기본 원거리 공격 → {target.name}, 데미지: {attackPower}");
-
-        attackCooldown = 1f / attackSpeed;
+        attackCooldown = GetAttackCooldownDuration();
     }
 
-    private void UseSkill()
+    private void UseSkillOnNearestTargets()
     {
-        Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, skillRange, enemyLayer);
+        FillSkillTargetsByDistance(skillTargetCount);
 
-        int hitCount = 0;
-
-        foreach (Collider2D hit in hits)
+        foreach (EnemyUnit enemy in skillTargetBuffer)
         {
-            if (hitCount >= skillTargetCount)
-                break;
+            enemy.TakeDamage(skillDamage);
+            Debug.Log($"[CoolantRat] 냉각 범위 스킬 → {enemy.name}, 데미지: {skillDamage}");
 
-            EnemyUnit enemyUnit = hit.GetComponent<EnemyUnit>();
-
-            if (enemyUnit != null && !enemyUnit.IsDead())
-            {
-                enemyUnit.TakeDamage(skillDamage);
-                Debug.Log($"[CoolantRat] 냉각 범위 스킬 → {hit.name}, 데미지: {skillDamage}");
-
-                FlameSlime flameSlime = hit.GetComponent<FlameSlime>();
-
-                if (flameSlime != null)
-                {
-                    StartCoroutine(ApplyExplosionDisableDebuff(flameSlime));
-                }
-
-                hitCount++;
-            }
+            if (enemy.TryGetComponent(out FlameSlime flameSlime))
+                StartCoroutine(ApplyExplosionDisableDebuff(flameSlime));
         }
 
         skillCooldownTimer = skillCooldown;
     }
 
+    private void FillSkillTargetsByDistance(int maxCount)
+    {
+        skillTargetBuffer.Clear();
+
+        Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, skillRange, enemyLayer);
+        foreach (Collider2D hit in hits)
+        {
+            EnemyUnit enemy = hit.GetComponent<EnemyUnit>();
+            if (enemy != null && !enemy.IsDead())
+                skillTargetBuffer.Add(enemy);
+        }
+
+        skillTargetBuffer.Sort(CompareEnemyDistance);
+
+        if (skillTargetBuffer.Count > maxCount)
+            skillTargetBuffer.RemoveRange(maxCount, skillTargetBuffer.Count - maxCount);
+    }
+
+    private int CompareEnemyDistance(EnemyUnit a, EnemyUnit b)
+    {
+        float aSqr = (a.transform.position - transform.position).sqrMagnitude;
+        float bSqr = (b.transform.position - transform.position).sqrMagnitude;
+        return aSqr.CompareTo(bSqr);
+    }
+
     private IEnumerator ApplyExplosionDisableDebuff(FlameSlime flameSlime)
     {
         flameSlime.ApplyDebuff(FlameSlimeDebuff.ExplosionDisabled);
-
         yield return new WaitForSeconds(debuffDuration);
 
         if (flameSlime != null)
-        {
             flameSlime.RemoveDebuff(FlameSlimeDebuff.ExplosionDisabled);
-        }
     }
 
-    // 전투 상태에 맞춰 공격/대기 bool을 제어
-    private void SetCombatAnimation(bool isAttacking, bool isIdle)
+    private void SetCombatIdle(bool isIdle)
     {
-        if (animator == null)
+        if (animator == null || string.IsNullOrEmpty(idleBoolName))
             return;
 
-        if (!string.IsNullOrEmpty(attackBoolName))
-            animator.SetBool(attackBoolName, isAttacking);
+        animator.SetBool(idleBoolName, isIdle);
+    }
 
-        if (!string.IsNullOrEmpty(idleBoolName))
-            animator.SetBool(idleBoolName, isIdle);
+    private void FireAttackTrigger()
+    {
+        if (animator == null || string.IsNullOrEmpty(attackTriggerName))
+            return;
+
+        animator.ResetTrigger(attackTriggerName);
+        animator.SetTrigger(attackTriggerName);
     }
 
     private void OnDrawGizmosSelected()

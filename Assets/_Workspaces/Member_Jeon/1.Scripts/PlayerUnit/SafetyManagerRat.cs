@@ -1,60 +1,55 @@
 using UnityEngine;
 
-/// <summary>
-/// 안전관리소장 쥐.
-/// 창을 사용하는 기본 유닛.
-/// 일반 근접 유닛보다 공격 범위가 조금 길고,
-/// 공격속도는 살짝 느리지만 이동속도가 빠릅니다.
-/// </summary>
+// 안전관리소장 쥐 — 사거리 내 공격, 없으면 전진
 public class SafetyManagerRat : PlayerUnitBase
 {
+    [SerializeField] private Animator animator;
+    [SerializeField] private string attackBoolName = "isattack";
+    [SerializeField] private string attackStateName = "SafetyManager_attack";
+
     private LayerMask enemyLayer;
     private float attackCooldown;
 
     protected override void Awake()
     {
-        // 안전관리소장 쥐 스탯
-        maxHp = 80f;
-        attackPower = 10;
-        moveSpeed = 3.5f;      // 다른 유닛보다 빠르게 전진
-        attackSpeed = 0.8f;    // 공격속도는 조금 느림
-        attackRange = 1.8f;    // 창이라 일반 근접보다 살짝 긴 범위
-
         base.Awake();
+
+        if (animator == null)
+            animator = GetComponent<Animator>();
 
         enemyLayer = LayerMask.GetMask("Enemy");
     }
 
+    private void Reset()
+    {
+        maxHp = 80f;
+        currentHp = maxHp;
+        attackPower = 10;
+        moveSpeed = 3.5f;
+        attackSpeed = 0.8f;
+        attackRange = 1.8f;
+    }
+
     protected override void Update()
     {
+        if (IsDead)
+            return;
+
         if (attackCooldown > 0f)
-        {
             attackCooldown -= Time.deltaTime;
-        }
 
-        Collider2D enemy = Physics2D.OverlapCircle(transform.position, attackRange, enemyLayer);
-        EnemyUnit enemyUnit = GetValidEnemy(enemy);
+        EnemyUnit enemy = FindNearestEnemyInRange(attackRange, enemyLayer);
 
-        if (enemyUnit != null)
+        if (enemy != null)
         {
-            AttackEnemy(enemyUnit);
+            SetAttackAnimation(true);
+            AttackEnemy(enemy);
         }
         else
         {
+            SetAttackAnimation(false);
             Move();
         }
-    }
-
-    private EnemyUnit GetValidEnemy(Collider2D targetCollider)
-    {
-        if (targetCollider == null)
-            return null;
-
-        EnemyUnit enemyUnit = targetCollider.GetComponent<EnemyUnit>();
-        if (enemyUnit == null || enemyUnit.IsDead())
-            return null;
-
-        return enemyUnit;
     }
 
     private void AttackEnemy(EnemyUnit enemyUnit)
@@ -64,8 +59,28 @@ public class SafetyManagerRat : PlayerUnitBase
 
         enemyUnit.TakeDamage(attackPower);
         Debug.Log($"[SafetyManagerRat] 창 공격 → {enemyUnit.name}, 데미지: {attackPower}");
+        attackCooldown = GetAttackCooldownDuration();
+        PlayAttackFromStart();
+    }
 
-        attackCooldown = 1f / attackSpeed;
+    private void SetAttackAnimation(bool isAttacking)
+    {
+        if (animator == null || string.IsNullOrEmpty(attackBoolName))
+            return;
+
+        animator.SetBool(attackBoolName, isAttacking);
+    }
+
+    private void PlayAttackFromStart()
+    {
+        if (animator == null)
+            return;
+
+        if (!string.IsNullOrEmpty(attackBoolName))
+            animator.SetBool(attackBoolName, true);
+
+        if (!string.IsNullOrEmpty(attackStateName))
+            animator.Play(attackStateName, 0, 0f);
     }
 
     private void OnDrawGizmosSelected()

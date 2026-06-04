@@ -81,6 +81,7 @@ public class PlayerUnitBase : MonoBehaviour
             return;
 
         isDead = true;
+
         Animator animator = GetComponent<Animator>();
         if (animator != null)
             animator.SetTrigger("die");
@@ -89,6 +90,43 @@ public class PlayerUnitBase : MonoBehaviour
         if (col != null)
             col.enabled = false;
 
+        Rigidbody2D rb = GetComponent<Rigidbody2D>();
+        if (rb != null)
+        {
+            rb.linearVelocity = Vector2.zero;
+            rb.simulated = false;
+        }
+
         Destroy(gameObject, 1.2f);
+    }
+
+    // 사거리 안 살아 있는 적 중 가장 가까운 대상
+    protected EnemyUnit FindNearestEnemyInRange(float range, LayerMask enemyLayer)
+    {
+        Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, range, enemyLayer);
+
+        EnemyUnit nearest = null;
+        float nearestSqr = float.MaxValue;
+
+        foreach (Collider2D hit in hits)
+        {
+            EnemyUnit enemy = hit.GetComponent<EnemyUnit>();
+            if (enemy == null || enemy.IsDead())
+                continue;
+
+            float sqr = (enemy.transform.position - transform.position).sqrMagnitude;
+            if (sqr < nearestSqr)
+            {
+                nearestSqr = sqr;
+                nearest = enemy;
+            }
+        }
+
+        return nearest;
+    }
+
+    protected float GetAttackCooldownDuration()
+    {
+        return 1f / Mathf.Max(attackSpeed, 0.01f);
     }
 }

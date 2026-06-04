@@ -1,25 +1,33 @@
 using UnityEngine;
 
-// 절연체 쥐(Insulator Rat) — PlayerUnitBase 상속
-// - 사거리 안에 Enemy가 있으면: 멈추고 주기적으로 공격
-// - Enemy가 없으면: 오른쪽으로 이동 (PlayerUnitBase.Move)
-// - 스탯은 Inspector에서 수정 (Play 시 Awake가 숫자를 덮어쓰지 않음)
+// 절연체 쥐 — 적 없음: run만 재생, 적 있음: attack만 (Animator bool 없이 Play로 제어)
 public class InsulatorRat : PlayerUnitBase
 {
     [SerializeField] private Animator animator;
-    [SerializeField] private string attackBoolName = "isattack"; // Animator Bool 파라미터명
-    private LayerMask enemyLayer;  // "Enemy" 레이어만 공격 대상
-    private float attackCooldown;  // 다음 공격까지 남은 시간(초)
+    [SerializeField] private string attackTriggerName = "attack";
+    [SerializeField] private string attackStateName = "InsulatorRat_attack";
+    [SerializeField] private string runStateName = "InsulatorRat_run";
+    [SerializeField] private float runClipLength = 0.5f;
+
+    private LayerMask enemyLayer;
+    private float attackCooldown;
+    private bool wasInCombat;
 
     protected override void Awake()
     {
-        base.Awake(); // currentHp 등 부모 초기화
+        base.Awake();
+
         if (animator == null)
             animator = GetComponent<Animator>();
+
         enemyLayer = LayerMask.GetMask("Enemy");
+        if (enemyLayer.value == 0)
+            Debug.LogWarning("[InsulatorRat] 'Enemy' 레이어가 없습니다. Edit → Project Settings → Tags and Layers 확인.");
+
+        wasInCombat = false;
+        PlayRunState();
     }
 
-    // 컴포넌트를 처음 붙이거나 Reset 메뉴 실행 시에만 기본 스탯 채움 (Play 때는 실행 안 됨)
     private void Reset()
     {
         maxHp = 80f;
@@ -30,58 +38,83 @@ public class InsulatorRat : PlayerUnitBase
         attackRange = 1f;
     }
 
+    protected override void Die()
+    {
+        PlayRunState();
+        base.Die();
+    }
+
     protected override void Update()
     {
+        if (IsDead)
+            return;
+
+        if (animator != null)
+            animator.speed = 1f;
+
         if (attackCooldown > 0f)
             attackCooldown -= Time.deltaTime;
 
-        EnemyUnit enemy = GetEnemyInAttackRange();
+        EnemyUnit enemy = FindNearestEnemyInRange(attackRange, enemyLayer);
+        if (enemy == null)
+        {
+            if (wasInCombat)
+            {
+                wasInCombat = false;
+                PlayRunState();
+            }
+            else
+            {
+                // 매 프레임 run 시간 진행 (Animator 전이에 안 막혀도 반드시 run 재생)
+                PlayRunState();
+            }
 
-        if (enemy != null)
-        {
-            SetAttackAnimation(true);
-            Attack(enemy); // 적 있으면 공격만
+            Move();
+            return;
         }
-        else
-        {
-            SetAttackAnimation(false);
-            Move();        // 없으면 전진
-        }
+
+        wasInCombat = true;
+
+        if (attackCooldown <= 0f)
+            TryAttack(enemy);
     }
 
-    private EnemyUnit GetEnemyInAttackRange()
+    private void TryAttack(EnemyUnit target)
     {
-        Collider2D collider = Physics2D.OverlapCircle(transform.position, attackRange, enemyLayer);
-        if (collider == null)
-            return null;
-
-        EnemyUnit enemyUnit = collider.GetComponent<EnemyUnit>();
-        if (enemyUnit == null || enemyUnit.IsDead())
-            return null;
-
-        return enemyUnit;
-    }
-
-    private void Attack(EnemyUnit target)
-    {
-        if (attackCooldown > 0f)
+        if (attackCooldown > 0f || target == null || target.IsDead())
             return;
 
+        FireAttackTrigger();
         target.TakeDamage(attackPower);
         Debug.Log($"[InsulatorRat] {target.name} 공격 → 데미지: {attackPower}");
-        attackCooldown = 1f / attackSpeed;
+        attackCooldown = GetAttackCooldownDuration();
     }
 
-    // 적이 있을 때 true, 없을 때 false로 유지
-    private void SetAttackAnimation(bool isAttacking)
+    private void FireAttackTrigger()
     {
-        if (animator == null || string.IsNullOrEmpty(attackBoolName))
+        if (animator == null || string.IsNullOrEmpty(attackTriggerName))
             return;
 
-        animator.SetBool(attackBoolName, isAttacking);
+        animator.ResetTrigger(attackTriggerName);
+        animator.SetTrigger(attackTriggerName);
+
+        if (!string.IsNullOrEmpty(attackStateName))
+            animator.Play(attackStateName, 0, 0f);
     }
 
-    // Scene 뷰에서 선택 시 공격 범위 빨간 원 표시 (게임 로직과 무관, 에디터용)
+    private void PlayRunState()
+    {
+        if (animator == null || string.IsNullOrEmpty(runStateName))
+            return;
+
+        if (!string.IsNullOrEmpty(attackTriggerName))
+            animator.ResetTrigger(attackTriggerName);
+
+        float length = Mathf.Max(runClipLength, 0.01f);
+        float normalized = (Time.time % length) / length;
+        animator.Play(runStateName, 0, normalized);
+    }
+
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;

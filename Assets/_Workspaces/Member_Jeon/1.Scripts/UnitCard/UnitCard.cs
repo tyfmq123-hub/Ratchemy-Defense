@@ -79,14 +79,15 @@ public class UnitCard : MonoBehaviour
             return;
         }
 
-        if (CostManager.Instance == null)
-        {
-            Debug.LogWarning($"[UnitCard] {name}: CostManager가 씬에 없습니다. CostManager 오브젝트를 추가하세요.");
-            return;
-        }
-
-        if (!CostManager.Instance.UseCost(entry.cost))
-            return;
+        // TODO: CostManager 연동 후 해제
+        // if (CostManager.Instance == null)
+        // {
+        //     Debug.LogWarning($"[UnitCard] {name}: CostManager가 씬에 없습니다. CostManager 오브젝트를 추가하세요.");
+        //     return;
+        // }
+        //
+        // if (!CostManager.Instance.UseCost(entry.cost))
+        //     return;
 
         cardSpawner.SpawnUnit(entry.unitPrefab);
     }

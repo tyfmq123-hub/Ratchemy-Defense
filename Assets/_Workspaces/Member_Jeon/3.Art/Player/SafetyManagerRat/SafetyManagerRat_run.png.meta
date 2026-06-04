@@ -1,46 +1,25 @@
 fileFormatVersion: 2
-guid: 021dd8f02cfc7e843a3848261091d05b
+guid: d76135a4f20d09d4ea0925d2fcaa2c8a
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8757098914875501893
-    second: die_0
+      213: -233839872020975164
+    second: SafetyManagerRat_run_0
   - first:
-      213: -6103215479232170835
-    second: die_1
+      213: 5586120223422340804
+    second: SafetyManagerRat_run_1
   - first:
-      213: -5062548802251577173
-    second: die_2
+      213: 3862829996012833509
+    second: SafetyManagerRat_run_2
   - first:
-      213: 2613213492379772746
-    second: die_3
+      213: 5560412102900703827
+    second: SafetyManagerRat_run_3
   - first:
-      213: -3911252712821790162
-    second: die_4
+      213: 6858599832899093022
+    second: SafetyManagerRat_run_4
   - first:
-      213: 2167553827956773973
-    second: die_5
-  - first:
-      213: 8269481862698526196
-    second: die_6
-  - first:
-      213: 6971096030062609727
-    second: die_7
-  - first:
-      213: -6493708898697568893
-    second: die_8
-  - first:
-      213: 2862632215882366482
-    second: die_9
-  - first:
-      213: -6684223620237878856
-    second: die_10
-  - first:
-      213: -880313252550374251
-    second: die_11
-  - first:
-      213: 3856624869688356372
-    second: die_12
+      213: -2638907387870011338
+    second: SafetyManagerRat_run_5
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -87,7 +66,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 200
+  spritePixelsToUnits: 210
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -149,133 +128,133 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: die_0
+      name: SafetyManagerRat_run_0
       rect:
         serializedVersion: 2
-        x: 50
-        y: 194
-        width: 303
-        height: 410
+        x: 0
+        y: 232
+        width: 357
+        height: 256
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: c98111591f9184142b1116827f687781
-      internalID: 8757098914875501893
+      spriteID: 4c1fdd510eb31ccf0800000000000000
+      internalID: -233839872020975164
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: die_3
+      name: SafetyManagerRat_run_1
       rect:
         serializedVersion: 2
-        x: 378
-        y: 194
-        width: 305
-        height: 410
+        x: 375
+        y: 232
+        width: 332
+        height: 256
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 53336516875bcbc48bdf3bb78f2d30e6
-      internalID: 2613213492379772746
+      spriteID: 4ced6b52fb2e58d40800000000000000
+      internalID: 5586120223422340804
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: die_5
+      name: SafetyManagerRat_run_2
       rect:
         serializedVersion: 2
-        x: 709
-        y: 195
-        width: 301
-        height: 406
+        x: 733
+        y: 233
+        width: 332
+        height: 255
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: d595755838daaab408613b8f09dc1f3a
-      internalID: 2167553827956773973
+      spriteID: 5ea811c4a678b9530800000000000000
+      internalID: 3862829996012833509
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: die_7
+      name: SafetyManagerRat_run_3
       rect:
         serializedVersion: 2
-        x: 1037
-        y: 196
-        width: 304
-        height: 406
+        x: 1092
+        y: 234
+        width: 334
+        height: 254
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: ea20bd8c41d24504b8e9128d87007972
-      internalID: 6971096030062609727
+      spriteID: 352ed26e85d8a2d40800000000000000
+      internalID: 5560412102900703827
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: die_9
+      name: SafetyManagerRat_run_4
       rect:
         serializedVersion: 2
-        x: 1366
-        y: 198
-        width: 300
-        height: 406
+        x: 1454
+        y: 234
+        width: 331
+        height: 253
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: dd105a22185125e4ea7faff5d4c1f76b
-      internalID: 2862632215882366482
+      spriteID: e120188a534ae2f50800000000000000
+      internalID: 6858599832899093022
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: die_11
+      name: SafetyManagerRat_run_5
       rect:
         serializedVersion: 2
-        x: 1696
-        y: 198
-        width: 301
-        height: 406
+        x: 1807
+        y: 232
+        width: 365
+        height: 256
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: d5782f17641b8394cb9ec490c891788e
-      internalID: -880313252550374251
+      spriteID: 630aad656b7b06bd0800000000000000
+      internalID: -2638907387870011338
       vertices: []
       indices: 
       edges: []
@@ -284,7 +263,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: d31842f3fb901a34b8f489bc8789f202
+    spriteID: 79c8e04044881a243a018c7d1367aaf6
     internalID: 0
     vertices: []
     indices: 
@@ -296,19 +275,12 @@ TextureImporter:
       - key: SpriteEditor.SliceSettings
         value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.0},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":7,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      die_0: 8757098914875501893
-      die_1: -6103215479232170835
-      die_10: -6684223620237878856
-      die_11: -880313252550374251
-      die_12: 3856624869688356372
-      die_2: -5062548802251577173
-      die_3: 2613213492379772746
-      die_4: -3911252712821790162
-      die_5: 2167553827956773973
-      die_6: 8269481862698526196
-      die_7: 6971096030062609727
-      die_8: -6493708898697568893
-      die_9: 2862632215882366482
+      SafetyManagerRat_run_0: -233839872020975164
+      SafetyManagerRat_run_1: 5586120223422340804
+      SafetyManagerRat_run_2: 3862829996012833509
+      SafetyManagerRat_run_3: 5560412102900703827
+      SafetyManagerRat_run_4: 6858599832899093022
+      SafetyManagerRat_run_5: -2638907387870011338
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

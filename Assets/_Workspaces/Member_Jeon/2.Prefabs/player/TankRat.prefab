@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &6672208977021062147
+--- !u!1 &1913217008735987823
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,26 +8,26 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 8451487834715552636}
-  - component: {fileID: 8958706876289913005}
-  - component: {fileID: 7554259720285230028}
-  - component: {fileID: 7013577487875364463}
-  - component: {fileID: 687771900060220648}
-  - component: {fileID: 7337643013867107850}
+  - component: {fileID: 3003822474906435165}
+  - component: {fileID: 3727672101232127694}
+  - component: {fileID: 9020122865888932634}
+  - component: {fileID: 6535325595627619526}
+  - component: {fileID: 8653440353343239900}
+  - component: {fileID: 131811351571446897}
   m_Layer: 6
   m_Name: TankRat
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &8451487834715552636
+  m_IsActive: 0
+--- !u!4 &3003822474906435165
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6672208977021062147}
+  m_GameObject: {fileID: 1913217008735987823}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -4.98, y: -0.65, z: 0}
@@ -36,14 +36,14 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &8958706876289913005
+--- !u!212 &3727672101232127694
 SpriteRenderer:
   serializedVersion: 2
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6672208977021062147}
+  m_GameObject: {fileID: 1913217008735987823}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -95,13 +95,13 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
---- !u!70 &7554259720285230028
+--- !u!70 &9020122865888932634
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6672208977021062147}
+  m_GameObject: {fileID: 1913217008735987823}
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
@@ -132,14 +132,14 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 0.76, y: 1.13}
   m_Direction: 0
---- !u!50 &7013577487875364463
+--- !u!50 &6535325595627619526
 Rigidbody2D:
   serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6672208977021062147}
+  m_GameObject: {fileID: 1913217008735987823}
   m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
@@ -159,39 +159,39 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &687771900060220648
+--- !u!114 &8653440353343239900
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6672208977021062147}
+  m_GameObject: {fileID: 1913217008735987823}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cd67cd06d56181445a333747dc14ccbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TankRat
-  maxHp: 500
-  currentHp: 500
-  attackPower: 0
-  moveSpeed: 2
-  attackSpeed: 0
-  attackRange: 1
-  animator: {fileID: 7337643013867107850}
+  maxHp: 220
+  currentHp: 220
+  attackPower: 4
+  moveSpeed: 2.2
+  attackSpeed: 0.7
+  attackRange: 1.1
+  animator: {fileID: 131811351571446897}
   skillTriggerName: skill
   skillCooldown: 5
   knockbackDistance: 1.2
   knockbackDuration: 0.15
   skillRange: 1.6
   skillDamage: 3
---- !u!95 &7337643013867107850
+--- !u!95 &131811351571446897
 Animator:
   serializedVersion: 7
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6672208977021062147}
+  m_GameObject: {fileID: 1913217008735987823}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 833647c6f6b6d17468f682c0bcd5a441, type: 2}

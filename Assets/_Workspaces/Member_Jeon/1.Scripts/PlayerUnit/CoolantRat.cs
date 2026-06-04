@@ -32,6 +32,7 @@ public class CoolantRat : PlayerUnitBase
     private float skillCooldownTimer;
     private bool isBurstAttacking;
     private bool isSkillFiring;
+    private Coroutine burstAttackCoroutine;
     private readonly List<EnemyUnit> skillTargetBuffer = new List<EnemyUnit>();
 
     protected override void Awake()
@@ -74,7 +75,7 @@ public class CoolantRat : PlayerUnitBase
 
         TickCooldowns();
 
-        EnemyUnit target = FindNearestEnemyInRange(attackRange, enemyLayer);
+        EnemyUnit target = FindFrontEnemyInRange(attackRange);
         if (target == null)
         {
             SetCombatIdle(false);
@@ -82,7 +83,7 @@ public class CoolantRat : PlayerUnitBase
             return;
         }
 
-        if (isBurstAttacking || isSkillFiring)
+        if (isSkillFiring)
         {
             SetCombatIdle(true);
             return;
@@ -91,7 +92,13 @@ public class CoolantRat : PlayerUnitBase
         if (skillCooldownTimer <= 0f)
         {
             SetCombatIdle(false);
-            StartCoroutine(FireSkillBarrage());
+            BeginSkillBarrage();
+            return;
+        }
+
+        if (isBurstAttacking)
+        {
+            SetCombatIdle(true);
             return;
         }
 
@@ -106,7 +113,7 @@ public class CoolantRat : PlayerUnitBase
 
     private void TickCooldowns()
     {
-        if (attackCooldown > 0f)
+        if (!isSkillFiring && attackCooldown > 0f)
             attackCooldown -= Time.deltaTime;
 
         if (skillCooldownTimer > 0f)
@@ -118,7 +125,27 @@ public class CoolantRat : PlayerUnitBase
         if (attackCooldown > 0f || isBurstAttacking || isSkillFiring)
             return;
 
-        StartCoroutine(FireBurstAttack());
+        burstAttackCoroutine = StartCoroutine(FireBurstAttack());
+    }
+
+    private void BeginSkillBarrage()
+    {
+        CancelBurstAttack();
+
+        isSkillFiring = true;
+        skillCooldownTimer = skillCooldown;
+        StartCoroutine(FireSkillBarrage());
+    }
+
+    private void CancelBurstAttack()
+    {
+        if (burstAttackCoroutine != null)
+        {
+            StopCoroutine(burstAttackCoroutine);
+            burstAttackCoroutine = null;
+        }
+
+        isBurstAttacking = false;
     }
 
     private IEnumerator FireBurstAttack()
@@ -156,13 +183,11 @@ public class CoolantRat : PlayerUnitBase
         }
 
         isBurstAttacking = false;
+        burstAttackCoroutine = null;
     }
 
     private IEnumerator FireSkillBarrage()
     {
-        isSkillFiring = true;
-        skillCooldownTimer = skillCooldown;
-
         ApplySkillDebuffsInRange();
 
         if (attackEffectPrefab == null)
@@ -196,6 +221,7 @@ public class CoolantRat : PlayerUnitBase
         }
 
         isSkillFiring = false;
+        attackCooldown = GetAttackCooldownDuration();
     }
 
     private void SpawnAttackProjectile(Vector3 spawnPosition, Vector2 direction, int damage)
@@ -232,26 +258,54 @@ public class CoolantRat : PlayerUnitBase
     private void FillSkillTargetsByDistance(int maxCount)
     {
         skillTargetBuffer.Clear();
+        CollectEnemiesInRange(skillRange, skillTargetBuffer);
 
-        Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, skillRange, enemyLayer);
-        foreach (Collider2D hit in hits)
-        {
-            EnemyUnit enemy = hit.GetComponent<EnemyUnit>();
-            if (enemy != null && !enemy.IsDead())
-                skillTargetBuffer.Add(enemy);
-        }
-
-        skillTargetBuffer.Sort(CompareEnemyDistance);
+        skillTargetBuffer.Sort(CompareEnemyFrontPriority);
 
         if (skillTargetBuffer.Count > maxCount)
             skillTargetBuffer.RemoveRange(maxCount, skillTargetBuffer.Count - maxCount);
     }
 
-    private int CompareEnemyDistance(EnemyUnit a, EnemyUnit b)
+    private EnemyUnit FindFrontEnemyInRange(float range)
     {
-        float aSqr = (a.transform.position - transform.position).sqrMagnitude;
-        float bSqr = (b.transform.position - transform.position).sqrMagnitude;
-        return aSqr.CompareTo(bSqr);
+        EnemyUnit frontEnemy = null;
+        float frontX = float.MinValue;
+
+        Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, range, enemyLayer);
+        foreach (Collider2D hit in hits)
+        {
+            EnemyUnit enemy = hit.GetComponent<EnemyUnit>();
+            if (enemy == null || enemy.IsDead())
+                continue;
+
+            float enemyX = enemy.transform.position.x;
+            if (enemyX > frontX)
+            {
+                frontX = enemyX;
+                frontEnemy = enemy;
+            }
+        }
+
+        return frontEnemy;
+    }
+
+    private void CollectEnemiesInRange(float range, List<EnemyUnit> buffer)
+    {
+        Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, range, enemyLayer);
+
+        foreach (Collider2D hit in hits)
+        {
+            EnemyUnit enemy = hit.GetComponent<EnemyUnit>();
+            if (enemy == null || enemy.IsDead())
+                continue;
+
+            buffer.Add(enemy);
+        }
+    }
+
+    private int CompareEnemyFrontPriority(EnemyUnit a, EnemyUnit b)
+    {
+        return b.transform.position.x.CompareTo(a.transform.position.x);
     }
 
     private IEnumerator ApplyExplosionDisableDebuff(FlameSlime flameSlime)

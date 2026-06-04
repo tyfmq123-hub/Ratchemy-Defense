@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-// 냉각수 쥐 — 원거리 기본 공격 + 범위 스킬(가까운 적 우선, 최대 3명)
+// 냉각수 쥐 — 정면 3연속 점사 어택 + 스킬 시 이펙트 연사
 public class CoolantRat : PlayerUnitBase
 {
     [Header("애니메이션")]
@@ -12,16 +12,26 @@ public class CoolantRat : PlayerUnitBase
 
     [Header("공격")]
     [SerializeField] private LayerMask enemyLayer;
-    [SerializeField] private float skillRange = 4f;
-    [SerializeField] private int skillTargetCount = 3;
+    [SerializeField] private GameObject attackEffectPrefab;
+    [SerializeField] private Transform attackEffectSpawnPoint;
+    [SerializeField] private int attackProjectileCount = 3;
+    [SerializeField] private float attackProjectileSpeed = 6f;
+    [SerializeField] private Vector2 attackDirection = Vector2.right;
+    [SerializeField] private float attackBurstInterval = 0.12f;
 
     [Header("스킬")]
-    [SerializeField] private int skillDamage = 8;
-    [SerializeField] private float skillCooldown = 6f;
+    [SerializeField] private float skillRange = 4f;
+    [SerializeField] private int skillTargetCount = 3;
+    [SerializeField] private int skillProjectileDamage = 8;
+    [SerializeField] private float skillDuration = 5f;
+    [SerializeField] private float skillFireRate = 5f;
+    [SerializeField] private float skillCooldown = 15f;
     [SerializeField] private float debuffDuration = 3f;
 
     private float attackCooldown;
     private float skillCooldownTimer;
+    private bool isBurstAttacking;
+    private bool isSkillFiring;
     private readonly List<EnemyUnit> skillTargetBuffer = new List<EnemyUnit>();
 
     protected override void Awake()
@@ -33,6 +43,18 @@ public class CoolantRat : PlayerUnitBase
 
         if (enemyLayer.value == 0)
             enemyLayer = LayerMask.GetMask("Enemy");
+
+        ResolveAttackEffectSpawnPoint();
+    }
+
+    private void ResolveAttackEffectSpawnPoint()
+    {
+        Transform spawnChild = transform.Find("Attack Effect Spawn Point");
+        if (spawnChild == null)
+            spawnChild = transform.Find("Skill Effect Spawn Point");
+
+        if (spawnChild != null)
+            attackEffectSpawnPoint = spawnChild;
     }
 
     private void Reset()
@@ -60,11 +82,16 @@ public class CoolantRat : PlayerUnitBase
             return;
         }
 
+        if (isBurstAttacking || isSkillFiring)
+        {
+            SetCombatIdle(true);
+            return;
+        }
+
         if (skillCooldownTimer <= 0f)
         {
             SetCombatIdle(false);
-            FireAttackTrigger();
-            UseSkillOnNearestTargets();
+            StartCoroutine(FireSkillBarrage());
             return;
         }
 
@@ -73,8 +100,7 @@ public class CoolantRat : PlayerUnitBase
         else
         {
             SetCombatIdle(false);
-            FireAttackTrigger();
-            BasicAttack(target);
+            BasicAttack();
         }
     }
 
@@ -87,30 +113,120 @@ public class CoolantRat : PlayerUnitBase
             skillCooldownTimer -= Time.deltaTime;
     }
 
-    private void BasicAttack(EnemyUnit target)
+    private void BasicAttack()
     {
-        if (attackCooldown > 0f)
+        if (attackCooldown > 0f || isBurstAttacking || isSkillFiring)
             return;
 
-        target.TakeDamage(attackPower);
-        Debug.Log($"[CoolantRat] 기본 원거리 공격 → {target.name}, 데미지: {attackPower}");
-        attackCooldown = GetAttackCooldownDuration();
+        StartCoroutine(FireBurstAttack());
     }
 
-    private void UseSkillOnNearestTargets()
+    private IEnumerator FireBurstAttack()
+    {
+        isBurstAttacking = true;
+        attackCooldown = GetAttackCooldownDuration();
+
+        if (attackEffectPrefab == null)
+        {
+            isBurstAttacking = false;
+            yield break;
+        }
+
+        ResolveAttackEffectSpawnPoint();
+
+        Transform spawnPoint = attackEffectSpawnPoint != null ? attackEffectSpawnPoint : transform;
+        Vector3 spawnPosition = spawnPoint.position;
+        Vector2 direction = attackDirection.sqrMagnitude > 0.0001f
+            ? attackDirection.normalized
+            : Vector2.right;
+
+        int shotCount = Mathf.Max(attackProjectileCount, 1);
+        float interval = Mathf.Max(attackBurstInterval, 0f);
+
+        for (int shot = 0; shot < shotCount; shot++)
+        {
+            if (IsDead)
+                break;
+
+            FireAttackTrigger();
+            SpawnAttackProjectile(spawnPosition, direction, attackPower);
+
+            if (shot < shotCount - 1 && interval > 0f)
+                yield return new WaitForSeconds(interval);
+        }
+
+        isBurstAttacking = false;
+    }
+
+    private IEnumerator FireSkillBarrage()
+    {
+        isSkillFiring = true;
+        skillCooldownTimer = skillCooldown;
+
+        ApplySkillDebuffsInRange();
+
+        if (attackEffectPrefab == null)
+        {
+            isSkillFiring = false;
+            yield break;
+        }
+
+        ResolveAttackEffectSpawnPoint();
+
+        float duration = Mathf.Max(skillDuration, 0f);
+        float fireRate = Mathf.Max(skillFireRate, 0.01f);
+        float shotInterval = 1f / fireRate;
+        float elapsed = 0f;
+
+        Vector2 direction = attackDirection.sqrMagnitude > 0.0001f
+            ? attackDirection.normalized
+            : Vector2.right;
+
+        while (elapsed < duration)
+        {
+            if (IsDead)
+                break;
+
+            Transform spawnPoint = attackEffectSpawnPoint != null ? attackEffectSpawnPoint : transform;
+            FireAttackTrigger();
+            SpawnAttackProjectile(spawnPoint.position, direction, skillProjectileDamage);
+
+            yield return new WaitForSeconds(shotInterval);
+            elapsed += shotInterval;
+        }
+
+        isSkillFiring = false;
+    }
+
+    private void SpawnAttackProjectile(Vector3 spawnPosition, Vector2 direction, int damage)
+    {
+        GameObject effect = Instantiate(attackEffectPrefab, spawnPosition, Quaternion.identity);
+
+        CoolantAttackProjectile projectile = effect.GetComponent<CoolantAttackProjectile>();
+        if (projectile == null)
+        {
+            Destroy(effect, 1.5f);
+            return;
+        }
+
+        projectile.Initialize(damage, enemyLayer, direction, attackProjectileSpeed);
+
+        SpriteRenderer unitSprite = GetComponent<SpriteRenderer>();
+        if (unitSprite != null)
+            projectile.ApplySortingOrder(unitSprite.sortingOrder + 1);
+    }
+
+    private void ApplySkillDebuffsInRange()
     {
         FillSkillTargetsByDistance(skillTargetCount);
 
         foreach (EnemyUnit enemy in skillTargetBuffer)
         {
-            enemy.TakeDamage(skillDamage);
-            Debug.Log($"[CoolantRat] 냉각 범위 스킬 → {enemy.name}, 데미지: {skillDamage}");
+            if (!enemy.TryGetComponent(out FlameSlime flameSlime))
+                continue;
 
-            if (enemy.TryGetComponent(out FlameSlime flameSlime))
-                StartCoroutine(ApplyExplosionDisableDebuff(flameSlime));
+            StartCoroutine(ApplyExplosionDisableDebuff(flameSlime));
         }
-
-        skillCooldownTimer = skillCooldown;
     }
 
     private void FillSkillTargetsByDistance(int maxCount)

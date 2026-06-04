@@ -1,28 +1,25 @@
 fileFormatVersion: 2
-guid: d886790ce2c113a44a3e9e6f98793fba
+guid: 74713e81e5e0b534b8d10f884941e09f
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 889303593632126942
-    second: Blue Idle - no slime_0
+      213: 1683228061421569660
+    second: UltimateRat_run-Photoroom_0
   - first:
-      213: -5615709457167222789
-    second: Blue Idle - no slime_1
+      213: -8962962542752034774
+    second: UltimateRat_run-Photoroom_1
   - first:
-      213: -2540210964185004778
-    second: Blue Idle - no slime_2
+      213: -4817018293660524914
+    second: UltimateRat_run-Photoroom_2
   - first:
-      213: 6386155911747030273
-    second: Blue Idle - no slime_3
+      213: -177805857169924761
+    second: UltimateRat_run-Photoroom_3
   - first:
-      213: 5283508208766680590
-    second: Blue Idle - no slime_4
+      213: -5198186413156569567
+    second: UltimateRat_run-Photoroom_4
   - first:
-      213: -482633666314448163
-    second: Blue Idle - no slime_5
-  - first:
-      213: -547207386232016873
-    second: Blue Idle - no slime_6
+      213: 6748424995753857714
+    second: UltimateRat_run-Photoroom_5
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -69,7 +66,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 280
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -131,155 +128,133 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Blue Idle - no slime_0
+      name: UltimateRat_run-Photoroom_0
       rect:
         serializedVersion: 2
-        x: 7
-        y: 1
-        width: 17
-        height: 16
+        x: 65
+        y: 187
+        width: 333
+        height: 360
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: ed7dbeb18e0775c00800000000000000
-      internalID: 889303593632126942
+      spriteID: c768005f0070c5710800000000000000
+      internalID: 1683228061421569660
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue Idle - no slime_1
+      name: UltimateRat_run-Photoroom_1
       rect:
         serializedVersion: 2
-        x: 39
-        y: 1
-        width: 17
-        height: 15
+        x: 417
+        y: 193
+        width: 333
+        height: 360
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: bf7feb3800ef012b0800000000000000
-      internalID: -5615709457167222789
+      spriteID: a2012202e092d9380800000000000000
+      internalID: -8962962542752034774
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue Idle - no slime_2
+      name: UltimateRat_run-Photoroom_2
       rect:
         serializedVersion: 2
-        x: 71
-        y: 1
-        width: 17
-        height: 14
+        x: 750
+        y: 193
+        width: 333
+        height: 360
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 6154331369b5fbcd0800000000000000
-      internalID: -2540210964185004778
+      spriteID: e8e5ec13263862db0800000000000000
+      internalID: -4817018293660524914
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue Idle - no slime_3
+      name: UltimateRat_run-Photoroom_3
       rect:
         serializedVersion: 2
-        x: 103
-        y: 1
-        width: 17
-        height: 11
+        x: 1110
+        y: 193
+        width: 333
+        height: 360
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 10d41f767fe20a850800000000000000
-      internalID: 6386155911747030273
+      spriteID: 76d1764d38e488df0800000000000000
+      internalID: -177805857169924761
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue Idle - no slime_4
+      name: UltimateRat_run-Photoroom_4
       rect:
         serializedVersion: 2
-        x: 135
-        y: 1
-        width: 17
-        height: 14
+        x: 1475
+        y: 193
+        width: 333
+        height: 360
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e0ef56ff8bac25940800000000000000
-      internalID: 5283508208766680590
+      spriteID: 12e6a879ff45cd7b0800000000000000
+      internalID: -5198186413156569567
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue Idle - no slime_5
+      name: UltimateRat_run-Photoroom_5
       rect:
         serializedVersion: 2
-        x: 167
-        y: 1
-        width: 17
-        height: 15
+        x: 1831
+        y: 193
+        width: 333
+        height: 360
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: dd2dea2dc375d49f0800000000000000
-      internalID: -482633666314448163
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Blue Idle - no slime_6
-      rect:
-        serializedVersion: 2
-        x: 199
-        y: 1
-        width: 17
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 710bb2d08cde768f0800000000000000
-      internalID: -547207386232016873
+      spriteID: 2b2964967c837ad50800000000000000
+      internalID: 6748424995753857714
       vertices: []
       indices: 
       edges: []
@@ -288,7 +263,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 209b4258dd00b894ba825ee1b4da0ae3
     internalID: 0
     vertices: []
     indices: 
@@ -298,13 +273,12 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Blue Idle - no slime_0: 889303593632126942
-      Blue Idle - no slime_1: -5615709457167222789
-      Blue Idle - no slime_2: -2540210964185004778
-      Blue Idle - no slime_3: 6386155911747030273
-      Blue Idle - no slime_4: 5283508208766680590
-      Blue Idle - no slime_5: -482633666314448163
-      Blue Idle - no slime_6: -547207386232016873
+      UltimateRat_run-Photoroom_0: 1683228061421569660
+      UltimateRat_run-Photoroom_1: -8962962542752034774
+      UltimateRat_run-Photoroom_2: -4817018293660524914
+      UltimateRat_run-Photoroom_3: -177805857169924761
+      UltimateRat_run-Photoroom_4: -5198186413156569567
+      UltimateRat_run-Photoroom_5: 6748424995753857714
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

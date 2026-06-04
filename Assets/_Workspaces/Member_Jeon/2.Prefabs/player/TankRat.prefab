@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &4999161794967854044
+--- !u!1 &1913217008735987823
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,41 +8,42 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 5493477936419010832}
-  - component: {fileID: 1489421864963922361}
-  - component: {fileID: 6287512475272487753}
-  - component: {fileID: 6231385433493425518}
-  - component: {fileID: 1128757952966833079}
+  - component: {fileID: 3003822474906435165}
+  - component: {fileID: 3727672101232127694}
+  - component: {fileID: 9020122865888932634}
+  - component: {fileID: 6535325595627619526}
+  - component: {fileID: 8653440353343239900}
+  - component: {fileID: 131811351571446897}
   m_Layer: 6
   m_Name: TankRat
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &5493477936419010832
+  m_IsActive: 0
+--- !u!4 &3003822474906435165
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4999161794967854044}
+  m_GameObject: {fileID: 1913217008735987823}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.57, y: -0.7, z: 0}
-  m_LocalScale: {x: 1.0695, y: 1.0351, z: 1}
+  m_LocalPosition: {x: -4.98, y: -0.65, z: 0}
+  m_LocalScale: {x: 0.4729329, y: 0.4419877, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &1489421864963922361
+--- !u!212 &3727672101232127694
 SpriteRenderer:
   serializedVersion: 2
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4999161794967854044}
+  m_GameObject: {fileID: 1913217008735987823}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -84,23 +85,23 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 1
   m_MaskInteraction: 0
-  m_Sprite: {fileID: -3545604204396389491, guid: 959fd239082561447a94b0008d47744a, type: 3}
+  m_Sprite: {fileID: 1556508167492982057, guid: b6bf780921cd1d940872a5ca5e6a19f1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.76, y: 1.13}
+  m_Size: {x: 2.49, y: 2.85}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
---- !u!70 &6287512475272487753
+--- !u!70 &9020122865888932634
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4999161794967854044}
+  m_GameObject: {fileID: 1913217008735987823}
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
@@ -131,14 +132,14 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 0.76, y: 1.13}
   m_Direction: 0
---- !u!50 &6231385433493425518
+--- !u!50 &6535325595627619526
 Rigidbody2D:
   serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4999161794967854044}
+  m_GameObject: {fileID: 1913217008735987823}
   m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
@@ -158,26 +159,50 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &1128757952966833079
+--- !u!114 &8653440353343239900
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4999161794967854044}
+  m_GameObject: {fileID: 1913217008735987823}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cd67cd06d56181445a333747dc14ccbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TankRat
-  maxHp: 100
-  currentHp: 100
-  attackPower: 10
-  moveSpeed: 2
-  attackSpeed: 1
-  attackRange: 1.5
+  maxHp: 220
+  currentHp: 220
+  attackPower: 4
+  moveSpeed: 2.2
+  attackSpeed: 0.7
+  attackRange: 1.1
+  animator: {fileID: 131811351571446897}
+  skillTriggerName: skill
   skillCooldown: 5
   knockbackDistance: 1.2
   knockbackDuration: 0.15
   skillRange: 1.6
   skillDamage: 3
+--- !u!95 &131811351571446897
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1913217008735987823}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 833647c6f6b6d17468f682c0bcd5a441, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

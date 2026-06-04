@@ -1,25 +1,25 @@
 fileFormatVersion: 2
-guid: 144ba06f41842d34997bf9f0dc7b8d26
+guid: d76135a4f20d09d4ea0925d2fcaa2c8a
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 6524083098754680324
-    second: "\uC808\uC5F0\uC950 attack_0"
+      213: -233839872020975164
+    second: SafetyManagerRat_run_0
   - first:
-      213: 839158078267347177
-    second: "\uC808\uC5F0\uC950 attack_1"
+      213: 5586120223422340804
+    second: SafetyManagerRat_run_1
   - first:
-      213: -2799157536787898153
-    second: "\uC808\uC5F0\uC950 attack_2"
+      213: 3862829996012833509
+    second: SafetyManagerRat_run_2
   - first:
-      213: 4704103640013912479
-    second: "\uC808\uC5F0\uC950 attack_3"
+      213: 5560412102900703827
+    second: SafetyManagerRat_run_3
   - first:
-      213: 8856557558490736826
-    second: "\uC808\uC5F0\uC950 attack_4"
+      213: 6858599832899093022
+    second: SafetyManagerRat_run_4
   - first:
-      213: -6130072388581686623
-    second: "\uC808\uC5F0\uC950 attack_5"
+      213: -2638907387870011338
+    second: SafetyManagerRat_run_5
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -66,7 +66,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 210
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -128,133 +128,133 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: "\uC808\uC5F0\uC950 attack_0"
+      name: SafetyManagerRat_run_0
       rect:
         serializedVersion: 2
-        x: 44
-        y: 366
-        width: 208
-        height: 209
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 232
+        width: 357
+        height: 256
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 406076223033a8a50800000000000000
-      internalID: 6524083098754680324
+      spriteID: 4c1fdd510eb31ccf0800000000000000
+      internalID: -233839872020975164
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "\uC808\uC5F0\uC950 attack_1"
+      name: SafetyManagerRat_run_1
       rect:
         serializedVersion: 2
-        x: 304
-        y: 366
-        width: 224
-        height: 208
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 375
+        y: 232
+        width: 332
+        height: 256
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 9e0568d73d945ab00800000000000000
-      internalID: 839158078267347177
+      spriteID: 4ced6b52fb2e58d40800000000000000
+      internalID: 5586120223422340804
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "\uC808\uC5F0\uC950 attack_2"
+      name: SafetyManagerRat_run_2
       rect:
         serializedVersion: 2
-        x: 598
-        y: 366
-        width: 164
-        height: 218
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 733
+        y: 233
+        width: 332
+        height: 255
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 7d066650d056729d0800000000000000
-      internalID: -2799157536787898153
+      spriteID: 5ea811c4a678b9530800000000000000
+      internalID: 3862829996012833509
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "\uC808\uC5F0\uC950 attack_3"
+      name: SafetyManagerRat_run_3
       rect:
         serializedVersion: 2
-        x: 843
-        y: 366
-        width: 274
-        height: 204
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1092
+        y: 234
+        width: 334
+        height: 254
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f99b6a15655584140800000000000000
-      internalID: 4704103640013912479
+      spriteID: 352ed26e85d8a2d40800000000000000
+      internalID: 5560412102900703827
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "\uC808\uC5F0\uC950 attack_4"
+      name: SafetyManagerRat_run_4
       rect:
         serializedVersion: 2
-        x: 1146
-        y: 366
-        width: 242
-        height: 204
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1454
+        y: 234
+        width: 331
+        height: 253
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: ab824a6ec20d8ea70800000000000000
-      internalID: 8856557558490736826
+      spriteID: e120188a534ae2f50800000000000000
+      internalID: 6858599832899093022
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "\uC808\uC5F0\uC950 attack_5"
+      name: SafetyManagerRat_run_5
       rect:
         serializedVersion: 2
-        x: 1416
-        y: 366
-        width: 215
-        height: 210
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1807
+        y: 232
+        width: 365
+        height: 256
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 1a2882f14ab9deaa0800000000000000
-      internalID: -6130072388581686623
+      spriteID: 630aad656b7b06bd0800000000000000
+      internalID: -2638907387870011338
       vertices: []
       indices: 
       edges: []
@@ -263,7 +263,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 79c8e04044881a243a018c7d1367aaf6
     internalID: 0
     vertices: []
     indices: 
@@ -271,14 +271,16 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.0},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":7,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      "\uC808\uC5F0\uC950 attack_0": 6524083098754680324
-      "\uC808\uC5F0\uC950 attack_1": 839158078267347177
-      "\uC808\uC5F0\uC950 attack_2": -2799157536787898153
-      "\uC808\uC5F0\uC950 attack_3": 4704103640013912479
-      "\uC808\uC5F0\uC950 attack_4": 8856557558490736826
-      "\uC808\uC5F0\uC950 attack_5": -6130072388581686623
+      SafetyManagerRat_run_0: -233839872020975164
+      SafetyManagerRat_run_1: 5586120223422340804
+      SafetyManagerRat_run_2: 3862829996012833509
+      SafetyManagerRat_run_3: 5560412102900703827
+      SafetyManagerRat_run_4: 6858599832899093022
+      SafetyManagerRat_run_5: -2638907387870011338
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -231,6 +231,11 @@ public class TankRat : PlayerUnitBase
             enemy.position = endPos;
     }
 
+    public override bool HasSkillCooldown => true;
+
+    public override float SkillCooldownFill =>
+        skillCooldown <= 0f ? 1f : 1f - Mathf.Clamp01(skillCooldownTimer / skillCooldown);
+
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.gray;

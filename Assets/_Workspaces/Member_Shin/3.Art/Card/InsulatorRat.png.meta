@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 193343ad09ddc0548a394b4eecae4d3e
+guid: aba0d57b6f52aea47ae55e33696470c5
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -6717884257390833292
-    second: Shield_0
+      213: 2932872815935273035
+    second: 02_rescue_tool_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Shield_0
+      name: 02_rescue_tool_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 1254
-        height: 1254
+        width: 512
+        height: 512
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 471d70c5cd745c2a0800000000000000
-      internalID: -6717884257390833292
+      spriteID: b48b83d7948a3b820800000000000000
+      internalID: 2932872815935273035
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Shield_0: -6717884257390833292
+      02_rescue_tool_0: 2932872815935273035
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

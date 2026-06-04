@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 446dbf74eddc3e7448187b2d0cde3108
+guid: 2a1f1a3b44553954186891ef7a600424
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7837898072776171489
-    second: Cooler_0
+      213: -1117826110472307232
+    second: 03_cooling_specialist_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Cooler_0
+      name: 03_cooling_specialist_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 1254
-        height: 1254
+        width: 512
+        height: 512
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 1efda8d25cec5cc60800000000000000
-      internalID: 7837898072776171489
+      spriteID: 0ed34a4331fac70f0800000000000000
+      internalID: -1117826110472307232
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Cooler_0: 7837898072776171489
+      03_cooling_specialist_0: -1117826110472307232
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

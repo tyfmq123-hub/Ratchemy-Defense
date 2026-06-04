@@ -1,0 +1,48 @@
+using UnityEngine;
+
+// 씬에 1개만 두는 소환 관리자
+// - spawnPointA / B에 번갈아 소환 (1번째→A, 2번째→B, 3번째→A …)
+// - UnitCard 5개가 모두 이 컴포넌트를 참조
+public class UnitCardSpawner : MonoBehaviour
+{
+    [Header("플레이어 소환 위치 (A ↔ B 교대)")]
+    [SerializeField] private Transform spawnPointA; // 예: P.SpawnPoint_01
+    [SerializeField] private Transform spawnPointB; // 예: P.SpawnPoint_02
+
+    private bool nextSpawnUsesA = true;
+
+    // 다음 소환에 쓸 위치·회전을 반환하고, 다음에는 반대 지점을 쓰도록 토글
+    public bool TryGetNextSpawnTransform(out Vector3 position, out Quaternion rotation)
+    {
+        Transform point = nextSpawnUsesA ? spawnPointA : spawnPointB;
+        nextSpawnUsesA = !nextSpawnUsesA;
+
+        if (point == null)
+        {
+            Debug.LogWarning("[UnitCardSpawner] spawnPointA 또는 spawnPointB가 비어 있습니다.");
+            position = Vector3.zero;
+            rotation = Quaternion.identity;
+            return false;
+        }
+
+        position = point.position;
+        rotation = point.rotation;
+        return true;
+    }
+
+    public PlayerUnitBase SpawnUnit(PlayerUnitBase prefab)
+    {
+        if (prefab == null)
+        {
+            Debug.LogWarning("[UnitCardSpawner] unitPrefab이 null입니다.");
+            return null;
+        }
+
+        if (!TryGetNextSpawnTransform(out Vector3 pos, out Quaternion rot))
+            return null;
+
+        PlayerUnitBase instance = Instantiate(prefab, pos, rot);
+        Debug.Log($"[UnitCardSpawner] {prefab.name} 소환 완료 (다음 소환: {(nextSpawnUsesA ? "A" : "B")})");
+        return instance;
+    }
+}

@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19a9d3bb19726f44b9e709369b1c6a61, type: 3}
   m_Name: ThunderLizardData_T1
   m_EditorClassIdentifier: Assembly-CSharp::ThunderLizardData
-  damage: 1
-  hp: 100
-  maxHp: 100
+  damage: 6
+  hp: 80
+  maxHp: 80
   attackRange: 1
   attackSpeed: 1
   moveSpeed: 3

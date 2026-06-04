@@ -24,12 +24,6 @@ public class BaseHealthUI : MonoBehaviour
         SetTemperature(previewTemperature);
     }
 
-    void Update()
-    {
-        // 현재 단계에서는 테스트용 슬라이더 값을 계속 UI에 반영합니다.
-        SetTemperature(previewTemperature);
-    }
-
     public void SetTemperature(float currentTemperature)
     {
         currentTemperature = Mathf.Clamp(

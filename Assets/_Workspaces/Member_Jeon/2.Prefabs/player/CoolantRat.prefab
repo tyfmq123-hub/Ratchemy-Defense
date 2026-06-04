@@ -188,7 +188,6 @@ MonoBehaviour:
   attackEffectSpawnPoint: {fileID: 3683691882350169133}
   attackProjectileCount: 3
   attackProjectileSpeed: 6
-  attackDirection: {x: 1, y: 0}
   attackBurstInterval: 0.12
   skillRange: 5
   skillTargetCount: 3

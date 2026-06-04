@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-// 냉각수 쥐 — 정면 3연속 점사 어택 + 스킬 시 이펙트 연사
+// 냉각수 쥐 — 적 추적 점사 어택 + 스킬 시 이펙트 연사
 public class CoolantRat : PlayerUnitBase
 {
     [Header("애니메이션")]
@@ -16,7 +16,6 @@ public class CoolantRat : PlayerUnitBase
     [SerializeField] private Transform attackEffectSpawnPoint;
     [SerializeField] private int attackProjectileCount = 3;
     [SerializeField] private float attackProjectileSpeed = 6f;
-    [SerializeField] private Vector2 attackDirection = Vector2.right;
     [SerializeField] private float attackBurstInterval = 0.12f;
 
     [Header("스킬")]
@@ -45,6 +44,7 @@ public class CoolantRat : PlayerUnitBase
         if (enemyLayer.value == 0)
             enemyLayer = LayerMask.GetMask("Enemy");
 
+        skillCooldownTimer = skillCooldown;
         ResolveAttackEffectSpawnPoint();
     }
 
@@ -163,9 +163,6 @@ public class CoolantRat : PlayerUnitBase
 
         Transform spawnPoint = attackEffectSpawnPoint != null ? attackEffectSpawnPoint : transform;
         Vector3 spawnPosition = spawnPoint.position;
-        Vector2 direction = attackDirection.sqrMagnitude > 0.0001f
-            ? attackDirection.normalized
-            : Vector2.right;
 
         int shotCount = Mathf.Max(attackProjectileCount, 1);
         float interval = Mathf.Max(attackBurstInterval, 0f);
@@ -175,8 +172,12 @@ public class CoolantRat : PlayerUnitBase
             if (IsDead)
                 break;
 
+            EnemyUnit target = FindFrontEnemyInRange(attackRange);
+            if (target == null)
+                break;
+
             FireAttackTrigger();
-            SpawnAttackProjectile(spawnPosition, direction, attackPower);
+            SpawnAttackProjectile(spawnPosition, target, attackPower);
 
             if (shot < shotCount - 1 && interval > 0f)
                 yield return new WaitForSeconds(interval);
@@ -203,18 +204,18 @@ public class CoolantRat : PlayerUnitBase
         float shotInterval = 1f / fireRate;
         float elapsed = 0f;
 
-        Vector2 direction = attackDirection.sqrMagnitude > 0.0001f
-            ? attackDirection.normalized
-            : Vector2.right;
-
         while (elapsed < duration)
         {
             if (IsDead)
                 break;
 
-            Transform spawnPoint = attackEffectSpawnPoint != null ? attackEffectSpawnPoint : transform;
-            FireAttackTrigger();
-            SpawnAttackProjectile(spawnPoint.position, direction, skillProjectileDamage);
+            EnemyUnit target = FindFrontEnemyInRange(skillRange);
+            if (target != null)
+            {
+                Transform spawnPoint = attackEffectSpawnPoint != null ? attackEffectSpawnPoint : transform;
+                FireAttackTrigger();
+                SpawnAttackProjectile(spawnPoint.position, target, skillProjectileDamage);
+            }
 
             yield return new WaitForSeconds(shotInterval);
             elapsed += shotInterval;
@@ -224,8 +225,11 @@ public class CoolantRat : PlayerUnitBase
         attackCooldown = GetAttackCooldownDuration();
     }
 
-    private void SpawnAttackProjectile(Vector3 spawnPosition, Vector2 direction, int damage)
+    private void SpawnAttackProjectile(Vector3 spawnPosition, EnemyUnit target, int damage)
     {
+        if (target == null || target.IsDead())
+            return;
+
         GameObject effect = Instantiate(attackEffectPrefab, spawnPosition, Quaternion.identity);
 
         CoolantAttackProjectile projectile = effect.GetComponent<CoolantAttackProjectile>();
@@ -235,7 +239,7 @@ public class CoolantRat : PlayerUnitBase
             return;
         }
 
-        projectile.Initialize(damage, enemyLayer, direction, attackProjectileSpeed);
+        projectile.Initialize(damage, enemyLayer, target.transform, attackProjectileSpeed);
 
         SpriteRenderer unitSprite = GetComponent<SpriteRenderer>();
         if (unitSprite != null)

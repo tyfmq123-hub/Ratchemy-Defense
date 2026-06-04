@@ -4653,13 +4653,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: CoolantRat
       objectReference: {fileID: 0}
+    - target: {fileID: 3683691882350169133, guid: 46f1e6d128bf7d64c9fc286810597811, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.574
+      objectReference: {fileID: 0}
+    - target: {fileID: 3683691882350169133, guid: 46f1e6d128bf7d64c9fc286810597811, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.625
+      objectReference: {fileID: 0}
     - target: {fileID: 8008664817309550814, guid: 46f1e6d128bf7d64c9fc286810597811, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -6.45
+      value: -6.32
       objectReference: {fileID: 0}
     - target: {fileID: 8008664817309550814, guid: 46f1e6d128bf7d64c9fc286810597811, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.42
+      value: -0.29
       objectReference: {fileID: 0}
     - target: {fileID: 8008664817309550814, guid: 46f1e6d128bf7d64c9fc286810597811, type: 3}
       propertyPath: m_LocalPosition.z

@@ -31,6 +31,7 @@ public class TankRat : PlayerUnitBase
             animator = GetComponent<Animator>();
 
         enemyLayer = LayerMask.GetMask("Enemy");
+        skillCooldownTimer = skillCooldown;
     }
 
     private void Reset()

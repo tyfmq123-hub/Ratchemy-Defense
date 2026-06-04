@@ -45,24 +45,31 @@ public class BaseHealth : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        // 투명 박스에 들어온 오브젝트 또는 부모에서 EnemyBaseDamage를 찾습니다.
-        // 적 프리팹의 Collider가 자식 오브젝트에 있어도 인식할 수 있습니다.
+        // 적이 투명 박스에 들어왔을 때 이 로그가 보여야 합니다.
+        Debug.Log("BaseTrigger 충돌 감지: " + other.gameObject.name);
+
+        // 충돌한 오브젝트 또는 부모에서 EnemyBaseDamage를 찾습니다.
         EnemyBaseDamage enemy =
             other.GetComponentInParent<EnemyBaseDamage>();
 
-        // EnemyBaseDamage가 없다면 적이 아니므로 무시합니다.
+        // EnemyBaseDamage를 찾지 못했다면 여기에서 종료됩니다.
         if (enemy == null)
         {
             return;
         }
 
-        // 이미 처리한 적이라면 중복으로 온도를 올리지 않습니다.
+        Debug.Log("EnemyBaseDamage 찾음 / 온도 증가량: " + enemy.temperatureDamage);
+
+        // 이미 처리한 적인지 확인합니다.
         if (!enemy.TryReachBase())
         {
+            Debug.LogWarning("이미 처리된 적이라서 온도를 올리지 않습니다.");
             return;
         }
 
         // 적에게 설정된 값만큼 배터리 온도를 올립니다.
         AddTemperature(enemy.temperatureDamage);
+
+        Debug.Log("현재 배터리 온도: " + currentTemperature);
     }
 }

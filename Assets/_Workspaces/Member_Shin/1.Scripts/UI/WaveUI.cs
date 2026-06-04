@@ -24,6 +24,9 @@ public class WaveUI : MonoBehaviour
 
     public void ShowBossStage()
     {
-        waveText.text = "BOSS STAGE";
+        if (waveText != null)
+        {
+            waveText.text = "BOSS";
+        }
     }
 }

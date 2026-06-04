@@ -16,8 +16,8 @@ public class UnitCard : MonoBehaviour
     [SerializeField] private UnitCardSpawner cardSpawner; // 비우면 씬에서 자동 검색
 
     // TODO: CostManager 연동 후 해제
-    // [Header("코스트")]
-    // [SerializeField] private CostManager costManager;
+    [Header("코스트")]
+    [SerializeField] private CostManager costManager;
 
     [Header("UI")]
     [SerializeField] private Image iconImage;
@@ -29,8 +29,8 @@ public class UnitCard : MonoBehaviour
         if (cardSpawner == null)
             cardSpawner = FindAnyObjectByType<UnitCardSpawner>();
 
-        // if (costManager == null)
-        //     costManager = FindAnyObjectByType<CostManager>();
+        if (costManager == null)
+            costManager = FindAnyObjectByType<CostManager>();
     }
 
     private void Start()
@@ -96,14 +96,14 @@ public class UnitCard : MonoBehaviour
         int requiredCost = GetRequiredCost();
 
         // TODO: CostManager 연동 후 해제 — requiredCost는 UnitCardData.cards[cardIndex].cost
-        // if (costManager == null)
-        // {
-        //     Debug.LogWarning($"[UnitCard] {name}: CostManager를 찾을 수 없습니다.");
-        //     return;
-        // }
-        //
-        // if (!costManager.TrySpendCost(requiredCost))
-        //     return;
+        if (costManager == null)
+        {
+            Debug.LogWarning($"[UnitCard] {name}: CostManager를 찾을 수 없습니다.");
+            return;
+        }
+        
+        if (!costManager.TrySpendCost(requiredCost))
+            return;
 
         cardSpawner.SpawnUnit(entry.unitPrefab);
     }

@@ -30,7 +30,7 @@ public class UnitCardSpawner : MonoBehaviour
         return true;
     }
 
-    public PlayerUnitBase SpawnUnit(PlayerUnitBase prefab)
+    public PlayerUnitBase SpawnUnit(PlayerUnitBase prefab, int spentCost = 0, float deathRefundRatio = -1f)
     {
         if (prefab == null)
         {
@@ -42,6 +42,7 @@ public class UnitCardSpawner : MonoBehaviour
             return null;
 
         PlayerUnitBase instance = Instantiate(prefab, pos, rot);
+        instance.ConfigureSpawnCost(spentCost, deathRefundRatio);
         Debug.Log($"[UnitCardSpawner] {prefab.name} 소환 완료 (다음 소환: {(nextSpawnUsesA ? "A" : "B")})");
         return instance;
     }

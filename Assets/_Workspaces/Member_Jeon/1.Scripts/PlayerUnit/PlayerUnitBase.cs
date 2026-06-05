@@ -16,6 +16,12 @@ public class PlayerUnitBase : MonoBehaviour
     [SerializeField] protected float attackSpeed = 1f;     // 초당 공격 횟수 (쿨다운 = 1 / attackSpeed)
     [SerializeField] protected float attackRange = 1.5f;   // 공격·감지 반경
 
+    [Header("코스트 환급")]
+    [SerializeField][Range(0f, 1f)] protected float deathRefundRatio = 0.5f; // 사망 시 소환 코스트의 몇 %를 돌려줄지
+
+    private int spawnCost;
+    private bool hasRefundedCost;
+
     // 다른 스크립트에서 읽기 전용으로 접근
     public float CurrentHp => currentHp;
     public float MaxHp => maxHp;
@@ -32,7 +38,18 @@ public class PlayerUnitBase : MonoBehaviour
 
     public virtual float SkillCooldownFill => 1f;
 
+    public int SpawnCost => spawnCost;
+
     protected bool isDead;
+
+    // 카드 소환 시 지불한 코스트·환급 비율을 기록 (UnitCardSpawner에서 호출)
+    public void ConfigureSpawnCost(int cost, float refundRatio = -1f)
+    {
+        spawnCost = Mathf.Max(0, cost);
+
+        if (refundRatio >= 0f)
+            deathRefundRatio = Mathf.Clamp01(refundRatio);
+    }
 
     // Inspector에서 숫자 바꿀 때마다 호출 → currentHp가 maxHp를 넘지 않게 맞춤
     protected virtual void OnValidate()
@@ -112,7 +129,25 @@ public class PlayerUnitBase : MonoBehaviour
             rb.simulated = false;
         }
 
+        TryRefundCostOnDeath();
         Destroy(gameObject, 1.2f);
+    }
+
+    protected void TryRefundCostOnDeath()
+    {
+        if (hasRefundedCost || spawnCost <= 0 || deathRefundRatio <= 0f)
+            return;
+
+        int refundAmount = Mathf.FloorToInt(spawnCost * deathRefundRatio);
+        if (refundAmount <= 0)
+            return;
+
+        CostManager costManager = FindAnyObjectByType<CostManager>();
+        if (costManager == null)
+            return;
+
+        hasRefundedCost = true;
+        costManager.AddCost(refundAmount);
     }
 
     // 사거리 안 살아 있는 적 중 가장 가까운 대상

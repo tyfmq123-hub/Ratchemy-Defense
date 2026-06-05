@@ -3,6 +3,7 @@ using UnityEngine;
 public class EnemyUnit : MonoBehaviour
 {
     [SerializeField] protected EnemyUnitData enemyUnitData;
+    [SerializeField] private EnemyHPBar hpBar;
 
     protected int currentHp;
     protected float attackTimer;
@@ -40,6 +41,8 @@ public class EnemyUnit : MonoBehaviour
         attackTimer = AttackCooldown;
 
         targetLayer = LayerMask.GetMask("Player");
+
+        hpBar?.UpdateHP(currentHp, maxHp);
     }
 
     protected virtual void Update()
@@ -91,10 +94,14 @@ public class EnemyUnit : MonoBehaviour
     }
 
     // 체력이 변경될 때 호출됩니다. 하위 클래스에서 오버라이드하여 UI 등을 갱신하세요.
-    protected virtual void OnHealthChanged() { }
+    protected virtual void OnHealthChanged()
+    {
+        hpBar?.UpdateHP(currentHp, maxHp);
+    }
 
     protected virtual void OnDie()
     {
+        hpBar?.Hide();
         Destroy(gameObject);
     }
 

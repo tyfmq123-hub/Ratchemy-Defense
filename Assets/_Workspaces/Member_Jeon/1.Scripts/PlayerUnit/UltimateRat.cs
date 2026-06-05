@@ -218,6 +218,11 @@ public class UltimateRat : PlayerUnitBase
             effectSprite.sortingOrder = unitSprite.sortingOrder + 1;
     }
 
+    public override bool HasSkillCooldown => true;
+
+    public override float SkillCooldownFill =>
+        skillCooldown <= 0f ? 1f : 1f - Mathf.Clamp01(skillCooldownTimer / skillCooldown);
+
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;

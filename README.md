@@ -5,6 +5,34 @@
 
 ## 작업 로그
 
+### 2026-06-04 (오후) — Member_Yoon : HP바 UI + 투사체 사운드 + 버그 수정 + 리팩
+
+| 항목 | 내용 |
+|---|---|
+| **EnemyHPBar** | `EnemyHPBar.cs` 신규 생성 — World Space Canvas + Image Filled 방식 HP바 제어 컴포넌트 |
+| **EnemyUnit** | `hpBar` SerializeField 추가, `Start()` / `OnHealthChanged()` / `OnDie()` 에서 HPBar 갱신·숨김 연결 |
+| **BossProjectile** | `flySound` (루프 AudioSource) + `explosionSound` (이펙트 오브젝트에 동적 AddComponent) 추가 |
+| **LightningProjectile** | `audioSource` 미사용 필드 제거 |
+| **LightningProjectile** | `Start()` 안전망 추가 — `Initialize()` 미호출 시 `lifetime` 기본값으로 자동 파괴 |
+| **FlameSlimeTier3** | `dieSealedSound` / `explosionChargeSound` / `explosionBangSound` / `blinkInterval` 필드를 클래스 상단으로 이동 (Inspector 편의) |
+
+#### 버그 수정
+
+| 항목 | 내용 |
+|---|---|
+| **EnemyCombatUtility** | `DamagePlayersInRadius()` — HP 0 이하 플레이어 데미지 제외 |
+| **FlameProjectile** | `OnTriggerEnter2D()` — HP 0 이하 플레이어 데미지 제외 |
+| **LightningProjectile** | `OnTriggerEnter2D()` — HP 0 이하 플레이어 데미지 제외 |
+| **LightningProjectile** | `ChainLightning()` — HP 0 이하 플레이어 체인 대상 및 데미지 제외 |
+
+#### 미완 / 보류
+- Inspector에서 각 적 프리팹에 `EnemyHPBar` 슬롯 연결 필요
+- Inspector에서 `BossProjectile` 프리팹에 `flySound` / `explosionSound` 슬롯 연결 필요
+- `BossBase.OnHealthChanged()` — `base.OnHealthChanged()` 누락 (보스 EnemyHPBar 미갱신, `_Project` 반영 시 수정 예정)
+- `ThunderLizardTier2.LightningProjectile()` 메서드명 변경 — Unity Editor Animation Event 동시 수정 필요
+
+---
+
 ### 2026-06-04 (오전~) — Member_Yoon : 사운드 시스템 추가 + 버그 수정
 
 | 항목 | 내용 |

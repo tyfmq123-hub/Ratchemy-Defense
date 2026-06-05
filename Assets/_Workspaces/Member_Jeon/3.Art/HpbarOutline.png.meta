@@ -1,16 +1,10 @@
 fileFormatVersion: 2
-guid: c49ea80fcdd70d348a1a10512f0b596d
+guid: 4a9d9d491bad3c14896e9917cf280a19
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4103210700242778541
-    second: Coolant_Idle_0
-  - first:
-      213: -8914290977285504010
-    second: Coolant_Idle_1
-  - first:
-      213: -5739817371802100728
-    second: Coolant_Idle_2
+      213: -3365990222962543347
+    second: HpbarOutline_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -119,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Coolant_Idle_0
+      name: HpbarOutline_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 80
-        height: 128
+        width: 62
+        height: 6
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -134,52 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: da97d82646881f830800000000000000
-      internalID: 4103210700242778541
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Coolant_Idle_1
-      rect:
-        serializedVersion: 2
-        x: 93
-        y: 0
-        width: 78
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 6f38d6a06931a4480800000000000000
-      internalID: -8914290977285504010
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Coolant_Idle_2
-      rect:
-        serializedVersion: 2
-        x: 183
-        y: 0
-        width: 77
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 80c9e1ed2821850b0800000000000000
-      internalID: -5739817371802100728
+      spriteID: d0531ead9b99941d0800000000000000
+      internalID: -3365990222962543347
       vertices: []
       indices: 
       edges: []
@@ -198,9 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Coolant_Idle_0: 4103210700242778541
-      Coolant_Idle_1: -8914290977285504010
-      Coolant_Idle_2: -5739817371802100728
+      HpbarOutline_0: -3365990222962543347
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

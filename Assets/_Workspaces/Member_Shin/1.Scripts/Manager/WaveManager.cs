@@ -36,6 +36,8 @@ public class WaveManager : MonoBehaviour
     // 배열은 0번부터 시작하므로 게임 시작 전에는 -1로 둡니다.
     private int currentWaveIndex = -1;
 
+    public int CurrentWaveIndex => currentWaveIndex;
+
     // 현재 웨이브에 남은 시간입니다.
     private float remainingCountdownTime;
 

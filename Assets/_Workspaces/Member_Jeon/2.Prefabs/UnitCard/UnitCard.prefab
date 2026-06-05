@@ -47,6 +47,7 @@ MonoBehaviour:
   cardDatabase: {fileID: 11400000, guid: cfb2ef71bbf3eeb4687cc4b8e5826436, type: 2}
   cardIndex: 1
   cardSpawner: {fileID: 0}
+  costManager: {fileID: 0}
   costText: {fileID: 0}
   button: {fileID: 0}
 --- !u!1 &4639341196065989803
@@ -96,6 +97,7 @@ MonoBehaviour:
   cardDatabase: {fileID: 11400000, guid: cfb2ef71bbf3eeb4687cc4b8e5826436, type: 2}
   cardIndex: 0
   cardSpawner: {fileID: 0}
+  costManager: {fileID: 0}
   costText: {fileID: 0}
   button: {fileID: 0}
 --- !u!1 &4927120786431466906
@@ -145,6 +147,7 @@ MonoBehaviour:
   cardDatabase: {fileID: 11400000, guid: cfb2ef71bbf3eeb4687cc4b8e5826436, type: 2}
   cardIndex: 3
   cardSpawner: {fileID: 0}
+  costManager: {fileID: 0}
   costText: {fileID: 0}
   button: {fileID: 0}
 --- !u!1 &5976943011244675203
@@ -194,6 +197,7 @@ MonoBehaviour:
   cardDatabase: {fileID: 11400000, guid: cfb2ef71bbf3eeb4687cc4b8e5826436, type: 2}
   cardIndex: 4
   cardSpawner: {fileID: 0}
+  costManager: {fileID: 0}
   costText: {fileID: 0}
   button: {fileID: 0}
 --- !u!1 &8338227021227625006
@@ -205,7 +209,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6810727912186089619}
-  - component: {fileID: 4784135194776657028}
   m_Layer: 0
   m_Name: UnitCard
   m_TagString: Untagged
@@ -233,23 +236,6 @@ Transform:
   - {fileID: 903914623746312741}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4784135194776657028
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8338227021227625006}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 98adefdb2c5471a488959a9081a22aa1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::UnitCard
-  cardDatabase: {fileID: 11400000, guid: cfb2ef71bbf3eeb4687cc4b8e5826436, type: 2}
-  cardIndex: 0
-  cardSpawner: {fileID: 0}
-  costText: {fileID: 0}
-  button: {fileID: 0}
 --- !u!1 &8638829341868926804
 GameObject:
   m_ObjectHideFlags: 0
@@ -297,5 +283,6 @@ MonoBehaviour:
   cardDatabase: {fileID: 11400000, guid: cfb2ef71bbf3eeb4687cc4b8e5826436, type: 2}
   cardIndex: 2
   cardSpawner: {fileID: 0}
+  costManager: {fileID: 0}
   costText: {fileID: 0}
   button: {fileID: 0}

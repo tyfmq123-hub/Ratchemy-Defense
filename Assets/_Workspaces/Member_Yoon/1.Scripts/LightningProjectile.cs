@@ -25,7 +25,6 @@ public class LightningProjectile : MonoBehaviour
 
     [SerializeField] private AudioClip flySound;
     [SerializeField] private float flySoundVolume = 1.0f;
-    private AudioSource audioSource;
 
     [Header("InsulatorRat 대상 번개 데미지")]
     [Tooltip("InsulatorRat에게 줄 번개 데미지 배율 (0.5 = 50%)")]
@@ -56,6 +55,10 @@ public class LightningProjectile : MonoBehaviour
 
     private void Start()
     {
+        // Initialize() 미호출 시 안전망 — lifetime 기본값으로 자동 제거
+        if (speed == 0f && damage == 0)
+            Destroy(gameObject, lifetime);
+
         if (flySound != null)
         {
             Vector3 listenerPos = Camera.main != null ? Camera.main.transform.position : transform.position;
@@ -71,6 +74,7 @@ public class LightningProjectile : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (!EnemyCombatUtility.TryGetPlayer(other, out PlayerUnitBase player)) return;
+        if (player.CurrentHp <= 0) return;
 
         ApplyDamage(player, damage);
 
@@ -110,6 +114,7 @@ public class LightningProjectile : MonoBehaviour
             if (chains >= chainCount) break;
 
             if (!EnemyCombatUtility.TryGetPlayer(col, out PlayerUnitBase target)) continue;
+            if (target.CurrentHp <= 0) continue;
             if (alreadyHit.Contains(target)) continue;
 
             Vector3 prevPos = alreadyHit[alreadyHit.Count - 1].transform.position;

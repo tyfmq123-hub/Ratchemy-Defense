@@ -11,6 +11,12 @@ public class FlameSlimeTier3 : FlameSlimeTier2
 
     [SerializeField] private Transform attackPoint;
 
+    [SerializeField] private AudioClip dieSealedSound;
+    [SerializeField] private AudioClip explosionChargeSound;
+    [SerializeField] private AudioClip explosionBangSound;
+
+    [SerializeField] private float blinkInterval = 0.1f;
+
     protected override void Start()
     {
         base.Start();
@@ -137,12 +143,6 @@ public class FlameSlimeTier3 : FlameSlimeTier2
         Vector2 explosionCenter = (Vector2)transform.position + flameData3.explosionOffset;
         EnemyCombatUtility.DamagePlayersInRadius(explosionCenter, flameData3.explosionRadius, targetLayer, flameData3.explosionDamage);
     }
-
-    [SerializeField] private AudioClip dieSealedSound;
-    [SerializeField] private AudioClip explosionChargeSound;
-    [SerializeField] private AudioClip explosionBangSound;
-
-    [SerializeField] private float blinkInterval = 0.1f;
 
     private void OnDrawGizmosSelected()
     {

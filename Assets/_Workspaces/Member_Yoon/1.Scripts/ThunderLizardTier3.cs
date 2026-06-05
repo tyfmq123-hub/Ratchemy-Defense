@@ -17,35 +17,10 @@ public class ThunderLizardTier3 : ThunderLizardTier2
     // LightningProjectile 오버라이드 - 체인 파라미터를 포함해 투사체 초기화
     public override void LightningProjectile()
     {
-        if (!CanFireRangedAttack())
-        {
-            ClearRangedAttack();
-            return;
-        }
+        if (!ValidateLightningFire()) return;
 
-        if (!pendingTarget.gameObject.activeInHierarchy)
-        {
-            ClearRangedAttack();
-            return;
-        }
-
-        if (thunderData2 == null || thunderData2.lightningPrefab == null)
-        {
-            Debug.LogWarning("[ThunderLizardTier3] lightningPrefab이 연결되지 않았습니다.");
-            ClearRangedAttack();
-            return;
-        }
-
-        if (attackPoint == null)
-        {
-            Debug.LogWarning("[ThunderLizardTier3] AttackPoint가 연결되지 않았습니다.");
-            ClearRangedAttack();
-            return;
-        }
-
-        Vector3 spawnPos  = attackPoint.position;
-        Vector3 targetPos = pendingTarget.bounds.center;
-        Vector3 dir       = (targetPos - spawnPos).normalized;
+        Vector3 spawnPos = attackPoint.position;
+        Vector3 dir      = (pendingTarget.bounds.center - spawnPos).normalized;
         PlayAttackSound();
         GameObject proj = Instantiate(thunderData2.lightningPrefab, spawnPos, Quaternion.identity);
 

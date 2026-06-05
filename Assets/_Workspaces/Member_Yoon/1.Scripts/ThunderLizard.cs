@@ -6,6 +6,8 @@ using UnityEngine;
 // Animator Parameters: Bool "IsWalking", Trigger "Attack", Trigger "Die"
 public class ThunderLizard : EnemyUnit
 {
+    protected override int SortingOrderBase => 20;
+
     protected ThunderLizardData thunderData;
     protected Animator animator;
 

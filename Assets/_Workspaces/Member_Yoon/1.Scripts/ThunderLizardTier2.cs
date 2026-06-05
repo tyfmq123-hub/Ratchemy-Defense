@@ -30,40 +30,39 @@ public class ThunderLizardTier2 : ThunderLizard
         animator?.SetTrigger("Attack");
     }
 
+    // 투사체 발사 전 공통 유효성 검사 — false 반환 시 ClearRangedAttack 처리 포함
+    protected bool ValidateLightningFire()
+    {
+        if (!CanFireRangedAttack()) { ClearRangedAttack(); return false; }
+        if (!pendingTarget.gameObject.activeInHierarchy) { ClearRangedAttack(); return false; }
+        if (thunderData2 == null || thunderData2.lightningPrefab == null)
+        {
+            Debug.LogWarning($"[{GetType().Name}] lightningPrefab이 연결되지 않았습니다.");
+            ClearRangedAttack(); return false;
+        }
+        if (attackPoint == null)
+        {
+            Debug.LogWarning($"[{GetType().Name}] AttackPoint가 연결되지 않았습니다.");
+            ClearRangedAttack(); return false;
+        }
+        return true;
+    }
+
     // 애니메이션 이벤트에서 호출
     // Animation 창 → Attack 클립의 원하는 프레임에 이벤트 추가
     // Function: FireProjectile
     public virtual void LightningProjectile()
     {
-        if (!CanFireRangedAttack())
-        {
-            ClearRangedAttack();
-            return;
-        }
+        if (!ValidateLightningFire()) return;
 
-        if (!pendingTarget.gameObject.activeInHierarchy)
-        {
-            ClearRangedAttack();
-            return;
-        }
-
-        if (attackPoint == null)
-        {
-            Debug.LogWarning("[ThunderLizardTier2] AttackPoint가 연결되지 않았습니다.");
-            ClearRangedAttack();
-            return;
-        }
-
-        Vector3 spawnPos  = attackPoint.position;
-        Vector3 targetPos = pendingTarget.bounds.center;
-        Vector3 dir       = (targetPos - spawnPos).normalized;
+        Vector3 spawnPos = attackPoint.position;
+        Vector3 dir      = (pendingTarget.bounds.center - spawnPos).normalized;
         PlayAttackSound();
         GameObject proj = Instantiate(thunderData2.lightningPrefab, spawnPos, Quaternion.identity);
 
         LightningProjectile projectile = proj.GetComponent<LightningProjectile>();
         if (projectile != null)
-            projectile.Initialize(dir, thunderData2.projectileSpeed, damage, 0, 0f,
-                GetComponent<Collider2D>());
+            projectile.Initialize(dir, thunderData2.projectileSpeed, damage, 0, 0f, GetComponent<Collider2D>());
 
         ClearRangedAttack();
     }

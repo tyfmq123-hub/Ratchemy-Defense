@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>StageInfoUI Hierarchy</title>
+<style>
+  body { background: #1a1a2e; color: #e0e0e0; font-family: 'Consolas', monospace; padding: 24px; }
+  h1 { color: #00d4ff; font-size: 18px; margin-bottom: 20px; }
+  ul { list-style: none; padding-left: 20px; margin: 2px 0; }
+  li { margin: 2px 0; }
+  .node { display: inline-flex; align-items: center; gap: 8px; padding: 2px 6px; border-radius: 4px; cursor: pointer; }
+  .node:hover { background: #2a2a4e; }
+  .icon { font-size: 13px; width: 16px; text-align: center; }
+  .name { font-size: 13px; font-weight: bold; color: #ffffff; }
+  .comp { font-size: 11px; color: #888; }
+  .comp span { background: #2d2d44; padding: 1px 5px; border-radius: 3px; margin-left: 3px; }
+
+  /* 타입별 색상 */
+  .root   > .node > .name { color: #00d4ff; }
+  .panel  > .node > .name { color: #7ec8e3; }
+  .layout > .node > .name { color: #a8d8a8; }
+  .scroll > .node > .name { color: #f4a460; }
+  .item   > .node > .name { color: #dda0dd; }
+  .leaf   > .node > .name { color: #c0c0c0; }
+  .prefab > .node > .name { color: #ffd700; }
+
+  .line { color: #444; margin-right: 4px; }
+  details > summary { list-style: none; }
+  details > summary::before { content: '▶ '; color: #555; font-size: 10px; }
+  details[open] > summary::before { content: '▼ '; color: #888; }
+  details > summary { cursor: pointer; }
+</style>
+</head>
+<body>
+
+<h1>📋 StageInfoUI — Canvas 오브젝트 구조</h1>
+
+<ul>
+  <!-- Canvas -->
+  <li class="root">
+    <span class="node">
+      <span class="icon">🖼</span>
+      <span class="name">Canvas</span>
+      <span class="comp"><span>Canvas</span><span>CanvasScaler</span><span>GraphicRaycaster</span></span>
+    </span>
+    <ul>
+
+      <!-- Dim Background -->
+      <li class="leaf">
+        <span class="node">
+          <span class="icon">◼</span>
+          <span class="name">DimBackground</span>
+          <span class="comp"><span>Image (반투명 검정)</span><span>Button (닫기용)</span></span>
+        </span>
+      </li>
+
+      <!-- StageInfoPanel -->
+      <li class="panel">
+        <details open>
+        <summary>
+          <span class="node">
+            <span class="icon">📦</span>
+            <span class="name">StageInfoPanel</span>
+            <span class="comp"><span>Image</span><span>StageInfoUI</span></span>
+          </span>
+        </summary>
+        <ul>
+
+          <!-- Header -->
+          <li class="layout">
+            <details open>
+            <summary>
+              <span class="node">
+                <span class="icon">➖</span>
+                <span class="name">Header</span>
+                <span class="comp"><span>HorizontalLayoutGroup</span></span>
+              </span>
+            </summary>
+            <ul>
+              <li class="leaf"><span class="node"><span class="icon">🖼</span><span class="name">HeaderIcon</span><span class="comp"><span>Image</span></span></span></li>
+              <li class="leaf"><span class="node"><span class="icon">📝</span><span class="name">TitleText</span><span class="comp"><span>TMP_Text — "STAGE INFO"</span></span></span></li>
+              <li class="leaf"><span class="node"><span class="icon">🔘</span><span class="name">CloseButton</span><span class="comp"><span>Button</span><span>Image</span><span>TMP_Text "X"</span></span></span></li>
+            </ul>
+            </details>
+          </li>
+
+          <!-- Body -->
+          <li class="layout">
+            <details open>
+            <summary>
+              <span class="node">
+                <span class="icon">➖</span>
+                <span class="name">Body</span>
+                <span class="comp"><span>HorizontalLayoutGroup</span></span>
+              </span>
+            </summary>
+            <ul>
+
+              <!-- LeftPanel -->
+              <li class="panel">
+                <details open>
+                <summary>
+                  <span class="node">
+                    <span class="icon">📦</span>
+                    <span class="name">LeftPanel</span>
+                    <span class="comp"><span>VerticalLayoutGroup</span><span>LayoutElement (30%)</span></span>
+                  </span>
+                </summary>
+                <ul>
+
+                  <!-- WaveHeader -->
+                  <li class="layout">
+                    <details>
+                    <summary>
+                      <span class="node">
+                        <span class="icon">➖</span>
+                        <span class="name">WaveHeader</span>
+                        <span class="comp"><span>HorizontalLayoutGroup</span></span>
+                      </span>
+                    </summary>
+                    <ul>
+                      <li class="leaf"><span class="node"><span class="icon">📝</span><span class="name">WaveNumberText</span><span class="comp"><span>TMP_Text — "WAVE.1"</span></span></span></li>
+                      <li class="leaf"><span class="node"><span class="icon">📝</span><span class="name">WaveNameText</span><span class="comp"><span>TMP_Text — "공장 지대"</span></span></span></li>
+                    </ul>
+                    </details>
+                  </li>
+
+                  <!-- StagePreviewImage -->
+                  <li class="leaf"><span class="node"><span class="icon">🖼</span><span class="name">StagePreviewImage</span><span class="comp"><span>Image</span><span>AspectRatioFitter</span></span></span></li>
+
+                  <!-- TraitsSection -->
+                  <li class="layout">
+                    <details>
+                    <summary>
+                      <span class="node">
+                        <span class="icon">➖</span>
+                        <span class="name">TraitsSection</span>
+                        <span class="comp"><span>VerticalLayoutGroup</span></span>
+                      </span>
+                    </summary>
+                    <ul>
+                      <li class="leaf"><span class="node"><span class="icon">📝</span><span class="name">TraitsSectionTitle</span><span class="comp"><span>TMP_Text — "스테이지 특성"</span></span></span></li>
+                      <li class="item">
+                        <details>
+                        <summary>
+                          <span class="node">
+                            <span class="icon">📌</span>
+                            <span class="name">TraitItem</span>
+                            <span class="comp"><span>HorizontalLayoutGroup</span><span>× 3개</span></span>
+                          </span>
+                        </summary>
+                        <ul>
+                          <li class="leaf"><span class="node"><span class="icon">🖼</span><span class="name">TraitIcon</span><span class="comp"><span>Image</span></span></span></li>
+                          <li class="leaf"><span class="node"><span class="icon">📝</span><span class="name">TraitText</span><span class="comp"><span>TMP_Text</span></span></span></li>
+                        </ul>
+                        </details>
+                      </li>
+                    </ul>
+                    </details>
+                  </li>
+
+                  <!-- VictorySection -->
+                  <li class="layout">
+                    <details>
+                    <summary>
+                      <span class="node">
+                        <span class="icon">➖</span>
+                        <span class="name">VictorySection</span>
+                        <span class="comp"><span>VerticalLayoutGroup</span></span>
+                      </span>
+                    </summary>
+                    <ul>
+                      <li class="leaf"><span class="node"><span class="icon">📝</span><span class="name">VictoryTitle</span><span class="comp"><span>TMP_Text — "승리 조건"</span></span></span></li>
+                      <li class="leaf"><span class="node"><span class="icon">📝</span><span class="name">VictoryText</span><span class="comp"><span>TMP_Text</span></span></span></li>
+                    </ul>
+                    </details>
+                  </li>
+
+                  <!-- DefeatSection -->
+                  <li class="layout">
+                    <details>
+                    <summary>
+                      <span class="node">
+                        <span class="icon">➖</span>
+                        <span class="name">DefeatSection</span>
+                        <span class="comp"><span>VerticalLayoutGroup</span></span>
+                      </span>
+                    </summary>
+                    <ul>
+                      <li class="leaf"><span class="node"><span class="icon">📝</span><span class="name">DefeatTitle</span><span class="comp"><span>TMP_Text — "패배 조건"</span></span></span></li>
+                      <li class="leaf"><span class="node"><span class="icon">📝</span><span class="name">DefeatText</span><span class="comp"><span>TMP_Text</span></span></span></li>
+                    </ul>
+                    </details>
+                  </li>
+
+                </ul>
+                </details>
+              </li>
+              <!-- /LeftPanel -->
+
+              <!-- RightPanel -->
+              <li class="panel">
+                <details open>
+                <summary>
+                  <span class="node">
+                    <span class="icon">📦</span>
+                    <span class="name">RightPanel</span>
+                    <span class="comp"><span>VerticalLayoutGroup</span><span>LayoutElement (70%)</span></span>
+                  </span>
+                </summary>
+                <ul>
+
+                  <!-- EnemySection -->
+                  <li class="layout">
+                    <details open>
+                    <summary>
+                      <span class="node">
+                        <span class="icon">💀</span>
+                        <span class="name">EnemySection</span>
+                        <span class="comp"><span>VerticalLayoutGroup</span></span>
+                      </span>
+                    </summary>
+                    <ul>
+
+                      <!-- EnemySectionHeader -->
+                      <li class="layout">
+                        <details>
+                        <summary>
+                          <span class="node">
+                            <span class="icon">➖</span>
+                            <span class="name">EnemySectionHeader</span>
+                            <span class="comp"><span>HorizontalLayoutGroup</span></span>
+                          </span>
+                        </summary>
+                        <ul>
+                          <li class="leaf"><span class="node"><span class="icon">🖼</span><span class="name">EnemySectionIcon</span><span class="comp"><span>Image</span></span></span></li>
+                          <li class="leaf"><span class="node"><span class="icon">📝</span><span class="name">EnemySectionTitle</span><span class="comp"><span>TMP_Text — "적군 유닛 정보"</span></span></span></li>
+                          <li class="leaf"><span class="node"><span class="icon">📝</span><span class="name">EnemyCountText</span><span class="comp"><span>TMP_Text — "총 6마리"</span></span></span></li>
+                        </ul>
+                        </details>
+                      </li>
+
+                      <!-- EnemyCardScrollView -->
+                      <li class="scroll">
+                        <details open>
+                        <summary>
+                          <span class="node">
+                            <span class="icon">📜</span>
+                            <span class="name">EnemyCardScrollView</span>
+                            <span class="comp"><span>ScrollRect (Horizontal)</span><span>Mask</span><span>Image</span></span>
+                          </span>
+                        </summary>
+                        <ul>
+                          <li class="layout">
+                            <details>
+                            <summary>
+                              <span class="node">
+                                <span class="icon">📦</span>
+                                <span class="name">Viewport</span>
+                                <span class="comp"><span>Mask</span><span>Image</span></span>
+                              </span>
+                            </summary>
+                            <ul>
+                              <li class="layout">
+                                <details>
+                                <summary>
+                                  <span class="node">
+                                    <span class="icon">➖</span>
+                                    <span class="name">Content</span>
+                                    <span class="comp"><span>HorizontalLayoutGroup</span><span>ContentSizeFitter</span></span>
+                                  </span>
+                                </summary>
+                                <ul>
+                                  <li class="prefab">
+                                    <span class="node">
+                                      <span class="icon">⭐</span>
+                                      <span class="name">UnitCard (Prefab)</span>
+                                      <span class="comp"><span>동적 생성 × N</span></span>
+                                    </span>
+                                  </li>
+                                </ul>
+                                </details>
+                              </li>
+                            </ul>
+                            </details>
+                          </li>
+                        </ul>
+                        </details>
+                      </li>
+
+                    </ul>
+                    </details>
+                  </li>
+                  <!-- /EnemySection -->
+
+                  <!-- AllySection -->
+                  <li class="layout">
+                    <details open>
+                    <summary>
+                      <span class="node">
+                        <span class="icon">🛡</span>
+                        <span class="name">AllySection</span>
+                        <span class="comp"><span>VerticalLayoutGroup</span></span>
+                      </span>
+                    </summary>
+                    <ul>
+
+                      <!-- AllySectionHeader -->
+                      <li class="layout">
+                        <details>
+                        <summary>
+                          <span class="node">
+                            <span class="icon">➖</span>
+                            <span class="name">AllySectionHeader</span>
+                            <span class="comp"><span>HorizontalLayoutGroup</span></span>
+                          </span>
+                        </summary>
+                        <ul>
+                          <li class="leaf"><span class="node"><span class="icon">🖼</span><span class="name">AllySectionIcon</span><span class="comp"><span>Image</span></span></span></li>
+                          <li class="leaf"><span class="node"><span class="icon">📝</span><span class="name">AllySectionTitle</span><span class="comp"><span>TMP_Text — "아군 유닛 정보"</span></span></span></li>
+                          <li class="leaf"><span class="node"><span class="icon">📝</span><span class="name">AllyCountText</span><span class="comp"><span>TMP_Text — "총 5마리"</span></span></span></li>
+                        </ul>
+                        </details>
+                      </li>
+
+                      <!-- AllyCardScrollView -->
+                      <li class="scroll">
+                        <details open>
+                        <summary>
+                          <span class="node">
+                            <span class="icon">📜</span>
+                            <span class="name">AllyCardScrollView</span>
+                            <span class="comp"><span>ScrollRect (Horizontal)</span><span>Mask</span><span>Image</span></span>
+                          </span>
+                        </summary>
+                        <ul>
+                          <li class="layout">
+                            <details>
+                            <summary>
+                              <span class="node">
+                                <span class="icon">📦</span>
+                                <span class="name">Viewport</span>
+                                <span class="comp"><span>Mask</span><span>Image</span></span>
+                              </span>
+                            </summary>
+                            <ul>
+                              <li class="layout">
+                                <details>
+                                <summary>
+                                  <span class="node">
+                                    <span class="icon">➖</span>
+                                    <span class="name">Content</span>
+                                    <span class="comp"><span>HorizontalLayoutGroup</span><span>ContentSizeFitter</span></span>
+                                  </span>
+                                </summary>
+                                <ul>
+                                  <li class="prefab">
+                                    <span class="node">
+                                      <span class="icon">⭐</span>
+                                      <span class="name">UnitCard (Prefab)</span>
+                                      <span class="comp"><span>동적 생성 × N</span></span>
+                                    </span>
+                                  </li>
+                                </ul>
+                                </details>
+                              </li>
+                            </ul>
+                            </details>
+                          </li>
+                        </ul>
+                        </details>
+                      </li>
+
+                    </ul>
+                    </details>
+                  </li>
+                  <!-- /AllySection -->
+
+                </ul>
+                </details>
+              </li>
+              <!-- /RightPanel -->
+
+            </ul>
+            </details>
+          </li>
+          <!-- /Body -->
+
+        </ul>
+        </details>
+      </li>
+      <!-- /StageInfoPanel -->
+
+    </ul>
+  </li>
+</ul>
+
+<hr style="border-color:#333; margin: 32px 0 20px;">
+
+<h1>⭐ UnitCard Prefab 내부 구조</h1>
+
+<ul>
+  <li class="prefab">
+    <details open>
+    <summary>
+      <span class="node">
+        <span class="icon">⭐</span>
+        <span class="name">UnitCard</span>
+        <span class="comp"><span>Image (카드 배경)</span><span>UnitCardUI</span></span>
+      </span>
+    </summary>
+    <ul>
+      <li class="leaf"><span class="node"><span class="icon">🔲</span><span class="name">CardBorder</span><span class="comp"><span>Image (테두리 색상 변경용)</span></span></span></li>
+      <li class="leaf"><span class="node"><span class="icon">📝</span><span class="name">NumberText</span><span class="comp"><span>TMP_Text — "01"</span></span></span></li>
+      <li class="leaf"><span class="node"><span class="icon">🖼</span><span class="name">UnitImage</span><span class="comp"><span>Image</span><span>AspectRatioFitter</span></span></span></li>
+      <li class="leaf"><span class="node"><span class="icon">📝</span><span class="name">UnitNameText</span><span class="comp"><span>TMP_Text</span></span></span></li>
+      <li class="item">
+        <details>
+        <summary>
+          <span class="node">
+            <span class="icon">➖</span>
+            <span class="name">TypeRow</span>
+            <span class="comp"><span>HorizontalLayoutGroup</span></span>
+          </span>
+        </summary>
+        <ul>
+          <li class="leaf"><span class="node"><span class="icon">🖼</span><span class="name">TypeIcon</span><span class="comp"><span>Image</span></span></span></li>
+          <li class="leaf"><span class="node"><span class="icon">📝</span><span class="name">TypeText</span><span class="comp"><span>TMP_Text</span></span></span></li>
+        </ul>
+        </details>
+      </li>
+      <li class="leaf"><span class="node"><span class="icon">📝</span><span class="name">DescriptionText</span><span class="comp"><span>TMP_Text</span></span></span></li>
+    </ul>
+    </details>
+  </li>
+</ul>
+
+<hr style="border-color:#333; margin: 32px 0 20px;">
+<p style="color:#555; font-size:11px;">
+  색상 범례:
+  <span style="color:#00d4ff">■ Canvas/Root</span> &nbsp;
+  <span style="color:#7ec8e3">■ Panel</span> &nbsp;
+  <span style="color:#a8d8a8">■ Layout</span> &nbsp;
+  <span style="color:#f4a460">■ ScrollView</span> &nbsp;
+  <span style="color:#dda0dd">■ Item</span> &nbsp;
+  <span style="color:#ffd700">■ Prefab</span> &nbsp;
+  <span style="color:#c0c0c0">■ Leaf(단말)</span>
+</p>
+
+</body>
+</html>

@@ -214,6 +214,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 9032282906050675661}
     m_Modifications:
+    - target: {fileID: 1509657069969610511, guid: 157cd893a6aa0a94c857721d537f7315, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -8794225027330985308, guid: c2729254acf8f184fa1689b166f0225f, type: 3}
     - target: {fileID: 3442834294853508538, guid: 157cd893a6aa0a94c857721d537f7315, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.009
@@ -258,6 +262,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: HPBar_Root
       objectReference: {fileID: 0}
+    - target: {fileID: 8234415371794907491, guid: 157cd893a6aa0a94c857721d537f7315, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 5947480960748019991, guid: d8e14e19f2702c848a756ec419a2e948, type: 3}
     - target: {fileID: 8802854797772262822, guid: 157cd893a6aa0a94c857721d537f7315, type: 3}
       propertyPath: playerUnit
       value: 
@@ -284,6 +292,14 @@ PrefabInstance:
       propertyPath: playerUnit
       value: 
       objectReference: {fileID: 8856307421587680190}
+    - target: {fileID: 2242156649532324236, guid: 0b47d9a05fb69e74dbdc7b636f90ad89, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -8794225027330985308, guid: c2729254acf8f184fa1689b166f0225f, type: 3}
+    - target: {fileID: 5712176743757783735, guid: 0b47d9a05fb69e74dbdc7b636f90ad89, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 5947480960748019991, guid: d8e14e19f2702c848a756ec419a2e948, type: 3}
     - target: {fileID: 6590394667052689440, guid: 0b47d9a05fb69e74dbdc7b636f90ad89, type: 3}
       propertyPath: m_Name
       value: MPBar_Root

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ratchemy Balance Simulator</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <div class="page">
+    <header class="hero">
+      <div>
+        <p class="eyebrow">Ratchemy Defense</p>
+        <h1>Balance Simulator Web Tool</h1>
+        <p class="subtitle">Unity Play 없이 브라우저에서 팀 구성 · 스탯 조절 · 승률 시뮬</p>
+      </div>
+      <div class="hero-actions">
+        <label class="file-button">
+          JSON 파일 불러오기
+          <input id="json-file" type="file" accept=".json,application/json">
+        </label>
+      </div>
+    </header>
+
+    <p id="data-status" class="status">데이터 로딩 중...</p>
+
+    <section class="panel settings-panel">
+      <h2>시뮬 설정</h2>
+      <div class="settings-grid">
+        <label>
+          코스트 한도
+          <input id="cost-budget" type="number" min="1" max="40" value="25">
+        </label>
+        <label>
+          랜덤 적 수
+          <input id="enemy-count" type="number" min="1" max="12" value="5">
+        </label>
+        <label>
+          시작 거리
+          <input id="start-distance" type="number" min="4" max="20" step="0.5" value="10">
+        </label>
+        <label>
+          반복 판수
+          <input id="iteration-count" type="number" min="1" max="5000" value="1500">
+        </label>
+        <label>
+          랜덤 시드 (0=매번 다름)
+          <input id="random-seed" type="number" min="0" value="0">
+        </label>
+      </div>
+
+      <fieldset class="economy-panel">
+        <legend>전투 경제</legend>
+        <label><input id="enable-economy" type="checkbox" checked> 전투 중 코스트 시스템</label>
+        <label>
+          초당 코스트 +
+          <input id="cost-income" type="number" min="0" max="10" step="0.5" value="1">
+        </label>
+        <label>
+          사망 환급 (0~1)
+          <input id="death-refund" type="number" min="0" max="1" step="0.05" value="0.5">
+        </label>
+        <label><input id="auto-reinforce" type="checkbox" checked> 코스트로 자동 재소환</label>
+      </fieldset>
+
+      <div class="mode-row">
+        <fieldset>
+          <legend>아군 팀</legend>
+          <label><input id="mode-random" type="radio" name="player-mode" checked> 코스트 내 랜덤</label>
+          <label><input id="mode-manual" type="radio" name="player-mode"> 아래에서 직접 선택</label>
+        </fieldset>
+        <fieldset>
+          <legend>적 팀</legend>
+          <label><input id="enemy-mode-random" type="radio" name="enemy-mode" checked> 풀에서 랜덤</label>
+          <label><input id="enemy-mode-manual" type="radio" name="enemy-mode"> 아래에서 직접 선택</label>
+        </fieldset>
+      </div>
+
+      <div class="action-row">
+        <button id="run-button" type="button" class="primary">시뮬레이션 실행</button>
+        <button id="download-report" type="button">리포트 다운로드</button>
+        <button id="clear-teams" type="button">팀 초기화</button>
+        <button id="reset-overrides" type="button">스탯 초기화</button>
+      </div>
+    </section>
+
+    <div class="columns">
+      <section class="panel">
+        <div class="panel-head">
+          <h2>아군 유닛</h2>
+          <p>사용 코스트: <strong id="player-cost" class="cost ok">0 / 25</strong></p>
+        </div>
+        <div id="player-list" class="unit-list"></div>
+      </section>
+
+      <section class="panel">
+        <div class="panel-head">
+          <h2>적 유닛</h2>
+          <p>직접 선택 모드일 때 마리 수 지정</p>
+        </div>
+        <div id="enemy-list" class="unit-list"></div>
+      </section>
+    </div>
+
+    <section class="panel">
+      <h2>결과</h2>
+      <pre id="result-box" class="result-box">시뮬레이션을 실행하면 결과가 표시됩니다.</pre>
+    </section>
+
+    <footer class="footer">
+      <p>데이터는 Unity 메뉴 <strong>Member_Jeon → Balance → Export Web Tool Data (JSON)</strong> 으로 최신화하세요.</p>
+      <p><strong>실행:</strong> <code>start-server.bat</code> 더블클릭 → 브라우저에서 <code>http://localhost:8080</code></p>
+      <p>index.html 더블클릭만 해도 내장 데이터로 동작합니다 (Export JSON은 수동 불러오기).</p>
+    </footer>
+  </div>
+
+  <script src="./embedded-data.js"></script>
+  <script src="./simulator.js"></script>
+  <script src="./app.js"></script>
+</body>
+</html>

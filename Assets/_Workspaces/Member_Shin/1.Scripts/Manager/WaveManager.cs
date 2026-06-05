@@ -230,7 +230,7 @@ public class WaveManager : MonoBehaviour
             );
 
         StartCoroutine(
-    TryEnterBossStageNextFrame()
+            TryEnterBossStageNextFrame()
         );
     }
 
@@ -302,13 +302,13 @@ public class WaveManager : MonoBehaviour
         TryEnterBossStage();
     }
 
-
     // EnemySpawner가 생성한 일반 적에게는 EnemyWaveTracker가 붙습니다.
     // 보스는 처음부터 씬에 배치되어 있으므로 이 개수에 포함되지 않습니다.
     private int CountRemainingWaveEnemies()
     {
         EnemyWaveTracker[] remainingEnemies =
             FindObjectsByType<EnemyWaveTracker>(
+                FindObjectsInactive.Exclude,
                 FindObjectsSortMode.None
             );
 

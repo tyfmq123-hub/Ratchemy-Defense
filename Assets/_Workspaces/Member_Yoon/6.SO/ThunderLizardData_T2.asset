@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 386968a9fb28dad499122017bd1bbc13, type: 3}
+  m_Name: ThunderLizardData_T2
+  m_EditorClassIdentifier: Assembly-CSharp::ThunderLizardTier2Data
+  damage: 10
+  hp: 110
+  maxHp: 110
+  attackRange: 5
+  attackSpeed: 1
+  moveSpeed: 2
+  lightningPrefab: {fileID: 769734323195235563, guid: 7aa18f06de0a9974f8b8fa69f7099a36, type: 3}
+  projectileSpeed: 6
+  fireOffset: {x: 0, y: 0}

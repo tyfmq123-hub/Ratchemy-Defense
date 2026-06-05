@@ -14,22 +14,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::UnitCardData
   cards:
   - cardName: SafetyManagerRat
-    cardImage: {fileID: 0}
-    cost: 2
-    unitPrefab: {fileID: 3462171109844881429, guid: 16dcef68047fb224b98588bb0c5702b9, type: 3}
-  - cardName: CoolantRat
-    cardImage: {fileID: 0}
     cost: 3
-    unitPrefab: {fileID: 7293954060465503702, guid: 46f1e6d128bf7d64c9fc286810597811, type: 3}
-  - cardName: Insulator Rat
-    cardImage: {fileID: 0}
+    unitPrefab: {fileID: 7912681503604017415, guid: 16dcef68047fb224b98588bb0c5702b9, type: 3}
+  - cardName: InsulatorRat
     cost: 3
-    unitPrefab: {fileID: 7364547108157733609, guid: f8c4ef9e34028184b929c819a33b715f, type: 3}
+    unitPrefab: {fileID: 8856307421587680190, guid: f8c4ef9e34028184b929c819a33b715f, type: 3}
   - cardName: TankRat
-    cardImage: {fileID: 0}
     cost: 5
-    unitPrefab: {fileID: 1810136297007056234, guid: b59c03b8f4607f148a8ca2f67d2ccb8a, type: 3}
-  - cardName: UItimeateRat
-    cardImage: {fileID: 0}
-    cost: 10
-    unitPrefab: {fileID: 6086512234361307545, guid: 0fbffb4fd11fd20449542af180b7620a, type: 3}
+    unitPrefab: {fileID: 5852358496432779457, guid: b59c03b8f4607f148a8ca2f67d2ccb8a, type: 3}
+  - cardName: CoolantRat
+    cost: 7
+    unitPrefab: {fileID: 3976041057461533399, guid: 46f1e6d128bf7d64c9fc286810597811, type: 3}
+  - cardName: UltimateRat
+    cost: 9
+    unitPrefab: {fileID: 7050018991101614757, guid: 0fbffb4fd11fd20449542af180b7620a, type: 3}

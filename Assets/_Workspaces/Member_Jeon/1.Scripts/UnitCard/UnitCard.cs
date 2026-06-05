@@ -20,7 +20,6 @@ public class UnitCard : MonoBehaviour
     // [SerializeField] private CostManager costManager;
 
     [Header("UI")]
-    [SerializeField] private Image iconImage;
     [SerializeField] private TMP_Text costText;
     [SerializeField] private Button button;               // 이 카드의 소환 버튼
 
@@ -38,9 +37,6 @@ public class UnitCard : MonoBehaviour
         UnitCardEntry entry = GetEntry();
         if (entry == null)
             return;
-
-        if (iconImage != null && entry.cardImage != null)
-            iconImage.sprite = entry.cardImage;
 
         if (costText != null)
             costText.text = GetRequiredCost().ToString();

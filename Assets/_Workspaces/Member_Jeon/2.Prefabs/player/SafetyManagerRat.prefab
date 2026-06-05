@@ -281,12 +281,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68da86f4cac69e348a33c871bcc650a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SafetyManagerRat
-  maxHp: 120
-  currentHp: 120
-  attackPower: 20
-  moveSpeed: 2.5
+  maxHp: 80
+  currentHp: 80
+  attackPower: 10
+  moveSpeed: 3.5
   attackSpeed: 0.8
-  attackRange: 2
+  attackRange: 1.8
   animator: {fileID: 0}
   attackBoolName: isattack
   attackStateName: SafetyManager_attack

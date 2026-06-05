@@ -91,13 +91,6 @@ public class CostManager : MonoBehaviour
         // 유닛을 생성하지 못하도록 false를 반환합니다.
         if (currentCost < amount)
         {
-            Debug.Log(
-                "코스트가 부족합니다. 필요 코스트: "
-                + amount
-                + ", 현재 코스트: "
-                + currentCost
-            );
-
             return false;
         }
 

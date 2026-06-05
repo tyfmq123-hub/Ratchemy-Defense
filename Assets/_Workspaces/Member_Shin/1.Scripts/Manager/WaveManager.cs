@@ -36,6 +36,8 @@ public class WaveManager : MonoBehaviour
     // 배열은 0번부터 시작하므로 게임 시작 전에는 -1로 둡니다.
     private int currentWaveIndex = -1;
 
+    public int CurrentWaveIndex => currentWaveIndex;
+
     // 현재 웨이브에 남은 시간입니다.
     private float remainingCountdownTime;
 
@@ -126,10 +128,6 @@ public class WaveManager : MonoBehaviour
             waveSettings.Length == 0
         )
         {
-            Debug.LogWarning(
-                "Wave Settings가 비어 있습니다."
-            );
-
             return;
         }
 
@@ -205,12 +203,6 @@ public class WaveManager : MonoBehaviour
                 )
             );
         }
-        else
-        {
-            Debug.LogWarning(
-                "EnemySpawner가 연결되지 않았습니다."
-            );
-        }
     }
 
     private void OnEnemySpawned(int spawnedWaveIndex)
@@ -239,12 +231,8 @@ public class WaveManager : MonoBehaviour
                 aliveFinalWaveEnemyCount - 1
             );
 
-        Debug.Log(
-            $"[WaveManager] Wave 4 적 제거됨 / 남은 적: {aliveFinalWaveEnemyCount}"
-        );
-
         StartCoroutine(
-    TryEnterBossStageNextFrame()
+            TryEnterBossStageNextFrame()
         );
     }
 
@@ -288,10 +276,6 @@ public class WaveManager : MonoBehaviour
         int remainingWaveEnemyCount =
             CountRemainingWaveEnemies();
 
-        Debug.Log(
-            $"[WaveManager] 실제 남은 일반 적: {remainingWaveEnemyCount}"
-        );
-
         if (remainingWaveEnemyCount > 0)
         {
             return;
@@ -309,10 +293,6 @@ public class WaveManager : MonoBehaviour
         {
             environmentGaugeUI.ShowBossStage();
         }
-
-        Debug.Log(
-            "마지막 일반 웨이브 종료: BOSS STAGE 진입"
-        );
     }
 
     // 적이 Destroy된 직후에는 씬에서 완전히 제거되기 전일 수 있습니다.
@@ -324,13 +304,13 @@ public class WaveManager : MonoBehaviour
         TryEnterBossStage();
     }
 
-
     // EnemySpawner가 생성한 일반 적에게는 EnemyWaveTracker가 붙습니다.
     // 보스는 처음부터 씬에 배치되어 있으므로 이 개수에 포함되지 않습니다.
     private int CountRemainingWaveEnemies()
     {
         EnemyWaveTracker[] remainingEnemies =
             FindObjectsByType<EnemyWaveTracker>(
+                FindObjectsInactive.Exclude,
                 FindObjectsSortMode.None
             );
 

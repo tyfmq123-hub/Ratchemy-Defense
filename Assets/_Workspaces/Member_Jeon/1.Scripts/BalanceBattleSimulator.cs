@@ -6,6 +6,8 @@ using UnityEngine;
 
 public class BalanceBattleSimulator : MonoBehaviour
 {
+    public static bool IsSimulating { get; private set; }
+
     public enum SimulationMode
     {
         Mixed,
@@ -36,6 +38,7 @@ public class BalanceBattleSimulator : MonoBehaviour
     [SerializeField] private bool randomPickPrefab = true;
     [SerializeField] private bool clearOldUnitsBeforeRound = true;
     [SerializeField] private bool pauseWaveSystemDuringSimulation = true;
+    [SerializeField] private bool resumeWaveSystemAfterSimulation = false;
     [SerializeField] private bool exportReportToFile = true;
     [SerializeField] private string reportFileName = "BalanceReport.txt";
 
@@ -47,8 +50,9 @@ public class BalanceBattleSimulator : MonoBehaviour
 
     private WaveManager pausedWaveManager;
     private EnemySpawner pausedEnemySpawner;
-    private bool waveManagerWasEnabled;
-    private bool enemySpawnerWasEnabled;
+    private bool pausedWaveManagerComponentEnabled = true;
+
+    private readonly List<SavedActiveState> savedActiveStates = new List<SavedActiveState>();
 
     private int totalPlayerWins;
     private int totalEnemyWins;
@@ -85,16 +89,27 @@ public class BalanceBattleSimulator : MonoBehaviour
 
         StopAllCoroutines();
         ClearSimulatorUnitsOnly();
-        ResumeWaveSystem();
+        ExitSimulationIsolation();
         isRunning = false;
         Debug.Log("[BalanceBattleSimulator] 수동 중지됨.");
+    }
+
+    private void OnDisable()
+    {
+        if (!isRunning)
+            return;
+
+        StopAllCoroutines();
+        ClearSimulatorUnitsOnly();
+        ExitSimulationIsolation();
+        isRunning = false;
     }
 
     private IEnumerator RunSimulationFlow()
     {
         isRunning = true;
         ResetAllStats();
-        PauseWaveSystem();
+        EnterSimulationIsolation();
 
         reportBuilder = new StringBuilder();
         reportBuilder.AppendLine("=== Balance Battle Report ===");
@@ -138,7 +153,7 @@ public class BalanceBattleSimulator : MonoBehaviour
         finally
         {
             ClearSimulatorUnitsOnly();
-            ResumeWaveSystem();
+            ExitSimulationIsolation();
             isRunning = false;
         }
     }
@@ -192,44 +207,99 @@ public class BalanceBattleSimulator : MonoBehaviour
         reportBuilder.AppendLine();
     }
 
-    private void PauseWaveSystem()
+    private void EnterSimulationIsolation()
     {
         if (!pauseWaveSystemDuringSimulation)
             return;
 
-        pausedWaveManager = FindAnyObjectByType<WaveManager>();
+        IsSimulating = true;
+        savedActiveStates.Clear();
+
+        pausedWaveManager = FindAnyObjectByType<WaveManager>(FindObjectsInactive.Include);
         if (pausedWaveManager != null)
         {
-            waveManagerWasEnabled = pausedWaveManager.enabled;
-            pausedWaveManager.enabled = false;
+            pausedWaveManagerComponentEnabled = pausedWaveManager.enabled;
+            SaveAndDeactivate(pausedWaveManager.gameObject);
         }
 
-        pausedEnemySpawner = FindAnyObjectByType<EnemySpawner>();
+        pausedEnemySpawner = FindAnyObjectByType<EnemySpawner>(FindObjectsInactive.Include);
         if (pausedEnemySpawner != null)
+            SaveAndDeactivate(pausedEnemySpawner.gameObject);
+
+        EnemyWaveTracker[] waveEnemies = FindObjectsByType<EnemyWaveTracker>(
+            FindObjectsInactive.Include,
+            FindObjectsSortMode.None);
+        for (int i = 0; i < waveEnemies.Length; i++)
         {
-            enemySpawnerWasEnabled = pausedEnemySpawner.enabled;
-            pausedEnemySpawner.StopAllCoroutines();
-            pausedEnemySpawner.enabled = false;
+            if (waveEnemies[i] != null)
+                SaveAndDeactivate(waveEnemies[i].gameObject);
         }
 
-        Debug.Log("[BalanceBattleSimulator] WaveManager / EnemySpawner 일시 정지");
+        PlayerUnitBase[] players = FindObjectsByType<PlayerUnitBase>(
+            FindObjectsInactive.Include,
+            FindObjectsSortMode.None);
+        for (int i = 0; i < players.Length; i++)
+        {
+            if (players[i] == null || players[i].GetComponent<BalanceUnitTracker>() != null)
+                continue;
+
+            SaveAndDeactivate(players[i].gameObject);
+        }
+
+        Debug.Log("[BalanceBattleSimulator] 웨이브 시스템·필드 유닛 격리 완료");
     }
 
-    private void ResumeWaveSystem()
+    private void ExitSimulationIsolation()
     {
         if (!pauseWaveSystemDuringSimulation)
             return;
 
-        if (pausedEnemySpawner != null)
-            pausedEnemySpawner.enabled = enemySpawnerWasEnabled;
+        IsSimulating = false;
+
+        for (int i = savedActiveStates.Count - 1; i >= 0; i--)
+        {
+            SavedActiveState state = savedActiveStates[i];
+            if (state.target != null)
+                state.target.SetActive(state.wasActive);
+        }
 
         if (pausedWaveManager != null)
-            pausedWaveManager.enabled = waveManagerWasEnabled;
+        {
+            pausedWaveManager.enabled = pausedWaveManagerComponentEnabled;
 
+            if (resumeWaveSystemAfterSimulation && pausedWaveManager.enabled)
+                pausedWaveManager.RestartWaveTimer();
+            else if (!resumeWaveSystemAfterSimulation)
+                pausedWaveManager.enabled = false;
+        }
+
+        savedActiveStates.Clear();
         pausedWaveManager = null;
         pausedEnemySpawner = null;
 
-        Debug.Log("[BalanceBattleSimulator] WaveManager / EnemySpawner 재개");
+        Debug.Log(resumeWaveSystemAfterSimulation
+            ? "[BalanceBattleSimulator] 웨이브 시스템 복구 및 타이머 재설정"
+            : "[BalanceBattleSimulator] 웨이브 GameObject 복구 — WaveManager 컴포넌트는 Play 재시작 전까지 정지");
+    }
+
+    private void SaveAndDeactivate(GameObject target)
+    {
+        if (target == null)
+            return;
+
+        for (int i = 0; i < savedActiveStates.Count; i++)
+        {
+            if (savedActiveStates[i].target == target)
+                return;
+        }
+
+        savedActiveStates.Add(new SavedActiveState
+        {
+            target = target,
+            wasActive = target.activeSelf
+        });
+
+        target.SetActive(false);
     }
 
     private void RecordRoundStats(RoundResult result, float roundEndTime, string matchupLabel)
@@ -538,5 +608,11 @@ public class BalanceBattleSimulator : MonoBehaviour
         PlayerWin,
         EnemyWin,
         Draw
+    }
+
+    private struct SavedActiveState
+    {
+        public GameObject target;
+        public bool wasActive;
     }
 }

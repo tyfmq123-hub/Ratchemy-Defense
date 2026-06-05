@@ -1215,7 +1215,33 @@ MonoBehaviour:
   totalCountdownTime: 20
   secondsPerGaugeStep: 1
   firstWaveSpawnDelay: 2
-  waveSettings: []
+  waveSettings:
+  - enemyPrefabs:
+    - {fileID: 7853548652790131195, guid: 82ad40b3720593e419f9ac3bbbc81293, type: 3}
+    - {fileID: 8978628917704716907, guid: 21ab848eb6983384ca16c775a407cff4, type: 3}
+    spawnCount: 20
+    spawnInterval: 2
+  - enemyPrefabs:
+    - {fileID: 7853548652790131195, guid: 82ad40b3720593e419f9ac3bbbc81293, type: 3}
+    - {fileID: 5911915522541860973, guid: 4fe879b506ad6c94a8180ff21a720593, type: 3}
+    - {fileID: 8978628917704716907, guid: 21ab848eb6983384ca16c775a407cff4, type: 3}
+    - {fileID: 6159824140907556210, guid: df857efb31f1b7947a9cd7a494f5df55, type: 3}
+    spawnCount: 20
+    spawnInterval: 3
+  - enemyPrefabs:
+    - {fileID: 8009223165904409003, guid: 36ef1857d35c889498b9003ba6c2f8fd, type: 3}
+    - {fileID: 225098900415800981, guid: c8181a26a4bcd7540b365901b4053c6f, type: 3}
+    spawnCount: 20
+    spawnInterval: 2
+  - enemyPrefabs:
+    - {fileID: 7853548652790131195, guid: 82ad40b3720593e419f9ac3bbbc81293, type: 3}
+    - {fileID: 5911915522541860973, guid: 4fe879b506ad6c94a8180ff21a720593, type: 3}
+    - {fileID: 225098900415800981, guid: c8181a26a4bcd7540b365901b4053c6f, type: 3}
+    - {fileID: 8978628917704716907, guid: 21ab848eb6983384ca16c775a407cff4, type: 3}
+    - {fileID: 6159824140907556210, guid: df857efb31f1b7947a9cd7a494f5df55, type: 3}
+    - {fileID: 8009223165904409003, guid: 36ef1857d35c889498b9003ba6c2f8fd, type: 3}
+    spawnCount: 50
+    spawnInterval: 2
   startAutomatically: 1
 --- !u!1 &341420291
 GameObject:
@@ -1267,9 +1293,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec08a441ab557874c83168a41019e700, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnvironmentGaugeUI
-  gaugeImage: {fileID: 0}
-  gaugeText: {fileID: 0}
-  gaugeSprites: []
+  gaugeImage: {fileID: 1074570687}
+  gaugeText: {fileID: 434499979}
+  gaugeSprites:
+  - {fileID: -5225418056515898908, guid: c895420fc21f0304db3f610f10f4f00e, type: 3}
+  - {fileID: 5538377562723194261, guid: 7a00a16cf0aef0e43b5f2c33f6e12dd4, type: 3}
+  - {fileID: -5439691151329644292, guid: a5aac3fb88287e24385070b690b16aee, type: 3}
+  - {fileID: 7587765869588725803, guid: 7b7ae1bad1455a24e935a58fa9f79228, type: 3}
+  - {fileID: -8321759527101447118, guid: a86074d81ee0a6a41a19a4e12868ea2f, type: 3}
+  - {fileID: 4500352915719474723, guid: 2c93a5e7645fb374c91033c36c3ae18a, type: 3}
+  - {fileID: -3533015619502964716, guid: 6b43bfac74a0d6d4cbf2ee373ddf7f20, type: 3}
+  - {fileID: 8543528235128698905, guid: a2727a459b8a5114b852327a48dfba2f, type: 3}
+  - {fileID: -4051084599465368134, guid: 88641565ee21ef8449a10efbbef9e5c0, type: 3}
+  - {fileID: -3046300778959206536, guid: a69c26a1c9172b34bad645485dd37737, type: 3}
+  - {fileID: -4400867074718937859, guid: 238551d9600d74b4dab74575cd1bf865, type: 3}
 --- !u!1 &344948688
 GameObject:
   m_ObjectHideFlags: 0
@@ -1880,7 +1917,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 486416227}
-  - component: {fileID: 486416228}
   - component: {fileID: 486416229}
   m_Layer: 5
   m_Name: BossHealthUI
@@ -1915,20 +1951,6 @@ RectTransform:
   m_AnchoredPosition: {x: 650, y: 440}
   m_SizeDelta: {x: 300, y: 90}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &486416228
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 486416226}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a67cd6c22cb720847a55d203e91ca513, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::BossHealthUI
-  bossHealthFill: {fileID: 0}
-  bossHealthText: {fileID: 975791803}
 --- !u!114 &486416229
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4155,7 +4177,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a67cd6c22cb720847a55d203e91ca513, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BossHealthUI
-  bossHealthFill: {fileID: 0}
+  bossHealthFill: {fileID: 66001316}
   bossHealthText: {fileID: 1895189924}
 --- !u!114 &1098962352
 MonoBehaviour:
@@ -4295,7 +4317,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a77dbf812f39b514d84c83d93e428bef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemySpawner
-  enemySpawnPoints: []
+  enemySpawnPoints:
+  - {fileID: 2039290257}
+  - {fileID: 636348529}
 --- !u!1 &1232520134
 GameObject:
   m_ObjectHideFlags: 0
@@ -5689,6 +5713,67 @@ Transform:
   - {fileID: 636348529}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1564656727
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2236362907514885993, guid: 7093c5d3804eb454babd99d1a7d9c221, type: 3}
+      propertyPath: m_SortingOrder
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 3269327025531318718, guid: 7093c5d3804eb454babd99d1a7d9c221, type: 3}
+      propertyPath: m_Name
+      value: Boss
+      objectReference: {fileID: 0}
+    - target: {fileID: 6398379952887140661, guid: 7093c5d3804eb454babd99d1a7d9c221, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6398379952887140661, guid: 7093c5d3804eb454babd99d1a7d9c221, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6398379952887140661, guid: 7093c5d3804eb454babd99d1a7d9c221, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6398379952887140661, guid: 7093c5d3804eb454babd99d1a7d9c221, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6398379952887140661, guid: 7093c5d3804eb454babd99d1a7d9c221, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6398379952887140661, guid: 7093c5d3804eb454babd99d1a7d9c221, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6398379952887140661, guid: 7093c5d3804eb454babd99d1a7d9c221, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6398379952887140661, guid: 7093c5d3804eb454babd99d1a7d9c221, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6398379952887140661, guid: 7093c5d3804eb454babd99d1a7d9c221, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6398379952887140661, guid: 7093c5d3804eb454babd99d1a7d9c221, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 7093c5d3804eb454babd99d1a7d9c221, type: 3}
 --- !u!1 &1568848706
 GameObject:
   m_ObjectHideFlags: 0
@@ -6153,7 +6238,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 276bc34257b23604681ab08c54c7de32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WaveUI
-  waveText: {fileID: 0}
+  waveText: {fileID: 1783960059}
 --- !u!1 &1780342746
 GameObject:
   m_ObjectHideFlags: 0
@@ -8028,3 +8113,4 @@ SceneRoots:
   - {fileID: 1427905826}
   - {fileID: 1711231252}
   - {fileID: 955566139}
+  - {fileID: 1564656727}

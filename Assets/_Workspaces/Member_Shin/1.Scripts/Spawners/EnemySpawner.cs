@@ -45,10 +45,6 @@ public class EnemySpawner : MonoBehaviour
             waveSetting.enemyPrefabs.Length == 0
         )
         {
-            Debug.LogWarning(
-                "현재 웨이브에 등록된 Enemy Prefab이 없습니다."
-            );
-
             onWaveSpawnFinished?.Invoke();
 
             yield break;
@@ -58,10 +54,6 @@ public class EnemySpawner : MonoBehaviour
             enemySpawnPoints.Length == 0
         )
         {
-            Debug.LogWarning(
-                "Enemy Spawn Points가 비어 있습니다."
-            );
-
             onWaveSpawnFinished?.Invoke();
 
             yield break;

@@ -64,7 +64,6 @@ public class BattleCameraController : MonoBehaviour
     {
         if (backgroundRenderer == null)
         {
-            Debug.LogWarning("BackgroundRenderer가 연결되지 않았습니다.");
             minX = transform.position.x;
             maxX = transform.position.x;
             return;

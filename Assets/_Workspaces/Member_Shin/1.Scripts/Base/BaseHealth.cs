@@ -37,26 +37,23 @@ public class BaseHealth : MonoBehaviour
         // 열폭주 온도에 도달하면 패배 상태입니다.
         if (currentTemperature >= thermalRunawayTemperature)
         {
-            Debug.Log("배터리 열폭주 발생! 게임 오버");
-
             // 나중에 이 위치에 패배 화면을 연결하면 됩니다.
         }
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        // 투명 박스에 들어온 오브젝트 또는 부모에서 EnemyBaseDamage를 찾습니다.
-        // 적 프리팹의 Collider가 자식 오브젝트에 있어도 인식할 수 있습니다.
+        // 충돌한 오브젝트 또는 부모에서 EnemyBaseDamage를 찾습니다.
         EnemyBaseDamage enemy =
             other.GetComponentInParent<EnemyBaseDamage>();
 
-        // EnemyBaseDamage가 없다면 적이 아니므로 무시합니다.
+        // EnemyBaseDamage를 찾지 못했다면 여기에서 종료됩니다.
         if (enemy == null)
         {
             return;
         }
 
-        // 이미 처리한 적이라면 중복으로 온도를 올리지 않습니다.
+        // 이미 처리한 적인지 확인합니다.
         if (!enemy.TryReachBase())
         {
             return;

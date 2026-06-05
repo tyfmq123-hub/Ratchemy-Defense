@@ -26,6 +26,10 @@ public class LightningProjectile : MonoBehaviour
     [SerializeField] private AudioClip flySound;
     [SerializeField] private float flySoundVolume = 1.0f;
 
+    [Header("체인 라이트닝 라인 위치")]
+    [Tooltip("라인 시작/끝 위치의 Y 오프셋 (몸 중앙에 맞게 조절)")]
+    [SerializeField] private float bodyHeightOffset = 0.5f;
+
     [Header("InsulatorRat 대상 번개 데미지")]
     [Tooltip("InsulatorRat에게 줄 번개 데미지 배율 (0.5 = 50%)")]
     [SerializeField] private float insulatorRatLightningMultiplier = 0.5f;
@@ -117,8 +121,8 @@ public class LightningProjectile : MonoBehaviour
             if (target.CurrentHp <= 0) continue;
             if (alreadyHit.Contains(target)) continue;
 
-            Vector3 prevPos = alreadyHit[alreadyHit.Count - 1].transform.position;
-            Vector3 targetPos = target.transform.position;
+            Vector3 prevPos   = alreadyHit[alreadyHit.Count - 1].transform.position + Vector3.up * bodyHeightOffset;
+            Vector3 targetPos = target.transform.position + Vector3.up * bodyHeightOffset;
 
             SpawnLightningLine(prevPos, targetPos);
 

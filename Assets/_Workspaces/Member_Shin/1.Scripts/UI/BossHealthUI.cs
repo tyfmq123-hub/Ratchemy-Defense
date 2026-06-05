@@ -48,7 +48,7 @@ public class BossHealthUI : MonoBehaviour
         if (bossHealthText != null)
         {
             bossHealthText.text =
-                currentHealth.ToString();
+                Mathf.RoundToInt(currentHealth).ToString();
         }
     }
 }

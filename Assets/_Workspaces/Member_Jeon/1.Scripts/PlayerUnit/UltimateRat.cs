@@ -93,7 +93,7 @@ public class UltimateRat : PlayerUnitBase
 
     private bool HasAliveEnemy()
     {
-        EnemyUnit[] enemies = FindObjectsByType<EnemyUnit>(FindObjectsSortMode.None);
+        EnemyUnit[] enemies = FindObjectsByType<EnemyUnit>();
 
         foreach (EnemyUnit enemy in enemies)
         {

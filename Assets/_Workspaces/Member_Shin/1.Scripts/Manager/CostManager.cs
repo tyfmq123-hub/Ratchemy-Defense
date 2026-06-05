@@ -111,6 +111,23 @@ public class CostManager : MonoBehaviour
         return true;
     }
 
+    /// <summary>
+    /// 유닛 사망 등으로 코스트를 일부 돌려줄 때 호출합니다.
+    /// 내부적으로 AddCost와 동일하지만, 환급 전용 이름을 따로 둡니다.
+    /// </summary>
+    public void RefundCost(int amount)
+    {
+        // 0 이하의 잘못된 값은 무시합니다.
+        if (amount <= 0)
+        {
+            return;
+        }
+
+        // 기존 AddCost를 재사용합니다.
+        // 최대 코스트 제한과 UI 갱신도 AddCost 안에서 자동 처리됩니다.
+        AddCost(amount);
+    }
+
     private void UpdateCostUI()
     {
         // 노란색 이미지 배열이 연결되어 있다면

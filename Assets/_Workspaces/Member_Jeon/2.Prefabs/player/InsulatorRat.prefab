@@ -131,8 +131,8 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 0.76, y: 1.13}
+  m_Offset: {x: 0.01890354, y: -0.0051921587}
+  m_Size: {x: 0.4575432, y: 2.2826276}
   m_Direction: 0
 --- !u!50 &8540130420155871831
 Rigidbody2D:
@@ -173,12 +173,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3ce9302dfc435043aa29b5a1ae5ae10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InsulatorRat
-  maxHp: 80
-  currentHp: 80
+  maxHp: 160
+  currentHp: 160
   attackPower: 12
   moveSpeed: 3
   attackSpeed: 1.2
   attackRange: 1
+  deathRefundRatio: 0.5
   animator: {fileID: 1021874146409857479}
   attackTriggerName: attack
   attackStateName: InsulatorRat_attack

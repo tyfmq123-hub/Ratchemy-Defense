@@ -670,8 +670,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68da86f4cac69e348a33c871bcc650a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SafetyManagerRat
-  maxHp: 80
-  currentHp: 80
+  maxHp: 150
+  currentHp: 150
   attackPower: 10
   moveSpeed: 3.5
   attackSpeed: 0.8

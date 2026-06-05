@@ -23,6 +23,8 @@ public class EnemyUnit : MonoBehaviour
 
     private SpriteRenderer spriteRenderer;
 
+    protected virtual int SortingOrderBase => 0;
+
     protected virtual void Start()
     {
         if (enemyUnitData == null)
@@ -54,7 +56,7 @@ public class EnemyUnit : MonoBehaviour
         if (isDying) return;
 
         if (spriteRenderer != null)
-            spriteRenderer.sortingOrder = Mathf.RoundToInt(-transform.position.y * 100) + (GetInstanceID() % 10);
+            spriteRenderer.sortingOrder = Mathf.RoundToInt(-transform.position.y * 100) + SortingOrderBase + (GetInstanceID() % 10);
 
         if (EnemyCombatUtility.TryFindClosestPlayer(transform.position, attackRange, targetLayer, out Collider2D player))
         {

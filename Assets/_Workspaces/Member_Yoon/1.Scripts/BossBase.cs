@@ -23,6 +23,11 @@ public class BossBase : EnemyUnit
     // 보스 사망 시 다른 시스템이 구독할 수 있는 이벤트
     public static event System.Action OnBossDead;
 
+    private WaveManager waveManager;
+    private WaveUI waveUI;
+    private int lastWaveIndex;
+    private bool bossStageReduced;
+
     protected override void Start()
     {
         base.Start();
@@ -37,10 +42,14 @@ public class BossBase : EnemyUnit
         else
             Debug.LogWarning("[BossBase] 자식 오브젝트 'AuraEffect'를 찾을 수 없습니다.");
 
+        waveManager = FindObjectOfType<WaveManager>();
+        waveUI      = FindObjectOfType<WaveUI>();
+
         // 시작 시 체력 UI 초기화
         bossHealthUI?.SetHealth(currentHp, maxHp);
 
         StartCoroutine(AuraLoop());
+        StartCoroutine(WaveWatchLoop());
     }
 
     protected override void OnHealthChanged()
@@ -76,6 +85,41 @@ public class BossBase : EnemyUnit
         if (bossData == null) return;
 
         EnemyCombatUtility.DamagePlayersInRadius(transform.position, bossData.auraRadius, targetLayer, bossData.auraDamage);
+    }
+
+    private IEnumerator WaveWatchLoop()
+    {
+        // 한 프레임 대기 → WaveManager.Start() 완료 후 초기 웨이브 인덱스 기준 설정
+        yield return null;
+        lastWaveIndex = waveManager != null ? waveManager.CurrentWaveIndex : 0;
+
+        while (!IsDead())
+        {
+            yield return new WaitForSeconds(0.5f);
+
+            if (waveManager != null)
+            {
+                int current = waveManager.CurrentWaveIndex;
+                if (current > lastWaveIndex)
+                {
+                    lastWaveIndex = current;
+                    ReduceHPByPercent(20);
+                }
+            }
+
+            // 4번째 웨이브 클리어 → 보스 스테이지 진입 감지
+            if (!bossStageReduced && waveUI != null && waveUI.waveText.text == "BOSS")
+            {
+                bossStageReduced = true;
+                ReduceHPByPercent(20);
+            }
+        }
+    }
+
+    private void ReduceHPByPercent(int percent)
+    {
+        int reduction = Mathf.RoundToInt(maxHp * percent / 100f);
+        TakeDamage(reduction);
     }
 
     // 보스는 이동하지 않음

@@ -5,6 +5,21 @@
 
 ## 작업 로그
 
+### 2026-06-05 (오후) — Member_Yoon : 버그 수정 + 보스 웨이브 체력 감소 + 리팩토링
+
+| 항목 | 내용 |
+|---|---|
+| **BossBase** | 웨이브 클리어마다 보스 최대 체력 20% 감소 — `WaveManager.CurrentWaveIndex` 감시 + WaveUI "BOSS" 텍스트로 4번째 클리어 감지 |
+| **BossBase** | 게임 시작 시 즉시 체력 감소 버그 수정 — `WaveWatchLoop` 1프레임 대기 후 초기 인덱스 기준 설정 |
+| **EnemyUnit** | `SortingOrderBase` 추가 — 유닛 타입별 정렬 우선순위 지정 가능 |
+| **ThunderLizard** | `SortingOrderBase = 20` override — 슬라임과 겹칠 때 리자드가 항상 앞에 표시 |
+| **ThunderLizardTier2** | `ValidateLightningFire()` 추출 — Tier2/3 중복 가드 로직 통합 |
+| **ThunderLizardTier3** | `ValidateLightningFire()` 재사용으로 중복 코드 제거 |
+| **FlameSlimeTier3** | 투사체 방향 계산 `transform.position` → `bounds.center` 수정 (피벗 기준 발사 버그 수정) |
+| **FlameSlimeTier3** | 죽은 플레이어에게 투사체 발사되는 버그 수정 — `CurrentHp <= 0` 체크 추가 |
+
+---
+
 ### 2026-06-05 — Member_Yoon : 체인 라이트닝 위치 보정 + Y축 정렬 적용
 
 | 항목 | 내용 |

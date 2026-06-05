@@ -1,14 +1,18 @@
 using UnityEngine;
 
-// 안전관리소장 쥐 — 사거리 내 공격, 없으면 전진
+// 안전관리소장 쥐 — 사거리 내 공격, 없으면 전진 / 달리기 중 받는 데미지 감소 패시브
 public class SafetyManagerRat : PlayerUnitBase
 {
     [SerializeField] private Animator animator;
     [SerializeField] private string attackBoolName = "isattack";
     [SerializeField] private string attackStateName = "SafetyManager_attack";
 
+    [Header("패시브 — 달리기")]
+    [SerializeField] private float runDamageReduction = 0.8f;
+
     private LayerMask enemyLayer;
     private float attackCooldown;
+    private bool isRunning;
 
     protected override void Awake()
     {
@@ -42,14 +46,24 @@ public class SafetyManagerRat : PlayerUnitBase
 
         if (enemy != null)
         {
+            isRunning = false;
             SetAttackAnimation(true);
             AttackEnemy(enemy);
         }
         else
         {
+            isRunning = true;
             SetAttackAnimation(false);
             Move();
         }
+    }
+
+    public override void TakeDamage(float damage)
+    {
+        if (isRunning)
+            damage *= 1f - Mathf.Clamp01(runDamageReduction);
+
+        base.TakeDamage(damage);
     }
 
     private void AttackEnemy(EnemyUnit enemyUnit)

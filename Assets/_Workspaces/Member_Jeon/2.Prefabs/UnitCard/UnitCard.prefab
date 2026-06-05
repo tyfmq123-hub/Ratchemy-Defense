@@ -47,7 +47,6 @@ MonoBehaviour:
   cardDatabase: {fileID: 11400000, guid: cfb2ef71bbf3eeb4687cc4b8e5826436, type: 2}
   cardIndex: 1
   cardSpawner: {fileID: 0}
-  iconImage: {fileID: 0}
   costText: {fileID: 0}
   button: {fileID: 0}
 --- !u!1 &4639341196065989803
@@ -97,7 +96,6 @@ MonoBehaviour:
   cardDatabase: {fileID: 11400000, guid: cfb2ef71bbf3eeb4687cc4b8e5826436, type: 2}
   cardIndex: 0
   cardSpawner: {fileID: 0}
-  iconImage: {fileID: 0}
   costText: {fileID: 0}
   button: {fileID: 0}
 --- !u!1 &4927120786431466906
@@ -147,7 +145,6 @@ MonoBehaviour:
   cardDatabase: {fileID: 11400000, guid: cfb2ef71bbf3eeb4687cc4b8e5826436, type: 2}
   cardIndex: 3
   cardSpawner: {fileID: 0}
-  iconImage: {fileID: 0}
   costText: {fileID: 0}
   button: {fileID: 0}
 --- !u!1 &5976943011244675203
@@ -197,7 +194,6 @@ MonoBehaviour:
   cardDatabase: {fileID: 11400000, guid: cfb2ef71bbf3eeb4687cc4b8e5826436, type: 2}
   cardIndex: 4
   cardSpawner: {fileID: 0}
-  iconImage: {fileID: 0}
   costText: {fileID: 0}
   button: {fileID: 0}
 --- !u!1 &8338227021227625006
@@ -252,7 +248,6 @@ MonoBehaviour:
   cardDatabase: {fileID: 11400000, guid: cfb2ef71bbf3eeb4687cc4b8e5826436, type: 2}
   cardIndex: 0
   cardSpawner: {fileID: 0}
-  iconImage: {fileID: 0}
   costText: {fileID: 0}
   button: {fileID: 0}
 --- !u!1 &8638829341868926804
@@ -302,6 +297,5 @@ MonoBehaviour:
   cardDatabase: {fileID: 11400000, guid: cfb2ef71bbf3eeb4687cc4b8e5826436, type: 2}
   cardIndex: 2
   cardSpawner: {fileID: 0}
-  iconImage: {fileID: 0}
   costText: {fileID: 0}
   button: {fileID: 0}

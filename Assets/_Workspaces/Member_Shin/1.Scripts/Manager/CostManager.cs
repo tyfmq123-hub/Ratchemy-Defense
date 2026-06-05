@@ -153,7 +153,7 @@ public class CostManager : MonoBehaviour
         if (costText != null)
         {
             costText.text =
-                currentCost.ToString();
+            currentCost + " / " + maxCost;
         }
     }
 

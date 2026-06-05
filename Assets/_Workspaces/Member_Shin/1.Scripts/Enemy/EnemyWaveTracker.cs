@@ -28,10 +28,6 @@ public class EnemyWaveTracker : MonoBehaviour
 
         hasReportedRemoval = true;
 
-        Debug.Log(
-            $"[EnemyWaveTracker] 적 제거 감지: {gameObject.name}"
-        );
-
         // WaveManager의 OnEnemyRemoved()까지 제거 사실을 전달합니다.
         onEnemyRemoved?.Invoke();
     }

@@ -5,6 +5,15 @@
 
 ## 작업 로그
 
+### 2026-06-05 — Member_Yoon : 체인 라이트닝 위치 보정 + Y축 정렬 적용
+
+| 항목 | 내용 |
+|---|---|
+| **LightningProjectile** | `bodyHeightOffset` SerializeField 추가 — 체인 라이트닝 라인이 유닛 발 밑 대신 몸 중앙에서 시작되도록 보정 |
+| **EnemyUnit** | Y축 위치 기반 `sortingOrder` 자동 갱신 추가 — 화면 아래쪽 유닛이 앞에 그려짐, `GetInstanceID()` 보조 기준으로 동일 Y 깜빡임 방지 |
+
+---
+
 ### 2026-06-04 (오후) — Member_Yoon : HP바 UI + 투사체 사운드 + 버그 수정 + 리팩
 
 | 항목 | 내용 |

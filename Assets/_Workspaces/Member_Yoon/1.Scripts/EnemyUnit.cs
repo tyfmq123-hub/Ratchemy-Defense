@@ -21,6 +21,8 @@ public class EnemyUnit : MonoBehaviour
 
     private float AttackCooldown => attackSpeed > 0f ? 1f / attackSpeed : float.PositiveInfinity;
 
+    private SpriteRenderer spriteRenderer;
+
     protected virtual void Start()
     {
         if (enemyUnitData == null)
@@ -42,12 +44,17 @@ public class EnemyUnit : MonoBehaviour
 
         targetLayer = LayerMask.GetMask("Player");
 
+        spriteRenderer = GetComponent<SpriteRenderer>();
+
         hpBar?.UpdateHP(currentHp, maxHp);
     }
 
     protected virtual void Update()
     {
         if (isDying) return;
+
+        if (spriteRenderer != null)
+            spriteRenderer.sortingOrder = Mathf.RoundToInt(-transform.position.y * 100) + (GetInstanceID() % 10);
 
         if (EnemyCombatUtility.TryFindClosestPlayer(transform.position, attackRange, targetLayer, out Collider2D player))
         {

@@ -5,6 +5,27 @@
 
 ## 작업 로그
 
+### 2026-06-08 — Member_Yoon : JH UnitInfo 씬 유닛 카드 UI 구현
+
+| 항목 | 내용 |
+|---|---|
+| **EnemyUnitData** | 표시 정보 필드 추가 — `unitName` / `unitSprite` / `unitSpriteColor` / `unitSpriteSize` / `roleType` / `elementType` / `description` |
+| **IUnitDisplayData** | 아군·적군 공통 인터페이스 신규 작성 — `UnitInfoCard` / `UnitInfoPopup` 재사용 가능 |
+| **UnitInfoCard** | 소형 카드 표시 스크립트 — 번호(아군만) / 이름 / 이미지(비율 유지) / 엘리먼트 타입 / 설명, `IPointerClickHandler`로 클릭 시 팝업 호출 |
+| **UnitInfoPopup** | 상세 정보 팝업 스크립트 — `Show(IUnitDisplayData)` / `Hide()`, 코스트(아군만, 0이면 숨김) · 스탯 · 설명 표시 |
+| **EnemyInfoCardSpawner** | 적군 ScrollRect Content에 카드 동적 생성, 총 마릿수 텍스트 자동 업데이트 |
+| **PlayerUnitDisplayData** | 아군 표시 전용 ScriptableObject — 스탯은 `PlayerUnitBase` 프리팹에서 참조, `number` = `cost` 통합 |
+| **PlayerInfoCardSpawner** | 아군 ScrollRect Content에 카드 동적 생성, 총 마릿수 텍스트 자동 업데이트 |
+| **InfoData 에셋** | `PlayerUnitDisplayData` 에셋 5종 (Coolant / Insulator / SafetyManager / Tank / Ultimate) 생성 |
+| **SO 에셋** | 적군 EnemyUnitData 에셋 전종 표시 데이터 입력 (unitName / roleType / elementType / description) |
+
+#### 미완 / 보류
+- 스킬 정보 구현 — `SkillDisplayData` ScriptableObject, 팝업 스킬 섹션 동적 생성 미완
+- Unity Inspector 연결 마무리 — UnitInfoPopup 필드 / 아군 Content Spawner 연결 필요
+- 아군 `PlayerUnitDisplayData` 에셋 데이터 입력 미완
+
+---
+
 ### 2026-06-05 (오후) — Member_Yoon : 버그 수정 + 보스 웨이브 체력 감소 + 리팩토링
 
 | 항목 | 내용 |

@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: e85fefd1352f63446941a45965459c98
+guid: d1eb478804f3bb948a4e58122df4b24c
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 6734001282079064943
-    second: panel_5_upscaled_0
+      213: 1810853129404478398
+    second: VictoryButton4_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: panel_5_upscaled_0
+      name: VictoryButton4_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 1536
-        height: 1024
+        x: 57
+        y: 295
+        width: 1421
+        height: 453
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f63095fdc7af37d50800000000000000
-      internalID: 6734001282079064943
+      spriteID: eb3fe8ea351712910800000000000000
+      internalID: 1810853129404478398
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      panel_5_upscaled_0: 6734001282079064943
+      VictoryButton4_0: 1810853129404478398
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

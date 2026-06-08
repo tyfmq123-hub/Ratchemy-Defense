@@ -79,9 +79,27 @@ public class GameManager : MonoBehaviour
             return;
 
         if (Keyboard.current.vKey.wasPressedThisFrame)
+        {
+            PrepareResultTest();
             Victory();
+        }
 
         if (Keyboard.current.dKey.wasPressedThisFrame)
+        {
+            PrepareResultTest();
             Defeat();
+        }
+    }
+
+    private void PrepareResultTest()
+    {
+        isGameEnd = false;
+        Time.timeScale = 1f;
+
+        if (comicCutsceneUI != null)
+            comicCutsceneUI.gameObject.SetActive(false);
+
+        victoryResultUI?.Hide();
+        defeatResultUI?.Hide();
     }
 }

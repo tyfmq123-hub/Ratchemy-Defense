@@ -12,6 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5645ef9a89b23a6409633d101443b20d, type: 3}
   m_Name: FlameSlimeData_T3
   m_EditorClassIdentifier: Assembly-CSharp::FlameSlimeTier3Data
+  number: 0
+  unitName: "\uD654\uC5FC\uC2AC\uB77C\uC784 3\uB2E8\uACC4"
+  unitSprite: {fileID: -3400593434884554822, guid: 5d74b5c0675cacf459ee7a00cb379380, type: 3}
+  unitSpriteColor: {r: 1, g: 1, b: 1, a: 1}
+  unitSpriteSize: {x: 100, y: 100}
+  roleType: "\uC6D0\uAC70\uB9AC"
+  elementType: "\uBD88"
+  description: "\uC2AC\uB77C\uC784 3\uB2E8\uACC4"
   damage: 10
   hp: 120
   maxHp: 120

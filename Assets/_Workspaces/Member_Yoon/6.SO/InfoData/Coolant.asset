@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df68ceba086f99840abf638433689e57, type: 3}
+  m_Name: Coolant
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerUnitDisplayData
+  number: 7
+  unitName: Coolant
+  unitSprite: {fileID: -1117826110472307232, guid: 2a1f1a3b44553954186891ef7a600424, type: 3}
+  unitSpriteColor: {r: 1, g: 1, b: 1, a: 1}
+  unitSpriteSize: {x: 100, y: 100}
+  roleType: 
+  elementType: 
+  description: 
+  unitPrefab: {fileID: 3635635726840204817, guid: 46f1e6d128bf7d64c9fc286810597811, type: 3}

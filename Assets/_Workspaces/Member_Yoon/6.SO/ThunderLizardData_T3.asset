@@ -12,6 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a899ea9cee0d514badda5833f0e27e7, type: 3}
   m_Name: ThunderLizardData_T3
   m_EditorClassIdentifier: Assembly-CSharp::ThunderLizardTier3Data
+  number: 0
+  unitName: "\uBC88\uAC1C \uB3C4\uB9C8\uBC40 3\uB2E8\uACC4"
+  unitSprite: {fileID: -3781910019033479378, guid: 9a2d1cd2e0bcb4b43b491474bcd3ca29, type: 3}
+  unitSpriteColor: {r: 1, g: 0.8901961, b: 0.28627452, a: 1}
+  unitSpriteSize: {x: 190, y: 190}
+  roleType: "\uC6D0\uAC70\uB9AC"
+  elementType: "\uC804\uAE30"
+  description: "\uBC88\uAC1C \uB3C4\uB9C8\uBC40 3\uB2E8\uACC4"
   damage: 10
   hp: 130
   maxHp: 130

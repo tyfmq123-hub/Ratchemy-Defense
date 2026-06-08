@@ -12,6 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44b3deeccfe42d3408fcfc306474c5af, type: 3}
   m_Name: BossData
   m_EditorClassIdentifier: Assembly-CSharp::BossData
+  number: 0
+  unitName: "\uC5F4\uD3ED\uC8FC \uC2AC\uB77C\uC784"
+  unitSprite: {fileID: -6248741079362886434, guid: 820f99842ce17d2418a2a07361844fc5, type: 3}
+  unitSpriteColor: {r: 1, g: 0.4509804, b: 0.3529412, a: 1}
+  unitSpriteSize: {x: 100, y: 100}
+  roleType: "\uBCF4\uC2A4"
+  elementType: "\uBD88"
+  description: "\uBCF4\uC2A4"
   damage: 40
   hp: 10000
   maxHp: 10000

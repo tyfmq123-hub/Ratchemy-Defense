@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df68ceba086f99840abf638433689e57, type: 3}
+  m_Name: UltimateRat
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerUnitDisplayData
+  number: 9
+  unitName: UltimateRat
+  unitSprite: {fileID: -4774103831406809310, guid: 3e5c58e3ff194864082993d97ca54f03, type: 3}
+  unitSpriteColor: {r: 1, g: 1, b: 1, a: 1}
+  unitSpriteSize: {x: 100, y: 100}
+  roleType: 
+  elementType: 
+  description: 
+  unitPrefab: {fileID: 8554684015572007050, guid: 0fbffb4fd11fd20449542af180b7620a, type: 3}

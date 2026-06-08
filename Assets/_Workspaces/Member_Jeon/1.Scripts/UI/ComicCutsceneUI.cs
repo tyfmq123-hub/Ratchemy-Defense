@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,6 +8,7 @@ public class ComicCutsceneUI : MonoBehaviour
     [Header("만화 이미지")]
     [SerializeField] private Image comicImage;
     [SerializeField] private Button nextButton;
+    [SerializeField] private Button formerButton;
 
     [Header("크기 기준 (VictoryResultUI > ResultImage)")]
     [SerializeField] private RectTransform sizeReference;
@@ -18,11 +20,20 @@ public class ComicCutsceneUI : MonoBehaviour
     [Header("패배 4컷")]
     [SerializeField] private Sprite[] defeatComicSprites;
 
+    [Header("자동 넘김")]
+    [SerializeField] private float autoAdvanceDelay = 15f;
+
     private Sprite[] comicSprites;
     private int currentIndex;
     private Action onFinished;
     private ResultUICanvas resultCanvas;
     private bool isInitialized;
+    private Coroutine autoAdvanceCoroutine;
+
+    private void OnDisable()
+    {
+        StopAutoAdvance();
+    }
 
     private void Awake()
     {
@@ -40,6 +51,9 @@ public class ComicCutsceneUI : MonoBehaviour
 
         if (nextButton != null)
             nextButton.onClick.AddListener(NextCut);
+
+        if (formerButton != null)
+            formerButton.onClick.AddListener(PreviousCut);
     }
 
     public void ShowVictory(Action onFinished = null)
@@ -83,6 +97,7 @@ public class ComicCutsceneUI : MonoBehaviour
         currentIndex = 0;
 
         DisplaySprite(comicSprites[currentIndex]);
+        UpdateNavigationButtons();
 
         Time.timeScale = 0f;
     }
@@ -100,6 +115,33 @@ public class ComicCutsceneUI : MonoBehaviour
         comicImage.sprite = sprite;
 
         Debug.Log($"[ComicCutsceneUI] 만화 표시: {sprite.name}");
+        StartAutoAdvance();
+    }
+
+    private void StartAutoAdvance()
+    {
+        StopAutoAdvance();
+
+        if (autoAdvanceDelay <= 0f)
+            return;
+
+        autoAdvanceCoroutine = StartCoroutine(AutoAdvanceRoutine());
+    }
+
+    private void StopAutoAdvance()
+    {
+        if (autoAdvanceCoroutine == null)
+            return;
+
+        StopCoroutine(autoAdvanceCoroutine);
+        autoAdvanceCoroutine = null;
+    }
+
+    private IEnumerator AutoAdvanceRoutine()
+    {
+        yield return new WaitForSecondsRealtime(autoAdvanceDelay);
+        autoAdvanceCoroutine = null;
+        NextCut();
     }
 
     private void ApplyLayoutFromReference()
@@ -138,10 +180,28 @@ public class ComicCutsceneUI : MonoBehaviour
         }
 
         DisplaySprite(comicSprites[currentIndex]);
+        UpdateNavigationButtons();
+    }
+
+    private void PreviousCut()
+    {
+        if (comicSprites == null || currentIndex <= 0)
+            return;
+
+        currentIndex--;
+        DisplaySprite(comicSprites[currentIndex]);
+        UpdateNavigationButtons();
+    }
+
+    private void UpdateNavigationButtons()
+    {
+        if (formerButton != null)
+            formerButton.interactable = currentIndex > 0;
     }
 
     private void Hide()
     {
+        StopAutoAdvance();
         gameObject.SetActive(false);
     }
 }

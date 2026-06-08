@@ -16,6 +16,9 @@ public class ResultUICanvas : MonoBehaviour
 
     public void BringToFront()
     {
+        if (!gameObject.activeSelf)
+            gameObject.SetActive(true);
+
         ApplyCanvasSettings();
     }
 

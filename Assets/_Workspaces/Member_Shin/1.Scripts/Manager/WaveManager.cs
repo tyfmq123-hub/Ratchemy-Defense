@@ -19,6 +19,7 @@ public class WaveManager : MonoBehaviour
     [Header("연결할 UI")]
     public EnvironmentGaugeUI environmentGaugeUI;
     public WaveUI waveUI;
+    public BossStageWarningUI bossStageWarningUI;
 
     [Header("연결할 적 생성 스크립트")]
     public EnemySpawner enemySpawner;
@@ -135,6 +136,37 @@ public class WaveManager : MonoBehaviour
 
         // 배열의 첫 번째 웨이브인 0번부터 시작합니다.
         StartWave(0);
+    }
+
+    /// <summary>
+    /// 현재 웨이브의 제한 시간만 다시 시작합니다.
+    /// BalanceBattleSimulator 등 외부에서 웨이브 시스템 복구 후 타이머를 재설정할 때 사용합니다.
+    /// 웨이브 번호, 적 스폰, 보스 진입 조건은 변경하지 않습니다.
+    /// </summary>
+    public void RestartWaveTimer()
+    {
+        // 전투가 시작되지 않았거나 유효한 웨이브가 없으면 실행하지 않습니다.
+        if (!hasBattleStarted || currentWaveIndex < 0)
+        {
+            return;
+        }
+
+        // 이미 보스 스테이지에 진입한 뒤에는 타이머를 되돌리지 않습니다.
+        if (hasEnteredBossStage)
+        {
+            return;
+        }
+
+        remainingCountdownTime = totalCountdownTime;
+        isCountingDown = true;
+
+        if (environmentGaugeUI != null)
+        {
+            environmentGaugeUI.SetRemainingTime(
+                remainingCountdownTime,
+                totalCountdownTime
+            );
+        }
     }
 
     private void StartWave(int waveIndex)
@@ -293,6 +325,10 @@ public class WaveManager : MonoBehaviour
         {
             environmentGaugeUI.ShowBossStage();
         }
+
+        // Boss Stage 문구와 같은 시점에 Warning 이미지 깜빡임 연출을 재생합니다.
+        // Inspector 연결이 없어도 기존 게임 진행은 계속됩니다.
+        bossStageWarningUI?.PlayWarning();
     }
 
     // 적이 Destroy된 직후에는 씬에서 완전히 제거되기 전일 수 있습니다.

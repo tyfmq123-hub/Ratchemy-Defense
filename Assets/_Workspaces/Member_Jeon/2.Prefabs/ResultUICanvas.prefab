@@ -317,7 +317,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Nest
+  m_text: Next
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b236d9767bce3f442931daac82da606d, type: 2}
   m_sharedMaterial: {fileID: 2323706328540647612, guid: b236d9767bce3f442931daac82da606d, type: 2}
@@ -344,8 +344,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 80
-  m_fontSizeBase: 80
+  m_fontSize: 40
+  m_fontSizeBase: 40
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -660,7 +660,7 @@ GameObject:
   - component: {fileID: 3189989704114001145}
   - component: {fileID: 129671401787172984}
   m_Layer: 5
-  m_Name: formerButton
+  m_Name: PreviousButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -683,8 +683,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -763, y: -455}
-  m_SizeDelta: {x: 369.1401, y: 128.9202}
+  m_AnchoredPosition: {x: -860.4326, y: -89.76324}
+  m_SizeDelta: {x: 208.2748, y: 98.9254}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &981881161662174852
 CanvasRenderer:
@@ -1874,9 +1874,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ComicCutsceneUI
   comicImage: {fileID: 1270864375720236959}
   nextButton: {fileID: 6159306039136476980}
-  formerButton: {fileID: 129671401787172984}
+  previousButton: {fileID: 129671401787172984}
+  skipButton: {fileID: 0}
   sizeReference: {fileID: 8041303979754587276}
   sizeReferenceImage: {fileID: 4550287352034012208}
+  preserveAspect: 1
   victoryComicSprites:
   - {fileID: -1609823398931599014, guid: 20e7861e07d446540b909a0ee269f7fd, type: 3}
   - {fileID: 8084782986979229914, guid: 16560706b408f954bbfb41a3286ef137, type: 3}
@@ -1886,6 +1888,13 @@ MonoBehaviour:
   - {fileID: -1609823398931599014, guid: 394ea5a0ac17b85438e014c99856013e, type: 3}
   - {fileID: 8084782986979229914, guid: fe6cdcad70746a94294692a7bdc01f26, type: 3}
   - {fileID: -7836060024382944214, guid: 120ddac012a3901458b1da1f10fffc0b, type: 3}
+  playOnStart: 0
+  introComicSprites: []
+  nextSceneName: BattleScene
+  autoAdvanceDelay: 15
+  timerAnimator: {fileID: 0}
+  timerClipLength: 1.0833334
+  timerAnimationState: Timer
 --- !u!1 &7220289565951344064
 GameObject:
   m_ObjectHideFlags: 0
@@ -2059,8 +2068,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 763, y: -455}
-  m_SizeDelta: {x: 369.1401, y: 128.9202}
+  m_AnchoredPosition: {x: 877.12, y: -83}
+  m_SizeDelta: {x: 165.75, y: 85.3986}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8541299930333344316
 CanvasRenderer:
@@ -2346,9 +2355,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'former
-
-'
+  m_text: Previous
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b236d9767bce3f442931daac82da606d, type: 2}
   m_sharedMaterial: {fileID: 2323706328540647612, guid: b236d9767bce3f442931daac82da606d, type: 2}
@@ -2375,8 +2382,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 70
-  m_fontSizeBase: 70
+  m_fontSize: 30
+  m_fontSizeBase: 30
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -2514,7 +2521,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &8690369875450759849
 RectTransform:
   m_ObjectHideFlags: 0

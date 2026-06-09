@@ -5,6 +5,25 @@
 
 ## 작업 로그
 
+### 2026-06-09 (오후) — Member_Yoon : AppManager 구현 + 씬 전환 통일
+
+| 항목 | 내용 |
+|---|---|
+| **AppManager** | 신규 작성 — Additive 씬 로딩 기반 씬 전환·리트라이 중앙 관리, `SetActiveScene` 적용으로 리트라이 시 몹 잔존 버그 수정 |
+| **AppManager** | `runInBackground` 인스펙터 토글 추가 — 포커스 이탈 시 게임 정지 제어 |
+| **0.App.unity** | 카메라 제거 — Additive 로딩 시 AudioListener 중복 경고 해결 |
+| **GameSceneChange** | `SceneManager.LoadScene` → `AppManager.Instance.LoadScene` 으로 교체 |
+| **SceneRetry** _(Member_Jeon)_ | 동일 교체 — 팀원 전달용 |
+| **ComicCutsceneUI** _(Member_Jeon)_ | `OnIntroFinished` 씬 전환 동일 교체 — 팀원 전달용 |
+| **StartSceneController** _(Member_Shin)_ | 동일 교체 — 팀원 전달용 |
+| **StageSceneController** _(Member_Shin)_ | 동일 교체 — 팀원 전달용 |
+
+#### 미완 / 보류
+- `0.App.unity` 에 `AppManager` 오브젝트 Inspector 연결 필요
+- `AudioListener` 전용 오브젝트 App 씬에 추가 필요
+
+---
+
 ### 2026-06-09 — Member_Yoon : UnitInfo 팝업 스킬 정보 + 호버 이펙트
 
 | 항목 | 내용 |

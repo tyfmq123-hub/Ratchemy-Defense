@@ -151,7 +151,7 @@ public class ComicCutsceneUI : MonoBehaviour
     private void OnIntroFinished()
     {
         if (!string.IsNullOrEmpty(nextSceneName))
-            SceneManager.LoadScene(nextSceneName);
+            AppManager.Instance.LoadScene(nextSceneName);
     }
 
     private void DisplaySprite(Sprite sprite)

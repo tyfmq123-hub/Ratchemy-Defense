@@ -5,6 +5,26 @@
 
 ## 작업 로그
 
+### 2026-06-09 — Member_Yoon : UnitInfo 팝업 스킬 정보 + 호버 이펙트
+
+| 항목 | 내용 |
+|---|---|
+| **SkillData** | 스킬 데이터 직렬화 클래스 신규 작성 — `skillName` / `skillIcon` / `skillDescription` |
+| **SkillSlotUI** | 스킬 슬롯 UI 컴포넌트 신규 작성 — 아이콘·이름·설명 바인딩, 아이콘 없으면 자동 숨김 |
+| **IUnitDisplayData** | `PopupDescription` / `Skills` 프로퍼티 추가 — 팝업용 설명과 스킬 배열 분리 |
+| **EnemyUnitData** | `popupDescription` / `skills` 필드 추가 — 인스펙터에서 0~3개 스킬 입력 가능 |
+| **PlayerUnitDisplayData** | `popupDescription` / `skills` 필드 추가 — 동일 구조 |
+| **UnitInfoPopup** | `PopupDescription` 연동, `SetupSkills()` 추가 — 스킬 있는 슬롯만 활성화, 없으면 전체 숨김 |
+| **HoverColorEffect** | 재사용 가능 호버 컬러 이펙트 컴포넌트 신규 작성 — `targetImage` / `hoverColor` 인스펙터 설정 |
+| **UnitInfoCard** | 호버 로직 `HoverColorEffect`로 분리 — 중복 코드 제거 |
+
+#### 미완 / 보류
+- Inspector 연결 — `UnitInfoPopup` skillSlots 배열에 SkillSlotUI 오브젝트 연결 필요
+- Inspector 연결 — `UnitInfoCard` / GameStartPanel 버튼에 `HoverColorEffect` 컴포넌트 추가 및 연결 필요
+- SO 에셋 데이터 입력 — 각 유닛 에셋에 `popupDescription` / `skills` 값 입력 필요
+
+---
+
 ### 2026-06-08 — Member_Yoon : JH UnitInfo 씬 유닛 카드 UI 구현
 
 | 항목 | 내용 |

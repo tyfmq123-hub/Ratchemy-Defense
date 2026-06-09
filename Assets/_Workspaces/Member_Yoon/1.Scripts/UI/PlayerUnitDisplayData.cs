@@ -12,6 +12,10 @@ public class PlayerUnitDisplayData : ScriptableObject, IUnitDisplayData
     public string roleType;
     public string elementType;
     [TextArea] public string description;
+    [TextArea(3, 6)] public string popupDescription;
+
+    [Header("스킬")]
+    public SkillData[] skills;
 
     [Header("프리팹")]
     public PlayerUnitBase unitPrefab;
@@ -25,6 +29,8 @@ public class PlayerUnitDisplayData : ScriptableObject, IUnitDisplayData
     public string RoleType => roleType;
     public string ElementType => elementType;
     public string Description => description;
+    public string PopupDescription => popupDescription;
+    public SkillData[] Skills => skills;
     public int Damage => unitPrefab != null ? unitPrefab.AttackPower : 0;
     public int MaxHp => unitPrefab != null ? (int)unitPrefab.MaxHp : 0;
     public float MoveSpeed => unitPrefab != null ? unitPrefab.MoveSpeed : 0f;

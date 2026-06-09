@@ -41,4 +41,5 @@ public class UnitInfoCard : MonoBehaviour, IPointerClickHandler
         if (popup != null)
             popup.Show(data);
     }
+
 }

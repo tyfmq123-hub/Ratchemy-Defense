@@ -11,6 +11,10 @@ public class EnemyUnitData : ScriptableObject, IUnitDisplayData
     public string roleType;
     public string elementType;
     [TextArea] public string description;
+    [TextArea(3, 6)] public string popupDescription;
+
+    [Header("스킬")]
+    public SkillData[] skills;
 
     [Header("전투 스탯")]
     public int damage;
@@ -31,6 +35,8 @@ public class EnemyUnitData : ScriptableObject, IUnitDisplayData
     public string RoleType => roleType;
     public string ElementType => elementType;
     public string Description => description;
+    public string PopupDescription => popupDescription;
+    public SkillData[] Skills => skills;
     public int Damage => damage;
     public int MaxHp => maxHp;
     public float MoveSpeed => moveSpeed;

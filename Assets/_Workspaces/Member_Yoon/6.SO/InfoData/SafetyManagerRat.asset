@@ -13,11 +13,22 @@ MonoBehaviour:
   m_Name: SafetyManagerRat
   m_EditorClassIdentifier: Assembly-CSharp::PlayerUnitDisplayData
   number: 3
-  unitName: SafetyManagerRat
+  unitName: "\uC548\uC804\uAD00\uB9AC\uC18C\uC7A5"
   unitSprite: {fileID: 1129580979281747797, guid: b6e3eff4e66b3ae48aad215cf7b092a3, type: 3}
   unitSpriteColor: {r: 1, g: 1, b: 1, a: 1}
   unitSpriteSize: {x: 100, y: 100}
-  roleType: 
-  elementType: 
-  description: 
+  roleType: "\uADFC\uAC70\uB9AC"
+  elementType: "\uBE60\uB978 \uC774\uB3D9"
+  description: "\uC774\uB3D9 \uC911 \uBC1B\uB294 \uD53C\uD574\uAC00 \uAC10\uC18C\uD558\uB294
+    \uB3CC\uACA9\uD615 \uC720\uB2DB"
+  popupDescription: "\uC804\uC7A5\uC758 \uC704\uD5D8 \uC694\uC18C\uB97C \uB204\uAD6C\uBCF4\uB2E4
+    \uBE60\uB974\uAC8C \uD30C\uC545\uD558\uB294 \uB3CC\uACA9\uD615 \uC720\uB2DB\uC785\uB2C8\uB2E4.
+    \uC801\uC744 \uCC3E\uAE30 \uC704\uD574 \uC774\uB3D9\uD558\uB294 \uB3D9\uC548
+    \uBC1B\uB294 \uD53C\uD574\uB97C \uD06C\uAC8C \uC904\uC77C \uC218 \uC788\uC73C\uBA70,
+    \uC704\uD5D8 \uC9C0\uC5ED\uC744 \uC548\uC804\uD558\uAC8C \uB3CC\uD30C\uD574 \uC804\uC120\uC5D0
+    \uD569\uB958\uD569\uB2C8\uB2E4."
+  skills:
+  - skillName: "\uAE34\uAE09 \uD68C\uD53C \uBC18\uC751 "
+    skillIcon: {fileID: 7041459684582023771, guid: 5ff07c86cf33ec64aa29becb51578c85, type: 3}
+    skillDescription: "\uC774\uB3D9 \uC911 \uBC1B\uB294 \uD53C\uD574\uAC00 80% \uAC10\uC18C\uD55C\uB2E4."
   unitPrefab: {fileID: 1293589637935962640, guid: 16dcef68047fb224b98588bb0c5702b9, type: 3}

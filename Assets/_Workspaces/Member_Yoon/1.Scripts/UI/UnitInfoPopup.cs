@@ -23,6 +23,9 @@ public class UnitInfoPopup : MonoBehaviour
     [Header("설명")]
     [SerializeField] private TMP_Text descriptionText;
 
+    [Header("스킬 슬롯 (최대 3개)")]
+    [SerializeField] private SkillSlotUI[] skillSlots;
+
     [Header("버튼")]
     [SerializeField] private Button checkButton;
 
@@ -50,12 +53,26 @@ public class UnitInfoPopup : MonoBehaviour
         moveSpeedText.text = data.MoveSpeed.ToString("F1");
         attackSpeedText.text = data.AttackSpeed.ToString("F1");
         attackDistanceText.text = data.AttackRange.ToString("F1");
-        descriptionText.text = data.Description;
+        descriptionText.text = data.PopupDescription;
+        SetupSkills(data.Skills);
         gameObject.SetActive(true);
     }
 
     public void Hide()
     {
         gameObject.SetActive(false);
+    }
+
+    private void SetupSkills(SkillData[] skills)
+    {
+        if (skillSlots == null) return;
+
+        for (int i = 0; i < skillSlots.Length; i++)
+        {
+            bool hasSkill = skills != null && i < skills.Length;
+            skillSlots[i].gameObject.SetActive(hasSkill);
+            if (hasSkill)
+                skillSlots[i].Setup(skills[i]);
+        }
     }
 }

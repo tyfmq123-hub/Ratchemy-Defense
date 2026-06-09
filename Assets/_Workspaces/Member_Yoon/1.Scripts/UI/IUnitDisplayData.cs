@@ -11,6 +11,8 @@ public interface IUnitDisplayData
     string RoleType { get; }
     string ElementType { get; }
     string Description { get; }
+    string PopupDescription { get; }
+    SkillData[] Skills { get; }
     int Damage { get; }
     int MaxHp { get; }
     float MoveSpeed { get; }

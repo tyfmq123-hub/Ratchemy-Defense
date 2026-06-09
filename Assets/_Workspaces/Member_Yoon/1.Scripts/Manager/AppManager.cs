@@ -6,6 +6,9 @@ public class AppManager : MonoBehaviour
 {
     public static AppManager Instance { get; private set; }
 
+    [Header("설정")]
+    [SerializeField] private bool runInBackground = true;
+
     private string currentSubScene;
 
     private void Awake()
@@ -16,6 +19,7 @@ public class AppManager : MonoBehaviour
             return;
         }
         Instance = this;
+        Application.runInBackground = runInBackground;
     }
 
     private void Start()
@@ -42,6 +46,7 @@ public class AppManager : MonoBehaviour
             yield return SceneManager.UnloadSceneAsync(currentSubScene);
 
         yield return SceneManager.LoadSceneAsync(sceneName, LoadSceneMode.Additive);
+        SceneManager.SetActiveScene(SceneManager.GetSceneByName(sceneName));
         currentSubScene = sceneName;
     }
 }

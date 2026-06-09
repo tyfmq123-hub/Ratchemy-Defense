@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: f1d61d96b3242ca4ab6ed28543624bd1
+guid: 20e7861e07d446540b909a0ee269f7fd
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -6224868876259628551
-    second: BattleBackground_0
+      213: -1609823398931599014
+    second: panel_1_upscaled_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: BattleBackground_0
+      name: panel_1_upscaled_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 1829
-        height: 860
+        width: 1512
+        height: 1000
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 9f9e821ecb2dc99a0800000000000000
-      internalID: -6224868876259628551
+      spriteID: a51f19bd522c8a9e0800000000000000
+      internalID: -1609823398931599014
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      BattleBackground_0: -6224868876259628551
+      panel_1_upscaled_0: -1609823398931599014
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

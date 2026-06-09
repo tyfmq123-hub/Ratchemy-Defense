@@ -7,7 +7,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private VictoryResultUI victoryResultUI;
     [SerializeField] private DefeatResultUI defeatResultUI;
 
-    // 승리 또는 패배 화면이 중복 실행되는 것을 막습니다.
+    // 승리 또는 패배 처리가 중복 실행되지 않도록 막습니다.
     private bool isGameEnd = false;
 
     private void Awake()
@@ -41,21 +41,21 @@ public class GameManager : MonoBehaviour
 
     private void OnEnable()
     {
-        // BossBase가 사망 이벤트를 발생시키면
-        // GameManager의 Victory()가 자동으로 실행됩니다.
+        // BossBase에서 보스 사망 이벤트가 발생하면
+        // Victory()를 자동으로 실행합니다.
         BossBase.OnBossDead += Victory;
     }
 
     private void OnDisable()
     {
-        // GameManager가 비활성화되거나 씬이 종료될 때
-        // 기존 연결을 제거하여 중복 호출을 방지합니다.
+        // 씬 종료 또는 오브젝트 비활성화 시 구독을 해제합니다.
+        // 구독을 해제하지 않으면 중복 호출 문제가 생길 수 있습니다.
         BossBase.OnBossDead -= Victory;
     }
 
     /// <summary>
-    /// 보스가 사망했을 때 실행됩니다.
-    /// 승리 만화 컷을 보여준 뒤 승리 결과 화면으로 넘어갑니다.
+    /// 보스가 죽었을 때 실행됩니다.
+    /// 승리 만화 컷을 보여준 뒤 승리 결과 UI를 엽니다.
     /// </summary>
     public void Victory()
     {
@@ -64,7 +64,10 @@ public class GameManager : MonoBehaviour
 
         if (comicCutsceneUI == null)
         {
-            Debug.LogError("[GameManager] ComicCutsceneUI가 연결되지 않았습니다.");
+            Debug.LogError(
+                "[GameManager] ComicCutsceneUI가 연결되지 않았습니다."
+            );
+
             return;
         }
 
@@ -73,8 +76,8 @@ public class GameManager : MonoBehaviour
     }
 
     /// <summary>
-    /// 배터리 온도가 최대치에 도달했을 때 호출합니다.
-    /// 패배 만화 컷을 보여준 뒤 패배 결과 화면으로 넘어갑니다.
+    /// 배터리 온도가 열폭주 기준에 도달했을 때 실행됩니다.
+    /// 패배 만화 컷을 보여준 뒤 패배 결과 UI를 엽니다.
     /// </summary>
     public void Defeat()
     {
@@ -83,7 +86,10 @@ public class GameManager : MonoBehaviour
 
         if (comicCutsceneUI == null)
         {
-            Debug.LogError("[GameManager] ComicCutsceneUI가 연결되지 않았습니다.");
+            Debug.LogError(
+                "[GameManager] ComicCutsceneUI가 연결되지 않았습니다."
+            );
+
             return;
         }
 
@@ -95,7 +101,10 @@ public class GameManager : MonoBehaviour
     {
         if (victoryResultUI == null)
         {
-            Debug.LogError("[GameManager] VictoryResultUI가 연결되지 않았습니다.");
+            Debug.LogError(
+                "[GameManager] VictoryResultUI가 연결되지 않았습니다."
+            );
+
             Time.timeScale = 1f;
             return;
         }
@@ -107,7 +116,10 @@ public class GameManager : MonoBehaviour
     {
         if (defeatResultUI == null)
         {
-            Debug.LogError("[GameManager] DefeatResultUI가 연결되지 않았습니다.");
+            Debug.LogError(
+                "[GameManager] DefeatResultUI가 연결되지 않았습니다."
+            );
+
             Time.timeScale = 1f;
             return;
         }

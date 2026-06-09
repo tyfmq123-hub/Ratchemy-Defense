@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df68ceba086f99840abf638433689e57, type: 3}
+  m_Name: UltimateRat
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerUnitDisplayData
+  number: 9
+  unitName: "\uC120\uBD09\uB300\uC7A5\uC950"
+  unitSprite: {fileID: -4774103831406809310, guid: 3e5c58e3ff194864082993d97ca54f03, type: 3}
+  unitSpriteColor: {r: 1, g: 1, b: 1, a: 1}
+  unitSpriteSize: {x: 100, y: 100}
+  roleType: "\uADFC\uAC70\uB9AC"
+  elementType: "\uC804\uD22C\uC694\uC6D0"
+  description: "\uAC15\uB825\uD55C \uCDA9\uACA9\uD30C\uB85C \uC804\uBC29\uC744 \uB3CC\uD30C\uD558\uB294
+    \uCD5C\uC815\uC608 \uB3CC\uACA9 \uC720\uB2DB"
+  popupDescription: "\uC218\uB9CE\uC740 \uC804\uD22C\uB97C \uC774\uB04C\uC5B4 \uC628
+    \uBCA0\uD14C\uB791 \uC804\uC0AC\uC785\uB2C8\uB2E4. \uAC15\uC778\uD55C \uC804\uD22C\uB825\uACFC
+    \uB6F0\uC5B4\uB09C \uB3CC\uD30C\uB825\uC744 \uAC16\uCD94\uACE0 \uC788\uC73C\uBA70,
+    \uC704\uAE30\uC758 \uC21C\uAC04\uC5D0\uB294 \uAC15\uB825\uD55C \uCDA9\uACA9\uD30C\uB97C
+    \uC5F0\uC18D\uC73C\uB85C \uBC29\uCD9C\uD574 \uC804\uBC29\uC758 \uC801\uB4E4\uC744
+    \uC81C\uC555\uD569\uB2C8\uB2E4. \uC5B4\uB5A4 \uC804\uC7A5\uC5D0\uC11C\uB3C4 \uAC00\uC7A5
+    \uBA3C\uC800 \uB3CC\uACA9\uD558\uC5EC \uAE38\uC744 \uC5EC\uB294 \uBBFF\uC74C\uC9C1\uD55C
+    \uC120\uBD09\uC7A5\uC785\uB2C8\uB2E4."
+  skills:
+  - skillName: "\uD30C\uC1C4 \uCDA9\uACA9\uD30C"
+    skillIcon: {fileID: 1114873013249790470, guid: 41ae3d21594936b4c8700e24fa877d58, type: 3}
+    skillDescription: "\uC804\uBC29\uC73C\uB85C \uCDA9\uACA9\uD30C\uB97C N\uD68C
+      \uBC29\uCD9C\uD558\uC5EC \uC801\uC5D0\uAC8C N\uC758 \uD53C\uD574\uB97C \uC785\uD799\uB2C8\uB2E4."
+  unitPrefab: {fileID: 8554684015572007050, guid: 0fbffb4fd11fd20449542af180b7620a, type: 3}

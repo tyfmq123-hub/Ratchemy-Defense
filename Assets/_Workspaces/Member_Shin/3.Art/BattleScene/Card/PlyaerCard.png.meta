@@ -1,0 +1,988 @@
+fileFormatVersion: 2
+guid: 7d817304c57409b48b5e932dc503a065
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 6162777255248102305
+    second: PlyaerCard_0
+  - first:
+      213: 6205092062007165923
+    second: PlyaerCard_1
+  - first:
+      213: 242620668345129383
+    second: PlyaerCard_2
+  - first:
+      213: -2652390777914406110
+    second: PlyaerCard_3
+  - first:
+      213: 8493819898334438871
+    second: PlyaerCard_4
+  - first:
+      213: 4013098512650320989
+    second: PlyaerCard_5
+  - first:
+      213: 8124779524321142641
+    second: PlyaerCard_6
+  - first:
+      213: 3906325358503211470
+    second: PlyaerCard_7
+  - first:
+      213: -2328227091595121763
+    second: PlyaerCard_8
+  - first:
+      213: -5204695414558204093
+    second: PlyaerCard_9
+  - first:
+      213: 643676186138970385
+    second: PlyaerCard_10
+  - first:
+      213: -7444595600464533222
+    second: PlyaerCard_11
+  - first:
+      213: -4715560438819060801
+    second: PlyaerCard_12
+  - first:
+      213: 234867286766549163
+    second: PlyaerCard_13
+  - first:
+      213: -5451760319447773306
+    second: PlyaerCard_14
+  - first:
+      213: -1078205275161367401
+    second: PlyaerCard_15
+  - first:
+      213: -823468864819381898
+    second: PlyaerCard_16
+  - first:
+      213: 4890141634599430006
+    second: PlyaerCard_17
+  - first:
+      213: 599835186578487355
+    second: PlyaerCard_18
+  - first:
+      213: 4497552551630653588
+    second: PlyaerCard_19
+  - first:
+      213: -8525666398107270988
+    second: PlyaerCard_20
+  - first:
+      213: 7129668791290140532
+    second: PlyaerCard_21
+  - first:
+      213: 8310702157374438388
+    second: PlyaerCard_22
+  - first:
+      213: -83125691313054951
+    second: PlyaerCard_23
+  - first:
+      213: -267024898350455080
+    second: PlyaerCard_24
+  - first:
+      213: -8563983378810297878
+    second: PlyaerCard_25
+  - first:
+      213: -1004040635999639955
+    second: PlyaerCard_26
+  - first:
+      213: 9159242674871588381
+    second: PlyaerCard_27
+  - first:
+      213: -1521127692463845893
+    second: PlyaerCard_28
+  - first:
+      213: -1074185919693632953
+    second: PlyaerCard_29
+  - first:
+      213: -7926568244948339686
+    second: PlyaerCard_30
+  - first:
+      213: 4304341431139354569
+    second: PlyaerCard_31
+  - first:
+      213: -2670139493518100783
+    second: PlyaerCard_32
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: PlyaerCard_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3
+        width: 1024
+        height: 1530
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1a38be80345968550800000000000000
+      internalID: 6162777255248102305
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlyaerCard_1
+      rect:
+        serializedVersion: 2
+        x: 184
+        y: 107
+        width: 9
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3e3888aba5aec1650800000000000000
+      internalID: 6205092062007165923
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlyaerCard_2
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 107
+        width: 9
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7a911ef5636fd5300800000000000000
+      internalID: 242620668345129383
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlyaerCard_3
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 101
+        width: 9
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 22bc3e4f3a0d03bd0800000000000000
+      internalID: -2652390777914406110
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlyaerCard_4
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 107
+        width: 9
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7d56e52023c10e570800000000000000
+      internalID: 8493819898334438871
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlyaerCard_5
+      rect:
+        serializedVersion: 2
+        x: 248
+        y: 107
+        width: 8
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d5cbb2fb5d361b730800000000000000
+      internalID: 4013098512650320989
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlyaerCard_6
+      rect:
+        serializedVersion: 2
+        x: 265
+        y: 107
+        width: 8
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 17767813ee301c070800000000000000
+      internalID: 8124779524321142641
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlyaerCard_7
+      rect:
+        serializedVersion: 2
+        x: 272
+        y: 107
+        width: 9
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ec13faa873e063630800000000000000
+      internalID: 3906325358503211470
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlyaerCard_8
+      rect:
+        serializedVersion: 2
+        x: 283
+        y: 107
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d9b2801bbc970bfd0800000000000000
+      internalID: -2328227091595121763
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlyaerCard_9
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 107
+        width: 9
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 34f572b981535c7b0800000000000000
+      internalID: -5204695414558204093
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlyaerCard_10
+      rect:
+        serializedVersion: 2
+        x: 315
+        y: 79
+        width: 11
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1190139b41ccee800800000000000000
+      internalID: 643676186138970385
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlyaerCard_11
+      rect:
+        serializedVersion: 2
+        x: 331
+        y: 107
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a1920e99ebb7fa890800000000000000
+      internalID: -7444595600464533222
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlyaerCard_12
+      rect:
+        serializedVersion: 2
+        x: 339
+        y: 107
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fb30e47d3c6fe8eb0800000000000000
+      internalID: -4715560438819060801
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlyaerCard_13
+      rect:
+        serializedVersion: 2
+        x: 347
+        y: 80
+        width: 11
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ba8741d8d8a624300800000000000000
+      internalID: 234867286766549163
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlyaerCard_14
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 103
+        width: 9
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 68fceb6cfd47754b0800000000000000
+      internalID: -5451760319447773306
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlyaerCard_15
+      rect:
+        serializedVersion: 2
+        x: 376
+        y: 104
+        width: 9
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 79ced0bc3027901f0800000000000000
+      internalID: -1078205275161367401
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlyaerCard_16
+      rect:
+        serializedVersion: 2
+        x: 408
+        y: 107
+        width: 9
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 679b8dc2e637294f0800000000000000
+      internalID: -823468864819381898
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlyaerCard_17
+      rect:
+        serializedVersion: 2
+        x: 474
+        y: 103
+        width: 7
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 677a5a758e54dd340800000000000000
+      internalID: 4890141634599430006
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlyaerCard_18
+      rect:
+        serializedVersion: 2
+        x: 487
+        y: 101
+        width: 10
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b387ac39cea035800800000000000000
+      internalID: 599835186578487355
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlyaerCard_19
+      rect:
+        serializedVersion: 2
+        x: 505
+        y: 107
+        width: 8
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 498c89677348a6e30800000000000000
+      internalID: 4497552551630653588
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlyaerCard_20
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 107
+        width: 9
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4b00553f49fbea980800000000000000
+      internalID: -8525666398107270988
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlyaerCard_21
+      rect:
+        serializedVersion: 2
+        x: 523
+        y: 80
+        width: 11
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4779907bdfba1f260800000000000000
+      internalID: 7129668791290140532
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlyaerCard_22
+      rect:
+        serializedVersion: 2
+        x: 544
+        y: 106
+        width: 9
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4fb3064849b855370800000000000000
+      internalID: 8310702157374438388
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlyaerCard_23
+      rect:
+        serializedVersion: 2
+        x: 571
+        y: 107
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 91b9399cf9da8def0800000000000000
+      internalID: -83125691313054951
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlyaerCard_24
+      rect:
+        serializedVersion: 2
+        x: 683
+        y: 82
+        width: 9
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8d6e2ab05465b4cf0800000000000000
+      internalID: -267024898350455080
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlyaerCard_25
+      rect:
+        serializedVersion: 2
+        x: 728
+        y: 107
+        width: 9
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ae1a9abad7e962980800000000000000
+      internalID: -8563983378810297878
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlyaerCard_26
+      rect:
+        serializedVersion: 2
+        x: 752
+        y: 105
+        width: 9
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d662f277c5ee012f0800000000000000
+      internalID: -1004040635999639955
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlyaerCard_27
+      rect:
+        serializedVersion: 2
+        x: 792
+        y: 107
+        width: 9
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d16d15f5faa2c1f70800000000000000
+      internalID: 9159242674871588381
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlyaerCard_28
+      rect:
+        serializedVersion: 2
+        x: 816
+        y: 107
+        width: 9
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bfdcea84c6ed3eae0800000000000000
+      internalID: -1521127692463845893
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlyaerCard_29
+      rect:
+        serializedVersion: 2
+        x: 840
+        y: 107
+        width: 9
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 74a4fe9e899b711f0800000000000000
+      internalID: -1074185919693632953
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlyaerCard_30
+      rect:
+        serializedVersion: 2
+        x: 880
+        y: 106
+        width: 9
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a1476ff8d2c2ff190800000000000000
+      internalID: -7926568244948339686
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlyaerCard_31
+      rect:
+        serializedVersion: 2
+        x: 880
+        y: 101
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9c7ce0be9b71cbb30800000000000000
+      internalID: 4304341431139354569
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlyaerCard_32
+      rect:
+        serializedVersion: 2
+        x: 889
+        y: 107
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1d6bc141742c1fad0800000000000000
+      internalID: -2670139493518100783
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      PlyaerCard_0: 6162777255248102305
+      PlyaerCard_1: 6205092062007165923
+      PlyaerCard_10: 643676186138970385
+      PlyaerCard_11: -7444595600464533222
+      PlyaerCard_12: -4715560438819060801
+      PlyaerCard_13: 234867286766549163
+      PlyaerCard_14: -5451760319447773306
+      PlyaerCard_15: -1078205275161367401
+      PlyaerCard_16: -823468864819381898
+      PlyaerCard_17: 4890141634599430006
+      PlyaerCard_18: 599835186578487355
+      PlyaerCard_19: 4497552551630653588
+      PlyaerCard_2: 242620668345129383
+      PlyaerCard_20: -8525666398107270988
+      PlyaerCard_21: 7129668791290140532
+      PlyaerCard_22: 8310702157374438388
+      PlyaerCard_23: -83125691313054951
+      PlyaerCard_24: -267024898350455080
+      PlyaerCard_25: -8563983378810297878
+      PlyaerCard_26: -1004040635999639955
+      PlyaerCard_27: 9159242674871588381
+      PlyaerCard_28: -1521127692463845893
+      PlyaerCard_29: -1074185919693632953
+      PlyaerCard_3: -2652390777914406110
+      PlyaerCard_30: -7926568244948339686
+      PlyaerCard_31: 4304341431139354569
+      PlyaerCard_32: -2670139493518100783
+      PlyaerCard_4: 8493819898334438871
+      PlyaerCard_5: 4013098512650320989
+      PlyaerCard_6: 8124779524321142641
+      PlyaerCard_7: 3906325358503211470
+      PlyaerCard_8: -2328227091595121763
+      PlyaerCard_9: -5204695414558204093
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

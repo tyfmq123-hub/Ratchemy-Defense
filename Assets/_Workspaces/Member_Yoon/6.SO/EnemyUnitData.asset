@@ -12,6 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9dd9ec18904bff74e952fa05633c641a, type: 3}
   m_Name: EnemyUnitData
   m_EditorClassIdentifier: Assembly-CSharp::EnemyUnitData
+  number: 0
+  unitName: 
+  unitSprite: {fileID: 0}
+  unitType: 
+  description: 
   damage: 0
   hp: 0
   maxHp: 0

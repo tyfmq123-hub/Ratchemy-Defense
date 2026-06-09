@@ -5,6 +5,47 @@
 
 ## 작업 로그
 
+### 2026-06-09 — Member_Yoon : UnitInfo 팝업 스킬 정보 + 호버 이펙트
+
+| 항목 | 내용 |
+|---|---|
+| **SkillData** | 스킬 데이터 직렬화 클래스 신규 작성 — `skillName` / `skillIcon` / `skillDescription` |
+| **SkillSlotUI** | 스킬 슬롯 UI 컴포넌트 신규 작성 — 아이콘·이름·설명 바인딩, 아이콘 없으면 자동 숨김 |
+| **IUnitDisplayData** | `PopupDescription` / `Skills` 프로퍼티 추가 — 팝업용 설명과 스킬 배열 분리 |
+| **EnemyUnitData** | `popupDescription` / `skills` 필드 추가 — 인스펙터에서 0~3개 스킬 입력 가능 |
+| **PlayerUnitDisplayData** | `popupDescription` / `skills` 필드 추가 — 동일 구조 |
+| **UnitInfoPopup** | `PopupDescription` 연동, `SetupSkills()` 추가 — 스킬 있는 슬롯만 활성화, 없으면 전체 숨김 |
+| **HoverColorEffect** | 재사용 가능 호버 컬러 이펙트 컴포넌트 신규 작성 — `targetImage` / `hoverColor` 인스펙터 설정 |
+| **UnitInfoCard** | 호버 로직 `HoverColorEffect`로 분리 — 중복 코드 제거 |
+
+#### 미완 / 보류
+- Inspector 연결 — `UnitInfoPopup` skillSlots 배열에 SkillSlotUI 오브젝트 연결 필요
+- Inspector 연결 — `UnitInfoCard` / GameStartPanel 버튼에 `HoverColorEffect` 컴포넌트 추가 및 연결 필요
+- SO 에셋 데이터 입력 — 각 유닛 에셋에 `popupDescription` / `skills` 값 입력 필요
+
+---
+
+### 2026-06-08 — Member_Yoon : JH UnitInfo 씬 유닛 카드 UI 구현
+
+| 항목 | 내용 |
+|---|---|
+| **EnemyUnitData** | 표시 정보 필드 추가 — `unitName` / `unitSprite` / `unitSpriteColor` / `unitSpriteSize` / `roleType` / `elementType` / `description` |
+| **IUnitDisplayData** | 아군·적군 공통 인터페이스 신규 작성 — `UnitInfoCard` / `UnitInfoPopup` 재사용 가능 |
+| **UnitInfoCard** | 소형 카드 표시 스크립트 — 번호(아군만) / 이름 / 이미지(비율 유지) / 엘리먼트 타입 / 설명, `IPointerClickHandler`로 클릭 시 팝업 호출 |
+| **UnitInfoPopup** | 상세 정보 팝업 스크립트 — `Show(IUnitDisplayData)` / `Hide()`, 코스트(아군만, 0이면 숨김) · 스탯 · 설명 표시 |
+| **EnemyInfoCardSpawner** | 적군 ScrollRect Content에 카드 동적 생성, 총 마릿수 텍스트 자동 업데이트 |
+| **PlayerUnitDisplayData** | 아군 표시 전용 ScriptableObject — 스탯은 `PlayerUnitBase` 프리팹에서 참조, `number` = `cost` 통합 |
+| **PlayerInfoCardSpawner** | 아군 ScrollRect Content에 카드 동적 생성, 총 마릿수 텍스트 자동 업데이트 |
+| **InfoData 에셋** | `PlayerUnitDisplayData` 에셋 5종 (Coolant / Insulator / SafetyManager / Tank / Ultimate) 생성 |
+| **SO 에셋** | 적군 EnemyUnitData 에셋 전종 표시 데이터 입력 (unitName / roleType / elementType / description) |
+
+#### 미완 / 보류
+- 스킬 정보 구현 — `SkillDisplayData` ScriptableObject, 팝업 스킬 섹션 동적 생성 미완
+- Unity Inspector 연결 마무리 — UnitInfoPopup 필드 / 아군 Content Spawner 연결 필요
+- 아군 `PlayerUnitDisplayData` 에셋 데이터 입력 미완
+
+---
+
 ### 2026-06-05 (오후) — Member_Yoon : 버그 수정 + 보스 웨이브 체력 감소 + 리팩토링
 
 | 항목 | 내용 |

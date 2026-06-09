@@ -12,6 +12,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19a9d3bb19726f44b9e709369b1c6a61, type: 3}
   m_Name: ThunderLizardData_T1
   m_EditorClassIdentifier: Assembly-CSharp::ThunderLizardData
+  unitName: "\uBC88\uAC1C \uB3C4\uB9C8\uBC40 1\uB2E8\uACC4"
+  unitSprite: {fileID: -3781910019033479378, guid: 515bf34cdd404994f941646a6be93857, type: 3}
+  unitSpriteColor: {r: 1, g: 0.8901961, b: 0.28627452, a: 1}
+  unitSpriteSize: {x: 150, y: 150}
+  roleType: "\uADFC\uAC70\uB9AC"
+  elementType: "\uC804\uAE30"
+  description: "\uBBF8\uC57D\uD55C \uC804\uB958\uB97C \uB450\uB978 \uB3C4\uB9C8\uBC40\uD615
+    \uBAAC\uC2A4\uD130. \uBE60\uB974\uAC8C \uC811\uADFC\uD574 \uADFC\uC811 \uACF5\uACA9\uC744
+    \uAC00\uD55C\uB2E4."
+  popupDescription: "\uBBF8\uC57D\uD55C \uC804\uB958\uB97C \uBAB8\uC5D0 \uB450\uB978
+    \uCC44 \uC6C0\uC9C1\uC774\uB294 \uB3C4\uB9C8\uBC40\uD615 \uBAAC\uC2A4\uD130.
+    \uBC88\uAC1C \uC5D0\uB108\uC9C0\uB97C \uC548\uC815\uC801\uC73C\uB85C \uB2E4\uB8E8\uC9C0
+    \uBABB\uD574 \uD56D\uC0C1 \uBBF8\uC138\uD55C \uBC29\uC804\uC774 \uBC1C\uC0DD\uD558\uBA70,
+    \uC774\uB97C \uD1B5\uD574 \uC8FC\uBCC0\uC758 \uC0DD\uBB3C\uC744 \uC790\uADF9\uD55C\uB2E4.\n\n\uC801\uC744
+    \uBC1C\uACAC\uD558\uBA74 \uBE60\uB974\uAC8C \uC811\uADFC\uD574 \uBAB8\uD1B5 \uACF5\uACA9\uC744
+    \uAC00\uD55C\uB2E4. \uAC1C\uCCB4 \uC790\uCCB4\uB294 \uB2E8\uC21C\uD558\uC9C0\uB9CC,
+    \uC804\uB958\uB85C \uC778\uD574 \uC6C0\uC9C1\uC784\uC774 \uC608\uCE21\uD558\uAE30
+    \uC5B4\uB835\uB2E4."
+  skills:
+  - skillName: "\uC2A4\uD0AC \uC5C6\uC74C"
+    skillIcon: {fileID: 6171074241395153969, guid: fc2c8e396530c544d85fe353a9304eb0, type: 3}
+    skillDescription: 
   damage: 6
   hp: 80
   maxHp: 80

@@ -6746,6 +6746,7 @@ GameObject:
   - component: {fileID: 2049864499}
   - component: {fileID: 2049864498}
   - component: {fileID: 2049864500}
+  - component: {fileID: 2049864501}
   m_Layer: 5
   m_Name: GameStartPanel
   m_TagString: Untagged
@@ -6816,7 +6817,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2049864498}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2049864501}
+        m_TargetAssemblyTypeName: GameStartPanel, Assembly-CSharp
+        m_MethodName: MoveToStoryScene
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2049864498
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6869,6 +6882,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::HoverColorEffect
   targetImage: {fileID: 2049864498}
   hoverColor: {r: 0.7, g: 0.7, b: 0.7, a: 1}
+--- !u!114 &2049864501
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2049864495}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 222b36d3e8e10a144b87b13e5f1cc450, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GameStartPanel
+  SceneName: 5.BattleScene
 --- !u!1 &2070788951
 GameObject:
   m_ObjectHideFlags: 0

@@ -12,6 +12,6 @@ public class StageSceneController : MonoBehaviour
     /// </summary>
     public void MoveToStoryScene()
     {
-        SceneManager.LoadScene("StoryScene");
+        SceneManager.LoadScene("3.StoryScene");
     }
 }

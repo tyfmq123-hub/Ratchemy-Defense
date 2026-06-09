@@ -13,7 +13,7 @@ public class StartSceneController : MonoBehaviour
         // 주의:
         // 실제로 이동하려면 StageScene.unity 파일이 존재해야 하고,
         // 나중에 Build Profiles에도 해당 씬을 등록해야 합니다.
-        SceneManager.LoadScene("StageScene");
+        SceneManager.LoadScene("2.StageScene");
     }
 
     // EXIT 버튼을 클릭하면 실행되는 메서드입니다.

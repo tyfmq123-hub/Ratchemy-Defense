@@ -148,6 +148,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b16bd1afe3a81344abcf4322d1ce760e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AppManager
+  runInBackground: 1
 --- !u!4 &911481979
 Transform:
   m_ObjectHideFlags: 0

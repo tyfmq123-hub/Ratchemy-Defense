@@ -42,11 +42,13 @@ public class AppManager : MonoBehaviour
     {
         Time.timeScale = 1f;
 
-        if (!string.IsNullOrEmpty(currentSubScene))
-            yield return SceneManager.UnloadSceneAsync(currentSubScene);
+        string previousSubScene = currentSubScene;
+        currentSubScene = sceneName;
 
         yield return SceneManager.LoadSceneAsync(sceneName, LoadSceneMode.Additive);
         SceneManager.SetActiveScene(SceneManager.GetSceneByName(sceneName));
-        currentSubScene = sceneName;
+
+        if (!string.IsNullOrEmpty(previousSubScene))
+            yield return SceneManager.UnloadSceneAsync(previousSubScene);
     }
 }

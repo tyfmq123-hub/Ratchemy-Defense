@@ -45,8 +45,8 @@ MonoBehaviour:
     skillDescription: "\uC0AC\uB9DD \uC2DC 1\uCD08 \uD6C4 \uD3ED\uBC1C\uD558\uC5EC
       \uC8FC\uBCC0 \uC801\uC5D0\uAC8C 20\uC758 \uD654\uC5FC \uD53C\uD574\uB97C \uC785\uD799\uB2C8\uB2E4."
   damage: 10
-  hp: 120
-  maxHp: 120
+  hp: 190
+  maxHp: 190
   attackRange: 5
   attackSpeed: 2
   moveSpeed: 1

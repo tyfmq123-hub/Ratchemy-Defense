@@ -41,8 +41,8 @@ MonoBehaviour:
       \uB4A4, \uC8FC\uBCC0 \uCD5C\uB300 3\uBA85\uC758 \uC801\uC5D0\uAC8C 10\uC758
       \uC804\uACA9 \uD53C\uD574\uB97C \uC785\uD799\uB2C8\uB2E4."
   damage: 10
-  hp: 130
-  maxHp: 130
+  hp: 206
+  maxHp: 206
   attackRange: 7
   attackSpeed: 1
   moveSpeed: 2

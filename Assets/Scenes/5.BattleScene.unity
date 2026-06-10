@@ -1465,6 +1465,51 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Mask
   m_ShowMaskGraphic: 1
+--- !u!1 &292390296
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 292390298}
+  - component: {fileID: 292390297}
+  m_Layer: 0
+  m_Name: SceneBGM
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &292390297
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 292390296}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 313b4dab213a05a448b5a7014216fe6a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SceneBGM
+  clip: {fileID: 8300000, guid: c91a402f56065044f8a287d6d4e5aa17, type: 3}
+--- !u!4 &292390298
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 292390296}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1662.2075, y: 1066.8804, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &331615164
 GameObject:
   m_ObjectHideFlags: 0
@@ -8135,6 +8180,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::UnitCardSpawner
   spawnPointA: {fileID: 95859177}
   spawnPointB: {fileID: 408642075}
+  spawnSoundVolumeBoost: 2
+  playSpawnSoundAtCamera: 1
 --- !u!1 &2039290256
 GameObject:
   m_ObjectHideFlags: 0
@@ -9259,3 +9306,4 @@ SceneRoots:
   - {fileID: 955566139}
   - {fileID: 2081310146}
   - {fileID: 1789066357}
+  - {fileID: 292390298}

@@ -423,7 +423,7 @@ MonoBehaviour:
   - {fileID: 1136751292891113985, guid: 968c399682af2ea4bae1e47238ebd577, type: 3}
   - {fileID: -5889457566598796927, guid: 6a4d42639add7e24b8966966430cbce4, type: 3}
   - {fileID: -6672284970336193985, guid: 16c463cd39631894ea84a05b82748437, type: 3}
-  nextSceneName: BattleScene
+  nextSceneName: 4.UnitInfoScene
   autoAdvanceDelay: 12
   timerAnimator: {fileID: 149735915}
   timerClipLength: 1.0833334
@@ -722,7 +722,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 860, y: -500}
+  m_AnchoredPosition: {x: 860, y: -560}
   m_SizeDelta: {x: 160, y: 56.2079}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &982376043
@@ -1117,7 +1117,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -850, y: -500}
+  m_AnchoredPosition: {x: -850, y: -560}
   m_SizeDelta: {x: 160, y: 55.0156}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1409775664

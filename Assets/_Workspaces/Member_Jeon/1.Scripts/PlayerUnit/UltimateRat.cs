@@ -190,16 +190,10 @@ public class UltimateRat : PlayerUnitBase
         if (skillEffectSpawnPoint == null || skillEffectSpawnPoint == transform)
             return;
 
-        GameObject effect = Instantiate(skillEffectPrefab, skillEffectSpawnPoint);
-        effect.transform.localPosition = Vector3.zero;
-        effect.transform.localRotation = Quaternion.identity;
-
-        Vector3 parentScale = skillEffectSpawnPoint.lossyScale;
-        effect.transform.localScale = new Vector3(
-            parentScale.x > 0f ? 1f / parentScale.x : 1f,
-            parentScale.y > 0f ? 1f / parentScale.y : 1f,
-            1f
-        );
+        Vector3 spawnPosition = skillEffectSpawnPoint.position;
+        Quaternion spawnRotation = skillEffectSpawnPoint.rotation;
+        GameObject effect = Instantiate(skillEffectPrefab, spawnPosition, spawnRotation);
+        effect.transform.SetParent(null);
 
         SkillEffectProjectile projectile = effect.GetComponent<SkillEffectProjectile>();
         if (projectile == null)
@@ -213,10 +207,9 @@ public class UltimateRat : PlayerUnitBase
             : Vector2.right;
         projectile.Initialize(attackPower, enemyLayer, direction);
 
-        SpriteRenderer unitSprite = GetComponent<SpriteRenderer>();
         SpriteRenderer effectSprite = effect.GetComponent<SpriteRenderer>();
-        if (unitSprite != null && effectSprite != null)
-            effectSprite.sortingOrder = unitSprite.sortingOrder + 1;
+        if (effectSprite != null)
+            effectSprite.sortingOrder = CurrentSortingOrder + 1;
     }
 
     public override bool HasSkillCooldown => true;

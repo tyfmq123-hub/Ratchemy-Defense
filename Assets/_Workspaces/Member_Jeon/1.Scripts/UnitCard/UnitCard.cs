@@ -5,7 +5,7 @@ using TMPro;
 // 유닛 소환 버튼 UI 1개 (총 5개를 씬에 두고 cardIndex만 0~4로 다르게 설정)
 // - 카드 정보·프리팹·코스트: UnitCardData.cards[cardIndex]
 // - 소환 위치 A/B 교대: UnitCardSpawner (씬에 1개)
-// - 코스트 차감: CostManager (팀원 스크립트 추가 후 연동)
+// - 코스트 차감: CostManager
 public class UnitCard : MonoBehaviour
 {
     [Header("데이터")]
@@ -15,7 +15,6 @@ public class UnitCard : MonoBehaviour
     [Header("소환")]
     [SerializeField] private UnitCardSpawner cardSpawner; // 비우면 씬에서 자동 검색
 
-    // TODO: CostManager 연동 후 해제
     [Header("코스트")]
     [SerializeField] private CostManager costManager;
 
@@ -91,7 +90,6 @@ public class UnitCard : MonoBehaviour
 
         int requiredCost = GetRequiredCost();
 
-        // TODO: CostManager 연동 후 해제 — requiredCost는 UnitCardData.cards[cardIndex].cost
         if (costManager == null)
         {
             Debug.LogWarning($"[UnitCard] {name}: CostManager를 찾을 수 없습니다.");

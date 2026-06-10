@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 
 // 아군 유닛 공통 베이스
@@ -19,8 +20,20 @@ public class PlayerUnitBase : MonoBehaviour
     [Header("코스트 환급")]
     [SerializeField][Range(0f, 1f)] protected float deathRefundRatio = 0.5f; // 사망 시 소환 코스트의 몇 %를 돌려줄지
 
+    [Header("피격 연출")]
+    [SerializeField][Range(0, 255)] private int hitFlashAlpha = 215;
+    [SerializeField] private float hitFlashBlinkDuration = 0.1f;
+
+    [Header("공격 사운드")]
+    [SerializeField] protected AudioClip attackSound;
+    [SerializeField][Range(0f, 3f)] protected float attackSoundVolume = 1.5f;
+    [SerializeField][Range(0f, 3f)] protected float attackSoundVolumeBoost = 2f;
+
     private int spawnCost;
     private bool hasRefundedCost;
+    private SpriteRenderer bodySprite;
+    private Color originalSpriteColor;
+    private Coroutine hitFlashCoroutine;
 
     // 다른 스크립트에서 읽기 전용으로 접근
     public float CurrentHp => currentHp;
@@ -74,6 +87,7 @@ public class PlayerUnitBase : MonoBehaviour
 
         BindHpBarInChildren();
         BindMpBarInChildren();
+        CacheBodySprite();
         NotifyHealthChanged();
     }
 
@@ -103,6 +117,9 @@ public class PlayerUnitBase : MonoBehaviour
         currentHp = Mathf.Max(currentHp, 0f);
         NotifyHealthChanged();
 
+        if (damage > 0f)
+            PlayHitFlash();
+
         if (currentHp <= 0f)
             Die();
     }
@@ -112,6 +129,7 @@ public class PlayerUnitBase : MonoBehaviour
         if (isDead)
             return;
 
+        StopHitFlash();
         isDead = true;
 
         Animator animator = GetComponent<Animator>();
@@ -180,6 +198,16 @@ public class PlayerUnitBase : MonoBehaviour
         return 1f / Mathf.Max(attackSpeed, 0.01f);
     }
 
+    protected void PlayAttackSound()
+    {
+        if (attackSound == null)
+            return;
+
+        float finalVolume = Mathf.Clamp(attackSoundVolume * attackSoundVolumeBoost, 0f, 3f);
+        Vector3 playPosition = Camera.main != null ? Camera.main.transform.position : transform.position;
+        AudioSource.PlayClipAtPoint(attackSound, playPosition, finalVolume);
+    }
+
     protected void NotifyHealthChanged()
     {
         OnHealthChanged?.Invoke(currentHp, maxHp);
@@ -197,5 +225,49 @@ public class PlayerUnitBase : MonoBehaviour
         Mpbar[] mpBars = GetComponentsInChildren<Mpbar>(true);
         foreach (Mpbar mpBar in mpBars)
             mpBar.Bind(this);
+    }
+
+    private void CacheBodySprite()
+    {
+        bodySprite = GetComponent<SpriteRenderer>();
+        if (bodySprite != null)
+            originalSpriteColor = bodySprite.color;
+    }
+
+    private void PlayHitFlash()
+    {
+        if (bodySprite == null)
+            return;
+
+        if (hitFlashCoroutine != null)
+            StopCoroutine(hitFlashCoroutine);
+
+        hitFlashCoroutine = StartCoroutine(HitFlashRoutine());
+    }
+
+    private IEnumerator HitFlashRoutine()
+    {
+        Color flashColor = originalSpriteColor;
+        flashColor.a = hitFlashAlpha / 255f;
+        bodySprite.color = flashColor;
+
+        yield return new WaitForSeconds(hitFlashBlinkDuration);
+
+        if (bodySprite != null)
+            bodySprite.color = originalSpriteColor;
+
+        hitFlashCoroutine = null;
+    }
+
+    private void StopHitFlash()
+    {
+        if (hitFlashCoroutine != null)
+        {
+            StopCoroutine(hitFlashCoroutine);
+            hitFlashCoroutine = null;
+        }
+
+        if (bodySprite != null)
+            bodySprite.color = originalSpriteColor;
     }
 }

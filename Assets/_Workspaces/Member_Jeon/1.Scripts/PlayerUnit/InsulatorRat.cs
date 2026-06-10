@@ -86,6 +86,7 @@ public class InsulatorRat : PlayerUnitBase
 
         FireAttackTrigger();
         target.TakeDamage(attackPower);
+        PlayAttackSound();
         Debug.Log($"[InsulatorRat] {target.name} 공격 → 데미지: {attackPower}");
         attackCooldown = GetAttackCooldownDuration();
     }

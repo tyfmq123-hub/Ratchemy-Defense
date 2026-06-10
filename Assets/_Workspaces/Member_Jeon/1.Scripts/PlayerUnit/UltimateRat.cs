@@ -114,6 +114,7 @@ public class UltimateRat : PlayerUnitBase
 
         FireAttackTrigger();
         target.TakeDamage(attackPower);
+        PlayAttackSound();
         Debug.Log($"[UltimateRat] {target.name} 공격 → 데미지: {attackPower}");
         attackCooldown = GetAttackCooldownDuration();
     }

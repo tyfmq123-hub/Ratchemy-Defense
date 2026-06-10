@@ -619,7 +619,7 @@ MonoBehaviour:
   attackPower: 4
   moveSpeed: 2.2
   attackSpeed: 0.7
-  attackRange: 1.1
+  attackRange: 0.3
   deathRefundRatio: 0.5
   animator: {fileID: 1237424637459015631}
   skillTriggerName: skill

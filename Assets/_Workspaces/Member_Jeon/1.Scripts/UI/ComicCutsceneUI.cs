@@ -43,6 +43,7 @@ public class ComicCutsceneUI : MonoBehaviour
     private ResultUICanvas resultCanvas;
     private bool isInitialized;
     private bool pausedTime;
+    private bool hideOnFinish = true;
     private Coroutine autoAdvanceCoroutine;
 
     private void OnDisable()
@@ -68,7 +69,7 @@ public class ComicCutsceneUI : MonoBehaviour
             return;
         }
 
-        Show(introComicSprites, "인트로", OnIntroFinished, pauseTime: false);
+        Show(introComicSprites, "인트로", OnIntroFinished, pauseTime: false, hideOnFinish: false);
     }
 
     private void Initialize()
@@ -112,9 +113,10 @@ public class ComicCutsceneUI : MonoBehaviour
         FinishCutscene();
     }
 
-    private void Show(Sprite[] sprites, string label, Action onFinished, bool pauseTime = true)
+    private void Show(Sprite[] sprites, string label, Action onFinished, bool pauseTime = true, bool hideOnFinish = true)
     {
         this.onFinished = onFinished;
+        this.hideOnFinish = hideOnFinish;
 
         if (comicImage == null)
         {
@@ -150,8 +152,13 @@ public class ComicCutsceneUI : MonoBehaviour
 
     private void OnIntroFinished()
     {
-        if (!string.IsNullOrEmpty(nextSceneName))
+        if (string.IsNullOrEmpty(nextSceneName))
+            return;
+
+        if (AppManager.Instance != null)
             AppManager.Instance.LoadScene(nextSceneName);
+        else
+            SceneManager.LoadScene(nextSceneName);
     }
 
     private void DisplaySprite(Sprite sprite)
@@ -316,7 +323,8 @@ public class ComicCutsceneUI : MonoBehaviour
             pausedTime = false;
         }
 
-        gameObject.SetActive(false);
+        if (hideOnFinish)
+            gameObject.SetActive(false);
 
         callback?.Invoke();
     }

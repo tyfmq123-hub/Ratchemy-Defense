@@ -154,8 +154,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -250.6, y: -72.2}
-  m_SizeDelta: {x: 120, y: 120}
+  m_AnchoredPosition: {x: -241.2, y: -47.8}
+  m_SizeDelta: {x: 102.4987, y: 72.6814}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &149735914
 MonoBehaviour:
@@ -425,7 +425,7 @@ MonoBehaviour:
   - {fileID: -6672284970336193985, guid: 16c463cd39631894ea84a05b82748437, type: 3}
   nextSceneName: 4.UnitInfoScene
   autoAdvanceDelay: 15
-  timerAnimator: {fileID: 0}
+  timerAnimator: {fileID: 149735915}
   timerClipLength: 1.0833334
   timerAnimationState: Timer
 --- !u!1 &519420028

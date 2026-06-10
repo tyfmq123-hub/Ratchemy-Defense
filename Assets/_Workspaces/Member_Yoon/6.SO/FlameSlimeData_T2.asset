@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: FlameSlimeData_T2
   m_EditorClassIdentifier: Assembly-CSharp::FlameSlimeTier2Data
   damage: 15
-  hp: 150
-  maxHp: 150
+  hp: 378
+  maxHp: 378
   attackRange: 1
   attackSpeed: 1
   moveSpeed: 1

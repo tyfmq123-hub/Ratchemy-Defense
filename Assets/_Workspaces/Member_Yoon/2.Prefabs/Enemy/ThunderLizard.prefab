@@ -525,6 +525,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyBaseDamage
   temperatureDamage: 10
+  effectPrefab: {fileID: 5885154002491915036, guid: dbf3fd60ac4530c469f426d9aeb511ad, type: 3}
 --- !u!82 &-4989391630372886571
 AudioSource:
   m_ObjectHideFlags: 0

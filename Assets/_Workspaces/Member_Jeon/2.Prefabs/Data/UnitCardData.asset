@@ -16,15 +16,30 @@ MonoBehaviour:
   - cardName: SafetyManagerRat
     cost: 3
     unitPrefab: {fileID: 1293589637935962640, guid: 16dcef68047fb224b98588bb0c5702b9, type: 3}
+    spawnSound: {fileID: 8300000, guid: 16d2e3a445fd92a43872d4bbff7a9afc, type: 3}
+    spawnSoundVolume: 1
+    deathRefundRatio: 0.5
   - cardName: InsulatorRat
     cost: 3
     unitPrefab: {fileID: 8856307421587680190, guid: f8c4ef9e34028184b929c819a33b715f, type: 3}
+    spawnSound: {fileID: 8300000, guid: 74938eb9aa1c9214287cfb4a835cfcee, type: 3}
+    spawnSoundVolume: 1
+    deathRefundRatio: 0.5
   - cardName: TankRat
     cost: 5
     unitPrefab: {fileID: 8863521991043186098, guid: b59c03b8f4607f148a8ca2f67d2ccb8a, type: 3}
+    spawnSound: {fileID: 8300000, guid: 1f053cd67f58ed345a2a4175cd2cccd7, type: 3}
+    spawnSoundVolume: 1
+    deathRefundRatio: 0.5
   - cardName: CoolantRat
     cost: 7
     unitPrefab: {fileID: 3635635726840204817, guid: 46f1e6d128bf7d64c9fc286810597811, type: 3}
+    spawnSound: {fileID: 8300000, guid: 599f0a2b28446b24094801472c3cf558, type: 3}
+    spawnSoundVolume: 1
+    deathRefundRatio: 0.5
   - cardName: UltimateRat
     cost: 9
     unitPrefab: {fileID: 8554684015572007050, guid: 0fbffb4fd11fd20449542af180b7620a, type: 3}
+    spawnSound: {fileID: 8300000, guid: 330b14d3f1e9e064bada7155a6edc3b9, type: 3}
+    spawnSoundVolume: 1
+    deathRefundRatio: 0.5

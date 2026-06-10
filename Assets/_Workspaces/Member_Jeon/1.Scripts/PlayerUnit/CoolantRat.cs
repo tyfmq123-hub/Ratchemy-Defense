@@ -177,6 +177,7 @@ public class CoolantRat : PlayerUnitBase
                 break;
 
             FireAttackTrigger();
+            PlayAttackSound();
             SpawnAttackProjectile(spawnPosition, target, attackPower);
 
             if (shot < shotCount - 1 && interval > 0f)

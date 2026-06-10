@@ -5,6 +5,28 @@
 
 ## 작업 로그
 
+### 2026-06-10 — Member_Yoon : 팀원 코드 통합 (AppManager · EnemyUnit)
+
+| 항목 | 내용 |
+|---|---|
+| **AppManager** | `TransitionScene` 순서 변경 — 언로드 후 로드 → 로드 후 언로드로 수정, 씬 전환 시 빈 화면 제거 |
+| **EnemyUnit** | 이동 슬로우 기능 통합 — `moveSlowMultiplier` / `moveSlowEndTime` 필드 추가, `ApplyMoveSlow` / `RefreshMoveSlow` / `GetEffectiveMoveSpeed` 메서드 추가, `MoveLeft()`에서 `GetEffectiveMoveSpeed()` 사용 |
+
+---
+
+### 2026-06-10 — Member_Yoon : DamageText UI + 피격 플래시 효과
+
+| 항목 | 내용 |
+|---|---|
+| **DamageText** | 피격 데미지 수치 표시 스크립트 신규 작성 — 위로 올라가며 페이드 아웃 (0.8초) |
+| **DamageTextSpawner** | 정적 스폰 유틸리티 신규 작성 — `isAllyHit` 파라미터로 아군/적군 색상 자동 분기 |
+| **DamageText.prefab** | TextMeshPro 기반 데미지 텍스트 프리팹 추가 |
+| **EnemyUnit** | 피격 플래시 효과 추가 — `LateUpdate` 기반으로 Animator 클립과 충돌 없이 0.1초 반투명 처리 |
+| **EnemyUnit** | `TakeDamage()` / `Attack()` — `DamageTextSpawner.Spawn()` 연동 |
+| **EnemyCombatUtility** | `DamagePlayersInRadius()` — `DamageTextSpawner.Spawn()` 연동 |
+
+---
+
 ### 2026-06-09 (오후) — Member_Yoon : AppManager 구현 + 씬 전환 통일
 
 | 항목 | 내용 |

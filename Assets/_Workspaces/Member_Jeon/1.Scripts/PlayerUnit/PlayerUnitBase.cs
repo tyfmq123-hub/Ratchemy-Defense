@@ -1,5 +1,7 @@
 using System;
+using System.Collections;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 // 아군 유닛 공통 베이스
 // - maxHp / currentHp: Inspector에서 직접 수정 가능 (Play 시 코드가 덮어쓰지 않음)
@@ -19,8 +21,29 @@ public class PlayerUnitBase : MonoBehaviour
     [Header("코스트 환급")]
     [SerializeField][Range(0f, 1f)] protected float deathRefundRatio = 0.5f; // 사망 시 소환 코스트의 몇 %를 돌려줄지
 
+    [Header("피격 연출")]
+    [SerializeField][Range(0, 255)] private int hitFlashAlpha = 215;
+    [SerializeField] private float hitFlashBlinkDuration = 0.1f;
+
+    [Header("공격 사운드")]
+    [SerializeField] protected AudioClip attackSound;
+    [SerializeField][Range(0f, 3f)] protected float attackSoundVolume = 1.5f;
+    [SerializeField][Range(0f, 3f)] protected float attackSoundVolumeBoost = 2f;
+
+    [Header("Y축 깊이 정렬")]
+    [SerializeField] private int hpBarSortingOffset = 4;
+
     private int spawnCost;
     private bool hasRefundedCost;
+    private SpriteRenderer bodySprite;
+    private SortingGroup sortingGroup;
+    private Canvas[] worldSpaceCanvases;
+    private Color originalSpriteColor;
+    private Coroutine hitFlashCoroutine;
+
+    protected virtual int SortingOrderBase => 0;
+
+    public int CurrentSortingOrder { get; private set; }
 
     // 다른 스크립트에서 읽기 전용으로 접근
     public float CurrentHp => currentHp;
@@ -74,6 +97,8 @@ public class PlayerUnitBase : MonoBehaviour
 
         BindHpBarInChildren();
         BindMpBarInChildren();
+        CacheBodySprite();
+        SetupDepthSorting();
         NotifyHealthChanged();
     }
 
@@ -83,6 +108,14 @@ public class PlayerUnitBase : MonoBehaviour
             return;
 
         Move(); // 자식에서 override하면 이동 방식 변경 가능
+    }
+
+    protected virtual void LateUpdate()
+    {
+        if (isDead)
+            return;
+
+        ApplyDepthSorting();
     }
 
     // 기본 이동: 오른쪽 직진
@@ -103,6 +136,9 @@ public class PlayerUnitBase : MonoBehaviour
         currentHp = Mathf.Max(currentHp, 0f);
         NotifyHealthChanged();
 
+        if (damage > 0f)
+            PlayHitFlash();
+
         if (currentHp <= 0f)
             Die();
     }
@@ -112,6 +148,7 @@ public class PlayerUnitBase : MonoBehaviour
         if (isDead)
             return;
 
+        StopHitFlash();
         isDead = true;
 
         Animator animator = GetComponent<Animator>();
@@ -180,6 +217,16 @@ public class PlayerUnitBase : MonoBehaviour
         return 1f / Mathf.Max(attackSpeed, 0.01f);
     }
 
+    protected void PlayAttackSound()
+    {
+        if (attackSound == null)
+            return;
+
+        float finalVolume = Mathf.Clamp(attackSoundVolume * attackSoundVolumeBoost, 0f, 3f);
+        Vector3 playPosition = Camera.main != null ? Camera.main.transform.position : transform.position;
+        AudioSource.PlayClipAtPoint(attackSound, playPosition, finalVolume);
+    }
+
     protected void NotifyHealthChanged()
     {
         OnHealthChanged?.Invoke(currentHp, maxHp);
@@ -197,5 +244,102 @@ public class PlayerUnitBase : MonoBehaviour
         Mpbar[] mpBars = GetComponentsInChildren<Mpbar>(true);
         foreach (Mpbar mpBar in mpBars)
             mpBar.Bind(this);
+    }
+
+    private void CacheBodySprite()
+    {
+        bodySprite = GetComponent<SpriteRenderer>();
+        if (bodySprite != null)
+            originalSpriteColor = bodySprite.color;
+    }
+
+    private void SetupDepthSorting()
+    {
+        sortingGroup = GetComponent<SortingGroup>();
+        if (sortingGroup == null)
+            sortingGroup = gameObject.AddComponent<SortingGroup>();
+
+        Canvas[] canvases = GetComponentsInChildren<Canvas>(true);
+        int worldCanvasCount = 0;
+        foreach (Canvas canvas in canvases)
+        {
+            if (canvas.renderMode == RenderMode.WorldSpace)
+                worldCanvasCount++;
+        }
+
+        if (worldCanvasCount > 0)
+        {
+            worldSpaceCanvases = new Canvas[worldCanvasCount];
+            int index = 0;
+            foreach (Canvas canvas in canvases)
+            {
+                if (canvas.renderMode != RenderMode.WorldSpace)
+                    continue;
+
+                canvas.overrideSorting = true;
+                worldSpaceCanvases[index++] = canvas;
+            }
+        }
+
+        ApplyDepthSorting();
+    }
+
+    private void ApplyDepthSorting()
+    {
+        CurrentSortingOrder = Mathf.RoundToInt(-transform.position.y * 100f)
+            + SortingOrderBase
+            + (GetInstanceID() % 10);
+
+        if (sortingGroup != null)
+            sortingGroup.sortingOrder = CurrentSortingOrder;
+        else if (bodySprite != null)
+            bodySprite.sortingOrder = CurrentSortingOrder;
+
+        if (worldSpaceCanvases == null)
+            return;
+
+        int hpBarOrder = CurrentSortingOrder + hpBarSortingOffset;
+        foreach (Canvas canvas in worldSpaceCanvases)
+        {
+            if (canvas != null)
+                canvas.sortingOrder = hpBarOrder;
+        }
+    }
+
+    private void PlayHitFlash()
+    {
+        if (bodySprite == null)
+            return;
+
+        if (hitFlashCoroutine != null)
+            StopCoroutine(hitFlashCoroutine);
+
+        hitFlashCoroutine = StartCoroutine(HitFlashRoutine());
+    }
+
+    private IEnumerator HitFlashRoutine()
+    {
+        Color flashColor = originalSpriteColor;
+        flashColor.a = hitFlashAlpha / 255f;
+        bodySprite.color = flashColor;
+
+        yield return new WaitForSeconds(hitFlashBlinkDuration);
+
+        if (bodySprite != null)
+            bodySprite.color = originalSpriteColor;
+
+        hitFlashCoroutine = null;
+    }
+
+    private void StopHitFlash()
+    {
+        if (hitFlashCoroutine != null)
+        {
+            StopCoroutine(hitFlashCoroutine);
+            hitFlashCoroutine = null;
+        }
+
+        if (bodySprite != null)
+            bodySprite.color = originalSpriteColor;
     }
 }

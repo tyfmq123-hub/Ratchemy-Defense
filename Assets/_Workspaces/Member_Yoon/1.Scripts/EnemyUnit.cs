@@ -22,6 +22,11 @@ public class EnemyUnit : MonoBehaviour
     private float AttackCooldown => attackSpeed > 0f ? 1f / attackSpeed : float.PositiveInfinity;
 
     private SpriteRenderer spriteRenderer;
+    private Color _originalColor;
+    private bool _isFlashing;
+    private float _flashTimer;
+    private const float FlashDuration = 0.1f;
+    private const float FlashAlpha = 215 / 255f;
 
     protected virtual int SortingOrderBase => 0;
 
@@ -47,6 +52,8 @@ public class EnemyUnit : MonoBehaviour
         targetLayer = LayerMask.GetMask("Player");
 
         spriteRenderer = GetComponent<SpriteRenderer>();
+        if (spriteRenderer != null)
+            _originalColor = spriteRenderer.color;
 
         hpBar?.UpdateHP(currentHp, maxHp);
     }
@@ -81,7 +88,10 @@ public class EnemyUnit : MonoBehaviour
     protected virtual void Attack(Collider2D target)
     {
         if (EnemyCombatUtility.TryGetPlayer(target, out PlayerUnitBase player))
+        {
             player.TakeDamage(damage);
+            DamageTextSpawner.Spawn(damage, player.GetComponentInChildren<SpriteRenderer>(), isAllyHit: true);
+        }
     }
 
     public void TakeDamage(int amount)
@@ -91,6 +101,8 @@ public class EnemyUnit : MonoBehaviour
         currentHp -= amount;
         currentHp = Mathf.Clamp(currentHp, 0, maxHp);
         OnHealthChanged();
+        StartHitFlash();
+        DamageTextSpawner.Spawn(amount, spriteRenderer, isAllyHit: false);
         if (IsDead())
             OnDie();
     }
@@ -115,6 +127,32 @@ public class EnemyUnit : MonoBehaviour
     }
 
     public bool IsDead() => currentHp <= 0;
+
+    private void StartHitFlash()
+    {
+        if (spriteRenderer == null) return;
+        if (!_isFlashing)
+            _originalColor = spriteRenderer.color;
+        _isFlashing = true;
+        _flashTimer = 0f;
+    }
+
+    // Animator 이후(LateUpdate)에 색상을 덮어써야 Animator 애니메이션 클립과 충돌 없이 동작함
+    private void LateUpdate()
+    {
+        if (!_isFlashing || spriteRenderer == null || isDying) return;
+
+        _flashTimer += Time.deltaTime;
+
+        if (_flashTimer >= FlashDuration)
+        {
+            _isFlashing = false;
+            spriteRenderer.color = _originalColor;
+            return;
+        }
+
+        spriteRenderer.color = new Color(_originalColor.r, _originalColor.g, _originalColor.b, FlashAlpha);
+    }
 
     // 사망 처리 시작 — 이미 죽는 중이면 false, 아니면 isDying 설정 + 이동/공격 정지
     protected bool BeginDeath()

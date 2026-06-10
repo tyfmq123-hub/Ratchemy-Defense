@@ -435,7 +435,7 @@ Transform:
   m_GameObject: {fileID: 3823026890545812848}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.737, y: -0.782, z: 0}
+  m_LocalPosition: {x: 0.737, y: -0.2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -884,18 +884,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f48b1b6590de0a4e995915fce65b72c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UltimateRat
-  maxHp: 240
-  currentHp: 240
-  attackPower: 18
+  maxHp: 500
+  currentHp: 500
+  attackPower: 50
   moveSpeed: 2.5
   attackSpeed: 1.5
   attackRange: 1.2
   deathRefundRatio: 0.5
+  hitFlashAlpha: 215
+  hitFlashBlinkDuration: 0.1
+  attackSound: {fileID: 8300000, guid: 04943c12b9dda414dab878791ff93d60, type: 3}
+  attackSoundVolume: 1.5
+  attackSoundVolumeBoost: 2
   animator: {fileID: 7367383532877645634}
   attackTriggerName: attack
   skillTriggerName: skill
   skillCooldown: 5
-  skillHitCount: 2
+  skillHitCount: 5
   skillHitInterval: 0.2
   skillAnimLength: 0.4
   skillEffectPrefab: {fileID: 2331906829737805244, guid: f40c4988cecab0245a1cfa94484d1f27, type: 3}

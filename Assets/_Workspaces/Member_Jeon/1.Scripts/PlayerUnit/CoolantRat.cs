@@ -177,6 +177,7 @@ public class CoolantRat : PlayerUnitBase
                 break;
 
             FireAttackTrigger();
+            PlayAttackSound();
             SpawnAttackProjectile(spawnPosition, target, attackPower);
 
             if (shot < shotCount - 1 && interval > 0f)
@@ -241,9 +242,7 @@ public class CoolantRat : PlayerUnitBase
 
         projectile.Initialize(damage, enemyLayer, target.transform, attackProjectileSpeed);
 
-        SpriteRenderer unitSprite = GetComponent<SpriteRenderer>();
-        if (unitSprite != null)
-            projectile.ApplySortingOrder(unitSprite.sortingOrder + 1);
+        projectile.ApplySortingOrder(CurrentSortingOrder + 1);
     }
 
     private void ApplySkillDebuffsInRange()

@@ -891,6 +891,11 @@ MonoBehaviour:
   attackSpeed: 1.5
   attackRange: 1.2
   deathRefundRatio: 0.5
+  hitFlashAlpha: 215
+  hitFlashBlinkDuration: 0.1
+  attackSound: {fileID: 8300000, guid: 04943c12b9dda414dab878791ff93d60, type: 3}
+  attackSoundVolume: 1.5
+  attackSoundVolumeBoost: 2
   animator: {fileID: 7367383532877645634}
   attackTriggerName: attack
   skillTriggerName: skill

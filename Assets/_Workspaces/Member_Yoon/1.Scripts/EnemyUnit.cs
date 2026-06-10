@@ -21,6 +21,9 @@ public class EnemyUnit : MonoBehaviour
 
     private float AttackCooldown => attackSpeed > 0f ? 1f / attackSpeed : float.PositiveInfinity;
 
+    private float moveSlowMultiplier = 1f;
+    private float moveSlowEndTime;
+
     private SpriteRenderer spriteRenderer;
     private Color _originalColor;
     private bool _isFlashing;
@@ -62,6 +65,8 @@ public class EnemyUnit : MonoBehaviour
     {
         if (isDying) return;
 
+        RefreshMoveSlow();
+
         if (spriteRenderer != null)
             spriteRenderer.sortingOrder = Mathf.RoundToInt(-transform.position.y * 100) + SortingOrderBase + (GetInstanceID() % 10);
 
@@ -82,7 +87,33 @@ public class EnemyUnit : MonoBehaviour
 
     protected virtual void MoveLeft()
     {
-        transform.Translate(Vector3.left * moveSpeed * Time.deltaTime);
+        transform.Translate(Vector3.left * GetEffectiveMoveSpeed() * Time.deltaTime);
+    }
+
+    public void ApplyMoveSlow(float speedMultiplier, float duration)
+    {
+        if (isDying || IsDead())
+            return;
+
+        speedMultiplier = Mathf.Clamp(speedMultiplier, 0.05f, 1f);
+        duration = Mathf.Max(0f, duration);
+        if (duration <= 0f)
+            return;
+
+        moveSlowMultiplier = Mathf.Min(moveSlowMultiplier, speedMultiplier);
+        moveSlowEndTime = Mathf.Max(moveSlowEndTime, Time.time + duration);
+    }
+
+    private void RefreshMoveSlow()
+    {
+        if (moveSlowMultiplier < 1f && Time.time >= moveSlowEndTime)
+            moveSlowMultiplier = 1f;
+    }
+
+    private float GetEffectiveMoveSpeed()
+    {
+        RefreshMoveSlow();
+        return moveSpeed * moveSlowMultiplier;
     }
 
     protected virtual void Attack(Collider2D target)

@@ -1,9 +1,9 @@
-// using UnityEngine;
+using UnityEngine;
 
-// public class StageSceneController : MonoBehaviour
-// {
-//     public void MoveToStoryScene()
-//     {
-//         AppManager.Instance.LoadScene("3.StoryScene");
-//     }
-// }
+public class StageSceneController : MonoBehaviour
+{
+    public void MoveToStoryScene()
+    {
+        AppManager.Instance.LoadScene("3.StoryScene");
+    }
+}

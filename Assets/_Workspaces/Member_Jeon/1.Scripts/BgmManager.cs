@@ -1,9 +1,9 @@
 using UnityEngine;
 
 [RequireComponent(typeof(AudioSource))]
-public class BgmManager : MonoBehaviour
+public class BGMManager : MonoBehaviour
 {
-    public static BgmManager Instance { get; private set; }
+    public static BGMManager Instance { get; private set; }
 
     private AudioSource audioSource;
 

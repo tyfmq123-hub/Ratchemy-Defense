@@ -23,6 +23,12 @@ public class TankRat : PlayerUnitBase
     [SerializeField] private float skillRange = 1.6f;
     [SerializeField] private int skillDamage = 3;
 
+    [Header("패시브 — 피격 반격")]
+    [SerializeField][Range(0f, 1f)] private float passiveKnockbackChance = 0.2f;
+    [SerializeField] private float passiveDetectRange = 2.5f;
+    [SerializeField] private float passiveSlowDuration = 10f;
+    [SerializeField][Range(0.05f, 1f)] private float passiveSlowMultiplier = 0.5f;
+
     protected override void Awake()
     {
         base.Awake();
@@ -41,7 +47,7 @@ public class TankRat : PlayerUnitBase
         attackPower = 4;
         moveSpeed = 2.2f;
         attackSpeed = 0.7f;
-        attackRange = 1.1f;
+        attackRange = 0.3f;
     }
 
     protected override void Update()
@@ -86,12 +92,65 @@ public class TankRat : PlayerUnitBase
         base.Die();
     }
 
+    public override void TakeDamage(float damage)
+    {
+        base.TakeDamage(damage);
+
+        if (IsDead)
+            return;
+
+        TryPassiveKnockback();
+    }
+
+    private void TryPassiveKnockback()
+    {
+        if (passiveKnockbackChance <= 0f || UnityEngine.Random.value > passiveKnockbackChance)
+            return;
+
+        EnemyUnit attacker = FindAttackerInRange();
+        if (attacker == null)
+            return;
+
+        Collider2D attackerCollider = attacker.GetComponent<Collider2D>();
+        if (attackerCollider == null || !CanBeKnockedBack(attackerCollider, attacker))
+            return;
+
+        StartCoroutine(KnockbackEnemy(attacker.transform));
+        attacker.ApplyMoveSlow(passiveSlowMultiplier, passiveSlowDuration);
+        Debug.Log($"[TankRat] 패시브 반격 → {attacker.name} 넉백 + {passiveSlowDuration}초 슬로우");
+    }
+
+    private EnemyUnit FindAttackerInRange()
+    {
+        Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, passiveDetectRange, enemyLayer);
+
+        EnemyUnit closest = null;
+        float closestSqr = float.MaxValue;
+
+        foreach (Collider2D hit in hits)
+        {
+            EnemyUnit enemy = hit.GetComponent<EnemyUnit>();
+            if (enemy == null || enemy.IsDead())
+                continue;
+
+            float sqr = (enemy.transform.position - transform.position).sqrMagnitude;
+            if (sqr < closestSqr)
+            {
+                closestSqr = sqr;
+                closest = enemy;
+            }
+        }
+
+        return closest;
+    }
+
     private void BasicAttack(EnemyUnit target)
     {
         if (attackCooldown > 0f)
             return;
 
         target.TakeDamage(attackPower);
+        PlayAttackSound();
         Debug.Log($"[TankRat] 기본 공격 → {target.name}, 데미지: {attackPower}");
         attackCooldown = GetAttackCooldownDuration();
     }
@@ -243,5 +302,8 @@ public class TankRat : PlayerUnitBase
 
         Gizmos.color = Color.green;
         Gizmos.DrawWireSphere(transform.position, skillRange);
+
+        Gizmos.color = Color.cyan;
+        Gizmos.DrawWireSphere(transform.position, passiveDetectRange);
     }
 }

@@ -1,7 +1,6 @@
 using System;
 using System.Collections;
 using UnityEngine;
-using UnityEngine.Rendering;
 
 // 아군 유닛 공통 베이스
 // - maxHp / currentHp: Inspector에서 직접 수정 가능 (Play 시 코드가 덮어쓰지 않음)
@@ -30,20 +29,11 @@ public class PlayerUnitBase : MonoBehaviour
     [SerializeField][Range(0f, 3f)] protected float attackSoundVolume = 1.5f;
     [SerializeField][Range(0f, 3f)] protected float attackSoundVolumeBoost = 2f;
 
-    [Header("Y축 깊이 정렬")]
-    [SerializeField] private int hpBarSortingOffset = 4;
-
     private int spawnCost;
     private bool hasRefundedCost;
     private SpriteRenderer bodySprite;
-    private SortingGroup sortingGroup;
-    private Canvas[] worldSpaceCanvases;
     private Color originalSpriteColor;
     private Coroutine hitFlashCoroutine;
-
-    protected virtual int SortingOrderBase => 0;
-
-    public int CurrentSortingOrder { get; private set; }
 
     // 다른 스크립트에서 읽기 전용으로 접근
     public float CurrentHp => currentHp;
@@ -98,7 +88,6 @@ public class PlayerUnitBase : MonoBehaviour
         BindHpBarInChildren();
         BindMpBarInChildren();
         CacheBodySprite();
-        SetupDepthSorting();
         NotifyHealthChanged();
     }
 
@@ -108,14 +97,6 @@ public class PlayerUnitBase : MonoBehaviour
             return;
 
         Move(); // 자식에서 override하면 이동 방식 변경 가능
-    }
-
-    protected virtual void LateUpdate()
-    {
-        if (isDead)
-            return;
-
-        ApplyDepthSorting();
     }
 
     // 기본 이동: 오른쪽 직진
@@ -251,59 +232,6 @@ public class PlayerUnitBase : MonoBehaviour
         bodySprite = GetComponent<SpriteRenderer>();
         if (bodySprite != null)
             originalSpriteColor = bodySprite.color;
-    }
-
-    private void SetupDepthSorting()
-    {
-        sortingGroup = GetComponent<SortingGroup>();
-        if (sortingGroup == null)
-            sortingGroup = gameObject.AddComponent<SortingGroup>();
-
-        Canvas[] canvases = GetComponentsInChildren<Canvas>(true);
-        int worldCanvasCount = 0;
-        foreach (Canvas canvas in canvases)
-        {
-            if (canvas.renderMode == RenderMode.WorldSpace)
-                worldCanvasCount++;
-        }
-
-        if (worldCanvasCount > 0)
-        {
-            worldSpaceCanvases = new Canvas[worldCanvasCount];
-            int index = 0;
-            foreach (Canvas canvas in canvases)
-            {
-                if (canvas.renderMode != RenderMode.WorldSpace)
-                    continue;
-
-                canvas.overrideSorting = true;
-                worldSpaceCanvases[index++] = canvas;
-            }
-        }
-
-        ApplyDepthSorting();
-    }
-
-    private void ApplyDepthSorting()
-    {
-        CurrentSortingOrder = Mathf.RoundToInt(-transform.position.y * 100f)
-            + SortingOrderBase
-            + (GetInstanceID() % 10);
-
-        if (sortingGroup != null)
-            sortingGroup.sortingOrder = CurrentSortingOrder;
-        else if (bodySprite != null)
-            bodySprite.sortingOrder = CurrentSortingOrder;
-
-        if (worldSpaceCanvases == null)
-            return;
-
-        int hpBarOrder = CurrentSortingOrder + hpBarSortingOffset;
-        foreach (Canvas canvas in worldSpaceCanvases)
-        {
-            if (canvas != null)
-                canvas.sortingOrder = hpBarOrder;
-        }
     }
 
     private void PlayHitFlash()

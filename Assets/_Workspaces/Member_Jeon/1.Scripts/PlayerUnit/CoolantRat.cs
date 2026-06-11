@@ -242,7 +242,9 @@ public class CoolantRat : PlayerUnitBase
 
         projectile.Initialize(damage, enemyLayer, target.transform, attackProjectileSpeed);
 
-        projectile.ApplySortingOrder(CurrentSortingOrder + 1);
+        SpriteRenderer unitSprite = GetComponent<SpriteRenderer>();
+        if (unitSprite != null)
+            projectile.ApplySortingOrder(unitSprite.sortingOrder + 1);
     }
 
     private void ApplySkillDebuffsInRange()

@@ -27,7 +27,7 @@ public class ComicCutsceneUI : MonoBehaviour
     [Header("인트로 씬 (선택)")]
     [SerializeField] private bool playOnStart;
     [SerializeField] private Sprite[] introComicSprites;
-    [SerializeField] private string nextSceneName = "4.UnitInfoScene";
+    [SerializeField] private string nextSceneName = "BattleScene";
 
     [Header("자동 넘김")]
     [SerializeField] private float autoAdvanceDelay = 15f;
@@ -174,6 +174,7 @@ public class ComicCutsceneUI : MonoBehaviour
         comicImage.sprite = sprite;
         ApplyImageDisplaySettings();
 
+        Debug.Log($"[ComicCutsceneUI] 만화 표시: {sprite.name}");
         StartAutoAdvance();
     }
 

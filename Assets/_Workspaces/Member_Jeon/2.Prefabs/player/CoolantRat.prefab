@@ -482,6 +482,11 @@ MonoBehaviour:
   attackSpeed: 1
   attackRange: 3.5
   deathRefundRatio: 0.5
+  hitFlashAlpha: 215
+  hitFlashBlinkDuration: 0.1
+  attackSound: {fileID: 8300000, guid: 21ad6bc853f2cb54287409049a88bc7c, type: 3}
+  attackSoundVolume: 1.5
+  attackSoundVolumeBoost: 2
   animator: {fileID: 4783420757122942453}
   attackTriggerName: attack
   idleBoolName: isidle

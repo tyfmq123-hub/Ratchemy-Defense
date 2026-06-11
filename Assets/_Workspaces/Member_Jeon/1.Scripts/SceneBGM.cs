@@ -9,12 +9,12 @@ public class SceneBGM : MonoBehaviour
         if (clip == null)
             return;
 
-        if (BgmManager.Instance == null)
+        if (BGMManager.Instance == null)
         {
-            Debug.LogWarning("[SceneBGM] BgmManager.Instance가 없습니다. 0.App 씬에 BgmManager를 배치했는지 확인하세요.");
+            Debug.LogWarning("[SceneBGM] BGMManager.Instance가 없습니다. 0.App 씬에 BGMManager를 배치했는지 확인하세요.");
             return;
         }
 
-        BgmManager.Instance.Play(clip);
+        BGMManager.Instance.Play(clip);
     }
 }

@@ -11,13 +11,9 @@ public class BaseHealth : MonoBehaviour
     [Header("연결할 배터리 온도 UI")]
     public BaseHealthUI baseHealthUI;               // 화면 왼쪽 위의 배터리 온도 UI입니다.
 
-    [Header("연결할 안전관리 점수 UI")]
-    [Tooltip("SafetyScorePanel에 붙어 있는 SafetyScoreUI를 연결하세요.")]
-    public SafetyScoreUI safetyScoreUI;
-
-    [Header("안전관리 점수 감소 설정")]
-    [Tooltip("적 하나가 우리 기지에 도착했을 때 감소하는 안전관리 점수입니다.")]
-    public int safetyScoreDamagePerEnemy = 10;
+    [Header("연결할 안전관리 점수 매니저")]
+    [Tooltip("SafetyScoreManager가 붙어 있는 오브젝트를 연결하세요.")]
+    public SafetyScoreManager safetyScoreManager;
 
     [Header("연결할 게임 매니저")]
     [SerializeField]
@@ -32,7 +28,14 @@ public class BaseHealth : MonoBehaviour
         // 가능하면 Inspector에서도 직접 연결해 두는 편이 안전합니다.
         if (gameManager == null)
         {
-            gameManager = FindFirstObjectByType<GameManager>();
+            gameManager =
+                FindFirstObjectByType<GameManager>();
+        }
+
+        if (safetyScoreManager == null)
+        {
+            safetyScoreManager =
+                FindFirstObjectByType<SafetyScoreManager>();
         }
     }
 
@@ -48,7 +51,8 @@ public class BaseHealth : MonoBehaviour
             return;
         }
 
-        // UI에서 사용하는 최대 온도도 열폭주 온도와 동일하게 맞춥니다.
+        // UI에서 사용하는 최대 온도도
+        // 열폭주 온도와 동일하게 맞춥니다.
         baseHealthUI.maxTemperature =
             thermalRunawayTemperature;
 
@@ -56,6 +60,24 @@ public class BaseHealth : MonoBehaviour
         baseHealthUI.SetTemperature(
             currentTemperature
         );
+
+        // 안전관리 점수 매니저에도
+        // 게임 시작 시 초기 온도를 전달합니다.
+        if (safetyScoreManager != null)
+        {
+            safetyScoreManager.maxTemperature =
+                thermalRunawayTemperature;
+
+            safetyScoreManager.SetTemperature(
+                currentTemperature
+            );
+        }
+        else
+        {
+            Debug.LogError(
+                "[BaseHealth] SafetyScoreManager가 연결되지 않았습니다."
+            );
+        }
     }
 
     /// <summary>
@@ -82,10 +104,24 @@ public class BaseHealth : MonoBehaviour
                 thermalRunawayTemperature
             );
 
-        // 변경된 온도를 UI에 표시합니다.
+        // 변경된 온도를 배터리 온도 UI에 표시합니다.
         if (baseHealthUI != null)
         {
             baseHealthUI.SetTemperature(
+                currentTemperature
+            );
+        }
+
+        // 변경된 온도를 안전관리 점수 매니저에도 전달합니다.
+        //
+        // 이전에는 적 한 마리가 도착할 때마다
+        // 무조건 10점을 감소시켰습니다.
+        //
+        // 이제는 현재 온도를 기준으로
+        // 안전관리 점수를 다시 계산합니다.
+        if (safetyScoreManager != null)
+        {
+            safetyScoreManager.SetTemperature(
                 currentTemperature
             );
         }
@@ -110,7 +146,7 @@ public class BaseHealth : MonoBehaviour
 
     /// <summary>
     /// 적이 우리 기지 충돌 범위에 들어오면 실행됩니다.
-    /// 배터리 온도와 안전관리 점수를 함께 변경합니다.
+    /// 적에게 설정된 값만큼 배터리 온도를 올립니다.
     /// </summary>
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -136,20 +172,5 @@ public class BaseHealth : MonoBehaviour
         AddTemperature(
             enemy.temperatureDamage
         );
-
-        // 적 하나가 기지에 도착할 때마다
-        // 안전관리 점수도 설정된 값만큼 감소합니다.
-        if (safetyScoreUI != null)
-        {
-            safetyScoreUI.ReduceScore(
-                safetyScoreDamagePerEnemy
-            );
-        }
-        else
-        {
-            Debug.LogError(
-                "[BaseHealth] SafetyScoreUI가 연결되지 않았습니다."
-            );
-        }
     }
 }

@@ -683,7 +683,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -860.4326, y: -89.76324}
+  m_AnchoredPosition: {x: -834, y: -477}
   m_SizeDelta: {x: 208.2748, y: 98.9254}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &981881161662174852
@@ -1888,6 +1888,7 @@ MonoBehaviour:
   - {fileID: -1609823398931599014, guid: 394ea5a0ac17b85438e014c99856013e, type: 3}
   - {fileID: 8084782986979229914, guid: fe6cdcad70746a94294692a7bdc01f26, type: 3}
   - {fileID: -7836060024382944214, guid: 120ddac012a3901458b1da1f10fffc0b, type: 3}
+  - {fileID: -432695819521660867, guid: c150ee131d0213440bd45d3b73046d93, type: 3}
   playOnStart: 0
   introComicSprites: []
   nextSceneName: BattleScene
@@ -2068,7 +2069,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 877.12, y: -83}
+  m_AnchoredPosition: {x: 868, y: -488}
   m_SizeDelta: {x: 165.75, y: 85.3986}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8541299930333344316

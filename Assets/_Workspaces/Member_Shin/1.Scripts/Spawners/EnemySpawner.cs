@@ -65,9 +65,14 @@ public class EnemySpawner : MonoBehaviour
         )
         {
             GameObject spawnedEnemy =
-                SpawnRandomEnemy(
-                    waveSetting.enemyPrefabs
-                );
+                waveSetting.spawnInOrder
+                    ? SpawnEnemyInOrder(
+                        waveSetting.enemyPrefabs,
+                        i
+                    )
+                    : SpawnRandomEnemy(
+                        waveSetting.enemyPrefabs
+                    );
             EnemyWaveTracker tracker =
                 spawnedEnemy.GetComponent<
                     EnemyWaveTracker
@@ -96,6 +101,23 @@ public class EnemySpawner : MonoBehaviour
         onWaveSpawnFinished?.Invoke();
     }
 
+    private GameObject SpawnEnemyInOrder(
+        GameObject[] availableEnemyPrefabs,
+        int spawnIndex
+    )
+    {
+        int enemyPrefabIndex =
+            Mathf.Clamp(
+                spawnIndex,
+                0,
+                availableEnemyPrefabs.Length - 1
+            );
+
+        return SpawnEnemyPrefab(
+            availableEnemyPrefabs[enemyPrefabIndex]
+        );
+    }
+
     private GameObject SpawnRandomEnemy(
         GameObject[] availableEnemyPrefabs
     )
@@ -105,27 +127,31 @@ public class EnemySpawner : MonoBehaviour
                 0,
                 availableEnemyPrefabs.Length
             );
+
+        return SpawnEnemyPrefab(
+            availableEnemyPrefabs[enemyPrefabIndex]
+        );
+    }
+
+    private GameObject SpawnEnemyPrefab(
+        GameObject selectedEnemyPrefab
+    )
+    {
         int spawnPointIndex =
             UnityEngine.Random.Range(
                 0,
                 enemySpawnPoints.Length
             );
 
-        GameObject selectedEnemyPrefab =
-            availableEnemyPrefabs[
-                enemyPrefabIndex
-            ];
-
         Transform selectedSpawnPoint =
             enemySpawnPoints[
                 spawnPointIndex
             ];
-        GameObject spawnedEnemy =
-            Instantiate(
-                selectedEnemyPrefab,
-                selectedSpawnPoint.position,
-                selectedSpawnPoint.rotation
-            );
-        return spawnedEnemy;
+
+        return Instantiate(
+            selectedEnemyPrefab,
+            selectedSpawnPoint.position,
+            selectedSpawnPoint.rotation
+        );
     }
 }

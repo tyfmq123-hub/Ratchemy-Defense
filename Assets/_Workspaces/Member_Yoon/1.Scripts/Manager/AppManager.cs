@@ -10,6 +10,7 @@ public class AppManager : MonoBehaviour
     [SerializeField] private bool runInBackground = true;
 
     private string currentSubScene;
+    private Coroutine transitionCoroutine;
 
     private void Awake()
     {
@@ -18,6 +19,7 @@ public class AppManager : MonoBehaviour
             Destroy(gameObject);
             return;
         }
+
         Instance = this;
         Application.runInBackground = runInBackground;
     }
@@ -29,7 +31,10 @@ public class AppManager : MonoBehaviour
 
     public void LoadScene(string sceneName)
     {
-        StartCoroutine(TransitionScene(sceneName));
+        if (transitionCoroutine != null)
+            StopCoroutine(transitionCoroutine);
+
+        transitionCoroutine = StartCoroutine(TransitionScene(sceneName));
     }
 
     public void Retry()
@@ -43,12 +48,49 @@ public class AppManager : MonoBehaviour
         Time.timeScale = 1f;
 
         string previousSubScene = currentSubScene;
+        bool hasPreviousScene = !string.IsNullOrEmpty(previousSubScene);
+
+        if (hasPreviousScene)
+            SetSceneCamerasEnabled(previousSubScene, false);
+
         currentSubScene = sceneName;
 
-        yield return SceneManager.LoadSceneAsync(sceneName, LoadSceneMode.Additive);
-        SceneManager.SetActiveScene(SceneManager.GetSceneByName(sceneName));
+        AsyncOperation loadOperation =
+            SceneManager.LoadSceneAsync(sceneName, LoadSceneMode.Additive);
 
-        if (!string.IsNullOrEmpty(previousSubScene))
+        loadOperation.allowSceneActivation = false;
+
+        while (loadOperation.progress < 0.9f)
+            yield return null;
+
+        loadOperation.allowSceneActivation = true;
+
+        while (!loadOperation.isDone)
+            yield return null;
+
+        Scene loadedScene = SceneManager.GetSceneByName(sceneName);
+        SceneManager.SetActiveScene(loadedScene);
+
+        if (hasPreviousScene)
             yield return SceneManager.UnloadSceneAsync(previousSubScene);
+
+        transitionCoroutine = null;
+    }
+
+    private static void SetSceneCamerasEnabled(
+        string sceneName,
+        bool enabled
+    )
+    {
+        Scene scene = SceneManager.GetSceneByName(sceneName);
+
+        if (!scene.IsValid() || !scene.isLoaded)
+            return;
+
+        foreach (GameObject rootObject in scene.GetRootGameObjects())
+        {
+            foreach (Camera camera in rootObject.GetComponentsInChildren<Camera>(true))
+                camera.enabled = enabled;
+        }
     }
 }

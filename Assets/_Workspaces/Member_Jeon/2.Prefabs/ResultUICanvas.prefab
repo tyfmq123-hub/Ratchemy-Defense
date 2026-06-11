@@ -56,6 +56,10 @@ MonoBehaviour:
   baseHealth: {fileID: 0}
   maGradeText: {fileID: 4462405289075635051}
   saPercentText: {fileID: 7013803391511346557}
+  buttonNext: {fileID: 2098395037505625781}
+  buttonHome: {fileID: 6994560216829689875}
+  nextSceneName: 2.StageScene
+  homeSceneName: 1.StartScene
 --- !u!1 &2556773244127260444
 GameObject:
   m_ObjectHideFlags: 0
@@ -1563,6 +1567,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59c16ab50dac6fc4baeaecca5d5fc420, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DefeatResultUI
+  buttonRetry: {fileID: 8101829774141855981}
+  buttonHome: {fileID: 5619817290380960678}
+  buttonExit: {fileID: 3829772619981953323}
+  retrySceneName: 5.BattleScene
+  homeSceneName: 1.StartScene
 --- !u!1 &6514241813810408783
 GameObject:
   m_ObjectHideFlags: 0

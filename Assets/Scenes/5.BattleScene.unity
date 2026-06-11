@@ -1397,66 +1397,50 @@ MonoBehaviour:
   waveAnnouncementUI: {fileID: 2024971562}
   bossStageWarningUI: {fileID: 861639368}
   enemySpawner: {fileID: 1206646919}
-  totalCountdownTime: 45
+  totalCountdownTime: 35
   firstWaveSpawnDelay: 2
   waveSettings:
   - enemyPrefabs:
     - {fileID: 1101685688955631928, guid: 21ab848eb6983384ca16c775a407cff4, type: 3}
     - {fileID: 1101685688955631928, guid: 21ab848eb6983384ca16c775a407cff4, type: 3}
     - {fileID: 1101685688955631928, guid: 21ab848eb6983384ca16c775a407cff4, type: 3}
-    - {fileID: 1101685688955631928, guid: 21ab848eb6983384ca16c775a407cff4, type: 3}
-    - {fileID: 1101685688955631928, guid: 21ab848eb6983384ca16c775a407cff4, type: 3}
-    - {fileID: 7853548652790131195, guid: 82ad40b3720593e419f9ac3bbbc81293, type: 3}
     - {fileID: 7853548652790131195, guid: 82ad40b3720593e419f9ac3bbbc81293, type: 3}
     - {fileID: 7853548652790131195, guid: 82ad40b3720593e419f9ac3bbbc81293, type: 3}
     spawnCount: 8
     spawnInterval: 2.5
-    waveDuration: 45
+    waveDuration: 35
     spawnInOrder: 1
   - enemyPrefabs:
     - {fileID: 1101685688955631928, guid: 21ab848eb6983384ca16c775a407cff4, type: 3}
-    - {fileID: 1101685688955631928, guid: 21ab848eb6983384ca16c775a407cff4, type: 3}
-    - {fileID: 1101685688955631928, guid: 21ab848eb6983384ca16c775a407cff4, type: 3}
     - {fileID: 6159824140907556210, guid: df857efb31f1b7947a9cd7a494f5df55, type: 3}
     - {fileID: 6159824140907556210, guid: df857efb31f1b7947a9cd7a494f5df55, type: 3}
     - {fileID: 7853548652790131195, guid: 82ad40b3720593e419f9ac3bbbc81293, type: 3}
-    - {fileID: 7853548652790131195, guid: 82ad40b3720593e419f9ac3bbbc81293, type: 3}
-    - {fileID: 7853548652790131195, guid: 82ad40b3720593e419f9ac3bbbc81293, type: 3}
     - {fileID: 5911915522541860973, guid: 4fe879b506ad6c94a8180ff21a720593, type: 3}
-    spawnCount: 9
-    spawnInterval: 2.2
-    waveDuration: 55
-    spawnInOrder: 1
-  - enemyPrefabs:
-    - {fileID: 6159824140907556210, guid: df857efb31f1b7947a9cd7a494f5df55, type: 3}
-    - {fileID: 6159824140907556210, guid: df857efb31f1b7947a9cd7a494f5df55, type: 3}
-    - {fileID: 6159824140907556210, guid: df857efb31f1b7947a9cd7a494f5df55, type: 3}
-    - {fileID: 6159824140907556210, guid: df857efb31f1b7947a9cd7a494f5df55, type: 3}
-    - {fileID: 5828329929753318817, guid: 36ef1857d35c889498b9003ba6c2f8fd, type: 3}
-    - {fileID: 5828329929753318817, guid: 36ef1857d35c889498b9003ba6c2f8fd, type: 3}
-    - {fileID: 5911915522541860973, guid: 4fe879b506ad6c94a8180ff21a720593, type: 3}
-    - {fileID: 5911915522541860973, guid: 4fe879b506ad6c94a8180ff21a720593, type: 3}
-    - {fileID: 5911915522541860973, guid: 4fe879b506ad6c94a8180ff21a720593, type: 3}
-    - {fileID: 225098900415800981, guid: c8181a26a4bcd7540b365901b4053c6f, type: 3}
     spawnCount: 10
-    spawnInterval: 2
-    waveDuration: 60
+    spawnInterval: 2.2
+    waveDuration: 35
     spawnInOrder: 1
   - enemyPrefabs:
     - {fileID: 6159824140907556210, guid: df857efb31f1b7947a9cd7a494f5df55, type: 3}
     - {fileID: 6159824140907556210, guid: df857efb31f1b7947a9cd7a494f5df55, type: 3}
+    - {fileID: 5828329929753318817, guid: 36ef1857d35c889498b9003ba6c2f8fd, type: 3}
+    - {fileID: 5911915522541860973, guid: 4fe879b506ad6c94a8180ff21a720593, type: 3}
+    - {fileID: 5911915522541860973, guid: 4fe879b506ad6c94a8180ff21a720593, type: 3}
+    - {fileID: 225098900415800981, guid: c8181a26a4bcd7540b365901b4053c6f, type: 3}
+    spawnCount: 12
+    spawnInterval: 2
+    waveDuration: 35
+    spawnInOrder: 1
+  - enemyPrefabs:
+    - {fileID: 6159824140907556210, guid: df857efb31f1b7947a9cd7a494f5df55, type: 3}
     - {fileID: 6159824140907556210, guid: df857efb31f1b7947a9cd7a494f5df55, type: 3}
     - {fileID: 5828329929753318817, guid: 36ef1857d35c889498b9003ba6c2f8fd, type: 3}
-    - {fileID: 5828329929753318817, guid: 36ef1857d35c889498b9003ba6c2f8fd, type: 3}
-    - {fileID: 5828329929753318817, guid: 36ef1857d35c889498b9003ba6c2f8fd, type: 3}
-    - {fileID: 225098900415800981, guid: c8181a26a4bcd7540b365901b4053c6f, type: 3}
-    - {fileID: 225098900415800981, guid: c8181a26a4bcd7540b365901b4053c6f, type: 3}
-    - {fileID: 225098900415800981, guid: c8181a26a4bcd7540b365901b4053c6f, type: 3}
     - {fileID: 5911915522541860973, guid: 4fe879b506ad6c94a8180ff21a720593, type: 3}
     - {fileID: 5911915522541860973, guid: 4fe879b506ad6c94a8180ff21a720593, type: 3}
-    spawnCount: 11
+    - {fileID: 225098900415800981, guid: c8181a26a4bcd7540b365901b4053c6f, type: 3}
+    spawnCount: 13
     spawnInterval: 1.8
-    waveDuration: 50
+    waveDuration: 35
     spawnInOrder: 1
 --- !u!1 &344948688
 GameObject:

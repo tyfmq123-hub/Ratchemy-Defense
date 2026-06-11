@@ -884,12 +884,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f48b1b6590de0a4e995915fce65b72c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UltimateRat
-  maxHp: 500
-  currentHp: 500
-  attackPower: 50
+  maxHp: 150
+  currentHp: 150
+  attackPower: 18
   moveSpeed: 2.5
-  attackSpeed: 1.5
-  attackRange: 1.2
+  attackSpeed: 1.2
+  attackRange: 2.8
   deathRefundRatio: 0.5
   hitFlashAlpha: 215
   hitFlashBlinkDuration: 0.1
@@ -899,8 +899,8 @@ MonoBehaviour:
   animator: {fileID: 7367383532877645634}
   attackTriggerName: attack
   skillTriggerName: skill
-  skillCooldown: 5
-  skillHitCount: 5
+  skillCooldown: 15
+  skillHitCount: 2
   skillHitInterval: 0.2
   skillAnimLength: 0.4
   skillEffectPrefab: {fileID: 2331906829737805244, guid: f40c4988cecab0245a1cfa94484d1f27, type: 3}

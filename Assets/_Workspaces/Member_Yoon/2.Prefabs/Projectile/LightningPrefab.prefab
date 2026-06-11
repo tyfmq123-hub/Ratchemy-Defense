@@ -168,7 +168,8 @@ MonoBehaviour:
   lifetime: 5
   flySound: {fileID: 8300000, guid: d4bf46ca7e05a444bab691f35ffa4d6e, type: 3}
   flySoundVolume: 0.5
-  insulatorRatLightningMultiplier: 0.5
+  bodyHeightOffset: 0.5
+  insulatorRatLightningMultiplier: 0.15
 --- !u!50 &1827491581288314069
 Rigidbody2D:
   serializedVersion: 5

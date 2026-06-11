@@ -477,10 +477,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CoolantRat
   maxHp: 120
   currentHp: 120
-  attackPower: 8
-  moveSpeed: 2.2
-  attackSpeed: 1
-  attackRange: 3.5
+  attackPower: 10
+  moveSpeed: 2.5
+  attackSpeed: 0.8
+  attackRange: 3
   deathRefundRatio: 0.5
   hitFlashAlpha: 215
   hitFlashBlinkDuration: 0.1
@@ -503,7 +503,7 @@ MonoBehaviour:
   skillProjectileDamage: 8
   skillDuration: 5
   skillFireRate: 5
-  skillCooldown: 15
+  skillCooldown: 8
   debuffDuration: 3
 --- !u!95 &4783420757122942453
 Animator:

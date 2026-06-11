@@ -40,17 +40,17 @@ MonoBehaviour:
     skillDescription: "\uC801\uC911\uD55C \uC801\uC5D0\uAC8C \uD53C\uD574\uB97C \uC900
       \uB4A4, \uC8FC\uBCC0 \uCD5C\uB300 3\uBA85\uC758 \uC801\uC5D0\uAC8C 10\uC758
       \uC804\uACA9 \uD53C\uD574\uB97C \uC785\uD799\uB2C8\uB2E4."
-  damage: 10
-  hp: 206
-  maxHp: 206
+  damage: 14
+  hp: 180
+  maxHp: 180
   attackRange: 7
   attackSpeed: 1
-  moveSpeed: 2
+  moveSpeed: 2.6
   lightningPrefab: {fileID: 769734323195235563, guid: 7aa18f06de0a9974f8b8fa69f7099a36, type: 3}
   projectileSpeed: 6
   fireOffset: {x: 0, y: 10}
-  chainCount: 3
-  chainRange: 3
+  chainCount: 2
+  chainRange: 2.5
   lightningColor: {r: 0.40792987, g: 0.86485016, b: 0.9716981, a: 0.7019608}
   lightningWidth: 0.1
   lightningDuration: 0.15

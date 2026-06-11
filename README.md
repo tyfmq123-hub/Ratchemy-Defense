@@ -5,6 +5,55 @@
 
 ## 작업 로그
 
+### 2026-06-11 — Member_Yoon : UnitInfo UI 개선 + 전체 밸런스 수치 조정
+
+| 항목 | 내용 |
+|---|---|
+| **UnitInfoCard** | 아군/적군 카드 UI 스크립트 수정 |
+| **EnemyInfoCardSpawner** | 적군 카드 스포너 수정 |
+| **PlayerInfoCardSpawner** | 아군 카드 스포너 수정 |
+| **AllyUnitInfoCard.prefab** | 아군 유닛 카드 프리팹 업데이트 |
+| **EnemyUnitInfoCard.prefab** | 적군 유닛 카드 프리팹 업데이트 |
+| **스킬 아이콘** | `impregnableDefense_Icon` / `onSiteControl_Icon` 추가 |
+| **씬 이름 변경** | `JH UnitInfo.unity` → `JH Info.unity` |
+| **InfoData SO** | SafetyManagerRat / TankRat 데이터 수정 |
+| **WaveData_AllWaves** | 에셋 제거 |
+
+#### 밸런스 — 아군 유닛
+
+| 유닛 | HP | ATK | 공격속도 | 이동속도 | 사거리 | 코스트 | 스킬 변경 |
+|---|---|---|---|---|---|---|---|
+| SafetyManagerRat | 110 | 12 | 1.0 | 3.5 | 1.8 | 3 | — |
+| InsulatorRat | 95 | 14 | 1.0 | 3.0 | 1.0 | 3 | LightningDamageMultiplier 0.15 |
+| TankRat | 300 | 8 | 0.8 | 2.2 | 1.1 | 5 | SkillRadius 2.0 |
+| CoolantRat | 120 | 10 | 0.8 | 2.5 | 3.0 | 7 | SkillCooldown 8 |
+| UltimateRat | 150 | 18 | 1.2 | 2.5 | 2.8 | 9 | SkillCooldown 15, ShockwaveCount 2 |
+
+#### 밸런스 — 적군 유닛
+
+| 유닛 | HP | ATK | 이동속도 | 특이사항 |
+|---|---|---|---|---|
+| FlameSlime T1 | 70 | 7 | 2.0 | — |
+| FlameSlime T2 | 120 | 10 | 2.2 | 오라 데미지 4, 반경 1.5, 주기 3초 |
+| FlameSlime T3 | 150 | 12 | 2.5 | 폭발 데미지 20, 반경 1.8, 지연 3초 |
+| ThunderLizard T1 | 80 | 8 | 2.2 | — |
+| ThunderLizard T2 | 130 | 11 | 2.4 | 투사체 속도 6 |
+| ThunderLizard T3 | 180 | 14 | 2.6 | 체인 횟수 2, 체인 범위 2.5 |
+| Boss | 12000 | 28 | — | 사거리 3, 오라 피해 8, 반경 2.5, 주기 2초 / 폭발 피해 20, 반경 1.8 |
+
+#### 밸런스 — 웨이브 설정
+
+| 웨이브 | SpawnCount | SpawnInterval | enemyPrefabs 배열 |
+|---|---|---|---|
+| Wave 1 | 8 | 2.5초 | FS-T1 × 3, TL-T1 × 2 |
+| Wave 2 | 10 | 2.2초 | FS-T1 × 1, FS-T2 × 2, TL-T1 × 1, TL-T2 × 1 |
+| Wave 3 | 12 | 2.0초 | FS-T2 × 2, FS-T3 × 1, TL-T2 × 2, TL-T3 × 1 |
+| Wave 4 | 13 | 1.8초 | FS-T2 × 2, FS-T3 × 1, TL-T2 × 2, TL-T3 × 1 |
+
+보스 웨이브 클리어마다 체력 20% 감소 (12000 → 9600 → 7200 → 4800 → 2400)
+
+---
+
 ### 2026-06-09 (오후) — Member_Yoon : AppManager 구현 + 씬 전환 통일
 
 | 항목 | 내용 |

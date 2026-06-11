@@ -43,19 +43,19 @@ MonoBehaviour:
       10\uC758 \uD654\uC5FC \uD53C\uD574\uB97C \uC785\uD788\uACE0,\n\uD654\uC5FC
       \uB369\uC5B4\uB9AC\uB97C \uBC1C\uC0AC\uD558\uC5EC \uBC94\uC704 \uB0B4 \uC801\uC5D0\uAC8C
       40\uC758 \uD3ED\uBC1C \uD53C\uD574\uB97C \uC785\uD799\uB2C8\uB2E4."
-  damage: 40
-  hp: 50000
-  maxHp: 50000
-  attackRange: 5
+  damage: 28
+  hp: 12000
+  maxHp: 12000
+  attackRange: 3
   attackSpeed: 0.5
   moveSpeed: 0
   dieAnimDuration: 1
   projectilePrefab: {fileID: 5314360353959510518, guid: 848fa4174fb63b04692a9f9024de7add, type: 3}
-  explosionRadius: 1
-  arcHeight: 3
-  projectileSpeed: 5
+  explosionRadius: 1.8
+  arcHeight: 1.5
+  projectileSpeed: 6
   explosionEffectPrefab: {fileID: 6419512139325677619, guid: 70801eb4a4ed52c4f86bc0c5756fd92b, type: 3}
   effectLifetime: 1
-  auraRadius: 3
-  auraDamage: 10
+  auraRadius: 2.5
+  auraDamage: 8
   auraInterval: 2

@@ -1,96 +1,92 @@
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
+/// <summary>
+/// 화면 상단 중앙에 남은 시간을 표시하는 UI입니다.
+///
+/// 기존에는 원형 웨이브 게이지 이미지도 함께 변경했지만,
+/// 이제는 게이지를 사용하지 않고 타이머 숫자만 표시합니다.
+///
+/// 클래스 이름은 기존 WaveManager 연결을 유지하기 위해
+/// EnvironmentGaugeUI 그대로 사용합니다.
+/// </summary>
 public class EnvironmentGaugeUI : MonoBehaviour
 {
-    [Header("연결할 UI")]
-    public Image gaugeImage;
-    public TextMeshProUGUI gaugeText;
+    [Header("연결할 상단 타이머 텍스트")]
+    [Tooltip("Canvas 아래에 만든 BattleTimerText를 연결하세요.")]
+    public TextMeshProUGUI timerText;
 
-    [Header("단계별 원형 게이지 이미지")]
-    public Sprite[] gaugeSprites;
-
+    /// <summary>
+    /// WaveManager가 매 프레임 호출합니다.
+    /// 남은 시간을 01:25 형식으로 표시합니다.
+    /// </summary>
     public void SetRemainingTime(
         float remainingTime,
         float totalWaitingTime
     )
     {
-        // 남은 시간이 음수가 되지 않도록 제한합니다.
+        // 시간이 0보다 작아지지 않도록 제한합니다.
         remainingTime = Mathf.Max(
             0f,
             remainingTime
         );
 
-        // 중앙 숫자를 표시합니다.
-        // 5.2초가 남았다면 6으로 표시됩니다.
-        gaugeText.text =
-            Mathf.CeilToInt(remainingTime).ToString();
-
-        // 스프라이트 배열이 비어 있거나
-        // 전체 제한 시간이 0초 이하라면 계산하지 않습니다.
-        if (
-            gaugeImage == null ||
-            gaugeSprites == null ||
-            gaugeSprites.Length == 0 ||
-            totalWaitingTime <= 0f
-        )
+        // 연결이 빠져 있다면 오류 없이 종료합니다.
+        if (timerText == null)
         {
             return;
         }
 
-        // 전체 시간 중 현재 남은 시간의 비율을 계산합니다.
-        // 예: 20초 중 14초가 남았다면 0.7입니다.
-        float remainingRatio =
-            remainingTime / totalWaitingTime;
+        // 5.2초가 남았다면 6초로 표시합니다.
+        // 화면에서 시간이 너무 일찍 0초로 보이는 것을 방지합니다.
+        int totalSeconds =
+            Mathf.CeilToInt(remainingTime);
 
-        // 스프라이트 배열 번호를 자동으로 계산합니다.
-        // 이미지가 11장이면 사용할 번호는 0~10입니다.
-        int spriteIndex =
-            Mathf.CeilToInt(
-                remainingRatio *
-                (gaugeSprites.Length - 1)
-            );
+        // 전체 초를 분과 초로 나눕니다.
+        int minutes =
+            totalSeconds / 60;
 
-        // 배열 범위를 벗어나지 않도록 제한합니다.
-        spriteIndex = Mathf.Clamp(
-            spriteIndex,
-            0,
-            gaugeSprites.Length - 1
-        );
+        int seconds =
+            totalSeconds % 60;
 
-        // 계산된 단계의 스프라이트를 표시합니다.
-        gaugeImage.sprite =
-            gaugeSprites[spriteIndex];
+        // 예: 85초 → 01:25
+        timerText.text =
+            $"{minutes:00}:{seconds:00}";
     }
 
+    /// <summary>
+    /// 일반 웨이브 시작 시 호출됩니다.
+    ///
+    /// WAVE 1, WAVE 2 같은 문구는
+    /// WaveAnnouncementUI가 화면 중앙에 따로 표시합니다.
+    /// 따라서 상단 타이머 문구는 변경하지 않습니다.
+    /// </summary>
     public void ShowWaveStart()
     {
-        gaugeText.text = "GO!";
-
-        if (
-            gaugeImage != null &&
-            gaugeSprites != null &&
-            gaugeSprites.Length > 0
-        )
-        {
-            gaugeImage.sprite =
-                gaugeSprites[0];
-        }
+        // 아무 작업도 하지 않습니다.
     }
 
-    // Wave 4 적을 모두 처치하고 보스전에 진입했을 때 호출합니다.
-    // 기존 숫자 카운트다운 대신 STAGE 문구를 표시합니다.
+    /// <summary>
+    /// 보스 스테이지 진입 시 호출됩니다.
+    ///
+    /// 보스 경고 연출은 BossStageWarningUI가 담당하므로
+    /// 상단 타이머 문구는 변경하지 않습니다.
+    /// </summary>
     public void ShowBossStage()
     {
-        if (gaugeText != null)
-        {
-            gaugeText.text = "STAGE";
-        }
+        // 아무 작업도 하지 않습니다.
     }
 
+    /// <summary>
+    /// 모든 웨이브가 끝났을 때 호출됩니다.
+    /// </summary>
     public void ShowAllWavesComplete()
     {
-        gaugeText.text = "CLEAR";
+        if (timerText == null)
+        {
+            return;
+        }
+
+        timerText.text = "00:00";
     }
 }

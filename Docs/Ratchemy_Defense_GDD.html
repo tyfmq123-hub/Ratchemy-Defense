@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ratchemy Defense — 게임 기획안</title>
+  <style>
+    :root {
+      --bg: #0f1419;
+      --surface: #1a2332;
+      --surface2: #243044;
+      --border: #2d3f56;
+      --text: #e8edf4;
+      --muted: #8fa3bc;
+      --accent: #4fc3f7;
+      --accent2: #ff8a65;
+      --success: #66bb6a;
+      --warn: #ffb74d;
+      --danger: #ef5350;
+      --flame: #ff7043;
+      --thunder: #ffd54f;
+      --rat: #81c784;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: "Segoe UI", "Malgun Gothic", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+    }
+
+    .hero {
+      background: linear-gradient(135deg, #1a2a3a 0%, #0f1419 50%, #1a1f2e 100%);
+      border-bottom: 1px solid var(--border);
+      padding: 3.5rem 2rem 3rem;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.5rem;
+    }
+
+    .hero h1 span { color: var(--accent); }
+
+    .hero .subtitle {
+      color: var(--muted);
+      font-size: 1.05rem;
+      max-width: 640px;
+      margin: 0 auto 1.5rem;
+    }
+
+    .badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      justify-content: center;
+    }
+
+    .badge {
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 0.3rem 0.85rem;
+      font-size: 0.82rem;
+      color: var(--muted);
+    }
+
+    .container {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 2rem 1.25rem 4rem;
+    }
+
+    nav.toc {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.25rem 1.5rem;
+      margin-bottom: 2.5rem;
+    }
+
+    nav.toc h2 {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+      margin-bottom: 0.75rem;
+    }
+
+    nav.toc ol {
+      columns: 2;
+      column-gap: 2rem;
+      padding-left: 1.25rem;
+      font-size: 0.95rem;
+    }
+
+    nav.toc a { color: var(--accent); text-decoration: none; }
+    nav.toc a:hover { text-decoration: underline; }
+
+    section {
+      margin-bottom: 2.75rem;
+      scroll-margin-top: 1.5rem;
+    }
+
+    h2 {
+      font-size: 1.55rem;
+      margin-bottom: 1rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid var(--border);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    h3 {
+      font-size: 1.1rem;
+      margin: 1.5rem 0 0.75rem;
+      color: var(--accent);
+    }
+
+    p, li { color: #c8d4e3; margin-bottom: 0.6rem; }
+
+    ul, ol { padding-left: 1.35rem; margin-bottom: 1rem; }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1rem;
+      margin: 1rem 0;
+    }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.1rem 1.25rem;
+    }
+
+    .card h4 {
+      font-size: 1rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .card .tag {
+      display: inline-block;
+      font-size: 0.75rem;
+      padding: 0.15rem 0.5rem;
+      border-radius: 4px;
+      margin-bottom: 0.5rem;
+    }
+
+    .tag-flame { background: rgba(255,112,67,.2); color: var(--flame); }
+    .tag-thunder { background: rgba(255,213,79,.15); color: var(--thunder); }
+    .tag-rat { background: rgba(129,199,132,.15); color: var(--rat); }
+    .tag-boss { background: rgba(239,83,80,.15); color: var(--danger); }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+      margin: 1rem 0;
+      background: var(--surface);
+      border-radius: 10px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+    }
+
+    th, td {
+      padding: 0.65rem 0.85rem;
+      text-align: left;
+      border-bottom: 1px solid var(--border);
+    }
+
+    th {
+      background: var(--surface2);
+      color: var(--muted);
+      font-weight: 600;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    tr:last-child td { border-bottom: none; }
+    tr:hover td { background: rgba(79,195,247,.04); }
+
+    .flow {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.25rem;
+      font-family: "Cascadia Code", Consolas, monospace;
+      font-size: 0.88rem;
+      line-height: 1.8;
+      overflow-x: auto;
+      color: var(--accent);
+    }
+
+    .note {
+      background: rgba(255,183,77,.08);
+      border-left: 3px solid var(--warn);
+      padding: 0.85rem 1rem;
+      border-radius: 0 8px 8px 0;
+      margin: 1rem 0;
+      font-size: 0.92rem;
+    }
+
+    .status-done { color: var(--success); }
+    .status-partial { color: var(--warn); }
+    .status-todo { color: var(--danger); }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      color: var(--muted);
+      font-size: 0.85rem;
+      border-top: 1px solid var(--border);
+    }
+
+    @media (max-width: 640px) {
+      nav.toc ol { columns: 1; }
+    }
+
+    @media print {
+      body { background: #fff; color: #111; }
+      .hero { background: #f5f5f5; }
+      .card, table, nav.toc, .flow { border-color: #ccc; background: #fafafa; }
+      th { background: #eee; color: #333; }
+      p, li { color: #333; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="hero">
+  <h1>🐀 <span>Ratchemy Defense</span></h1>
+  <p class="subtitle">
+    고출력 배터리 시설을 지키는 2D 레인 디펜스 · 웨이브 서바이벌 프로토타입<br />
+    Unity 중간 프로젝트 · 3인 팀 제작
+  </p>
+  <div class="badges">
+    <span class="badge">장르: 2D Tower Defense / Lane Defense</span>
+    <span class="badge">엔진: Unity 6000.4.8f1 · URP 2D</span>
+    <span class="badge">해상도: 1920×1080</span>
+    <span class="badge">문서 버전: 2026-06-10</span>
+  </div>
+</header>
+
+<div class="container">
+
+  <nav class="toc">
+    <h2>목차</h2>
+    <ol>
+      <li><a href="#overview">1. 프로젝트 개요</a></li>
+      <li><a href="#concept">2. 세계관 &amp; 컨셉</a></li>
+      <li><a href="#loop">3. 핵심 게임 루프</a></li>
+      <li><a href="#flow">4. 씬 플로우</a></li>
+      <li><a href="#winlose">5. 승리 / 패배 조건</a></li>
+      <li><a href="#battle">6. 배틀 시스템</a></li>
+      <li><a href="#allies">7. 아군 유닛</a></li>
+      <li><a href="#enemies">8. 적군 유닛</a></li>
+      <li><a href="#boss">9. 보스</a></li>
+      <li><a href="#waves">10. 웨이브 구성</a></li>
+      <li><a href="#ui">11. UI / UX</a></li>
+      <li><a href="#team">12. 팀 분업</a></li>
+      <li><a href="#tech">13. 기술 구조</a></li>
+      <li><a href="#status">14. 개발 현황</a></li>
+    </ol>
+  </nav>
+
+  <!-- 1. 개요 -->
+  <section id="overview">
+    <h2>1. 프로젝트 개요</h2>
+    <div class="card-grid">
+      <div class="card">
+        <h4>프로젝트명</h4>
+        <p>Ratchemy Defense (래트케미 디펜스)</p>
+      </div>
+      <div class="card">
+        <h4>목표</h4>
+        <p>유니티 중간 프로젝트용 플레이 가능한 프로토타입 — 스테이지 선택부터 배틀, 승패까지 완결된 루프</p>
+      </div>
+      <div class="card">
+        <h4>팀 구성</h4>
+        <p>3인 팀 · 팀장 전쇼릅 (Merge / _Project 반영 담당)</p>
+      </div>
+      <div class="card">
+        <h4>플레이 타깃</h4>
+        <p>약 3~4분 웨이브 서바이벌 후 보스전 · 카드 소환형 전략 디펜스</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. 컨셉 -->
+  <section id="concept">
+    <h2>2. 세계관 &amp; 컨셉</h2>
+    <p>
+      플레이어는 <strong>고출력 배터리 공장</strong>의 안전을 책임지는 쥐(SCP) 요원들을 지휘한다.
+      산업용 배터리에서 누출된 <strong>화염·번개 에너지</strong>가 슬라임과 도마뱀 형태의 적으로 변이되어 시설을 향해 몰려온다.
+    </p>
+    <p>
+      적이 기지(배터리)에 도달하면 온도가 상승하고, <strong>130°C 열폭주</strong>에 도달하면 패배한다.
+      모든 웨이브를 버티고 최종 보스 <strong>「열폭주 슬라임」</strong>을 처치하면 승리한다.
+    </p>
+    <div class="card-grid">
+      <div class="card">
+        <span class="tag tag-rat">아군 테마</span>
+        <h4>안전 관리 쥐 부대</h4>
+        <p>절연, 냉각, 탱킹, 안전관리, 선봉대장 등 산업 안전·에너지 관리 역할을 쥐 유닛으로 의인화</p>
+      </div>
+      <div class="card">
+        <span class="tag tag-flame">적 테마</span>
+        <h4>화염 슬라임 (Flame)</h4>
+        <p>배터리 방출 에너지를 흡수한 슬라임. 오라·투사체·자폭으로 온도 상승 압박</p>
+      </div>
+      <div class="card">
+        <span class="tag tag-thunder">적 테마</span>
+        <h4>번개 도마뱀 (Thunder)</h4>
+        <p>전류를 몸에 둔 도마뱀형 적. 원거리 번개·체인 라이트닝으로 아군 라인 교란</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. 루프 -->
+  <section id="loop">
+    <h2>3. 핵심 게임 루프</h2>
+    <ol>
+      <li>스테이지 선택 → 스토리 만화 컷신 확인</li>
+      <li>유닛 정보(Unit Info)에서 아군·적군 스펙 확인</li>
+      <li>배틀 진입 — 코스트를 모아 카드로 유닛 소환</li>
+      <li>4웨이브 적 러시 방어 → 보스 스테이지</li>
+      <li>보스 처치(승리) 또는 배터리 130°C(패배) → 결과 UI</li>
+    </ol>
+  </section>
+
+  <!-- 4. 씬 플로우 -->
+  <section id="flow">
+    <h2>4. 씬 플로우</h2>
+    <div class="flow">
+0.App (AppManager, BGM)
+  └→ 1.StartScene — 타이틀 · START / EXIT
+       └→ 2.StageScene — 스테이지 선택 (13개 UI, 현재 단일 경로 가능)
+            └→ 3.StoryScene — 만화 컷신 (15초 자동넘김 + Timer 애니)
+                 └→ 4.UnitInfoScene — 아군 5종 · 적 6종+보스 정보
+                      └→ 5.BattleScene — 웨이브 디펜스 + 보스전
+                           ├→ 승리: 만화 4컷 → VictoryResultUI
+                           └→ 패배: 만화 4컷 → DefeatResultUI
+    </div>
+    <p class="note">씬 전환은 <code>AppManager</code>의 Additive 로딩으로 통일. 이전 씬 언로드 후 새 씬 활성화.</p>
+  </section>
+
+  <!-- 5. 승패 -->
+  <section id="winlose">
+    <h2>5. 승리 / 패배 조건</h2>
+    <table>
+      <thead>
+        <tr><th>결과</th><th>조건</th><th>후속 처리</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="status-done"><strong>승리</strong></td>
+          <td>보스 <code>BossBase.OnBossDead</code> → <code>GameManager.Victory()</code></td>
+          <td>승리 만화 4컷 → VictoryResultUI (MA 등급 / SA% 표시)</td>
+        </tr>
+        <tr>
+          <td class="status-todo"><strong>패배</strong></td>
+          <td>배터리 온도 <strong>130°C</strong> 열폭주 (<code>BaseHealth</code>)</td>
+          <td>패배 만화 4컷 → DefeatResultUI</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>승리 등급 (배터리 잔여 온도 기준)</h3>
+    <table>
+      <thead><tr><th>온도</th><th>SA%</th><th>등급</th></tr></thead>
+      <tbody>
+        <tr><td>&lt; 20°C</td><td>100%</td><td>Perfect</td></tr>
+        <tr><td>&lt; 40°C</td><td>80%</td><td>Normal</td></tr>
+        <tr><td>&lt; 60°C</td><td>60%</td><td>중간</td></tr>
+        <tr><td>&lt; 80°C</td><td>40%</td><td>나쁨</td></tr>
+        <tr><td>&lt; 100°C</td><td>20%</td><td>위험</td></tr>
+        <tr><td>≥ 100°C</td><td>0%</td><td>실패</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- 6. 배틀 -->
+  <section id="battle">
+    <h2>6. 배틀 시스템</h2>
+
+    <h3>코스트 시스템</h3>
+    <table>
+      <thead><tr><th>항목</th><th>값</th></tr></thead>
+      <tbody>
+        <tr><td>시작 코스트</td><td>0</td></tr>
+        <tr><td>최대 코스트</td><td>20</td></tr>
+        <tr><td>회복 속도</td><td>1초당 +1 (배틀 시작 후 활성화)</td></tr>
+        <tr><td>유닛 사망 환급</td><td>소환 코스트의 50% (<code>deathRefundRatio</code>)</td></tr>
+        <tr><td>소환 위치</td><td>A / B 스폰 포인트 교대</td></tr>
+      </tbody>
+    </table>
+
+    <h3>기지(배터리) 온도</h3>
+    <ul>
+      <li>적이 기지에 도달하면 온도 상승 + 안전관리 점수 감소</li>
+      <li>UI: <code>BaseHealthUI</code> — 온도 게이지 색상 변화</li>
+      <li>열폭주 임계값: <strong>130°C</strong></li>
+    </ul>
+
+    <h3>웨이브 매니저</h3>
+    <ul>
+      <li>총 4웨이브 + 보스 스테이지</li>
+      <li>웨이브별 제한 시간 · 스폰 수 · 스폰 간격 · 적 구성 개별 설정</li>
+      <li>순차 스폰(<code>spawnInOrder</code>)으로 정확한 적 조합 지정 가능</li>
+      <li>4웨이브 클리어 시 보스 경고 UI → 보스전</li>
+      <li>보스 HP: 웨이브 클리어마다 최대 체력 20% 감소</li>
+    </ul>
+  </section>
+
+  <!-- 7. 아군 -->
+  <section id="allies">
+    <h2>7. 아군 유닛</h2>
+    <p>카드 소환 방식. 코스트는 <code>UnitCardData</code> 기준.</p>
+
+    <h3>기획 밸런스 표</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>유닛</th><th>Cost</th><th>HP</th><th>ATK</th><th>Move</th>
+          <th>핵심 스킬</th><th>스킬 수치</th><th>역할</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>🧪 InsulatorRat<br><small>절연쥐</small></td>
+          <td>3</td><td>80</td><td>12</td><td>3.0</td>
+          <td>없음 (패시브 DPS)</td><td>ATK 12 / ASPD 1.2</td><td>기본 딜러</td>
+        </tr>
+        <tr>
+          <td>🛡 SafetyManagerRat<br><small>안전관리소장</small></td>
+          <td>3</td><td>80</td><td>10</td><td>3.5</td>
+          <td>Damage Reduction</td><td>20% (이동 중)</td><td>브루저</td>
+        </tr>
+        <tr>
+          <td>🧱 TankRat<br><small>탱커쥐</small></td>
+          <td>5</td><td>220</td><td>4</td><td>2.2</td>
+          <td>Knockback Skill</td><td>3 dmg / 1.2 push / 5s CD</td><td>탱커</td>
+        </tr>
+        <tr>
+          <td>❄ CoolantRat<br><small>냉각수쥐</small></td>
+          <td>7</td><td>140</td><td>6</td><td>2.5</td>
+          <td>Slow Field</td><td>40% slow / 2.5s / 6s CD</td><td>CC 핵심</td>
+        </tr>
+        <tr>
+          <td>⚡ UltimateRat<br><small>선봉대장쥐</small></td>
+          <td>9</td><td>120</td><td>18</td><td>2.5</td>
+          <td>Shockwave</td><td>54 dmg (18×3) / 0.2s interval / 8s CD</td><td>폭딜</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>상성 &amp; 특수 메커닉</h3>
+    <table>
+      <thead><tr><th>아군</th><th>효과</th></tr></thead>
+      <tbody>
+        <tr><td>InsulatorRat</td><td>번개 데미지 50% 감소 · 체인 라이트닝 전이 차단</td></tr>
+        <tr><td>CoolantRat</td><td>FlameSlime T3 사망 자폭 봉인</td></tr>
+        <tr><td>TankRat</td><td>넉백 스킬 · 피격 시 넉백/슬로우</td></tr>
+        <tr><td>SafetyManagerRat</td><td>이동 중 피해 감소 · 3타 Frenzy 넉백</td></tr>
+        <tr><td>UltimateRat</td><td>전방 충격파 광역 딜</td></tr>
+      </tbody>
+    </table>
+
+    <p class="note">⚠️ 프리팹 내 HP/ATK 수치는 기획표와 다를 수 있음 (밸런스 조정 진행 중). 코스트(3/3/5/7/9)는 <code>UnitCardData</code>에 반영됨.</p>
+  </section>
+
+  <!-- 8. 적군 -->
+  <section id="enemies">
+    <h2>8. 적군 유닛</h2>
+
+    <h3>기획 밸런스 표</h3>
+    <table>
+      <thead>
+        <tr><th>유닛</th><th>HP</th><th>ATK</th><th>Move</th><th>Range</th><th>스킬</th><th>역할</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>🔥 Flame T1</td><td>40</td><td>6</td><td>1.8</td><td>0.8</td>
+          <td>없음</td><td>기본 근접</td>
+        </tr>
+        <tr>
+          <td>🔥 Flame T2</td><td>70</td><td>10</td><td>1.6</td><td>1.2</td>
+          <td>Aura — 3 dmg / 3s / 1.5 radius</td><td>지속 피해</td>
+        </tr>
+        <tr>
+          <td>🔥 Flame T3</td><td>120</td><td>14</td><td>1.4</td><td>3.0</td>
+          <td>Death Explosion — 20 dmg / 2.5 radius</td><td>자폭</td>
+        </tr>
+        <tr>
+          <td>⚡ Thunder T1</td><td>50</td><td>7</td><td>2.0</td><td>1.0</td>
+          <td>없음</td><td>근접</td>
+        </tr>
+        <tr>
+          <td>⚡ Thunder T2</td><td>80</td><td>12</td><td>1.8</td><td>3.0</td>
+          <td>Projectile — 단일 원거리</td><td>포킹</td>
+        </tr>
+        <tr>
+          <td>⚡ Thunder T3</td><td>130</td><td>16</td><td>1.6</td><td>3.5</td>
+          <td>Chain Lightning — 16 dmg / 2 chain</td><td>광역</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>티어별 특징</h3>
+    <div class="card-grid">
+      <div class="card">
+        <span class="tag tag-flame">FlameSlime</span>
+        <h4>T1 → T2 → T3</h4>
+        <p>근접 → 화염 오라 → 원거리 투사체 + 사망 자폭. 폭발 봉인 디버프(T1).</p>
+      </div>
+      <div class="card">
+        <span class="tag tag-thunder">ThunderLizard</span>
+        <h4>T1 → T2 → T3</h4>
+        <p>근접 → 단일 라이트닝 → 체인 라이트닝. Y-sort 우선순위 20.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 9. 보스 -->
+  <section id="boss">
+    <h2>9. 보스 — 열폭주 슬라임</h2>
+    <table>
+      <thead><tr><th>항목</th><th>내용</th></tr></thead>
+      <tbody>
+        <tr><td>이름</td><td>열폭주 슬라임 (BossData)</td></tr>
+        <tr><td>타입</td><td>고정형 보스 (이동 없음)</td></tr>
+        <tr><td>HP</td><td>50,000 (웨이브당 최대 HP -20%)</td></tr>
+        <tr><td>공격</td><td>포물선 투사체 → 착탄 범위 데미지</td></tr>
+        <tr><td>오라</td><td>화염 오라 — 반경 3, 10 dmg / 2초</td></tr>
+        <tr><td>스킬</td><td>열폭주 — 2초마다 주변 10 화염 피해 + 덩어리 발사 (범위 40 폭발)</td></tr>
+        <tr><td>승리 트리거</td><td>처치 시 <code>OnBossDead</code> 이벤트</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- 10. 웨이브 -->
+  <section id="waves">
+    <h2>10. 웨이브 구성</h2>
+    <p>4웨이브 타깃 페이싱: 총 약 <strong>3분 30초 ~ 4분</strong></p>
+
+    <table>
+      <thead>
+        <tr><th>Wave</th><th>Duration</th><th>수량</th><th>구성</th><th>Spawn Interval</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Wave 1</td><td>45s</td><td>8</td>
+          <td>Flame T1 ×5, Thunder T1 ×3</td><td>2.5s</td>
+        </tr>
+        <tr>
+          <td>Wave 2</td><td>55s</td><td>9</td>
+          <td>Flame T1 ×3, T2 ×2, Thunder T1 ×3, T2 ×1</td><td>2.2s</td>
+        </tr>
+        <tr>
+          <td>Wave 3</td><td>60s</td><td>10</td>
+          <td>Flame T2 ×4, T3 ×2, Thunder T2 ×3, T3 ×1</td><td>2.0s</td>
+        </tr>
+        <tr>
+          <td>Wave 4</td><td>50s</td><td>11</td>
+          <td>Flame T2 ×3, T3 ×3, Thunder T3 ×3, T2 ×2</td><td>1.8s</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p>웨이브 UI 표시: <code>WAVE</code> / <code>READY</code> / <code>FINAL</code> / <code>BOSS</code></p>
+  </section>
+
+  <!-- 11. UI -->
+  <section id="ui">
+    <h2>11. UI / UX</h2>
+
+    <h3>주요 화면</h3>
+    <table>
+      <thead><tr><th>화면</th><th>기능</th></tr></thead>
+      <tbody>
+        <tr><td>StartScene</td><td>START → Stage / EXIT → 게임 종료</td></tr>
+        <tr><td>StageScene</td><td>스테이지 13개 선택 UI (현재 단일 스토리 경로)</td></tr>
+        <tr><td>StoryScene</td><td>만화 컷신 · Next/Prev/Skip · 15초 자동넘김 · Timer 시계 애니</td></tr>
+        <tr><td>UnitInfoScene</td><td>아군/적군 카드 스크롤 · 클릭 팝업 · 스킬 슬롯 · 호버 이펙트</td></tr>
+        <tr><td>BattleScene</td><td>유닛 카드 · 코스트 · 웨이브 타이머 · 배터리 온도 · 카메라 드래그 · ? 도움말</td></tr>
+        <tr><td>VictoryResultUI</td><td>MA 등급 / SA% · Next → Stage · Home → Start</td></tr>
+        <tr><td>DefeatResultUI</td><td>Retry → 배틀 재시작 · Home → Start · Exit → 종료</td></tr>
+      </tbody>
+    </table>
+
+    <h3>만화 컷신 (ComicCutsceneUI)</h3>
+    <ul>
+      <li>스토리: 5컷 인트로 · 승리/패배: 각 4컷</li>
+      <li>자동 넘김 15초 · Timer 애니메이션 연동</li>
+      <li>승패 시 <code>timeScale = 0</code> 정지 후 결과 UI 전환</li>
+    </ul>
+  </section>
+
+  <!-- 12. 팀 -->
+  <section id="team">
+    <h2>12. 팀 분업</h2>
+    <table>
+      <thead><tr><th>팀원</th><th>담당 영역</th><th>주요 산출물</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><strong>Member_Yoon</strong></td>
+          <td>적군 · 보스 · UnitInfo · AppManager</td>
+          <td>EnemyUnit 계열, FlameSlime/ThunderLizard T1~T3, Boss, UnitInfo UI, BGM</td>
+        </tr>
+        <tr>
+          <td><strong>Member_Jeon</strong></td>
+          <td>아군 · 결과 UI · 밸런스 도구</td>
+          <td>PlayerUnit 5종, ComicCutsceneUI, Victory/Defeat ResultUI, Balance Simulator</td>
+        </tr>
+        <tr>
+          <td><strong>Member_Shin</strong></td>
+          <td>씬 플로우 · 웨이브 · 기지 · UI</td>
+          <td>WaveManager, CostManager, BaseHealth, Stage/Start 씬, BossStageWarningUI</td>
+        </tr>
+        <tr>
+          <td><strong>전쇼릅 (팀장)</strong></td>
+          <td>Merge · _Project 반영</td>
+          <td>develop 병합, 최종 통합 폴더 관리</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- 13. 기술 -->
+  <section id="tech">
+    <h2>13. 기술 구조</h2>
+    <table>
+      <thead><tr><th>항목</th><th>내용</th></tr></thead>
+      <tbody>
+        <tr><td>엔진</td><td>Unity 6000.4.8f1</td></tr>
+        <tr><td>렌더링</td><td>URP 2D</td></tr>
+        <tr><td>씬 로딩</td><td>Additive (<code>AppManager</code>) · <code>SetActiveScene</code></td></tr>
+        <tr><td>데이터</td><td>ScriptableObject (유닛/보스/카드/웨이브)</td></tr>
+        <tr><td>코드 위치</td><td><code>Assets/_Workspaces/Member_*</code> (개인 폴더 → PR → develop)</td></tr>
+        <tr><td>빌드</td><td><code>Assets/Editor/BuildPlayer.cs</code> → Windows Standalone</td></tr>
+        <tr><td>등록 씬</td><td>0.App · 1.Start · 2.Stage · 3.Story · 4.UnitInfo · 5.Battle</td></tr>
+      </tbody>
+    </table>
+
+    <h3>폴더 규칙</h3>
+    <div class="flow">
+Assets/
+├── Scenes/           ← 통합 씬 (6개)
+├── _Workspaces/
+│   ├── Member_Yoon/  ← 개인 작업 폴더
+│   ├── Member_Jeon/
+│   └── Member_Shin/
+└── _Project/         ← 최종 반영 (팀장 전용, 미착수)
+    </div>
+  </section>
+
+  <!-- 14. 현황 -->
+  <section id="status">
+    <h2>14. 개발 현황</h2>
+
+    <h3>구현 완료</h3>
+    <ul>
+      <li class="status-done">Additive 씬 전환 · 전체 씬 플로우</li>
+      <li class="status-done">아군 5종 + 스킬 시스템</li>
+      <li class="status-done">적 6종 (Flame/Thunder T1~T3) + 보스</li>
+      <li class="status-done">웨이브 4단 + 보스 스테이지</li>
+      <li class="status-done">코스트 · 카드 소환 · 기지 온도</li>
+      <li class="status-done">승리/패배 만화 + 결과 UI</li>
+      <li class="status-done">Unit Info 카드 UI</li>
+      <li class="status-done">BGM · 일부 SFX</li>
+      <li class="status-done">Windows 빌드 파이프라인</li>
+    </ul>
+
+    <h3>부분 완료 / 진행 중</h3>
+    <ul>
+      <li class="status-partial">UnitInfo 스킬·팝업 SO 데이터 입력</li>
+      <li class="status-partial">적 HP바·사운드 Inspector 연결</li>
+      <li class="status-partial">스테이지 13개 UI (단일 경로로 동작)</li>
+      <li class="status-partial">아군/적 밸런스 수치 프리팹 ↔ 기획표 정합</li>
+    </ul>
+
+    <h3>미완 / 알려진 이슈</h3>
+    <ul>
+      <li class="status-todo"><code>0.App</code> AppManager Inspector 연결</li>
+      <li class="status-todo">AudioListener 전용 오브젝트</li>
+      <li class="status-todo">Boss HP바 <code>base.OnHealthChanged()</code> 누락</li>
+      <li class="status-todo"><code>_Project</code> 통합 폴더 미생성</li>
+    </ul>
+  </section>
+
+</div>
+
+<footer>
+  Ratchemy Defense — 게임 기획안 · Ratchemy Defense Team · 2026<br />
+  본 문서는 README, QA 문서, SO/프리팹 데이터, 팀 밸런스 표를 기반으로 자동 정리되었습니다.
+</footer>
+
+</body>
+</html>

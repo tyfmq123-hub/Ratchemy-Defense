@@ -88,6 +88,9 @@ public class ComicCutsceneUI : MonoBehaviour
 
         if (skipButton != null)
             skipButton.onClick.AddListener(SkipCutscene);
+
+        if (timerAnimator == null)
+            timerAnimator = transform.Find("Timer")?.GetComponent<Animator>();
     }
 
     public void ShowVictory(Action onFinished = null)

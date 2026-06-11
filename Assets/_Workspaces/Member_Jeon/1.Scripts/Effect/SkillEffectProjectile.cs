@@ -10,29 +10,20 @@ public class SkillEffectProjectile : MonoBehaviour
     private Vector2 moveDirection = Vector2.right;
     private int damage;
     private LayerMask enemyLayer;
-    private Collider2D hitCollider;
-    private ContactFilter2D enemyContactFilter;
-    private bool contactFilterReady;
     private readonly HashSet<EnemyUnit> damagedEnemies = new HashSet<EnemyUnit>();
-    private readonly Collider2D[] overlapBuffer = new Collider2D[32];
 
     public void Initialize(int damageAmount, LayerMask enemies, Vector2 direction)
     {
         damage = damageAmount;
         enemyLayer = enemies;
         SetDirection(direction);
-
-        enemyContactFilter = new ContactFilter2D();
-        enemyContactFilter.SetLayerMask(enemyLayer);
-        enemyContactFilter.useTriggers = false;
-        contactFilterReady = true;
     }
 
     private void Awake()
     {
-        hitCollider = GetComponent<Collider2D>();
-        if (hitCollider != null)
-            hitCollider.isTrigger = true;
+        Collider2D col = GetComponent<Collider2D>();
+        if (col != null)
+            col.isTrigger = true;
     }
 
     private void Start()
@@ -42,44 +33,12 @@ public class SkillEffectProjectile : MonoBehaviour
 
     private void Update()
     {
-        Vector2 delta = moveDirection * (moveSpeed * Time.deltaTime);
-        float travel = delta.magnitude;
-
-        if (hitCollider != null && travel > 0f)
-        {
-            Bounds bounds = hitCollider.bounds;
-            RaycastHit2D[] castHits = Physics2D.BoxCastAll(
-                bounds.center,
-                bounds.size,
-                0f,
-                moveDirection,
-                travel,
-                enemyLayer);
-
-            foreach (RaycastHit2D hit in castHits)
-            {
-                if (hit.collider != null)
-                    TryDamageEnemy(hit.collider);
-            }
-        }
-
-        transform.Translate(delta, Space.World);
-        ScanCurrentOverlaps();
+        transform.Translate(moveDirection * moveSpeed * Time.deltaTime, Space.World);
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
         TryDamageEnemy(other);
-    }
-
-    private void ScanCurrentOverlaps()
-    {
-        if (hitCollider == null || !contactFilterReady)
-            return;
-
-        int count = hitCollider.Overlap(enemyContactFilter, overlapBuffer);
-        for (int i = 0; i < count; i++)
-            TryDamageEnemy(overlapBuffer[i]);
     }
 
     private void TryDamageEnemy(Collider2D other)
@@ -88,9 +47,6 @@ public class SkillEffectProjectile : MonoBehaviour
             return;
 
         EnemyUnit enemy = other.GetComponent<EnemyUnit>();
-        if (enemy == null)
-            enemy = other.GetComponentInParent<EnemyUnit>();
-
         if (enemy == null || enemy.IsDead())
             return;
 

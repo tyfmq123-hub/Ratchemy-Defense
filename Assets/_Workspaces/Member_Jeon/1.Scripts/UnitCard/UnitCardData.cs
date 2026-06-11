@@ -11,6 +11,10 @@ public class UnitCardEntry
     [Header("소환 (카드마다 다른 프리팹)")]
     public PlayerUnitBase unitPrefab;  // 이 카드 버튼으로 소환할 유닛 프리팹 (2.Prefabs/player 쪽)
 
+    [Header("소환 사운드")]
+    public AudioClip spawnSound;
+    [Range(0f, 3f)] public float spawnSoundVolume = 1.5f;
+
     [Header("코스트 환급")]
     [Range(0f, 1f)] public float deathRefundRatio = 0.5f; // 유닛 사망 시 소환 코스트의 몇 %를 반환할지
 }

@@ -28,7 +28,12 @@ public class EnemyWaveTracker : MonoBehaviour
 
         hasReportedRemoval = true;
 
-        // WaveManager의 OnEnemyRemoved()까지 제거 사실을 전달합니다.
-        onEnemyRemoved?.Invoke();
+        // 콜백을 먼저 비운 뒤 한 번만 호출합니다.
+        // 씬 전환 중 오브젝트가 연달아 정리되더라도
+        // 같은 콜백 참조를 오래 유지하지 않도록 합니다.
+        Action removedCallback = onEnemyRemoved;
+        onEnemyRemoved = null;
+
+        removedCallback?.Invoke();
     }
 }

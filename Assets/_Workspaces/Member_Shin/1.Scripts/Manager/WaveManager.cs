@@ -66,14 +66,33 @@ public class WaveManager : MonoBehaviour
     // 보스 스테이지가 중복으로 시작되지 않도록 막습니다.
     private bool hasEnteredBossStage;
 
+    // 씬 전환 또는 오브젝트 정리 중에는
+    // EnemyWaveTracker의 뒤늦은 제거 알림을 무시합니다.
+    private bool isShuttingDown;
+
     void Start()
     {
         // 첫 번째 웨이브는 바로 시작하지 않습니다.
         // BattleIntroCamera의 카메라 왕복 연출이 끝난 뒤 시작합니다.
     }
 
+    private void OnDestroy()
+    {
+        // 씬이 닫히는 동안 적 오브젝트도 연달아 Destroy될 수 있습니다.
+        // 이때 EnemyWaveTracker가 제거 알림을 보내더라도
+        // 삭제 중인 WaveManager가 새 코루틴을 시작하지 않도록 막습니다.
+        isShuttingDown = true;
+
+        StopAllCoroutines();
+    }
+
     void Update()
     {
+        if (isShuttingDown)
+        {
+            return;
+        }
+
         // 카운트다운 중이 아니라면 아래 코드를 실행하지 않습니다.
         if (!isCountingDown)
         {
@@ -162,6 +181,11 @@ public class WaveManager : MonoBehaviour
 
     private void StartWave(int waveIndex)
     {
+        if (isShuttingDown || this == null || !isActiveAndEnabled)
+        {
+            return;
+        }
+
         // 존재하지 않는 배열 번호가 들어오면 실행하지 않습니다.
         if (
             waveIndex < 0 ||
@@ -175,16 +199,6 @@ public class WaveManager : MonoBehaviour
 
         // 새로운 웨이브가 시작될 때만
         // 화면 중앙에 WAVE 1, WAVE 2 같은 문구를 잠깐 표시합니다.
-        if (waveAnnouncementUI != null)
-        {
-            waveAnnouncementUI.ShowWaveAnnouncement(
-                currentWaveIndex + 1
-            );
-        }
-
-        // 새로운 웨이브가 시작될 때
-        // 화면 중앙에 "WAVE 1", "WAVE 2" 같은 문구를 잠깐 표시합니다.
-        // WaveAnnouncementUI 연결이 빠져 있어도 전투 진행은 멈추지 않습니다.
         if (waveAnnouncementUI != null)
         {
             waveAnnouncementUI.ShowWaveAnnouncement(
@@ -233,6 +247,11 @@ public class WaveManager : MonoBehaviour
 
     private void OnEnemySpawned(int spawnedWaveIndex)
     {
+        if (isShuttingDown || this == null || !isActiveAndEnabled)
+        {
+            return;
+        }
+
         // 마지막 일반 웨이브의 적만 별도로 개수를 셉니다.
         if (!IsFinalWave(spawnedWaveIndex))
         {
@@ -244,6 +263,14 @@ public class WaveManager : MonoBehaviour
 
     public void OnEnemyRemoved(int removedWaveIndex)
     {
+        // 씬 전환 중에는 적 오브젝트가 한꺼번에 Destroy됩니다.
+        // 삭제된 WaveManager에서 StartCoroutine()을 호출하면
+        // MissingReferenceException이 발생하므로 즉시 종료합니다.
+        if (isShuttingDown || this == null || !isActiveAndEnabled)
+        {
+            return;
+        }
+
         // 마지막 일반 웨이브가 아니라면
         // 보스 진입 조건과 관계가 없으므로 무시합니다.
         if (!IsFinalWave(removedWaveIndex))
@@ -258,7 +285,7 @@ public class WaveManager : MonoBehaviour
             );
 
         StartCoroutine(
-    TryEnterBossStageNextFrame()
+            TryEnterBossStageNextFrame()
         );
     }
 
@@ -266,6 +293,11 @@ public class WaveManager : MonoBehaviour
         int finishedWaveIndex
     )
     {
+        if (isShuttingDown || this == null || !isActiveAndEnabled)
+        {
+            return;
+        }
+
         // 마지막 일반 웨이브의 생성 완료만 확인합니다.
         if (!IsFinalWave(finishedWaveIndex))
         {
@@ -279,6 +311,11 @@ public class WaveManager : MonoBehaviour
 
     private void TryEnterBossStage()
     {
+        if (isShuttingDown || this == null || !isActiveAndEnabled)
+        {
+            return;
+        }
+
         // 이미 보스 스테이지에 진입했다면 중복 실행하지 않습니다.
         if (hasEnteredBossStage)
         {
@@ -329,6 +366,11 @@ public class WaveManager : MonoBehaviour
     private IEnumerator TryEnterBossStageNextFrame()
     {
         yield return null;
+
+        if (isShuttingDown || this == null || !isActiveAndEnabled)
+        {
+            yield break;
+        }
 
         TryEnterBossStage();
     }

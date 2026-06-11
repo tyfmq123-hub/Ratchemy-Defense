@@ -13,6 +13,12 @@ public class WaveSetting
 
     [Header("적 한 마리 사이의 생성 간격")]
     public float spawnInterval = 2f;
+
+    [Header("이 웨이브 제한 시간 (0이면 전역 totalCountdownTime 사용)")]
+    public float waveDuration = 0f;
+
+    [Header("enemyPrefabs 배열 순서대로 생성")]
+    public bool spawnInOrder = false;
 }
 
 public class WaveManager : MonoBehaviour
@@ -207,8 +213,13 @@ public class WaveManager : MonoBehaviour
         }
 
         // 새로운 웨이브가 시작될 때 제한 시간을 초기화합니다.
+        float waveDuration =
+            waveSettings[waveIndex].waveDuration;
+
         remainingCountdownTime =
-            totalCountdownTime;
+            waveDuration > 0f
+                ? waveDuration
+                : totalCountdownTime;
 
         isCountingDown = true;
 

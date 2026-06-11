@@ -40,7 +40,7 @@ public class SafetyScoreUI : MonoBehaviour
     // 현재 안전관리 점수입니다.
     private int currentScore;
 
-    private void Start()
+    private void Awake()
     {
         // 게임이 시작되면 기본 점수를 화면에 표시합니다.
         SetScore(startScore);

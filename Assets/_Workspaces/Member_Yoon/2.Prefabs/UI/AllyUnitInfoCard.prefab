@@ -712,6 +712,7 @@ GameObject:
   - component: {fileID: 2758200058273656811}
   - component: {fileID: 3943722536011602752}
   - component: {fileID: -7542343867261703475}
+  - component: {fileID: -926257447709454549}
   m_Layer: 5
   m_Name: AllyUnitInfoCard
   m_TagString: Untagged
@@ -812,6 +813,7 @@ MonoBehaviour:
   unitImage: {fileID: 6901858479462800846}
   unitTypeText: {fileID: 998211045255932375}
   descriptionText: {fileID: 6048864014553017131}
+  popup: {fileID: 0}
 --- !u!114 &-7542343867261703475
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -826,3 +828,47 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::HoverColorEffect
   targetImage: {fileID: 4720290414812192144}
   hoverColor: {r: 0.7, g: 0.7, b: 0.7, a: 1}
+--- !u!114 &-926257447709454549
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8377530279660678607}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Button
+  m_Navigation:
+    m_Mode: 3
+    m_WrapAround: 0
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 1448124559922605283}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls: []

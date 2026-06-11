@@ -12,11 +12,11 @@ public class UnitInfoCard : MonoBehaviour, IPointerClickHandler
     [SerializeField] private TMP_Text descriptionText;
 
     private IUnitDisplayData data;
-    private UnitInfoPopup popup;
+    [SerializeField] private UnitInfoPopup popup;
 
-    private void Awake()
+    public void SetPopup(UnitInfoPopup targetPopup)
     {
-        popup = FindAnyObjectByType<UnitInfoPopup>(FindObjectsInactive.Include);
+        popup = targetPopup;
     }
 
     public void Setup(IUnitDisplayData unitData)

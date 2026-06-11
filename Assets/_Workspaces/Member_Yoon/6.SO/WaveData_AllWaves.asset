@@ -10,49 +10,49 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ef47cbfb38e372944b9594335fe8b916, type: 3}
-  m_Name: WaveData_AllWaves
+  m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WaveData
   waveName: AllWaves
   description: "WaveManager \uC804\uCCB4 4\uC6E8\uC774\uBE0C \uD569\uC0B0 \u2014
     \uC790\uB3D9 \uC0DD\uC131"
   entries:
   - spawnTime: 2
-    spawnInterval: 2
+    spawnInterval: 2.078
     enemyData: {fileID: 11400000, guid: ee460594983efb24ebdb2b2a2c37a7a7, type: 2}
     enemyPool:
     - {fileID: 11400000, guid: ee460594983efb24ebdb2b2a2c37a7a7, type: 2}
     - {fileID: 11400000, guid: d2b8aaca029e81a4b99393a734e6646d, type: 2}
-    count: 19
+    count: 17
     isBoss: 0
     waveSettingIndex: 0
   - spawnTime: 20
-    spawnInterval: 3
+    spawnInterval: 3.117
     enemyData: {fileID: 11400000, guid: ee460594983efb24ebdb2b2a2c37a7a7, type: 2}
     enemyPool:
     - {fileID: 11400000, guid: ee460594983efb24ebdb2b2a2c37a7a7, type: 2}
     - {fileID: 11400000, guid: 5c7b9494f02045b4eb2c9703a5c1da03, type: 2}
     - {fileID: 11400000, guid: b0ee434b10ee2894381cbd14a0f90e5b, type: 2}
     - {fileID: 11400000, guid: b0ee434b10ee2894381cbd14a0f90e5b, type: 2}
-    count: 19
+    count: 17
     isBoss: 0
     waveSettingIndex: 1
   - spawnTime: 40
-    spawnInterval: 2
+    spawnInterval: 2.078
     enemyData: {fileID: 11400000, guid: d2b8aaca029e81a4b99393a734e6646d, type: 2}
     enemyPool:
     - {fileID: 11400000, guid: d2b8aaca029e81a4b99393a734e6646d, type: 2}
     - {fileID: 11400000, guid: b0ee434b10ee2894381cbd14a0f90e5b, type: 2}
-    count: 19
+    count: 17
     isBoss: 0
     waveSettingIndex: 2
   - spawnTime: 60
-    spawnInterval: 2
+    spawnInterval: 2.078
     enemyData: {fileID: 11400000, guid: d2b8aaca029e81a4b99393a734e6646d, type: 2}
     enemyPool:
     - {fileID: 11400000, guid: d2b8aaca029e81a4b99393a734e6646d, type: 2}
     - {fileID: 11400000, guid: ee460594983efb24ebdb2b2a2c37a7a7, type: 2}
     - {fileID: 11400000, guid: b819291a7f1b76d4794b2f43b54cd1fe, type: 2}
     - {fileID: 11400000, guid: b452fa3bd397616458e71a70ab17dc9a, type: 2}
-    count: 10
+    count: 9
     isBoss: 0
     waveSettingIndex: 3

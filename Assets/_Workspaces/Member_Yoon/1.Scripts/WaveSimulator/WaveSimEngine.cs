@@ -26,11 +26,11 @@ public static class WaveSimEngine
             if (state.isOver) break;
         }
 
-        // 시간 초과 = 온도 130 미달 방어 성공 → 플레이어 승리
+        // 시간 초과 = 보스 처치 못함 → 패배
         if (!state.isOver)
         {
             state.isOver    = true;
-            state.playerWon = true;
+            state.playerWon = false;
         }
 
         return BuildResult(state);
@@ -358,6 +358,17 @@ public static class WaveSimEngine
     {
         RemoveDead(s.playerUnits, s, seg, isPlayer: true);
         RemoveDead(s.enemyUnits,  s, seg, isPlayer: false);
+
+        // 보스 처치 승리: 스폰 예정 포함 모든 보스가 전멸하면 즉시 승리
+        bool anyBossAlive    = s.enemyUnits.Exists(e => e.IsAlive && e.template.isBoss);
+        bool anyBossPending  = s.pendingSpawns.Exists(sp => sp.isBoss);
+        bool hadBoss         = s.cfg.spawnSchedule.Exists(sp => sp.isBoss);
+
+        if (hadBoss && !anyBossAlive && !anyBossPending && !s.isOver)
+        {
+            s.isOver    = true;
+            s.playerWon = true;
+        }
     }
 
     private static void RemoveDead(List<SimUnit> units, RunState s, int seg, bool isPlayer)
@@ -416,16 +427,6 @@ public static class WaveSimEngine
             }
         }
 
-        // 플레이어 유닛 → 적 기지 도달
-        foreach (var p in s.playerUnits)
-        {
-            if (p.IsAlive && p.position >= s.cfg.enemyBaseX)
-            {
-                s.isOver    = true;
-                s.playerWon = true;
-                return;
-            }
-        }
     }
 
     // ───────────────────────────────────────────────────────────

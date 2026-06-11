@@ -132,15 +132,13 @@ public class WaveSimConfig
                 foreach (var ed in entry.enemyPool)
                 {
                     if (ed == null) continue;
-                    var t = enemyTemplates.Find(
-                        t => t.id == ed.name || t.displayName == ed.unitName);
+                    var t = FindTemplate(enemyTemplates, ed);
                     if (t != null) pool.Add(t);
                 }
             }
             else if (entry.enemyData != null)
             {
-                var t = enemyTemplates.Find(
-                    t => t.id == entry.enemyData.name || t.displayName == entry.enemyData.unitName);
+                var t = FindTemplate(enemyTemplates, entry.enemyData);
                 if (t != null) pool.Add(t);
             }
 
@@ -166,6 +164,23 @@ public class WaveSimConfig
 
         schedule.Sort((a, b) => a.exactSpawnTime.CompareTo(b.exactSpawnTime));
         return schedule;
+    }
+
+    // EnemyUnitData → SimUnitTemplate 매칭
+    // t.id는 GUID이므로 AssetDatabase로 직접 비교 (에디터), 폴백으로 displayName
+    private static SimUnitTemplate FindTemplate(List<SimUnitTemplate> templates, EnemyUnitData data)
+    {
+#if UNITY_EDITOR
+        string guid = UnityEditor.AssetDatabase.AssetPathToGUID(
+            UnityEditor.AssetDatabase.GetAssetPath(data));
+        if (!string.IsNullOrEmpty(guid))
+        {
+            var byGuid = templates.Find(t => t.id == guid);
+            if (byGuid != null) return byGuid;
+        }
+#endif
+        return templates.Find(t => t.displayName == data.unitName
+                                || t.displayName == data.name);
     }
 }
 

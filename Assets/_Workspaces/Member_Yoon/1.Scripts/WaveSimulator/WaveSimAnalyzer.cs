@@ -235,12 +235,12 @@ public static class WaveSimAnalyzer
     {
         var recs = new List<BalanceRecommendation>();
 
-        float win     = batch.WinRate;
-        float midTarget = (TARGET_WIN_RATE_LOW + TARGET_WIN_RATE_HIGH) / 2f;
-        float delta   = win - midTarget;    // + = 너무 쉬움, - = 너무 어려움
+        float win = batch.WinRate;
 
-        if (Mathf.Abs(delta) < 0.03f) return recs; // 목표 범위 내
+        // 목표 범위(60~70%) 안이면 추천 없음
+        if (win >= TARGET_WIN_RATE_LOW && win <= TARGET_WIN_RATE_HIGH) return recs;
 
+        float delta        = win - (TARGET_WIN_RATE_LOW + TARGET_WIN_RATE_HIGH) / 2f;
         float adjustFactor = Mathf.Clamp(Mathf.Abs(delta) * 1.5f, 0.05f, 0.40f);
 
         if (win > TARGET_WIN_RATE_HIGH)
@@ -248,42 +248,42 @@ public static class WaveSimAnalyzer
             // 너무 쉬움 → 적 강화
             recs.Add(new BalanceRecommendation
             {
-                target                  = RecommendationTarget.EnemyCount,
-                description             = $"[적 수량 증가] 승률 {win:P0}이 목표보다 높음 — 적 수량 ×{1f + adjustFactor:F2} 추천",
-                currentValue            = 1f,
-                recommendedValue        = 1f + adjustFactor,
-                expectedWinRateDelta    = -delta * 0.6f,
+                target                   = RecommendationTarget.EnemyCount,
+                description              = $"[적 수량 증가] 승률 {win:P0}이 목표보다 높음 — 적 수량 ×{1f + adjustFactor:F2} 추천",
+                currentValue             = 1f,
+                recommendedValue         = 1f + adjustFactor,
+                expectedWinRateDelta     = -delta * 0.6f,
                 expectedTemperatureDelta = delta * 10f,
             });
             recs.Add(new BalanceRecommendation
             {
-                target                  = RecommendationTarget.EnemyHp,
-                description             = $"[적 HP 증가] 승률 {win:P0}이 목표보다 높음 — 적 HP ×{1f + adjustFactor * 0.6f:F2} 추천",
-                currentValue            = 1f,
-                recommendedValue        = 1f + adjustFactor * 0.6f,
-                expectedWinRateDelta    = -delta * 0.4f,
+                target                   = RecommendationTarget.EnemyHp,
+                description              = $"[적 HP 증가] 승률 {win:P0}이 목표보다 높음 — 적 HP ×{1f + adjustFactor * 0.6f:F2} 추천",
+                currentValue             = 1f,
+                recommendedValue         = 1f + adjustFactor * 0.6f,
+                expectedWinRateDelta     = -delta * 0.4f,
                 expectedTemperatureDelta = delta * 5f,
             });
         }
-        else
+        else // win < TARGET_WIN_RATE_LOW
         {
             // 너무 어려움 → 적 약화
             recs.Add(new BalanceRecommendation
             {
-                target                  = RecommendationTarget.EnemyCount,
-                description             = $"[적 수량 감소] 승률 {win:P0}이 목표보다 낮음 — 적 수량 ×{1f - adjustFactor:F2} 추천",
-                currentValue            = 1f,
-                recommendedValue        = Mathf.Max(0.5f, 1f - adjustFactor),
-                expectedWinRateDelta    = -delta * 0.6f,
+                target                   = RecommendationTarget.EnemyCount,
+                description              = $"[적 수량 감소] 승률 {win:P0}이 목표보다 낮음 — 적 수량 ×{1f - adjustFactor:F2} 추천",
+                currentValue             = 1f,
+                recommendedValue         = Mathf.Max(0.5f, 1f - adjustFactor),
+                expectedWinRateDelta     = -delta * 0.6f,
                 expectedTemperatureDelta = delta * 10f,
             });
             recs.Add(new BalanceRecommendation
             {
-                target                  = RecommendationTarget.EnemyHp,
-                description             = $"[적 HP 감소] 승률 {win:P0}이 목표보다 낮음 — 적 HP ×{1f - adjustFactor * 0.5f:F2} 추천",
-                currentValue            = 1f,
-                recommendedValue        = Mathf.Max(0.5f, 1f - adjustFactor * 0.5f),
-                expectedWinRateDelta    = -delta * 0.4f,
+                target                   = RecommendationTarget.EnemyHp,
+                description              = $"[적 HP 감소] 승률 {win:P0}이 목표보다 낮음 — 적 HP ×{1f - adjustFactor * 0.5f:F2} 추천",
+                currentValue             = 1f,
+                recommendedValue         = Mathf.Max(0.5f, 1f - adjustFactor * 0.5f),
+                expectedWinRateDelta     = -delta * 0.4f,
                 expectedTemperatureDelta = delta * 5f,
             });
         }

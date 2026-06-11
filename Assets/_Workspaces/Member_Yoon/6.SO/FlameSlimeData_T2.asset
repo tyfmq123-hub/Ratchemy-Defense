@@ -12,9 +12,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71e0a375f11595045b43591ba8c685ff, type: 3}
   m_Name: FlameSlimeData_T2
   m_EditorClassIdentifier: Assembly-CSharp::FlameSlimeTier2Data
+  unitName: "\uD654\uC5FC\uC2AC\uB77C\uC784 2\uB2E8\uACC4"
+  unitSprite: {fileID: 3848937591711444487, guid: 6c158d4c270c26a408b3fdc04fffc911, type: 3}
+  unitSpriteColor: {r: 1, g: 1, b: 1, a: 1}
+  unitSpriteSize: {x: 100, y: 100}
+  roleType: "\uADFC\uAC70\uB9AC"
+  elementType: "\uBD88"
+  description: "\uC131\uC7A5\uD55C \uD654\uC5FC \uC2AC\uB77C\uC784. \uB728\uAC70\uC6B4
+    \uC5F4\uAE30\uB97C \uB0B4\uBFDC\uC73C\uBA70 \uB354\uC6B1 \uB09C\uD3ED\uD558\uAC8C
+    \uACF5\uACA9\uD55C\uB2E4."
+  popupDescription: " \uC131\uC7A5\uD55C \uD654\uC5FC \uC2AC\uB77C\uC784. \uCCB4\uB0B4\uC5D0
+    \uCD95\uC801\uB41C \uD654\uC5FC \uC5D0\uB108\uC9C0\uAC00 \uBD88\uC548\uC815\uD558\uAC8C
+    \uD758\uB7EC\uB118\uCCD0 \uC8FC\uBCC0\uC5D0 \uB728\uAC70\uC6B4 \uD654\uC5FC \uC624\uB77C\uB97C
+    \uD615\uC131\uD55C\uB2E4. \uACE0\uCD9C\uB825 \uBC30\uD130\uB9AC\uC5D0\uC11C \uBC29\uCD9C\uB418\uB294
+    \uC5D0\uB108\uC9C0\uC5D0 \uC774\uB04C\uB824 \uC774\uB3D9\uD558\uB294 \uC2B5\uC131\uC740
+    \uC5EC\uC804\uD558\uC9C0\uB9CC, \uC774\uC81C\uB294 \uB2E8\uC21C\uD788 \uC811\uCD09\uD558\uB294
+    \uAC83\uB9CC\uC73C\uB85C\uB3C4 \uC8FC\uBCC0\uC744 \uC704\uD5D8\uC5D0 \uBE60\uB728\uB9B0\uB2E4.
+    \uAC00\uAE4C\uC774 \uB2E4\uAC00\uAC08\uC218\uB85D \uC9C0\uC18D\uC801\uC778 \uD654\uC5FC
+    \uD53C\uD574\uB97C \uC785\uC744 \uC218 \uC788\uC5B4 \uC8FC\uC758\uAC00 \uD544\uC694\uD558\uB2E4."
+  skills:
+  - skillName: "\uD654\uC5FC \uC624\uB77C"
+    skillIcon: {fileID: 840977616538006018, guid: 5c69571bab9ed0343b9360503abd6ff9, type: 3}
+    skillDescription: "\uC8FC\uBCC0\uC5D0 \uB728\uAC70\uC6B4 \uD654\uC5FC \uC624\uB77C\uB97C
+      \uB450\uB974\uACE0 \uC788\uC2B5\uB2C8\uB2E4.\n0.5\uCD08\uB9C8\uB2E4 \uBC18\uACBD
+      \uB0B4 \uC801\uC5D0\uAC8C 1\uC758 \uD654\uC5FC \uD53C\uD574\uB97C \uC785\uD799\uB2C8\uB2E4."
   damage: 15
-  hp: 150
-  maxHp: 150
+  hp: 378
+  maxHp: 378
   attackRange: 1
   attackSpeed: 1
   moveSpeed: 1

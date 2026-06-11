@@ -53,8 +53,14 @@ public class FlameSlimeTier3 : FlameSlimeTier2
             return;
         }
 
+        if (EnemyCombatUtility.TryGetPlayer(pendingTarget, out PlayerUnitBase target) && target.CurrentHp <= 0)
+        {
+            ClearRangedAttack();
+            return;
+        }
+
         Vector3 spawnPos = attackPoint != null ? attackPoint.position : transform.position;
-        Vector3 dir = (pendingTarget.transform.position - spawnPos).normalized;
+        Vector3 dir = (pendingTarget.bounds.center - spawnPos).normalized;
         GameObject proj = Instantiate(flameData3.projectilePrefab, spawnPos, Quaternion.identity);
 
         FlameProjectile projectile = proj.GetComponent<FlameProjectile>();

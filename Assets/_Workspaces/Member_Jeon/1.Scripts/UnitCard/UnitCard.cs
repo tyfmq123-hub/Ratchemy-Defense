@@ -101,6 +101,11 @@ public class UnitCard : MonoBehaviour
         if (!costManager.TrySpendCost(requiredCost))
             return;
 
-        cardSpawner.SpawnUnit(entry.unitPrefab);
+        cardSpawner.SpawnUnit(
+            entry.unitPrefab,
+            requiredCost,
+            entry.deathRefundRatio,
+            entry.spawnSound,
+            entry.spawnSoundVolume);
     }
 }

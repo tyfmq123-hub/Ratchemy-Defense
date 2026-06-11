@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 
 // 아군 유닛 공통 베이스
@@ -16,6 +17,24 @@ public class PlayerUnitBase : MonoBehaviour
     [SerializeField] protected float attackSpeed = 1f;     // 초당 공격 횟수 (쿨다운 = 1 / attackSpeed)
     [SerializeField] protected float attackRange = 1.5f;   // 공격·감지 반경
 
+    [Header("코스트 환급")]
+    [SerializeField][Range(0f, 1f)] protected float deathRefundRatio = 0.5f; // 사망 시 소환 코스트의 몇 %를 돌려줄지
+
+    [Header("피격 연출")]
+    [SerializeField][Range(0, 255)] private int hitFlashAlpha = 215;
+    [SerializeField] private float hitFlashBlinkDuration = 0.1f;
+
+    [Header("공격 사운드")]
+    [SerializeField] protected AudioClip attackSound;
+    [SerializeField][Range(0f, 3f)] protected float attackSoundVolume = 1.5f;
+    [SerializeField][Range(0f, 3f)] protected float attackSoundVolumeBoost = 2f;
+
+    private int spawnCost;
+    private bool hasRefundedCost;
+    private SpriteRenderer bodySprite;
+    private Color originalSpriteColor;
+    private Coroutine hitFlashCoroutine;
+
     // 다른 스크립트에서 읽기 전용으로 접근
     public float CurrentHp => currentHp;
     public float MaxHp => maxHp;
@@ -32,7 +51,18 @@ public class PlayerUnitBase : MonoBehaviour
 
     public virtual float SkillCooldownFill => 1f;
 
+    public int SpawnCost => spawnCost;
+
     protected bool isDead;
+
+    // 카드 소환 시 지불한 코스트·환급 비율을 기록 (UnitCardSpawner에서 호출)
+    public void ConfigureSpawnCost(int cost, float refundRatio = -1f)
+    {
+        spawnCost = Mathf.Max(0, cost);
+
+        if (refundRatio >= 0f)
+            deathRefundRatio = Mathf.Clamp01(refundRatio);
+    }
 
     // Inspector에서 숫자 바꿀 때마다 호출 → currentHp가 maxHp를 넘지 않게 맞춤
     protected virtual void OnValidate()
@@ -57,6 +87,7 @@ public class PlayerUnitBase : MonoBehaviour
 
         BindHpBarInChildren();
         BindMpBarInChildren();
+        CacheBodySprite();
         NotifyHealthChanged();
     }
 
@@ -86,6 +117,9 @@ public class PlayerUnitBase : MonoBehaviour
         currentHp = Mathf.Max(currentHp, 0f);
         NotifyHealthChanged();
 
+        if (damage > 0f)
+            PlayHitFlash();
+
         if (currentHp <= 0f)
             Die();
     }
@@ -95,6 +129,7 @@ public class PlayerUnitBase : MonoBehaviour
         if (isDead)
             return;
 
+        StopHitFlash();
         isDead = true;
 
         Animator animator = GetComponent<Animator>();
@@ -112,7 +147,25 @@ public class PlayerUnitBase : MonoBehaviour
             rb.simulated = false;
         }
 
+        TryRefundCostOnDeath();
         Destroy(gameObject, 1.2f);
+    }
+
+    protected void TryRefundCostOnDeath()
+    {
+        if (hasRefundedCost || spawnCost <= 0 || deathRefundRatio <= 0f)
+            return;
+
+        int refundAmount = Mathf.FloorToInt(spawnCost * deathRefundRatio);
+        if (refundAmount <= 0)
+            return;
+
+        CostManager costManager = FindAnyObjectByType<CostManager>();
+        if (costManager == null)
+            return;
+
+        hasRefundedCost = true;
+        costManager.AddCost(refundAmount);
     }
 
     // 사거리 안 살아 있는 적 중 가장 가까운 대상
@@ -145,6 +198,16 @@ public class PlayerUnitBase : MonoBehaviour
         return 1f / Mathf.Max(attackSpeed, 0.01f);
     }
 
+    protected void PlayAttackSound()
+    {
+        if (attackSound == null)
+            return;
+
+        float finalVolume = Mathf.Clamp(attackSoundVolume * attackSoundVolumeBoost, 0f, 3f);
+        Vector3 playPosition = Camera.main != null ? Camera.main.transform.position : transform.position;
+        AudioSource.PlayClipAtPoint(attackSound, playPosition, finalVolume);
+    }
+
     protected void NotifyHealthChanged()
     {
         OnHealthChanged?.Invoke(currentHp, maxHp);
@@ -162,5 +225,49 @@ public class PlayerUnitBase : MonoBehaviour
         Mpbar[] mpBars = GetComponentsInChildren<Mpbar>(true);
         foreach (Mpbar mpBar in mpBars)
             mpBar.Bind(this);
+    }
+
+    private void CacheBodySprite()
+    {
+        bodySprite = GetComponent<SpriteRenderer>();
+        if (bodySprite != null)
+            originalSpriteColor = bodySprite.color;
+    }
+
+    private void PlayHitFlash()
+    {
+        if (bodySprite == null)
+            return;
+
+        if (hitFlashCoroutine != null)
+            StopCoroutine(hitFlashCoroutine);
+
+        hitFlashCoroutine = StartCoroutine(HitFlashRoutine());
+    }
+
+    private IEnumerator HitFlashRoutine()
+    {
+        Color flashColor = originalSpriteColor;
+        flashColor.a = hitFlashAlpha / 255f;
+        bodySprite.color = flashColor;
+
+        yield return new WaitForSeconds(hitFlashBlinkDuration);
+
+        if (bodySprite != null)
+            bodySprite.color = originalSpriteColor;
+
+        hitFlashCoroutine = null;
+    }
+
+    private void StopHitFlash()
+    {
+        if (hitFlashCoroutine != null)
+        {
+            StopCoroutine(hitFlashCoroutine);
+            hitFlashCoroutine = null;
+        }
+
+        if (bodySprite != null)
+            bodySprite.color = originalSpriteColor;
     }
 }

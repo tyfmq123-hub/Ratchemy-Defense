@@ -461,8 +461,8 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.033919692, y: 0.60000575}
-  m_Size: {x: 1.0906758, y: 1.0906758}
+  m_Offset: {x: -0.020282269, y: 0.41362908}
+  m_Size: {x: 0.8088379, y: 0.80883795}
   m_Direction: 0
 --- !u!95 &1141873780177612231
 Animator:
@@ -520,6 +520,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyBaseDamage
   temperatureDamage: 10
+  effectPrefab: {fileID: 5885154002491915036, guid: dbf3fd60ac4530c469f426d9aeb511ad, type: 3}
 --- !u!82 &471543839549824185
 AudioSource:
   m_ObjectHideFlags: 0
@@ -717,8 +718,8 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1764024825
+  m_SortingLayer: 1
   m_SortingOrder: 5
   m_MaskInteraction: 0
   m_Sprite: {fileID: 0}

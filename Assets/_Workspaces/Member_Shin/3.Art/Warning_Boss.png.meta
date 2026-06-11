@@ -1,0 +1,3198 @@
+fileFormatVersion: 2
+guid: 5f33f7e536599274db3d229f8850d2bf
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -1354986122499747074
+    second: Warning_Boss_0
+  - first:
+      213: -5062903617327757526
+    second: Warning_Boss_1
+  - first:
+      213: -4799238633943526323
+    second: Warning_Boss_2
+  - first:
+      213: 2090048568825592112
+    second: Warning_Boss_3
+  - first:
+      213: -5315108943458823123
+    second: Warning_Boss_4
+  - first:
+      213: -472493239361079179
+    second: Warning_Boss_5
+  - first:
+      213: -224968910329270119
+    second: Warning_Boss_6
+  - first:
+      213: 3374511914776468230
+    second: Warning_Boss_7
+  - first:
+      213: 1295252696604658179
+    second: Warning_Boss_8
+  - first:
+      213: 539238673657814899
+    second: Warning_Boss_9
+  - first:
+      213: -6399929507418917528
+    second: Warning_Boss_10
+  - first:
+      213: -8960551096619566171
+    second: Warning_Boss_11
+  - first:
+      213: -6577301362846231722
+    second: Warning_Boss_12
+  - first:
+      213: 2625148404207686590
+    second: Warning_Boss_13
+  - first:
+      213: 629327970372782952
+    second: Warning_Boss_14
+  - first:
+      213: 5872357697551357566
+    second: Warning_Boss_15
+  - first:
+      213: 7697795038604069740
+    second: Warning_Boss_16
+  - first:
+      213: -7886152354493847165
+    second: Warning_Boss_17
+  - first:
+      213: 8302551880805212103
+    second: Warning_Boss_18
+  - first:
+      213: 4727515929247172647
+    second: Warning_Boss_19
+  - first:
+      213: -3138053516913736874
+    second: Warning_Boss_20
+  - first:
+      213: 4515991688789566422
+    second: Warning_Boss_21
+  - first:
+      213: -8488093176785025325
+    second: Warning_Boss_22
+  - first:
+      213: -4217913823627794645
+    second: Warning_Boss_23
+  - first:
+      213: 3084958768161153884
+    second: Warning_Boss_24
+  - first:
+      213: 3495747315507529883
+    second: Warning_Boss_25
+  - first:
+      213: -6943846025988928903
+    second: Warning_Boss_26
+  - first:
+      213: -54830407777873476
+    second: Warning_Boss_27
+  - first:
+      213: 1557897814751489618
+    second: Warning_Boss_28
+  - first:
+      213: -8621829228292774891
+    second: Warning_Boss_29
+  - first:
+      213: 4005173103628538891
+    second: Warning_Boss_30
+  - first:
+      213: -7519325970137514533
+    second: Warning_Boss_31
+  - first:
+      213: -5284690143391475752
+    second: Warning_Boss_32
+  - first:
+      213: -3914923169758869584
+    second: Warning_Boss_33
+  - first:
+      213: 3833652686689240617
+    second: Warning_Boss_34
+  - first:
+      213: 1118241784448244370
+    second: Warning_Boss_35
+  - first:
+      213: 8509008140942427647
+    second: Warning_Boss_36
+  - first:
+      213: 6339249536102926696
+    second: Warning_Boss_37
+  - first:
+      213: 2534440366937456700
+    second: Warning_Boss_38
+  - first:
+      213: -7750688730353964297
+    second: Warning_Boss_39
+  - first:
+      213: -8401341547541620020
+    second: Warning_Boss_40
+  - first:
+      213: 5561404515631018652
+    second: Warning_Boss_41
+  - first:
+      213: -6322495080751392152
+    second: Warning_Boss_42
+  - first:
+      213: 1683757128084048827
+    second: Warning_Boss_43
+  - first:
+      213: 5577265780890575374
+    second: Warning_Boss_44
+  - first:
+      213: 8993327195162132116
+    second: Warning_Boss_45
+  - first:
+      213: 5441567312778111748
+    second: Warning_Boss_46
+  - first:
+      213: 7213810079956042455
+    second: Warning_Boss_47
+  - first:
+      213: -5556421819681031349
+    second: Warning_Boss_48
+  - first:
+      213: 1765404860674969397
+    second: Warning_Boss_49
+  - first:
+      213: -1446729684978241872
+    second: Warning_Boss_50
+  - first:
+      213: -5521619677688850807
+    second: Warning_Boss_51
+  - first:
+      213: -8900553225586358891
+    second: Warning_Boss_52
+  - first:
+      213: 865311608787769339
+    second: Warning_Boss_53
+  - first:
+      213: 5073965898050066797
+    second: Warning_Boss_54
+  - first:
+      213: 1102467774050728706
+    second: Warning_Boss_55
+  - first:
+      213: 8850882762926429321
+    second: Warning_Boss_56
+  - first:
+      213: -2084466486190988894
+    second: Warning_Boss_57
+  - first:
+      213: 6158734783936338726
+    second: Warning_Boss_58
+  - first:
+      213: -5372453090814695467
+    second: Warning_Boss_59
+  - first:
+      213: -8464405646291158406
+    second: Warning_Boss_60
+  - first:
+      213: -3037771265847625872
+    second: Warning_Boss_61
+  - first:
+      213: -157513772541938588
+    second: Warning_Boss_62
+  - first:
+      213: -9094101288980674324
+    second: Warning_Boss_63
+  - first:
+      213: -5414292558116638524
+    second: Warning_Boss_64
+  - first:
+      213: 743288971622745107
+    second: Warning_Boss_65
+  - first:
+      213: -7847735102804024010
+    second: Warning_Boss_66
+  - first:
+      213: 6828877390796596276
+    second: Warning_Boss_67
+  - first:
+      213: -7738804642719968623
+    second: Warning_Boss_68
+  - first:
+      213: 362913733070028825
+    second: Warning_Boss_69
+  - first:
+      213: -3887134830825816268
+    second: Warning_Boss_70
+  - first:
+      213: -4934013828729068526
+    second: Warning_Boss_71
+  - first:
+      213: 6538194831906056273
+    second: Warning_Boss_72
+  - first:
+      213: 1871058584804507770
+    second: Warning_Boss_73
+  - first:
+      213: 5395882321982484799
+    second: Warning_Boss_74
+  - first:
+      213: -1922443308034177992
+    second: Warning_Boss_75
+  - first:
+      213: -72002275412710847
+    second: Warning_Boss_76
+  - first:
+      213: -4550157779805867064
+    second: Warning_Boss_77
+  - first:
+      213: 590194403947243634
+    second: Warning_Boss_78
+  - first:
+      213: 1281850245090836936
+    second: Warning_Boss_79
+  - first:
+      213: 8568809245405276470
+    second: Warning_Boss_80
+  - first:
+      213: 3049486747318078883
+    second: Warning_Boss_81
+  - first:
+      213: 7145817559182837798
+    second: Warning_Boss_82
+  - first:
+      213: 6263401322179232338
+    second: Warning_Boss_83
+  - first:
+      213: 5856622503621831535
+    second: Warning_Boss_84
+  - first:
+      213: 2655104967950171837
+    second: Warning_Boss_85
+  - first:
+      213: 7330842588809767283
+    second: Warning_Boss_86
+  - first:
+      213: -545523332798259787
+    second: Warning_Boss_87
+  - first:
+      213: -6843235730196272607
+    second: Warning_Boss_88
+  - first:
+      213: -1976860097764972366
+    second: Warning_Boss_89
+  - first:
+      213: -6835700750121885367
+    second: Warning_Boss_90
+  - first:
+      213: 1418094041454799708
+    second: Warning_Boss_91
+  - first:
+      213: 930794091065251940
+    second: Warning_Boss_92
+  - first:
+      213: 8270554987011915844
+    second: Warning_Boss_93
+  - first:
+      213: -4844125495198079095
+    second: Warning_Boss_94
+  - first:
+      213: 1639882746114219782
+    second: Warning_Boss_95
+  - first:
+      213: 5294971909390863526
+    second: Warning_Boss_96
+  - first:
+      213: -9092927277674740465
+    second: Warning_Boss_97
+  - first:
+      213: -6186530756778103030
+    second: Warning_Boss_98
+  - first:
+      213: -4512351261624418939
+    second: Warning_Boss_99
+  - first:
+      213: 5466725219543944085
+    second: Warning_Boss_100
+  - first:
+      213: 6363434532076638405
+    second: Warning_Boss_101
+  - first:
+      213: -563914751609844551
+    second: Warning_Boss_102
+  - first:
+      213: -3020372848561091335
+    second: Warning_Boss_103
+  - first:
+      213: 3740761441757150760
+    second: Warning_Boss_104
+  - first:
+      213: -633908522782161357
+    second: Warning_Boss_105
+  - first:
+      213: 5497661259515339787
+    second: Warning_Boss_106
+  - first:
+      213: -2694599621797063331
+    second: Warning_Boss_107
+  - first:
+      213: -3469116416011487068
+    second: Warning_Boss_108
+  - first:
+      213: 2853548261512685438
+    second: Warning_Boss_109
+  - first:
+      213: 6865865000119193409
+    second: Warning_Boss_110
+  - first:
+      213: -8792027102986835537
+    second: Warning_Boss_111
+  - first:
+      213: 7157136992980224641
+    second: Warning_Boss_112
+  - first:
+      213: -4338573734586793555
+    second: Warning_Boss_113
+  - first:
+      213: 5690874768515458415
+    second: Warning_Boss_114
+  - first:
+      213: 5538858054054306874
+    second: Warning_Boss_115
+  - first:
+      213: 6405440073477250255
+    second: Warning_Boss_116
+  - first:
+      213: -2234488382365493820
+    second: Warning_Boss_117
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Warning_Boss_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 811
+        width: 618
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ef291d4fc4f123de0800000000000000
+      internalID: -1354986122499747074
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Warning_Boss_1
+      rect:
+        serializedVersion: 2
+        x: 629
+        y: 896
+        width: 20
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a2783250cf3fcb9b0800000000000000
+      internalID: -5062903617327757526
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Warning_Boss_2
+      rect:
+        serializedVersion: 2
+        x: 684
+        y: 902
+        width: 12
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d44177fc3eda56db0800000000000000
+      internalID: -4799238633943526323
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Warning_Boss_3
+      rect:
+        serializedVersion: 2
+        x: 702
+        y: 902
+        width: 12
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 039b92c8918510d10800000000000000
+      internalID: 2090048568825592112
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Warning_Boss_4
+      rect:
+        serializedVersion: 2
+        x: 720
+        y: 902
+        width: 12
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d2492aa9390fc36b0800000000000000
+      internalID: -5315108943458823123
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Warning_Boss_5
+      rect:
+        serializedVersion: 2
+        x: 738
+        y: 902
+        width: 12
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 578fb15f6ed5179f0800000000000000
+      internalID: -472493239361079179
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Warning_Boss_6
+      rect:
+        serializedVersion: 2
+        x: 756
+        y: 902
+        width: 12
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 990315ec7ffb0ecf0800000000000000
+      internalID: -224968910329270119
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Warning_Boss_7
+      rect:
+        serializedVersion: 2
+        x: 774
+        y: 902
+        width: 12
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 60b139225bca4de20800000000000000
+      internalID: 3374511914776468230
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Warning_Boss_8
+      rect:
+        serializedVersion: 2
+        x: 806
+        y: 878
+        width: 60
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 30acc7b0779a9f110800000000000000
+      internalID: 1295252696604658179
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Warning_Boss_9
+      rect:
+        serializedVersion: 2
+        x: 885
+        y: 902
+        width: 12
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 37fd68877b2cb7700800000000000000
+      internalID: 539238673657814899
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Warning_Boss_10
+      rect:
+        serializedVersion: 2
+        x: 903
+        y: 902
+        width: 12
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 86531c27502ee27a0800000000000000
+      internalID: -6399929507418917528
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Warning_Boss_11
+      rect:
+        serializedVersion: 2
+        x: 921
+        y: 902
+        width: 12
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5abf04ea04ab5a380800000000000000
+      internalID: -8960551096619566171
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Warning_Boss_12
+      rect:
+        serializedVersion: 2
+        x: 939
+        y: 902
+        width: 13
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6539bde224bb8b4a0800000000000000
+      internalID: -6577301362846231722
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Warning_Boss_13
+      rect:
+        serializedVersion: 2
+        x: 958
+        y: 902
+        width: 12
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eb39b73a0966e6420800000000000000
+      internalID: 2625148404207686590
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Warning_Boss_14
+      rect:
+        serializedVersion: 2
+        x: 976
+        y: 902
+        width: 12
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 86b89496472dbb800800000000000000
+      internalID: 629327970372782952
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Warning_Boss_15
+      rect:
+        serializedVersion: 2
+        x: 1023
+        y: 896
+        width: 22
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e76549c763ece7150800000000000000
+      internalID: 5872357697551357566
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Warning_Boss_16
+      rect:
+        serializedVersion: 2
+        x: 1057
+        y: 810
+        width: 615
+        height: 131
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c6b82cd8dcf04da60800000000000000
+      internalID: 7697795038604069740
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Warning_Boss_17
+      rect:
+        serializedVersion: 2
+        x: 43
+        y: 794
+        width: 29
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 389a8c95732ce8290800000000000000
+      internalID: -7886152354493847165
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Warning_Boss_18
+      rect:
+        serializedVersion: 2
+        x: 199
+        y: 358
+        width: 1293
+        height: 502
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7cf55a062f6983370800000000000000
+      internalID: 8302551880805212103
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Warning_Boss_19
+      rect:
+        serializedVersion: 2
+        x: 1600
+        y: 794
+        width: 29
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 72847c0b0b28b9140800000000000000
+      internalID: 4727515929247172647
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Warning_Boss_20
+      rect:
+        serializedVersion: 2
+        x: 43
+        y: 754
+        width: 29
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6530136d3f46374d0800000000000000
+      internalID: -3138053516913736874
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Warning_Boss_21
+      rect:
+        serializedVersion: 2
+        x: 166
+        y: 488
+        width: 173
+        height: 303
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6d32be2a3860cae30800000000000000
+      internalID: 4515991688789566422
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Warning_Boss_22
+      rect:
+        serializedVersion: 2
+        x: 1353
+        y: 569
+        width: 150
+        height: 218
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3d6cf414a3c343a80800000000000000
+      internalID: -8488093176785025325
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Warning_Boss_23
+      rect:
+        serializedVersion: 2
+        x: 1507
+        y: 747
+        width: 8
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b27a47199b5f675c0800000000000000
+      internalID: -4217913823627794645
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Warning_Boss_24
+      rect:
+        serializedVersion: 2
+        x: 1600
+        y: 754
+        width: 28
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c53e8f2a7a9ffca20800000000000000
+      internalID: 3084958768161153884
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Warning_Boss_25
+      rect:
+        serializedVersion: 2
+        x: 43
+        y: 711
+        width: 29
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b980a5589a3638030800000000000000
+      internalID: 3495747315507529883
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Warning_Boss_26
+      rect:
+        serializedVersion: 2
+        x: 1600
+        y: 711
+        width: 28
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 97a0ce554d082af90800000000000000
+      internalID: -6943846025988928903
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Warning_Boss_27
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 678
+        width: 55
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cb1928dd8043d3ff0800000000000000
+      internalID: -54830407777873476
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Warning_Boss_28
+      rect:
+        serializedVersion: 2
+        x: 1587
+        y: 673
+        width: 55
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 25eae94fec3ce9510800000000000000
+      internalID: 1557897814751489618
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Warning_Boss_29
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 660
+        width: 14
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 514678d4ffb195880800000000000000
+      internalID: -8621829228292774891
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Warning_Boss_30
+      rect:
+        serializedVersion: 2
+        x: 1608
+        y: 660
+        width: 13
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b045ab9a7bb359730800000000000000
+      internalID: 4005173103628538891
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Warning_Boss_31
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 642
+        width: 14
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bdd75978edcf5a790800000000000000
+      internalID: -7519325970137514533
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Warning_Boss_32
+      rect:
+        serializedVersion: 2
+        x: 1609
+        y: 642
+        width: 12
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8d79427605209a6b0800000000000000
+      internalID: -5284690143391475752
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Warning_Boss_33
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 624
+        width: 13
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0b783978e166ba9c0800000000000000
+      internalID: -3914923169758869584
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Warning_Boss_34
+      rect:
+        serializedVersion: 2
+        x: 1609
+        y: 624
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 92685569eced33530800000000000000
+      internalID: 3833652686689240617
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Warning_Boss_35
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 605
+        width: 13
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 29a590f6afac48f00800000000000000
+      internalID: 1118241784448244370
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Warning_Boss_36
+      rect:
+        serializedVersion: 2
+        x: 1609
+        y: 605
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ff5c7cf42d1161670800000000000000
+      internalID: 8509008140942427647
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Warning_Boss_37
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 581
+        width: 14
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 86989f5cdd989f750800000000000000
+      internalID: 6339249536102926696
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Warning_Boss_38
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 519
+        width: 67
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c30c7bfe5142c2320800000000000000
+      internalID: 2534440366937456700
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Warning_Boss_39
+      rect:
+        serializedVersion: 2
+        x: 1445
+        y: 519
+        width: 65
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7fae0a62aa5007490800000000000000
+      internalID: -7750688730353964297
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Warning_Boss_40
+      rect:
+        serializedVersion: 2
+        x: 1609
+        y: 581
+        width: 12
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cca1d0eef50786b80800000000000000
+      internalID: -8401341547541620020
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Warning_Boss_41
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 559
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c92b07ef0f31e2d40800000000000000
+      internalID: 5561404515631018652
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Warning_Boss_42
+      rect:
+        serializedVersion: 2
+        x: 1609
+        y: 559
+        width: 12
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 86a98a9d83cf148a0800000000000000
+      internalID: -6322495080751392152
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Warning_Boss_43
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 535
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bbb4b73ef28ed5710800000000000000
+      internalID: 1683757128084048827
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Warning_Boss_44
+      rect:
+        serializedVersion: 2
+        x: 1609
+        y: 535
+        width: 12
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e02ace79dad666d40800000000000000
+      internalID: 5577265780890575374
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Warning_Boss_45
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 512
+        width: 13
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 49ebf707f67becc70800000000000000
+      internalID: 8993327195162132116
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Warning_Boss_46
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 512
+        width: 25
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 40b248be3a4548b40800000000000000
+      internalID: 5441567312778111748
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Warning_Boss_47
+      rect:
+        serializedVersion: 2
+        x: 1578
+        y: 511
+        width: 27
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7d289ec1c0a9c1460800000000000000
+      internalID: 7213810079956042455
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Warning_Boss_48
+      rect:
+        serializedVersion: 2
+        x: 1609
+        y: 512
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b4bbeaf4bcf93e2b0800000000000000
+      internalID: -5556421819681031349
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Warning_Boss_49
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 490
+        width: 13
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 53f87450e5aff7810800000000000000
+      internalID: 1765404860674969397
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Warning_Boss_50
+      rect:
+        serializedVersion: 2
+        x: 1609
+        y: 490
+        width: 12
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0beebd0440f2cebe0800000000000000
+      internalID: -1446729684978241872
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Warning_Boss_51
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 468
+        width: 14
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9869c8e68244f53b0800000000000000
+      internalID: -5521619677688850807
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Warning_Boss_52
+      rect:
+        serializedVersion: 2
+        x: 142
+        y: 444
+        width: 27
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 595c77c9ff1ea7480800000000000000
+      internalID: -8900553225586358891
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Warning_Boss_53
+      rect:
+        serializedVersion: 2
+        x: 1503
+        y: 444
+        width: 28
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bf711d5d254320c00800000000000000
+      internalID: 865311608787769339
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Warning_Boss_54
+      rect:
+        serializedVersion: 2
+        x: 1609
+        y: 468
+        width: 12
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d6958bbe9195a6640800000000000000
+      internalID: 5073965898050066797
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Warning_Boss_55
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 446
+        width: 14
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 20bfb907990cc4f00800000000000000
+      internalID: 1102467774050728706
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Warning_Boss_56
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 429
+        width: 34
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9849bd89af6a4da70800000000000000
+      internalID: 8850882762926429321
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Warning_Boss_57
+      rect:
+        serializedVersion: 2
+        x: 1609
+        y: 446
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2a1216856cc7213e0800000000000000
+      internalID: -2084466486190988894
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Warning_Boss_58
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 423
+        width: 14
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 62b1e56d7a8387550800000000000000
+      internalID: 6158734783936338726
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Warning_Boss_59
+      rect:
+        serializedVersion: 2
+        x: 1609
+        y: 423
+        width: 12
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5d76a8dd0663175b0800000000000000
+      internalID: -5372453090814695467
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Warning_Boss_60
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 405
+        width: 14
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a7a310a39e3688a80800000000000000
+      internalID: -8464405646291158406
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Warning_Boss_61
+      rect:
+        serializedVersion: 2
+        x: 178
+        y: 394
+        width: 31
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0777346e02ba7d5d0800000000000000
+      internalID: -3037771265847625872
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Warning_Boss_62
+      rect:
+        serializedVersion: 2
+        x: 1608
+        y: 404
+        width: 13
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 464f764fe0660ddf0800000000000000
+      internalID: -157513772541938588
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Warning_Boss_63
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 387
+        width: 14
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ce882ee6f034bc180800000000000000
+      internalID: -9094101288980674324
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Warning_Boss_64
+      rect:
+        serializedVersion: 2
+        x: 1609
+        y: 386
+        width: 12
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4c0ba63ca919cd4b0800000000000000
+      internalID: -5414292558116638524
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Warning_Boss_65
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 367
+        width: 14
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3140a0fa161b05a00800000000000000
+      internalID: 743288971622745107
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Warning_Boss_66
+      rect:
+        serializedVersion: 2
+        x: 1608
+        y: 367
+        width: 14
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 635a00ac08e371390800000000000000
+      internalID: -7847735102804024010
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Warning_Boss_67
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 346
+        width: 55
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 434a0255ecb05ce50800000000000000
+      internalID: 6828877390796596276
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Warning_Boss_68
+      rect:
+        serializedVersion: 2
+        x: 1587
+        y: 346
+        width: 55
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 192588ced2e3a9490800000000000000
+      internalID: -7738804642719968623
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Warning_Boss_69
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 314
+        width: 12
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 91000cf0e14590500800000000000000
+      internalID: 362913733070028825
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Warning_Boss_70
+      rect:
+        serializedVersion: 2
+        x: 215
+        y: 279
+        width: 80
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 43f349e577f1e0ac0800000000000000
+      internalID: -3887134830825816268
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Warning_Boss_71
+      rect:
+        serializedVersion: 2
+        x: 397
+        y: 208
+        width: 371
+        height: 132
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2142db5709cd68bb0800000000000000
+      internalID: -4934013828729068526
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Warning_Boss_72
+      rect:
+        serializedVersion: 2
+        x: 773
+        y: 208
+        width: 122
+        height: 133
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1582e0c0f855cba50800000000000000
+      internalID: 6538194831906056273
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Warning_Boss_73
+      rect:
+        serializedVersion: 2
+        x: 898
+        y: 207
+        width: 90
+        height: 134
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a70c73d9ed557f910800000000000000
+      internalID: 1871058584804507770
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Warning_Boss_74
+      rect:
+        serializedVersion: 2
+        x: 997
+        y: 207
+        width: 237
+        height: 134
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f31739b126602ea40800000000000000
+      internalID: 5395882321982484799
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Warning_Boss_75
+      rect:
+        serializedVersion: 2
+        x: 1236
+        y: 286
+        width: 42
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 834cbc33ffb1255e0800000000000000
+      internalID: -1922443308034177992
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Warning_Boss_76
+      rect:
+        serializedVersion: 2
+        x: 1377
+        y: 279
+        width: 78
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 14a610fdf42300ff0800000000000000
+      internalID: -72002275412710847
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Warning_Boss_77
+      rect:
+        serializedVersion: 2
+        x: 1609
+        y: 325
+        width: 12
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8c3f0b66b979ad0c0800000000000000
+      internalID: -4550157779805867064
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Warning_Boss_78
+      rect:
+        serializedVersion: 2
+        x: 1609
+        y: 314
+        width: 12
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 278e2b3feaac03800800000000000000
+      internalID: 590194403947243634
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Warning_Boss_79
+      rect:
+        serializedVersion: 2
+        x: 43
+        y: 271
+        width: 29
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8c103e1a10c0ac110800000000000000
+      internalID: 1281850245090836936
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Warning_Boss_80
+      rect:
+        serializedVersion: 2
+        x: 142
+        y: 262
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 639e674fb968ae670800000000000000
+      internalID: 8568809245405276470
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Warning_Boss_81
+      rect:
+        serializedVersion: 2
+        x: 153
+        y: 262
+        width: 12
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3adc7213a04f15a20800000000000000
+      internalID: 3049486747318078883
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Warning_Boss_82
+      rect:
+        serializedVersion: 2
+        x: 166
+        y: 262
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 62887dcb53b0b2360800000000000000
+      internalID: 7145817559182837798
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Warning_Boss_83
+      rect:
+        serializedVersion: 2
+        x: 199
+        y: 205
+        width: 112
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 252843e41521ce650800000000000000
+      internalID: 6263401322179232338
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Warning_Boss_84
+      rect:
+        serializedVersion: 2
+        x: 346
+        y: 264
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f6b20f72327e64150800000000000000
+      internalID: 5856622503621831535
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Warning_Boss_85
+      rect:
+        serializedVersion: 2
+        x: 359
+        y: 265
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dbe7b08a6e3d8d420800000000000000
+      internalID: 2655104967950171837
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Warning_Boss_86
+      rect:
+        serializedVersion: 2
+        x: 1304
+        y: 262
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 379af4a7e726cb560800000000000000
+      internalID: 7330842588809767283
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Warning_Boss_87
+      rect:
+        serializedVersion: 2
+        x: 1316
+        y: 263
+        width: 10
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5bd5fdb4b69ed68f0800000000000000
+      internalID: -545523332798259787
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Warning_Boss_88
+      rect:
+        serializedVersion: 2
+        x: 1361
+        y: 205
+        width: 111
+        height: 74
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 12ae3634c51f701a0800000000000000
+      internalID: -6843235730196272607
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Warning_Boss_89
+      rect:
+        serializedVersion: 2
+        x: 1493
+        y: 262
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2b823160738c094e0800000000000000
+      internalID: -1976860097764972366
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Warning_Boss_90
+      rect:
+        serializedVersion: 2
+        x: 1506
+        y: 263
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9412d168266b221a0800000000000000
+      internalID: -6835700750121885367
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Warning_Boss_91
+      rect:
+        serializedVersion: 2
+        x: 1520
+        y: 262
+        width: 9
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c5be20f64051ea310800000000000000
+      internalID: 1418094041454799708
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Warning_Boss_92
+      rect:
+        serializedVersion: 2
+        x: 1600
+        y: 271
+        width: 28
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4681af45b48daec00800000000000000
+      internalID: 930794091065251940
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Warning_Boss_93
+      rect:
+        serializedVersion: 2
+        x: 43
+        y: 228
+        width: 29
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4404e2001f9e6c270800000000000000
+      internalID: 8270554987011915844
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Warning_Boss_94
+      rect:
+        serializedVersion: 2
+        x: 141
+        y: 250
+        width: 39
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9872e43078536ccb0800000000000000
+      internalID: -4844125495198079095
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Warning_Boss_95
+      rect:
+        serializedVersion: 2
+        x: 329
+        y: 250
+        width: 40
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 60f1e6b4ba802c610800000000000000
+      internalID: 1639882746114219782
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Warning_Boss_96
+      rect:
+        serializedVersion: 2
+        x: 1240
+        y: 224
+        width: 36
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6ac0aeac5e48b7940800000000000000
+      internalID: 5294971909390863526
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Warning_Boss_97
+      rect:
+        serializedVersion: 2
+        x: 1303
+        y: 250
+        width: 40
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f05ccbd31de6fc180800000000000000
+      internalID: -9092927277674740465
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Warning_Boss_98
+      rect:
+        serializedVersion: 2
+        x: 1492
+        y: 250
+        width: 39
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a0f663aed07052aa0800000000000000
+      internalID: -6186530756778103030
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Warning_Boss_99
+      rect:
+        serializedVersion: 2
+        x: 1600
+        y: 228
+        width: 28
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 58d371d5f68e061c0800000000000000
+      internalID: -4512351261624418939
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Warning_Boss_100
+      rect:
+        serializedVersion: 2
+        x: 43
+        y: 183
+        width: 29
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 59b069b8f95bddb40800000000000000
+      internalID: 5466725219543944085
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Warning_Boss_101
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 110
+        width: 338
+        height: 79
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5c0d1e3fdf57f4850800000000000000
+      internalID: 6363434532076638405
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Warning_Boss_102
+      rect:
+        serializedVersion: 2
+        x: 559
+        y: 109
+        width: 258
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9bc41ba65829c28f0800000000000000
+      internalID: -563914751609844551
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Warning_Boss_103
+      rect:
+        serializedVersion: 2
+        x: 848
+        y: 110
+        width: 647
+        height: 79
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9fc084895ea7516d0800000000000000
+      internalID: -3020372848561091335
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Warning_Boss_104
+      rect:
+        serializedVersion: 2
+        x: 1600
+        y: 183
+        width: 28
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 82eb96d36bad9e330800000000000000
+      internalID: 3740761441757150760
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Warning_Boss_105
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 86
+        width: 11
+        height: 92
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3360a7f9e87e337f0800000000000000
+      internalID: -633908522782161357
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Warning_Boss_106
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 48
+        width: 103
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b04a6d4a9cd9b4c40800000000000000
+      internalID: 5497661259515339787
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Warning_Boss_107
+      rect:
+        serializedVersion: 2
+        x: 1069
+        y: 0
+        width: 603
+        height: 141
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d5552eaabebda9ad0800000000000000
+      internalID: -2694599621797063331
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Warning_Boss_108
+      rect:
+        serializedVersion: 2
+        x: 1644
+        y: 86
+        width: 11
+        height: 92
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4a8b823fff83bdfc0800000000000000
+      internalID: -3469116416011487068
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Warning_Boss_109
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 41
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e77a5ec6607d99720800000000000000
+      internalID: 2853548261512685438
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Warning_Boss_110
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 16
+        width: 549
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 14f44e737d3784f50800000000000000
+      internalID: 6865865000119193409
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Warning_Boss_111
+      rect:
+        serializedVersion: 2
+        x: 605
+        y: 33
+        width: 24
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fa9ecd69ee17cf580800000000000000
+      internalID: -8792027102986835537
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Warning_Boss_112
+      rect:
+        serializedVersion: 2
+        x: 667
+        y: 29
+        width: 125
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 18ac46bcc22435360800000000000000
+      internalID: 7157136992980224641
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Warning_Boss_113
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 16
+        width: 75
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: da14d16dc2a4ac3c0800000000000000
+      internalID: -4338573734586793555
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Warning_Boss_114
+      rect:
+        serializedVersion: 2
+        x: 880
+        y: 29
+        width: 37
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f65e89e437c0afe40800000000000000
+      internalID: 5690874768515458415
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Warning_Boss_115
+      rect:
+        serializedVersion: 2
+        x: 906
+        y: 29
+        width: 88
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a34e735dd0afddc40800000000000000
+      internalID: 5538858054054306874
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Warning_Boss_116
+      rect:
+        serializedVersion: 2
+        x: 1037
+        y: 33
+        width: 25
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fccd9a13fc1b4e850800000000000000
+      internalID: 6405440073477250255
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Warning_Boss_117
+      rect:
+        serializedVersion: 2
+        x: 1373
+        y: 17
+        width: 252
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4c51e52b7a08df0e0800000000000000
+      internalID: -2234488382365493820
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Warning_Boss_0: -1354986122499747074
+      Warning_Boss_1: -5062903617327757526
+      Warning_Boss_10: -6399929507418917528
+      Warning_Boss_100: 5466725219543944085
+      Warning_Boss_101: 6363434532076638405
+      Warning_Boss_102: -563914751609844551
+      Warning_Boss_103: -3020372848561091335
+      Warning_Boss_104: 3740761441757150760
+      Warning_Boss_105: -633908522782161357
+      Warning_Boss_106: 5497661259515339787
+      Warning_Boss_107: -2694599621797063331
+      Warning_Boss_108: -3469116416011487068
+      Warning_Boss_109: 2853548261512685438
+      Warning_Boss_11: -8960551096619566171
+      Warning_Boss_110: 6865865000119193409
+      Warning_Boss_111: -8792027102986835537
+      Warning_Boss_112: 7157136992980224641
+      Warning_Boss_113: -4338573734586793555
+      Warning_Boss_114: 5690874768515458415
+      Warning_Boss_115: 5538858054054306874
+      Warning_Boss_116: 6405440073477250255
+      Warning_Boss_117: -2234488382365493820
+      Warning_Boss_12: -6577301362846231722
+      Warning_Boss_13: 2625148404207686590
+      Warning_Boss_14: 629327970372782952
+      Warning_Boss_15: 5872357697551357566
+      Warning_Boss_16: 7697795038604069740
+      Warning_Boss_17: -7886152354493847165
+      Warning_Boss_18: 8302551880805212103
+      Warning_Boss_19: 4727515929247172647
+      Warning_Boss_2: -4799238633943526323
+      Warning_Boss_20: -3138053516913736874
+      Warning_Boss_21: 4515991688789566422
+      Warning_Boss_22: -8488093176785025325
+      Warning_Boss_23: -4217913823627794645
+      Warning_Boss_24: 3084958768161153884
+      Warning_Boss_25: 3495747315507529883
+      Warning_Boss_26: -6943846025988928903
+      Warning_Boss_27: -54830407777873476
+      Warning_Boss_28: 1557897814751489618
+      Warning_Boss_29: -8621829228292774891
+      Warning_Boss_3: 2090048568825592112
+      Warning_Boss_30: 4005173103628538891
+      Warning_Boss_31: -7519325970137514533
+      Warning_Boss_32: -5284690143391475752
+      Warning_Boss_33: -3914923169758869584
+      Warning_Boss_34: 3833652686689240617
+      Warning_Boss_35: 1118241784448244370
+      Warning_Boss_36: 8509008140942427647
+      Warning_Boss_37: 6339249536102926696
+      Warning_Boss_38: 2534440366937456700
+      Warning_Boss_39: -7750688730353964297
+      Warning_Boss_4: -5315108943458823123
+      Warning_Boss_40: -8401341547541620020
+      Warning_Boss_41: 5561404515631018652
+      Warning_Boss_42: -6322495080751392152
+      Warning_Boss_43: 1683757128084048827
+      Warning_Boss_44: 5577265780890575374
+      Warning_Boss_45: 8993327195162132116
+      Warning_Boss_46: 5441567312778111748
+      Warning_Boss_47: 7213810079956042455
+      Warning_Boss_48: -5556421819681031349
+      Warning_Boss_49: 1765404860674969397
+      Warning_Boss_5: -472493239361079179
+      Warning_Boss_50: -1446729684978241872
+      Warning_Boss_51: -5521619677688850807
+      Warning_Boss_52: -8900553225586358891
+      Warning_Boss_53: 865311608787769339
+      Warning_Boss_54: 5073965898050066797
+      Warning_Boss_55: 1102467774050728706
+      Warning_Boss_56: 8850882762926429321
+      Warning_Boss_57: -2084466486190988894
+      Warning_Boss_58: 6158734783936338726
+      Warning_Boss_59: -5372453090814695467
+      Warning_Boss_6: -224968910329270119
+      Warning_Boss_60: -8464405646291158406
+      Warning_Boss_61: -3037771265847625872
+      Warning_Boss_62: -157513772541938588
+      Warning_Boss_63: -9094101288980674324
+      Warning_Boss_64: -5414292558116638524
+      Warning_Boss_65: 743288971622745107
+      Warning_Boss_66: -7847735102804024010
+      Warning_Boss_67: 6828877390796596276
+      Warning_Boss_68: -7738804642719968623
+      Warning_Boss_69: 362913733070028825
+      Warning_Boss_7: 3374511914776468230
+      Warning_Boss_70: -3887134830825816268
+      Warning_Boss_71: -4934013828729068526
+      Warning_Boss_72: 6538194831906056273
+      Warning_Boss_73: 1871058584804507770
+      Warning_Boss_74: 5395882321982484799
+      Warning_Boss_75: -1922443308034177992
+      Warning_Boss_76: -72002275412710847
+      Warning_Boss_77: -4550157779805867064
+      Warning_Boss_78: 590194403947243634
+      Warning_Boss_79: 1281850245090836936
+      Warning_Boss_8: 1295252696604658179
+      Warning_Boss_80: 8568809245405276470
+      Warning_Boss_81: 3049486747318078883
+      Warning_Boss_82: 7145817559182837798
+      Warning_Boss_83: 6263401322179232338
+      Warning_Boss_84: 5856622503621831535
+      Warning_Boss_85: 2655104967950171837
+      Warning_Boss_86: 7330842588809767283
+      Warning_Boss_87: -545523332798259787
+      Warning_Boss_88: -6843235730196272607
+      Warning_Boss_89: -1976860097764972366
+      Warning_Boss_9: 539238673657814899
+      Warning_Boss_90: -6835700750121885367
+      Warning_Boss_91: 1418094041454799708
+      Warning_Boss_92: 930794091065251940
+      Warning_Boss_93: 8270554987011915844
+      Warning_Boss_94: -4844125495198079095
+      Warning_Boss_95: 1639882746114219782
+      Warning_Boss_96: 5294971909390863526
+      Warning_Boss_97: -9092927277674740465
+      Warning_Boss_98: -6186530756778103030
+      Warning_Boss_99: -4512351261624418939
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -12,15 +12,46 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44b3deeccfe42d3408fcfc306474c5af, type: 3}
   m_Name: BossData
   m_EditorClassIdentifier: Assembly-CSharp::BossData
+  unitName: "\uC5F4\uD3ED\uC8FC \uC2AC\uB77C\uC784"
+  unitSprite: {fileID: -6248741079362886434, guid: 820f99842ce17d2418a2a07361844fc5, type: 3}
+  unitSpriteColor: {r: 1, g: 0.4509804, b: 0.3529412, a: 1}
+  unitSpriteSize: {x: 100, y: 100}
+  roleType: "\uBCF4\uC2A4"
+  elementType: "\uBD88"
+  description: "\uD3ED\uC8FC\uD558\uB294 \uD654\uC5FC \uC5D0\uB108\uC9C0\uB97C \uC548\uC815\uD654\uD558\uAE30
+    \uC704\uD574 \uACE0\uCD9C\uB825 \uBC30\uD130\uB9AC\uB97C \uCD94\uC801\uD558\uB294
+    \uCD5C\uC885 \uAC1C\uCCB4."
+  popupDescription: " \uADF9\uB3C4\uB85C \uBD88\uC548\uC815\uD55C \uD654\uC5FC \uC5D0\uB108\uC9C0\uB97C
+    \uC5B5\uC81C\uD558\uC9C0 \uBABB\uD558\uACE0 \uB04A\uC784\uC5C6\uC774 \uD3ED\uC8FC\uD558\uB294
+    \uC2AC\uB77C\uC784\uC758 \uCD5C\uC885 \uAC1C\uCCB4. \uCCB4\uB0B4 \uC5F4 \uC5D0\uB108\uC9C0\uB97C
+    \uC548\uC815\uD654\uD558\uAE30 \uC704\uD574 \uC678\uBD80\uC5D0\uC11C \uC9C0\uC18D\uC801\uC778
+    \uC5D0\uB108\uC9C0 \uD761\uC218\uAC00 \uD544\uC694\uD55C \uC0C1\uD0DC\uC774\uBA70,
+    \uACE0\uCD9C\uB825 \uBC30\uD130\uB9AC\uC640 \uAC19\uC740 \uBC00\uC9D1\uB41C \uC5D0\uB108\uC9C0\uC6D0\uC744
+    \uBCF8\uB2A5\uC801\uC73C\uB85C \uCD94\uC801\uD55C\uB2E4.\uC774 \uB54C\uBB38\uC5D0
+    \uBC30\uD130\uB9AC \uACF5\uC7A5\uACFC \uAC19\uC740 \uC2DC\uC124\uC740 \uC774
+    \uAC1C\uCCB4\uC5D0\uAC8C \u2018\uC5D0\uB108\uC9C0 \uC548\uC815\uD654 \uC9C0\uC810\u2019\uC73C\uB85C
+    \uC778\uC2DD\uB418\uBA70, \uBB34\uC758\uC2DD\uC801\uC778 \uC811\uADFC\uACFC \uCE68\uC785
+    \uD589\uB3D9\uC774 \uBC1C\uC0DD\uD55C\uB2E4. \uADF8\uB7EC\uB098 \uC5D0\uB108\uC9C0\uB97C
+    \uD761\uC218\uD558\uB294 \uACFC\uC815\uC5D0\uC11C \uC8FC\uBCC0 \uD658\uACBD \uC5ED\uC2DC
+    \uBD88\uC548\uC815\uD574\uC9C0\uBA70, \uB300\uADDC\uBAA8 \uC7AC\uB09C\uC73C\uB85C
+    \uC774\uC5B4\uC9C8 \uC704\uD5D8\uC774 \uC788\uB2E4."
+  skills:
+  - skillName: "\uC5F4\uD3ED\uC8FC"
+    skillIcon: {fileID: 8043456879946373486, guid: 3d6948d8b5a35ab42a906670fc70fe81, type: 3}
+    skillDescription: "\uD3ED\uC8FC\uD558\uB294 \uD654\uC5FC \uC5D0\uB108\uC9C0\uB97C
+      \uBC29\uCD9C\uD569\uB2C8\uB2E4.\n2\uCD08\uB9C8\uB2E4 \uC8FC\uBCC0 \uC801\uC5D0\uAC8C
+      10\uC758 \uD654\uC5FC \uD53C\uD574\uB97C \uC785\uD788\uACE0,\n\uD654\uC5FC
+      \uB369\uC5B4\uB9AC\uB97C \uBC1C\uC0AC\uD558\uC5EC \uBC94\uC704 \uB0B4 \uC801\uC5D0\uAC8C
+      40\uC758 \uD3ED\uBC1C \uD53C\uD574\uB97C \uC785\uD799\uB2C8\uB2E4."
   damage: 40
-  hp: 3000
-  maxHp: 3000
+  hp: 10000
+  maxHp: 10000
   attackRange: 5
   attackSpeed: 0.5
   moveSpeed: 0
   dieAnimDuration: 1
   projectilePrefab: {fileID: 5314360353959510518, guid: 848fa4174fb63b04692a9f9024de7add, type: 3}
-  explosionRadius: 3
+  explosionRadius: 1
   arcHeight: 3
   projectileSpeed: 5
   explosionEffectPrefab: {fileID: 6419512139325677619, guid: 70801eb4a4ed52c4f86bc0c5756fd92b, type: 3}

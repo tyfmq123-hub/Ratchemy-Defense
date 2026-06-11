@@ -53,7 +53,10 @@ public static class EnemyCombatUtility
         foreach (Collider2D col in hits)
         {
             if (TryGetPlayer(col, out PlayerUnitBase player) && player.CurrentHp > 0)
+            {
                 player.TakeDamage(damage);
+                DamageTextSpawner.Spawn(Mathf.RoundToInt(damage), player.GetComponentInChildren<SpriteRenderer>(), isAllyHit: true);
+            }
         }
     }
 

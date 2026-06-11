@@ -46,3 +46,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::UnitCardSpawner
   spawnPointA: {fileID: 0}
   spawnPointB: {fileID: 0}
+  spawnSoundVolumeBoost: 2.01
+  playSpawnSoundAtCamera: 1

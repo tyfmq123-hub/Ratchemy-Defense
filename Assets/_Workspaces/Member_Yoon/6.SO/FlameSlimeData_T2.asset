@@ -37,8 +37,8 @@ MonoBehaviour:
       \uB450\uB974\uACE0 \uC788\uC2B5\uB2C8\uB2E4.\n0.5\uCD08\uB9C8\uB2E4 \uBC18\uACBD
       \uB0B4 \uC801\uC5D0\uAC8C 1\uC758 \uD654\uC5FC \uD53C\uD574\uB97C \uC785\uD799\uB2C8\uB2E4."
   damage: 15
-  hp: 150
-  maxHp: 150
+  hp: 378
+  maxHp: 378
   attackRange: 1
   attackSpeed: 1
   moveSpeed: 1

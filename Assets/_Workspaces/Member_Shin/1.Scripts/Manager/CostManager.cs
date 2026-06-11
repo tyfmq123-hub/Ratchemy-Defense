@@ -9,6 +9,10 @@ public class CostManager : MonoBehaviour
     public int startCost = 0;       // 게임 시작 시 보유할 코스트입니다.
     public float recoveryTime = 1f; // 코스트 1개가 회복되는 간격입니다.
 
+    // true일 때만 코스트가 자동으로 회복됩니다.
+    // 배틀 시작 전 카메라 연출 중에는 false로 둡니다.
+    private bool isRecoveryEnabled = false;
+
     [Header("연결할 UI")]
     public Image[] costFillImages;       // 노란색 코스트 이미지 20개를 연결합니다.
     public TextMeshProUGUI costText;     // 현재 코스트 숫자를 표시합니다.
@@ -36,24 +40,26 @@ public class CostManager : MonoBehaviour
         UpdateCostUI();
     }
 
-    void Update()
+    private void Update()
     {
-        // 이미 최대 코스트라면 더 이상 회복하지 않습니다.
-        if (currentCost >= maxCost)
+        // 배틀 시작 전 인트로 연출 중에는
+        // 코스트 회복 시간을 계산하지 않습니다.
+        if (!isRecoveryEnabled)
         {
-            recoveryTimer = 0f;
             return;
         }
 
-        // 실제 경과 시간을 누적합니다.
         recoveryTimer += Time.deltaTime;
 
-        // 설정한 시간이 지나면 코스트를 1개 회복합니다.
         if (recoveryTimer >= recoveryTime)
         {
-            recoveryTimer -= recoveryTime;
+            recoveryTimer = 0f;
 
-            AddCost(1);
+            if (currentCost < maxCost)
+            {
+                currentCost++;
+                UpdateCostUI();
+            }
         }
     }
 
@@ -169,5 +175,22 @@ public class CostManager : MonoBehaviour
     {
         // Inspector에서 테스트할 때 사용하는 임시 기능입니다.
         TrySpendCost(3);
+    }
+
+    /// <summary>
+    /// 코스트 자동 회복을 켜거나 끕니다.
+    /// 배틀 시작 전에는 false,
+    /// WAVE 1 시작 직전에는 true를 전달합니다.
+    /// </summary>
+    public void SetRecoveryEnabled(bool enabled)
+    {
+        isRecoveryEnabled = enabled;
+
+        // 회복을 새로 시작할 때는 타이머를 초기화합니다.
+        // 인트로가 끝난 직후 코스트가 갑자기 바로 차는 현상을 막습니다.
+        if (enabled)
+        {
+            recoveryTimer = 0f;
+        }
     }
 }

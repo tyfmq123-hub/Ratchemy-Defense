@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using TMPro;
 
 [System.Serializable]
 public class WaveSetting
@@ -17,9 +18,14 @@ public class WaveSetting
 public class WaveManager : MonoBehaviour
 {
     [Header("연결할 UI")]
-    public EnvironmentGaugeUI environmentGaugeUI;
-    public WaveUI waveUI;
+    [Tooltip("화면 상단 중앙의 BattleTimerText를 연결하세요.")]
+    public TextMeshProUGUI battleTimerText;
+
+    [Tooltip("화면 중앙에 WAVE 1, WAVE 2 문구를 잠깐 표시하는 UI입니다.")]
+    public WaveAnnouncementUI waveAnnouncementUI;
+
     public BossStageWarningUI bossStageWarningUI;
+
 
     [Header("연결할 적 생성 스크립트")]
     public EnemySpawner enemySpawner;
@@ -62,8 +68,8 @@ public class WaveManager : MonoBehaviour
 
     void Start()
     {
-        // 게임을 시작하면 첫 번째 웨이브를 바로 시작합니다.
-        StartBattleWaves();
+        // 첫 번째 웨이브는 바로 시작하지 않습니다.
+        // BattleIntroCamera의 카메라 왕복 연출이 끝난 뒤 시작합니다.
     }
 
     void Update()
@@ -77,16 +83,7 @@ public class WaveManager : MonoBehaviour
         // 프레임이 지날 때마다 남은 시간을 감소시킵니다.
         remainingCountdownTime -= Time.deltaTime;
 
-        // 현재 남은 시간을 UI에 전달합니다.
-        // 두 번째 값으로 전체 웨이브 시간을 전달하므로
-        // 게이지 스프라이트가 전체 시간에 맞춰 일정하게 감소합니다.
-        if (environmentGaugeUI != null)
-        {
-            environmentGaugeUI.SetRemainingTime(
-                remainingCountdownTime,
-                totalCountdownTime
-            );
-        }
+        UpdateBattleTimerText();
 
         // 아직 시간이 남아 있다면 다음 프레임까지 기다립니다.
         if (remainingCountdownTime > 0f)
@@ -160,13 +157,7 @@ public class WaveManager : MonoBehaviour
         remainingCountdownTime = totalCountdownTime;
         isCountingDown = true;
 
-        if (environmentGaugeUI != null)
-        {
-            environmentGaugeUI.SetRemainingTime(
-                remainingCountdownTime,
-                totalCountdownTime
-            );
-        }
+        UpdateBattleTimerText();
     }
 
     private void StartWave(int waveIndex)
@@ -182,11 +173,21 @@ public class WaveManager : MonoBehaviour
 
         currentWaveIndex = waveIndex;
 
-        // 화면에는 배열 번호보다 1 높은 숫자를 표시합니다.
-        // 예: 배열 0번은 화면에서 WAVE 1로 표시됩니다.
-        if (waveUI != null)
+        // 새로운 웨이브가 시작될 때만
+        // 화면 중앙에 WAVE 1, WAVE 2 같은 문구를 잠깐 표시합니다.
+        if (waveAnnouncementUI != null)
         {
-            waveUI.SetWave(
+            waveAnnouncementUI.ShowWaveAnnouncement(
+                currentWaveIndex + 1
+            );
+        }
+
+        // 새로운 웨이브가 시작될 때
+        // 화면 중앙에 "WAVE 1", "WAVE 2" 같은 문구를 잠깐 표시합니다.
+        // WaveAnnouncementUI 연결이 빠져 있어도 전투 진행은 멈추지 않습니다.
+        if (waveAnnouncementUI != null)
+        {
+            waveAnnouncementUI.ShowWaveAnnouncement(
                 currentWaveIndex + 1
             );
         }
@@ -197,14 +198,7 @@ public class WaveManager : MonoBehaviour
 
         isCountingDown = true;
 
-        // UI에도 초기 시간을 즉시 표시합니다.
-        if (environmentGaugeUI != null)
-        {
-            environmentGaugeUI.SetRemainingTime(
-                remainingCountdownTime,
-                totalCountdownTime
-            );
-        }
+        UpdateBattleTimerText();
 
         // 첫 번째 웨이브에만 약간의 등장 지연 시간을 적용합니다.
         float spawnDelay =
@@ -315,17 +309,16 @@ public class WaveManager : MonoBehaviour
 
         hasEnteredBossStage = true;
 
-        if (waveUI != null)
+        // 새로운 웨이브가 시작될 때만
+        // 화면 중앙에 WAVE 1, WAVE 2 같은 문구를 잠깐 표시합니다.
+        if (waveAnnouncementUI != null)
         {
-            waveUI.ShowBossStage();
+            waveAnnouncementUI.ShowWaveAnnouncement(
+                currentWaveIndex + 1
+            );
         }
 
-        // Wave 4 적을 모두 제거한 뒤에만 숫자 대신 STAGE를 표시합니다.
-        if (environmentGaugeUI != null)
-        {
-            environmentGaugeUI.ShowBossStage();
-        }
-
+        UpdateBattleTimerText();
         // Boss Stage 문구와 같은 시점에 Warning 이미지 깜빡임 연출을 재생합니다.
         // Inspector 연결이 없어도 기존 게임 진행은 계속됩니다.
         bossStageWarningUI?.PlayWarning();
@@ -361,5 +354,39 @@ public class WaveManager : MonoBehaviour
             waveSettings.Length > 0 &&
             waveIndex ==
                 waveSettings.Length - 1;
+    }
+
+    /// <summary>
+    /// 화면 상단 중앙에 남은 시간을 01:25 형식으로 표시합니다.
+    /// </summary>
+    private void UpdateBattleTimerText()
+    {
+        if (battleTimerText == null)
+        {
+            return;
+        }
+
+        // 화면에 음수가 표시되지 않게 막습니다.
+        float safeRemainingTime =
+            Mathf.Max(
+                0f,
+                remainingCountdownTime
+            );
+
+        // 5.2초가 남으면 06초로 표시합니다.
+        // 타이머가 너무 일찍 00:00으로 보이는 것을 막기 위한 처리입니다.
+        int totalSeconds =
+            Mathf.CeilToInt(
+                safeRemainingTime
+            );
+
+        int minutes =
+            totalSeconds / 60;
+
+        int seconds =
+            totalSeconds % 60;
+
+        battleTimerText.text =
+        $"WAVE TIME\n{minutes:00}:{seconds:00}";
     }
 }

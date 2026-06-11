@@ -35,8 +35,8 @@ MonoBehaviour:
     skillIcon: {fileID: 6171074241395153969, guid: fc2c8e396530c544d85fe353a9304eb0, type: 3}
     skillDescription: 
   damage: 10
-  hp: 110
-  maxHp: 110
+  hp: 277
+  maxHp: 277
   attackRange: 5
   attackSpeed: 1
   moveSpeed: 2

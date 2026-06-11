@@ -28,6 +28,11 @@ MonoBehaviour:
     \uC704\uD5D8 \uC9C0\uC5ED\uC744 \uC548\uC804\uD558\uAC8C \uB3CC\uD30C\uD574 \uC804\uC120\uC5D0
     \uD569\uB958\uD569\uB2C8\uB2E4."
   skills:
+  - skillName: "[\uAE30\uBCF8 \uACF5\uACA9] \uD604\uC7A5 \uD1B5\uC81C"
+    skillIcon: {fileID: 71956187639608682, guid: e773fc1d8d157704b9c456111f3ca86b, type: 3}
+    skillDescription: "3\uBC88\uC9F8 \uACF5\uACA9\uB9C8\uB2E4 2\uBC30\uC758 \uD53C\uD574\uB97C
+      \uC785\uD788\uACE0, \uC801\uC744 \uBC00\uCCD0\uB0C5\uB2C8\uB2E4. (\uBCF4\uC2A4
+      \uC81C\uC678)"
   - skillName: "\uAE34\uAE09 \uD68C\uD53C \uBC18\uC751 "
     skillIcon: {fileID: 7041459684582023771, guid: 5ff07c86cf33ec64aa29becb51578c85, type: 3}
     skillDescription: "\uC774\uB3D9 \uC911 \uBC1B\uB294 \uD53C\uD574\uAC00 80% \uAC10\uC18C\uD55C\uB2E4."

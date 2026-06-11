@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>JH UnitInfo 작업 정리</title>
+  <style>
+    body { font-family: 'Segoe UI', sans-serif; background: #1a1a2e; color: #e0e0e0; margin: 0; padding: 30px; }
+    h1 { color: #e94560; border-bottom: 2px solid #e94560; padding-bottom: 10px; }
+    h2 { color: #0f3460; background: #16213e; padding: 8px 14px; border-left: 4px solid #e94560; margin-top: 30px; }
+    h3 { color: #a8dadc; margin-top: 20px; }
+    .card { background: #16213e; border-radius: 8px; padding: 16px 20px; margin: 12px 0; border: 1px solid #0f3460; }
+    .file { background: #0f3460; border-radius: 6px; padding: 12px 16px; margin: 8px 0; }
+    .file-name { color: #e94560; font-weight: bold; font-family: monospace; font-size: 15px; }
+    .file-desc { color: #a8dadc; font-size: 14px; margin-top: 4px; }
+    .tag { display: inline-block; border-radius: 4px; padding: 2px 8px; font-size: 12px; font-weight: bold; margin-right: 6px; }
+    .tag-new { background: #2d6a4f; color: #95d5b2; }
+    .tag-modified { background: #6d4c41; color: #ffccbc; }
+    ul { padding-left: 20px; line-height: 1.9; }
+    li { margin: 2px 0; }
+    .todo { background: #16213e; border-left: 4px solid #f4a261; padding: 10px 16px; border-radius: 4px; margin: 8px 0; }
+    .todo-title { color: #f4a261; font-weight: bold; margin-bottom: 6px; }
+    .badge { background: #e94560; color: white; border-radius: 12px; padding: 2px 10px; font-size: 12px; margin-left: 8px; }
+    code { background: #0f3460; color: #a8dadc; padding: 2px 6px; border-radius: 4px; font-family: monospace; }
+    .divider { border: none; border-top: 1px solid #0f3460; margin: 20px 0; }
+  </style>
+</head>
+<body>
+
+<h1>JH UnitInfo 씬 — 작업 정리</h1>
+<p style="color:#888">작업일: 2026-06-08 &nbsp;|&nbsp; 담당: Member_Yoon</p>
+
+<!-- ====== 구조 결정 ====== -->
+<h2>1. 구조 결정 사항</h2>
+<div class="card">
+  <ul>
+    <li>씬에 두 ScrollRect — <strong>아군 / 적군</strong> 분리 구성</li>
+    <li>표시 전용 스크립트 방식 채택 (소환·코스트 로직 없음)</li>
+    <li>적군 데이터: 기존 <code>EnemyUnitData</code> 재활용 (표시 필드 추가)</li>
+    <li>아군 데이터: 신규 <code>PlayerUnitDisplayData</code> 생성, 스탯은 프리팹에서 참조</li>
+    <li>공통 인터페이스 <code>IUnitDisplayData</code> 로 카드·팝업 재사용</li>
+    <li>아군 <code>number</code> = <code>cost</code> (동일 필드 공유)</li>
+  </ul>
+</div>
+
+<!-- ====== 카드 표시 항목 ====== -->
+<h2>2. 카드 / 팝업 표시 항목</h2>
+<div class="card">
+  <h3>소형 카드 (ScrollRect)</h3>
+  <ul>
+    <li>번호 (아군만 표시, 0이면 숨김)</li>
+    <li>유닛 이름</li>
+    <li>유닛 이미지 (원본 비율 유지)</li>
+    <li>엘리먼트 타입</li>
+    <li>설명</li>
+  </ul>
+  <hr class="divider">
+  <h3>상세 팝업 (클릭 시)</h3>
+  <ul>
+    <li>제목: <code>유닛이름 상세 정보</code></li>
+    <li>유닛 이미지</li>
+    <li>코스트 (아군만, 0이면 숨김) — <code>N 코스트</code> 형식</li>
+    <li>롤 타입 (근접 / 원거리)</li>
+    <li>엘리먼트 타입 (원소)</li>
+    <li>스탯: 공격력, HP, 이동속도, 공격속도, 사거리</li>
+    <li>설명</li>
+  </ul>
+</div>
+
+<!-- ====== 생성/수정 파일 ====== -->
+<h2>3. 생성 · 수정 파일</h2>
+
+<div class="file">
+  <div class="file-name"><span class="tag tag-modified">수정</span>EnemyUnitData.cs</div>
+  <div class="file-desc">표시 정보 필드 추가 (unitName, unitSprite, unitSpriteColor, unitSpriteSize, roleType, elementType, description) / IUnitDisplayData 구현</div>
+</div>
+
+<div class="file">
+  <div class="file-name"><span class="tag tag-new">신규</span>IUnitDisplayData.cs</div>
+  <div class="file-desc">아군·적군 공통 인터페이스 — Number, Cost, UnitName, UnitSprite, RoleType, ElementType, Description, Damage, MaxHp, MoveSpeed, AttackSpeed, AttackRange</div>
+</div>
+
+<div class="file">
+  <div class="file-name"><span class="tag tag-new">신규</span>UnitInfoCard.cs</div>
+  <div class="file-desc">소형 카드 표시 스크립트 / IPointerClickHandler로 클릭 시 팝업 호출</div>
+</div>
+
+<div class="file">
+  <div class="file-name"><span class="tag tag-new">신규</span>UnitInfoPopup.cs</div>
+  <div class="file-desc">상세 정보 팝업 / Show(IUnitDisplayData), Hide() / CheckButton으로 닫기</div>
+</div>
+
+<div class="file">
+  <div class="file-name"><span class="tag tag-new">신규</span>EnemyInfoCardSpawner.cs</div>
+  <div class="file-desc">적군 카드 동적 생성 / EnemyUnitData 배열 순회 / AllyCountText 자동 업데이트</div>
+</div>
+
+<div class="file">
+  <div class="file-name"><span class="tag tag-new">신규</span>PlayerUnitDisplayData.cs</div>
+  <div class="file-desc">아군 표시 전용 ScriptableObject / 스탯은 unitPrefab(PlayerUnitBase)에서 참조 / number = cost</div>
+</div>
+
+<div class="file">
+  <div class="file-name"><span class="tag tag-new">신규</span>PlayerInfoCardSpawner.cs</div>
+  <div class="file-desc">아군 카드 동적 생성 / PlayerUnitDisplayData 배열 순회 / AllyCountText 자동 업데이트</div>
+</div>
+
+<!-- ====== 남은 작업 ====== -->
+<h2>4. 남은 작업</h2>
+
+<div class="todo">
+  <div class="todo-title">Unity 에디터 작업</div>
+  <ul>
+    <li>UnitCard 프리팹에 UnitInfoCard.cs 연결 및 5개 필드 참조 설정</li>
+    <li>EnemyInfoPopup에 UnitInfoPopup.cs 연결 및 필드 참조 설정</li>
+    <li>적군 Content에 EnemyInfoCardSpawner 연결</li>
+    <li>아군 Content에 PlayerInfoCardSpawner 연결</li>
+  </ul>
+</div>
+
+<div class="todo">
+  <div class="todo-title">데이터 입력</div>
+  <ul>
+    <li>PlayerUnitDisplayData 에셋 5개 생성 후 데이터 입력<br>
+      <small style="color:#888">Create → Game → Player Unit Display Data</small></li>
+    <li>각 EnemyUnitData 에셋에 roleType / elementType 입력 확인</li>
+  </ul>
+</div>
+
+<div class="todo">
+  <div class="todo-title">스킬 정보 구현 <span class="badge">미완</span></div>
+  <ul>
+    <li><code>SkillDisplayData.cs</code> ScriptableObject 생성 (skillName, skillDescription)</li>
+    <li>IUnitDisplayData에 <code>SkillDisplayData[] Skills</code> 추가</li>
+    <li>EnemyUnitData / PlayerUnitDisplayData에 skills 배열 추가</li>
+    <li>팝업 UI에 SkillContent 컨테이너 추가 (VerticalLayoutGroup)</li>
+    <li>스킬 항목 프리팹 제작 (이름 TMP + 설명 TMP)</li>
+    <li>UnitInfoPopup에서 스킬 동적 생성 / 없으면 섹션 숨김</li>
+  </ul>
+</div>
+
+</body>
+</html>

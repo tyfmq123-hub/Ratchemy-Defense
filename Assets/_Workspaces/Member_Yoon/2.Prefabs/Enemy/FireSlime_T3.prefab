@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 6632330655703971865}
   - component: {fileID: 4357767023730055748}
   - component: {fileID: 971371536914520834}
+  - component: {fileID: 2061033531299500310}
   m_Layer: 7
   m_Name: FireSlime_T3
   m_TagString: Untagged
@@ -226,6 +227,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemyBaseDamage
   temperatureDamage: 10
   effectPrefab: {fileID: 5885154002491915036, guid: dbf3fd60ac4530c469f426d9aeb511ad, type: 3}
+  effectOffset: {x: 0, y: 0}
 --- !u!82 &971371536914520834
 AudioSource:
   m_ObjectHideFlags: 0
@@ -323,6 +325,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &2061033531299500310
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5828329929753318817}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3752f50438ed8146a1cf1cd155e90ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemySafetyPressure
+  pressureValue: 2.8
 --- !u!1 &6416953953932901760
 GameObject:
   m_ObjectHideFlags: 0

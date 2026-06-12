@@ -170,6 +170,15 @@ public class HoldTooltipManager : MonoBehaviour
     }
 
     /// <summary>
+    /// 이 UI에 대한 설명 말풍선이 현재 표시 중인지 확인합니다.
+    /// 같은 카드에서 말풍선을 닫는 탭이 소환 클릭으로 이어지지 않도록 할 때 사용합니다.
+    /// </summary>
+    public bool IsTooltipVisibleFor(HoldTooltipTrigger trigger)
+    {
+        return isTooltipVisible && activeTrigger == trigger;
+    }
+
+    /// <summary>
     /// 말풍선 박스 전체 위치와 꼬리 위치를 최신 설정값으로 갱신합니다.
     /// </summary>
     private void RefreshTooltipLayout(

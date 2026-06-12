@@ -19,7 +19,11 @@ public enum TooltipTailSide
 ///
 /// 마우스 클릭과 모바일 터치를 함께 지원합니다.
 /// 각 UI마다 말풍선 위치와 꼬리 방향을 Inspector에서 직접 설정합니다.
+///
+/// 같은 오브젝트에 Unity Button이 있으면 길게 누른 뒤 손을 뗄 때
+/// Button.onClick이 함께 발생하지 않도록 클릭을 차단합니다.
 /// </summary>
+[DefaultExecutionOrder(-100)]
 public class HoldTooltipTrigger : MonoBehaviour,
     IPointerDownHandler,
     IPointerUpHandler,
@@ -50,10 +54,16 @@ public class HoldTooltipTrigger : MonoBehaviour,
 
     private Coroutine holdCoroutine;
     private bool isHolding;
+    private bool tooltipShownThisPress;
+    private bool tooltipWasVisibleOnPress;
 
     public void OnPointerDown(PointerEventData eventData)
     {
         isHolding = true;
+        tooltipShownThisPress = false;
+        tooltipWasVisibleOnPress =
+            HoldTooltipManager.Instance != null &&
+            HoldTooltipManager.Instance.IsTooltipVisibleFor(this);
 
         StopHoldCoroutine();
         holdCoroutine = StartCoroutine(ShowTooltipAfterDelay());
@@ -62,10 +72,19 @@ public class HoldTooltipTrigger : MonoBehaviour,
     /// <summary>
     /// 마우스를 떼더라도 이미 표시된 말풍선은 유지합니다.
     /// 아직 말풍선이 나오기 전이라면 대기 중인 코루틴만 정리합니다.
+    /// 길게 누르기로 말풍선을 연 입력, 또는 말풍선을 닫기 위한 탭은
+    /// 같은 오브젝트의 Button 클릭(유닛 소환 등)으로 이어지지 않게 막습니다.
     /// </summary>
     public void OnPointerUp(PointerEventData eventData)
     {
+        if (ShouldSuppressButtonClick())
+        {
+            eventData.eligibleForClick = false;
+        }
+
         isHolding = false;
+        tooltipShownThisPress = false;
+        tooltipWasVisibleOnPress = false;
         StopHoldCoroutine();
     }
 
@@ -106,7 +125,13 @@ public class HoldTooltipTrigger : MonoBehaviour,
             this
         );
 
+        tooltipShownThisPress = true;
         holdCoroutine = null;
+    }
+
+    private bool ShouldSuppressButtonClick()
+    {
+        return tooltipShownThisPress || tooltipWasVisibleOnPress;
     }
 
     private void StopHoldCoroutine()

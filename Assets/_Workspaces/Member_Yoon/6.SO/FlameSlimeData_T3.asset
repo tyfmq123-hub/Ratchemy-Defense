@@ -44,18 +44,18 @@ MonoBehaviour:
     skillIcon: {fileID: -7315337044160723961, guid: 935acb686f27fa64a96d58c8372f4b46, type: 3}
     skillDescription: "\uC0AC\uB9DD \uC2DC 1\uCD08 \uD6C4 \uD3ED\uBC1C\uD558\uC5EC
       \uC8FC\uBCC0 \uC801\uC5D0\uAC8C 20\uC758 \uD654\uC5FC \uD53C\uD574\uB97C \uC785\uD799\uB2C8\uB2E4."
-  damage: 10
-  hp: 190
-  maxHp: 190
+  damage: 12
+  hp: 150
+  maxHp: 150
   attackRange: 5
   attackSpeed: 2
-  moveSpeed: 1
+  moveSpeed: 2.5
   auraRadius: 1
   auraDamage: 1
   auraInterval: 0.5
-  explosionDelay: 1
+  explosionDelay: 3
   explosionAnimDuration: 0.5
-  explosionRadius: 3
+  explosionRadius: 1.8
   explosionDamage: 20
   explosionOffset: {x: 0, y: 0}
   projectilePrefab: {fileID: 5487403964487623748, guid: cc09c1e93158eb54c9cbc896c142b16e, type: 3}

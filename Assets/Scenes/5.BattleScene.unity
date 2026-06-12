@@ -1548,9 +1548,6 @@ MonoBehaviour:
     - {fileID: 1101685688955631928, guid: 21ab848eb6983384ca16c775a407cff4, type: 3}
     - {fileID: 1101685688955631928, guid: 21ab848eb6983384ca16c775a407cff4, type: 3}
     - {fileID: 1101685688955631928, guid: 21ab848eb6983384ca16c775a407cff4, type: 3}
-    - {fileID: 1101685688955631928, guid: 21ab848eb6983384ca16c775a407cff4, type: 3}
-    - {fileID: 1101685688955631928, guid: 21ab848eb6983384ca16c775a407cff4, type: 3}
-    - {fileID: 7853548652790131195, guid: 82ad40b3720593e419f9ac3bbbc81293, type: 3}
     - {fileID: 7853548652790131195, guid: 82ad40b3720593e419f9ac3bbbc81293, type: 3}
     - {fileID: 7853548652790131195, guid: 82ad40b3720593e419f9ac3bbbc81293, type: 3}
     spawnCount: 8
@@ -1559,46 +1556,33 @@ MonoBehaviour:
     spawnInOrder: 1
   - enemyPrefabs:
     - {fileID: 1101685688955631928, guid: 21ab848eb6983384ca16c775a407cff4, type: 3}
-    - {fileID: 1101685688955631928, guid: 21ab848eb6983384ca16c775a407cff4, type: 3}
-    - {fileID: 1101685688955631928, guid: 21ab848eb6983384ca16c775a407cff4, type: 3}
     - {fileID: 6159824140907556210, guid: df857efb31f1b7947a9cd7a494f5df55, type: 3}
     - {fileID: 6159824140907556210, guid: df857efb31f1b7947a9cd7a494f5df55, type: 3}
-    - {fileID: 7853548652790131195, guid: 82ad40b3720593e419f9ac3bbbc81293, type: 3}
-    - {fileID: 7853548652790131195, guid: 82ad40b3720593e419f9ac3bbbc81293, type: 3}
     - {fileID: 7853548652790131195, guid: 82ad40b3720593e419f9ac3bbbc81293, type: 3}
     - {fileID: 5911915522541860973, guid: 4fe879b506ad6c94a8180ff21a720593, type: 3}
-    spawnCount: 9
+    spawnCount: 10
     spawnInterval: 2.2
     waveDuration: 55
     spawnInOrder: 1
   - enemyPrefabs:
     - {fileID: 6159824140907556210, guid: df857efb31f1b7947a9cd7a494f5df55, type: 3}
     - {fileID: 6159824140907556210, guid: df857efb31f1b7947a9cd7a494f5df55, type: 3}
-    - {fileID: 6159824140907556210, guid: df857efb31f1b7947a9cd7a494f5df55, type: 3}
-    - {fileID: 6159824140907556210, guid: df857efb31f1b7947a9cd7a494f5df55, type: 3}
     - {fileID: 5828329929753318817, guid: 36ef1857d35c889498b9003ba6c2f8fd, type: 3}
-    - {fileID: 5828329929753318817, guid: 36ef1857d35c889498b9003ba6c2f8fd, type: 3}
-    - {fileID: 5911915522541860973, guid: 4fe879b506ad6c94a8180ff21a720593, type: 3}
     - {fileID: 5911915522541860973, guid: 4fe879b506ad6c94a8180ff21a720593, type: 3}
     - {fileID: 5911915522541860973, guid: 4fe879b506ad6c94a8180ff21a720593, type: 3}
     - {fileID: 225098900415800981, guid: c8181a26a4bcd7540b365901b4053c6f, type: 3}
-    spawnCount: 10
+    spawnCount: 12
     spawnInterval: 2
     waveDuration: 60
     spawnInOrder: 1
   - enemyPrefabs:
     - {fileID: 6159824140907556210, guid: df857efb31f1b7947a9cd7a494f5df55, type: 3}
     - {fileID: 6159824140907556210, guid: df857efb31f1b7947a9cd7a494f5df55, type: 3}
-    - {fileID: 6159824140907556210, guid: df857efb31f1b7947a9cd7a494f5df55, type: 3}
     - {fileID: 5828329929753318817, guid: 36ef1857d35c889498b9003ba6c2f8fd, type: 3}
-    - {fileID: 5828329929753318817, guid: 36ef1857d35c889498b9003ba6c2f8fd, type: 3}
-    - {fileID: 5828329929753318817, guid: 36ef1857d35c889498b9003ba6c2f8fd, type: 3}
-    - {fileID: 225098900415800981, guid: c8181a26a4bcd7540b365901b4053c6f, type: 3}
-    - {fileID: 225098900415800981, guid: c8181a26a4bcd7540b365901b4053c6f, type: 3}
-    - {fileID: 225098900415800981, guid: c8181a26a4bcd7540b365901b4053c6f, type: 3}
     - {fileID: 5911915522541860973, guid: 4fe879b506ad6c94a8180ff21a720593, type: 3}
     - {fileID: 5911915522541860973, guid: 4fe879b506ad6c94a8180ff21a720593, type: 3}
-    spawnCount: 11
+    - {fileID: 225098900415800981, guid: c8181a26a4bcd7540b365901b4053c6f, type: 3}
+    spawnCount: 13
     spawnInterval: 1.8
     waveDuration: 50
     spawnInOrder: 1
@@ -4244,8 +4228,7 @@ MonoBehaviour:
   currentTemperature: 0
   thermalRunawayTemperature: 130
   baseHealthUI: {fileID: 1098962352}
-  safetyScoreUI: {fileID: 1228682127}
-  safetyScoreDamagePerEnemy: 10
+  safetyScoreManager: {fileID: 0}
   gameManager: {fileID: 347993345}
 --- !u!61 &955566138
 BoxCollider2D:
@@ -9980,6 +9963,58 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &2832912012959833848
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7521196065572581785}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0518a2f2a1ca194194dc0df58f94387, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SafetyScoreManager
+  safetyScoreUI: {fileID: 1228682127}
+  safeTemperature: 30
+  maxTemperature: 130
+  maxTemperaturePenalty: 45
+  safeEnemyPressure: 4
+  penaltyPerPressure: 1.6
+  maxEnemyPenalty: 35
+  maxBossPenalty: 0
+--- !u!4 &6447172466782852811
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7521196065572581785}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 331.31305, y: 327.64972, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &7521196065572581785
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6447172466782852811}
+  - component: {fileID: 2832912012959833848}
+  m_Layer: 0
+  m_Name: SafetyScoreSystem
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -9997,3 +10032,4 @@ SceneRoots:
   - {fileID: 235698800}
   - {fileID: 1744273475}
   - {fileID: 277149928}
+  - {fileID: 6447172466782852811}

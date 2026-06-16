@@ -1,5 +1,7 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class VictoryResultUI : MonoBehaviour
 {
@@ -10,6 +12,14 @@ public class VictoryResultUI : MonoBehaviour
     [SerializeField] private TextMeshProUGUI maGradeText;
     [SerializeField] private TextMeshProUGUI saPercentText;
 
+    [Header("이동 버튼")]
+    [SerializeField] private Button buttonNext;
+    [SerializeField] private Button buttonHome;
+
+    [Header("이동할 씬 이름")]
+    [SerializeField] private string nextSceneName = "2.StageScene";
+    [SerializeField] private string homeSceneName = "1.StartScene";
+
     private ResultUICanvas resultCanvas;
 
     private void Awake()
@@ -18,6 +28,27 @@ public class VictoryResultUI : MonoBehaviour
 
         if (baseHealth == null)
             baseHealth = FindFirstObjectByType<BaseHealth>();
+
+        if (buttonNext == null)
+            buttonNext = transform.Find("ButtonNext")?.GetComponent<Button>();
+
+        if (buttonHome == null)
+            buttonHome = transform.Find("ButtonHome")?.GetComponent<Button>();
+
+        if (buttonNext != null)
+            buttonNext.onClick.AddListener(OnClickNext);
+
+        if (buttonHome != null)
+            buttonHome.onClick.AddListener(OnClickHome);
+    }
+
+    private void OnDestroy()
+    {
+        if (buttonNext != null)
+            buttonNext.onClick.RemoveListener(OnClickNext);
+
+        if (buttonHome != null)
+            buttonHome.onClick.RemoveListener(OnClickHome);
     }
 
     public void Show()
@@ -38,6 +69,29 @@ public class VictoryResultUI : MonoBehaviour
     public void Hide()
     {
         gameObject.SetActive(false);
+    }
+
+    public void OnClickNext()
+    {
+        LoadScene(nextSceneName);
+    }
+
+    public void OnClickHome()
+    {
+        LoadScene(homeSceneName);
+    }
+
+    private void LoadScene(string sceneName)
+    {
+        if (string.IsNullOrEmpty(sceneName))
+            return;
+
+        Time.timeScale = 1f;
+
+        if (AppManager.Instance != null)
+            AppManager.Instance.LoadScene(sceneName);
+        else
+            SceneManager.LoadScene(sceneName);
     }
 
     private void UpdateScoreTexts()

@@ -10,6 +10,10 @@ public class BossBase : EnemyUnit
     [Header("체력 UI")]
     [SerializeField] private BossHealthUI bossHealthUI;
 
+    [Header("안전관리 점수")]
+    [Tooltip("SafetyScoreManager가 붙어 있는 오브젝트를 연결하세요.")]
+    [SerializeField] private SafetyScoreManager safetyScoreManager;
+
     protected BossData bossData;
     protected Animator animator;
 
@@ -43,10 +47,30 @@ public class BossBase : EnemyUnit
             Debug.LogWarning("[BossBase] 자식 오브젝트 'AuraEffect'를 찾을 수 없습니다.");
 
         waveManager = FindObjectOfType<WaveManager>();
-        waveUI      = FindObjectOfType<WaveUI>();
+        waveUI = FindObjectOfType<WaveUI>();
+
+        // Inspector 연결을 빠뜨린 경우를 대비해
+        // Scene 안의 SafetyScoreManager를 자동으로 찾습니다.
+        if (safetyScoreManager == null)
+        {
+            safetyScoreManager =
+                FindFirstObjectByType<SafetyScoreManager>();
+        }
 
         // 시작 시 체력 UI 초기화
-        bossHealthUI?.SetHealth(currentHp, maxHp);
+        bossHealthUI?.SetHealth(
+            currentHp,
+            maxHp
+        );
+
+        // 시작 시 보스 체력도 안전관리 점수에 반영합니다.
+        //
+        // 보스 체력이 가득 차 있으므로
+        // 보스 위험도 때문에 10점을 감점합니다.
+        safetyScoreManager?.SetBossHealth(
+            currentHp,
+            maxHp
+        );
 
         StartCoroutine(AuraLoop());
         StartCoroutine(WaveWatchLoop());
@@ -54,7 +78,21 @@ public class BossBase : EnemyUnit
 
     protected override void OnHealthChanged()
     {
-        bossHealthUI?.SetHealth(currentHp, maxHp);
+        // 보스 체력 게이지를 갱신합니다.
+        bossHealthUI?.SetHealth(
+            currentHp,
+            maxHp
+        );
+
+        // 안전관리 점수도 다시 계산합니다.
+        //
+        // 보스 체력이 감소하면
+        // 보스 위험도 감점이 줄어들기 때문에
+        // 안전관리 점수가 회복됩니다.
+        safetyScoreManager?.SetBossHealth(
+            currentHp,
+            maxHp
+        );
     }
 
     // 웨이브 매니저 등 외부에서 호출 → 오라 버프 제거 + AuraEffect 비활성화
@@ -150,7 +188,7 @@ public class BossBase : EnemyUnit
         BossProjectile projectile = proj.GetComponent<BossProjectile>();
         if (projectile != null)
         {
-            float dist       = Vector2.Distance(transform.position, targetPos);
+            float dist = Vector2.Distance(transform.position, targetPos);
             float travelTime = dist / Mathf.Max(bossData.projectileSpeed, 0.1f);
 
             projectile.Initialize(
@@ -198,6 +236,12 @@ public class BossBase : EnemyUnit
         hasAuraBuff = false;
         if (auraEffectTransform != null)
             auraEffectTransform.gameObject.SetActive(false);
+
+        // 보스 사망 후에는 보스 위험도 감점을 완전히 제거합니다.
+        safetyScoreManager?.SetBossHealth(
+            0f,
+            maxHp
+        );
 
         OnBossDead?.Invoke();
         Destroy(gameObject);

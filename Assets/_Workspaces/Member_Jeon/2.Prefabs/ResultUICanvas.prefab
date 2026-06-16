@@ -56,6 +56,10 @@ MonoBehaviour:
   baseHealth: {fileID: 0}
   maGradeText: {fileID: 4462405289075635051}
   saPercentText: {fileID: 7013803391511346557}
+  buttonNext: {fileID: 2098395037505625781}
+  buttonHome: {fileID: 6994560216829689875}
+  nextSceneName: 2.StageScene
+  homeSceneName: 1.StartScene
 --- !u!1 &2556773244127260444
 GameObject:
   m_ObjectHideFlags: 0
@@ -683,7 +687,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -860.4326, y: -89.76324}
+  m_AnchoredPosition: {x: -834, y: -477}
   m_SizeDelta: {x: 208.2748, y: 98.9254}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &981881161662174852
@@ -1563,6 +1567,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59c16ab50dac6fc4baeaecca5d5fc420, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DefeatResultUI
+  buttonRetry: {fileID: 8101829774141855981}
+  buttonHome: {fileID: 5619817290380960678}
+  buttonExit: {fileID: 3829772619981953323}
+  retrySceneName: 5.BattleScene
+  homeSceneName: 1.StartScene
 --- !u!1 &6514241813810408783
 GameObject:
   m_ObjectHideFlags: 0
@@ -1888,6 +1897,7 @@ MonoBehaviour:
   - {fileID: -1609823398931599014, guid: 394ea5a0ac17b85438e014c99856013e, type: 3}
   - {fileID: 8084782986979229914, guid: fe6cdcad70746a94294692a7bdc01f26, type: 3}
   - {fileID: -7836060024382944214, guid: 120ddac012a3901458b1da1f10fffc0b, type: 3}
+  - {fileID: -432695819521660867, guid: c150ee131d0213440bd45d3b73046d93, type: 3}
   playOnStart: 0
   introComicSprites: []
   nextSceneName: BattleScene
@@ -2068,7 +2078,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 877.12, y: -83}
+  m_AnchoredPosition: {x: 868, y: -488}
   m_SizeDelta: {x: 165.75, y: 85.3986}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8541299930333344316

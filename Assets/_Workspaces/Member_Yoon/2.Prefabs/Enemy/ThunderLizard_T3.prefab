@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 5776736120762376463}
   - component: {fileID: -990325663716934520}
   - component: {fileID: -187598552717977447}
+  - component: {fileID: -3867406791987035667}
   m_Layer: 7
   m_Name: ThunderLizard_T3
   m_TagString: Untagged
@@ -325,6 +326,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &-3867406791987035667
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 225098900415800981}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3752f50438ed8146a1cf1cd155e90ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemySafetyPressure
+  pressureValue: 2.8
 --- !u!1 &1439325057913931612
 GameObject:
   m_ObjectHideFlags: 0

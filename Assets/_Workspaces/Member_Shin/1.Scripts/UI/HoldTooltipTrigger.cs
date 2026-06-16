@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 /// <summary>
 /// 말풍선 꼬리를 박스의 어느 방향에 붙일지 정합니다.
@@ -19,7 +20,11 @@ public enum TooltipTailSide
 ///
 /// 마우스 클릭과 모바일 터치를 함께 지원합니다.
 /// 각 UI마다 말풍선 위치와 꼬리 방향을 Inspector에서 직접 설정합니다.
+///
+/// 같은 오브젝트에 Unity Button이 있으면 길게 누른 뒤 손을 뗄 때
+/// Button.onClick이 함께 발생하지 않도록 클릭을 차단합니다.
 /// </summary>
+[DefaultExecutionOrder(-100)]
 public class HoldTooltipTrigger : MonoBehaviour,
     IPointerDownHandler,
     IPointerUpHandler,
@@ -49,11 +54,60 @@ public class HoldTooltipTrigger : MonoBehaviour,
     public Vector2 tailOffset = Vector2.zero;
 
     private Coroutine holdCoroutine;
+    private Button cachedButton;
+    private bool isPointerDown;
     private bool isHolding;
+    private bool tooltipShownThisPress;
+    private bool tooltipWasVisibleOnPress;
+    private bool disabledButtonForSuppress;
+    private bool cachedButtonInteractable;
+    private float pressStartUnscaledTime;
+
+    private void Awake()
+    {
+        cachedButton = GetComponent<Button>();
+        if (cachedButton == null)
+        {
+            cachedButton = GetComponentInParent<Button>();
+        }
+    }
+
+    private void Update()
+    {
+        // 말풍선이 떠 있는 동안은 이 카드 소환 버튼을 계속 막습니다.
+        if (IsTooltipVisible())
+        {
+            DisableButtonForSuppress();
+            return;
+        }
+
+        if (!isPointerDown)
+        {
+            RestoreButtonInteractable();
+            return;
+        }
+
+        if (!disabledButtonForSuppress &&
+            Time.unscaledTime - pressStartUnscaledTime >= holdDuration)
+        {
+            DisableButtonForSuppress();
+        }
+    }
 
     public void OnPointerDown(PointerEventData eventData)
     {
+        isPointerDown = true;
         isHolding = true;
+        tooltipShownThisPress = false;
+        pressStartUnscaledTime = Time.unscaledTime;
+        tooltipWasVisibleOnPress =
+            HoldTooltipManager.Instance != null &&
+            HoldTooltipManager.Instance.IsTooltipVisibleFor(this);
+
+        if (tooltipWasVisibleOnPress)
+        {
+            DisableButtonForSuppress();
+        }
 
         StopHoldCoroutine();
         holdCoroutine = StartCoroutine(ShowTooltipAfterDelay());
@@ -62,11 +116,27 @@ public class HoldTooltipTrigger : MonoBehaviour,
     /// <summary>
     /// 마우스를 떼더라도 이미 표시된 말풍선은 유지합니다.
     /// 아직 말풍선이 나오기 전이라면 대기 중인 코루틴만 정리합니다.
+    /// 길게 누르기로 말풍선을 연 입력, 또는 말풍선을 닫기 위한 탭은
+    /// 같은 오브젝트의 Button 클릭(유닛 소환 등)으로 이어지지 않게 막습니다.
     /// </summary>
     public void OnPointerUp(PointerEventData eventData)
     {
+        if (ShouldSuppressButtonClick())
+        {
+            DisableButtonForSuppress();
+        }
+
+        isPointerDown = false;
         isHolding = false;
+        tooltipShownThisPress = false;
+        tooltipWasVisibleOnPress = false;
         StopHoldCoroutine();
+
+        // PointerUp 직후 OnPointerClick이 오므로, 말풍선이 아직 있으면 복구하지 않습니다.
+        if (!IsTooltipVisible())
+        {
+            RestoreButtonInteractable();
+        }
     }
 
     /// <summary>
@@ -83,7 +153,7 @@ public class HoldTooltipTrigger : MonoBehaviour,
     {
         yield return new WaitForSecondsRealtime(holdDuration);
 
-        if (!isHolding)
+        if (!isPointerDown)
         {
             yield break;
         }
@@ -96,9 +166,6 @@ public class HoldTooltipTrigger : MonoBehaviour,
 
         RectTransform targetRect = GetComponent<RectTransform>();
 
-        // this를 함께 전달합니다.
-        // 덕분에 말풍선 표시 중 Inspector 값을 바꾸면
-        // Manager가 최신 tooltipOffset, tailOffset 값을 계속 읽을 수 있습니다.
         HoldTooltipManager.Instance.ShowTooltip(
             targetRect,
             tooltipTitle,
@@ -106,7 +173,53 @@ public class HoldTooltipTrigger : MonoBehaviour,
             this
         );
 
+        tooltipShownThisPress = true;
+        DisableButtonForSuppress();
         holdCoroutine = null;
+    }
+
+    private bool IsTooltipVisible()
+    {
+        return HoldTooltipManager.Instance != null &&
+               HoldTooltipManager.Instance.IsTooltipVisibleFor(this);
+    }
+
+    private bool ShouldSuppressButtonClick()
+    {
+        if (tooltipShownThisPress || tooltipWasVisibleOnPress || IsTooltipVisible())
+        {
+            return true;
+        }
+
+        return Time.unscaledTime - pressStartUnscaledTime >= holdDuration;
+    }
+
+    /// <summary>
+    /// Input System UI Input Module은 PointerUp 전에 클릭 여부를 확정하므로
+    /// eligibleForClick만으로는 Button.onClick을 막을 수 없습니다.
+    /// 손을 떼기 전에 interactable을 끄면 OnPointerClick이 무시됩니다.
+    /// </summary>
+    private void DisableButtonForSuppress()
+    {
+        if (cachedButton == null || disabledButtonForSuppress)
+        {
+            return;
+        }
+
+        cachedButtonInteractable = cachedButton.interactable;
+        disabledButtonForSuppress = true;
+        cachedButton.interactable = false;
+    }
+
+    private void RestoreButtonInteractable()
+    {
+        if (!disabledButtonForSuppress || cachedButton == null)
+        {
+            return;
+        }
+
+        cachedButton.interactable = cachedButtonInteractable;
+        disabledButtonForSuppress = false;
     }
 
     private void StopHoldCoroutine()
@@ -120,7 +233,9 @@ public class HoldTooltipTrigger : MonoBehaviour,
 
     private void OnDisable()
     {
+        isPointerDown = false;
         isHolding = false;
         StopHoldCoroutine();
+        RestoreButtonInteractable();
     }
 }

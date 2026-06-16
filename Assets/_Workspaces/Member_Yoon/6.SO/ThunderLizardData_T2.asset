@@ -34,12 +34,12 @@ MonoBehaviour:
   - skillName: "\uC2A4\uD0AC \uC5C6\uC74C"
     skillIcon: {fileID: 6171074241395153969, guid: fc2c8e396530c544d85fe353a9304eb0, type: 3}
     skillDescription: 
-  damage: 10
-  hp: 277
-  maxHp: 277
+  damage: 11
+  hp: 130
+  maxHp: 130
   attackRange: 5
   attackSpeed: 1
-  moveSpeed: 2
+  moveSpeed: 2.4
   lightningPrefab: {fileID: 769734323195235563, guid: 7aa18f06de0a9974f8b8fa69f7099a36, type: 3}
   projectileSpeed: 6
   fireOffset: {x: 0, y: 0}

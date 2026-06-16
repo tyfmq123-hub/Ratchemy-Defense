@@ -108,7 +108,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: -2983090718515566234, guid: 101f3c04cf4680740bd8d02e6298482c, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0.8431373, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -168,7 +168,8 @@ MonoBehaviour:
   lifetime: 5
   flySound: {fileID: 8300000, guid: d4bf46ca7e05a444bab691f35ffa4d6e, type: 3}
   flySoundVolume: 0.5
-  insulatorRatLightningMultiplier: 0.5
+  bodyHeightOffset: 0.5
+  insulatorRatLightningMultiplier: 0.15
 --- !u!50 &1827491581288314069
 Rigidbody2D:
   serializedVersion: 5
